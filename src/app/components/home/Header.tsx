@@ -2,6 +2,14 @@ import { motion } from "framer-motion";
 import { menuItems } from "../../data/home";
 import styles from "../../page.module.css";
 
+const menuLinks: Record<string, string> = {
+  "About Us": "/about-us",
+  "Our Services": "/#our-services",
+  Solutions: "/#solutions",
+  "Portfolio Media": "/#portfolio-media",
+  "Contact Us": "/#contact-us",
+};
+
 export function Header() {
   return (
     <header className={styles.navbar}>
@@ -21,7 +29,7 @@ export function Header() {
         {menuItems.map((item, idx) => (
           <motion.a
             key={item}
-            href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+            href={menuLinks[item]}
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: idx * 0.08 + 0.2 }}

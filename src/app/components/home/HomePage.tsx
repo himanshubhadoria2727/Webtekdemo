@@ -57,8 +57,41 @@ export function HomePage() {
         );
       }
 
+      gsap.fromTo(
+        ".aboutTile",
+        {
+          left: "50%",
+          top: "50%",
+          width: "0.55rem",
+          height: "0.55rem",
+          opacity: 0,
+          xPercent: -50,
+          yPercent: -50,
+          scale: 0.2,
+        },
+        {
+          left: "var(--tile-x)",
+          top: "var(--tile-y)",
+          width: "var(--tile-w)",
+          height: "var(--tile-h)",
+          opacity: 1,
+          xPercent: 0,
+          yPercent: 0,
+          scale: 1,
+          ease: "none",
+          stagger: 0.025,
+          scrollTrigger: {
+            trigger: ".aboutMosaicSection",
+            start: "top top",
+            end: "+=260%",
+            scrub: 0.7,
+            pin: true,
+          },
+        },
+      );
+
       ScrollTrigger.refresh();
-    }, heroRef);
+    });
 
     return () => {
       ctx.revert();

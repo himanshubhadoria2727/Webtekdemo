@@ -145,7 +145,7 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
             {"imageSrc" in project.hero && project.hero.imageSrc ? (
               <Image
                 src={project.hero.imageSrc}
-                alt={"imageAlt" in project.hero ? project.hero.imageAlt : project.hero.imageLabel}
+                alt={project.hero.imageAlt}
                 fill
                 priority
                 sizes="100vw"
@@ -154,7 +154,6 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
             ) : null}
             <span>{project.hero.kicker}</span>
             <h1>{project.hero.title}</h1>
-            <p>{project.hero.imageLabel}</p>
           </div>
         </section>
 
@@ -188,7 +187,7 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
                 {"imageSrc" in item && item.imageSrc ? (
                   <Image
                     src={item.imageSrc}
-                    alt={"imageAlt" in item ? item.imageAlt : item.imageLabel}
+                    alt={item.imageAlt}
                     fill
                     sizes="(max-width: 960px) 100vw, 42vw"
                     className={styles.projectScrollMediaImage}

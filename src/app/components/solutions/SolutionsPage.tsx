@@ -61,8 +61,8 @@ export function SolutionsPage() {
                   <ul>
                     {group.items.map((item, itemIndex) => (
                       <motion.li
-                        key={item}
-                        className={item === featuredItem ? styles.solutionsDirectoryFeatured : undefined}
+                        key={item.label}
+                        className={item.label === featuredItem ? styles.solutionsDirectoryFeatured : undefined}
                         initial={{ opacity: 0, y: 14 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.4 }}
@@ -72,8 +72,8 @@ export function SolutionsPage() {
                           ease: [0.22, 1, 0.36, 1],
                         }}
                       >
-                        <a href={solutionsPage.itemHref}>
-                          {item}
+                        <a href={"href" in item ? item.href : solutionsPage.itemHref}>
+                          {item.label}
                           <span aria-hidden="true">-&gt;</span>
                         </a>
                       </motion.li>

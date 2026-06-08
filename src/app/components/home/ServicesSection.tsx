@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { leftServices, rightServices, tileServiceMap } from "../../data/home";
 import styles from "../../page.module.css";
 
@@ -14,6 +15,22 @@ const defaultTileScales: TileScales = {
   6: 0.9,
 };
 const serviceTileIds: TileId[] = [1, 2, 3, 4, 5, 6];
+const serviceTileClassNames: Record<TileId, keyof typeof styles> = {
+  1: "visualOne",
+  2: "visualTwo",
+  3: "visualThree",
+  4: "visualFour",
+  5: "visualFive",
+  6: "visualSix",
+};
+const serviceTileImages: Record<TileId, { src: string; alt: string }> = {
+  1: { src: "/about/about-16.jpg", alt: "UX sketches and color swatches on a desk" },
+  2: { src: "/about/about-10.jpg", alt: "Analytics dashboard open on a laptop" },
+  3: { src: "/about/about-08.jpg", alt: "Payment terminal close-up" },
+  4: { src: "/about/about-09.jpg", alt: "Team working together on laptops" },
+  5: { src: "/about/about-14.jpg", alt: "Business team reviewing charts and reports" },
+  6: { src: "/about/about-02.jpg", alt: "Business team reviewing analytics on a tablet" },
+};
 
 function getScaleFromDistance(distance: number) {
   const radius = 520;
@@ -97,14 +114,30 @@ export function ServicesSection() {
 
         <div className={styles.servicesVisualGrid} aria-hidden="true">
           <div className={styles.visualRow} style={{ gridTemplateColumns: rowOneWeights }}>
-            <div className={`${styles.visualTile} ${styles.visualOne}`} />
-            <div className={`${styles.visualTile} ${styles.visualTwo}`} />
-            <div className={`${styles.visualTile} ${styles.visualThree}`} />
+            {serviceTileIds.slice(0, 3).map((tile) => (
+              <div key={tile} className={`${styles.visualTile} ${styles[serviceTileClassNames[tile]]}`}>
+                <Image
+                  src={serviceTileImages[tile].src}
+                  alt={serviceTileImages[tile].alt}
+                  fill
+                  sizes="(max-width: 960px) 33vw, 16vw"
+                  className={styles.visualTileImage}
+                />
+              </div>
+            ))}
           </div>
           <div className={styles.visualRow} style={{ gridTemplateColumns: rowTwoWeights }}>
-            <div className={`${styles.visualTile} ${styles.visualFour}`} />
-            <div className={`${styles.visualTile} ${styles.visualFive}`} />
-            <div className={`${styles.visualTile} ${styles.visualSix}`} />
+            {serviceTileIds.slice(3).map((tile) => (
+              <div key={tile} className={`${styles.visualTile} ${styles[serviceTileClassNames[tile]]}`}>
+                <Image
+                  src={serviceTileImages[tile].src}
+                  alt={serviceTileImages[tile].alt}
+                  fill
+                  sizes="(max-width: 960px) 33vw, 16vw"
+                  className={styles.visualTileImage}
+                />
+              </div>
+            ))}
           </div>
         </div>
 

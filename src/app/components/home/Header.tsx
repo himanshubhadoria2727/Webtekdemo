@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import { menuItems } from "../../data/home";
 import styles from "../../page.module.css";
 
@@ -19,10 +21,9 @@ export function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={styles.brand}
       >
-        <span className={styles.brandMark} aria-hidden="true">
-          |||||
-        </span>
-        WEBTEK DIGITAL
+        <Link href="/" aria-label="Webtek Digital home">
+          <Image src="/logo.webp" alt="Webtek Digital" width={170} height={48} priority className={styles.brandLogo} />
+        </Link>
       </motion.div>
 
       <nav className={styles.navMenu}>

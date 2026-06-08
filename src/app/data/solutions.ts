@@ -7,20 +7,30 @@ export const solutionsPage = {
   groups: [
     {
       title: "Clone Apps",
-      items: ["Talabat Clone App", "Instashop Clone App", "Careem Clone App"],
+      items: [
+        { label: "Talabat Clone App", href: "/solutions/talabat-clone-app" },
+        { label: "Instashop Clone App" },
+        { label: "Careem Clone App" },
+      ],
     },
     {
       title: "Service App",
-      items: ["Home Maintenance", "E-Learning", "Gym Fitness", "Car Wash", "Laundry"],
+      items: [
+        { label: "Home Maintenance" },
+        { label: "E-Learning" },
+        { label: "Gym Fitness" },
+        { label: "Car Wash" },
+        { label: "Laundry" },
+      ],
     },
     {
       title: "Product App",
-      items: ["Grocery", "E-Commerce", "Restaurant Delivery"],
+      items: [{ label: "Grocery" }, { label: "E-Commerce" }, { label: "Restaurant Delivery" }],
       featuredItem: "E-Commerce",
     },
     {
       title: "Health & Beauty",
-      items: ["Beauty Services", "Healthcare Consultation", "Pharmacy"],
+      items: [{ label: "Beauty Services" }, { label: "Healthcare Consultation" }, { label: "Pharmacy" }],
     },
   ],
 } as const;

@@ -37,6 +37,18 @@
   opacity: 0.85;
 }
 
+.brand a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brandLogo {
+  display: block;
+  width: clamp(7.5rem, 11vw, 10.6rem);
+  height: auto;
+  object-fit: contain;
+}
+
 .navMenu {
   display: flex;
   flex-wrap: wrap;
@@ -60,7 +72,7 @@
 
 .navMenu a:hover {
   opacity: 1;
-  color: #ff4a15;
+  color: #d9a53d;
   transform: translateY(-1px);
 }
 
@@ -69,7 +81,7 @@
   top: -0.9rem;
   left: 50%;
   transform: translateX(-50%);
-  color: #ff3d0a;
+  color: #d9a53d;
   font-size: 0.66rem;
 }
 
@@ -166,7 +178,7 @@
   width: clamp(100px, 15vw, 220px);
   height: 6px;
   border-radius: 999px;
-  background: linear-gradient(to right, #751900, #ff3d0a);
+  background: linear-gradient(to right, #5f4414, #d9a53d);
   transform-origin: left;
 }
 
@@ -387,7 +399,7 @@
 .aboutNarrativeSection::after {
   left: 49.5%;
   bottom: 18%;
-  background: #ff9900;
+  background: #d9a53d;
 }
 
 .aboutMissionVisionGrid {
@@ -419,7 +431,7 @@
   bottom: clamp(1rem, 2vw, 1.6rem);
   width: 0.62rem;
   height: 0.62rem;
-  background: #ff3d0a;
+  background: #d9a53d;
 }
 
 .aboutMissionCard::after,
@@ -459,7 +471,7 @@
 }
 
 .aboutVisionCard span {
-  color: #ff5a1f;
+  color: #d9a53d;
 }
 
 .aboutScrollAccordion {
@@ -549,23 +561,38 @@
 }
 
 .partnerRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  overflow-x: auto;
+  overflow: hidden;
   padding: 1.4rem clamp(1rem, 3vw, 2.4rem) 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   white-space: nowrap;
 }
 
+.partnerRowTrack {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 7rem);
+  animation: partnerRowRun 18s linear infinite;
+}
+
 .partnerLogo {
+  flex: 0 0 auto;
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1.1rem, 1.6vw, 2rem);
   font-weight: 700;
   color: #121212;
   opacity: 0.92;
+}
+
+@keyframes partnerRowRun {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - clamp(1.25rem, 3vw, 3.5rem)));
+  }
 }
 
 .aboutIntro {
@@ -595,7 +622,7 @@
 }
 
 .aboutHeadingRow h2 span {
-  color: #ff3d0a;
+  color: #d9a53d;
 }
 
 .aboutImage {
@@ -667,7 +694,7 @@
   top: 1.25rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: #ff3d0a;
+  background: #d9a53d;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
@@ -758,10 +785,49 @@
 }
 
 .visualTile {
+  position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
   min-width: 0;
+  overflow: hidden;
   transition: transform 300ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.visualTile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.18), transparent 42%),
+    linear-gradient(0deg, rgba(217, 165, 61, 0.12), rgba(217, 165, 61, 0.12));
+  pointer-events: none;
+}
+
+.visualTileImage {
+  object-fit: cover;
+  filter: saturate(0.96) contrast(1.04);
+}
+
+.visualOne .visualTileImage,
+.visualFour .visualTileImage {
+  height: 118% !important;
+  max-width: none;
+  animation: serviceDeveloperRun 8s ease-in-out infinite alternate;
+}
+
+.visualFour .visualTileImage {
+  animation-delay: -4s;
+}
+
+@keyframes serviceDeveloperRun {
+  from {
+    transform: translateY(-7%) scale(1.04);
+  }
+
+  to {
+    transform: translateY(7%) scale(1.04);
+  }
 }
 
 .visualRow {
@@ -1300,7 +1366,7 @@
   font-size: clamp(0.8rem, 0.9vw, 1rem);
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #ff3d0a;
+  color: #d9a53d;
 }
 
 .solutionsDirectoryCard h2 {
@@ -1338,7 +1404,7 @@
 }
 
 .solutionsDirectoryCard a:hover {
-  color: #ff3d0a;
+  color: #d9a53d;
   transform: translateX(0.25rem);
 }
 
@@ -1347,7 +1413,315 @@
 }
 
 .solutionsDirectoryFeatured a {
-  color: #ff3d0a;
+  color: #d9a53d;
+}
+
+.projectPage {
+  background: #d2cbc4;
+  color: #101010;
+  font-family: var(--font-body), sans-serif;
+}
+
+.projectHero {
+  min-height: 100svh;
+  padding: clamp(7.8rem, 10vw, 9.5rem) clamp(1rem, 1.6vw, 1.7rem) clamp(2.2rem, 4vw, 3.6rem);
+}
+
+.projectMetaBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: clamp(1rem, 2.4vw, 3rem);
+  align-items: baseline;
+  margin-bottom: clamp(1.2rem, 2vw, 1.8rem);
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(0.8rem, 0.95vw, 1rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.projectMetaBar p {
+  margin: 0;
+}
+
+.projectMetaBar strong {
+  margin-left: 0.35rem;
+  font-size: clamp(1.1rem, 1.55vw, 1.7rem);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: -0.06em;
+}
+
+.projectHeroFrame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(32rem, 72vh, 47rem);
+  overflow: hidden;
+  border: 1px solid rgba(16, 16, 16, 0.82);
+  background:
+    linear-gradient(135deg, rgba(217, 165, 61, 0.18), transparent 34%),
+    linear-gradient(90deg, rgba(16, 16, 16, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16, 16, 16, 0.08) 1px, transparent 1px),
+    #bdb4aa;
+  background-size: auto, 4rem 4rem, 4rem 4rem, auto;
+}
+
+.projectHeroFrame::before,
+.projectHeroFrame::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: clamp(10rem, 22vw, 23rem);
+  height: clamp(10rem, 22vw, 23rem);
+  border: 1px solid rgba(16, 16, 16, 0.42);
+  transform: rotate(9deg);
+}
+
+.projectHeroFrame::before {
+  left: 8%;
+  bottom: 12%;
+}
+
+.projectHeroFrame::after {
+  top: 10%;
+  right: 12%;
+  transform: rotate(-6deg);
+}
+
+.projectHeroFrame span {
+  position: absolute;
+  top: clamp(1rem, 2vw, 1.6rem);
+  left: clamp(1rem, 2vw, 1.6rem);
+  z-index: 3;
+  font-size: clamp(0.78rem, 0.9vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.projectHeroImage {
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(2.5rem, 5vw, 5rem);
+  opacity: 0.86;
+  filter: drop-shadow(0 1.4rem 2.6rem rgba(16, 16, 16, 0.28));
+}
+
+.projectHeroFrame h1 {
+  position: relative;
+  z-index: 4;
+  max-width: 15ch;
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(3rem, 5.8vw, 6.7rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fffaf2;
+  text-shadow:
+    0 2px 0 rgba(16, 16, 16, 0.95),
+    0 0.28rem 0 rgba(16, 16, 16, 0.72),
+    0 1.4rem 3.4rem rgba(16, 16, 16, 0.42);
+}
+
+.projectHeroFrame p {
+  position: absolute;
+  z-index: 3;
+  right: clamp(1rem, 2vw, 1.6rem);
+  bottom: clamp(1rem, 2vw, 1.6rem);
+  margin: 0;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  color: rgba(16, 16, 16, 0.68);
+}
+
+.projectIntroSection {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 6rem);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 3vw, 2.4rem);
+  border-top: 1px solid rgba(16, 16, 16, 0.8);
+  border-bottom: 1px solid rgba(16, 16, 16, 0.8);
+}
+
+.projectIntroLabel {
+  margin: 0;
+  font-size: clamp(0.78rem, 0.9vw, 1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.projectIntroSection > p:last-child {
+  max-width: 68rem;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.45vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+}
+
+.projectScrollSection {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 42vw);
+  gap: clamp(1rem, 3vw, 3rem);
+  height: calc(100svh - 5.9rem);
+  min-height: 38rem;
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(1rem, 1.6vw, 1.8rem) clamp(1rem, 3vw, 2.4rem);
+  overflow: hidden;
+  background: #d2cbc4;
+}
+
+.projectScrollText {
+  min-width: 0;
+}
+
+.projectScrollRail {
+  display: grid;
+  align-content: space-between;
+  min-height: calc(100svh - 9rem);
+  font-size: clamp(0.78rem, 0.88vw, 1rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.projectScrollRailItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2vw, 2.4rem);
+}
+
+.projectScrollRailItem > span:first-child {
+  width: 0.58rem;
+  height: 0.58rem;
+  flex: 0 0 auto;
+  background: #101010;
+}
+
+.projectScrollList {
+  display: grid;
+  align-self: stretch;
+  min-height: calc(100svh - 9rem);
+}
+
+.projectScrollPanel {
+  display: grid;
+  align-content: start;
+  border-top: 1px solid rgba(16, 16, 16, 0.86);
+}
+
+.projectScrollPanel:last-child {
+  border-bottom: 1px solid rgba(16, 16, 16, 0.86);
+}
+
+.projectScrollPanel h2 {
+  display: flex;
+  gap: clamp(0.8rem, 1.4vw, 1.4rem);
+  align-items: baseline;
+  margin: 0;
+  padding: clamp(1.05rem, 1.55vh, 1.45rem) 0;
+  font-size: clamp(1rem, 1.45vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.projectScrollPanel h2 span {
+  min-width: 2ch;
+  color: #d9a53d;
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
+}
+
+.projectScrollContent {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.projectScrollContentInner {
+  padding: clamp(1.35rem, 2.4vh, 2.1rem) 0 clamp(2.6rem, 5vh, 5.4rem);
+}
+
+.projectScrollContentInner p {
+  max-width: 42rem;
+  margin: 0;
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.018em;
+}
+
+.projectScrollMediaStack {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  align-content: start;
+  will-change: transform;
+}
+
+.projectScrollMedia {
+  position: relative;
+  display: grid;
+  align-content: space-between;
+  min-height: calc(100svh - 9.5rem);
+  padding: clamp(1rem, 2vw, 1.8rem);
+  border: 1px solid rgba(16, 16, 16, 0.82);
+  background:
+    linear-gradient(135deg, rgba(217, 165, 61, 0.16), transparent 36%),
+    linear-gradient(90deg, rgba(16, 16, 16, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16, 16, 16, 0.08) 1px, transparent 1px),
+    #bdb4aa;
+  background-size: auto, 3rem 3rem, 3rem 3rem, auto;
+}
+
+.projectScrollMedia::before,
+.projectScrollMedia::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0.64rem;
+  height: 0.64rem;
+  background: #101010;
+}
+
+.projectScrollMedia::before {
+  top: -1px;
+  left: -1px;
+}
+
+.projectScrollMedia::after {
+  right: -1px;
+  bottom: -1px;
+}
+
+.projectScrollMedia span {
+  position: relative;
+  z-index: 2;
+  color: #d9a53d;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.projectScrollMedia p {
+  position: relative;
+  z-index: 2;
+  max-width: 22rem;
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 2.25rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.projectScrollMediaImage {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(1.8rem, 4vw, 4rem);
+  filter: drop-shadow(0 1.2rem 2.4rem rgba(16, 16, 16, 0.22));
 }
 
 .footerSection {
@@ -1813,6 +2187,38 @@
     grid-column: auto;
   }
 
+  .projectMetaBar,
+  .projectIntroSection,
+  .projectScrollSection,
+  .projectScrollText {
+    grid-template-columns: 1fr;
+  }
+
+  .projectHero {
+    padding-top: 9.2rem;
+  }
+
+  .projectMetaBar {
+    gap: 0.7rem;
+  }
+
+  .projectHeroFrame {
+    min-height: 30rem;
+  }
+
+  .projectScrollSection {
+    gap: 1.6rem;
+    min-height: auto;
+  }
+
+  .projectScrollRail {
+    display: none;
+  }
+
+  .projectScrollMediaStack {
+    gap: 1rem;
+  }
+
   .solutionNode {
     font-size: 0.8rem;
   }
@@ -1868,6 +2274,23 @@
   .solutionsDirectoryCard ul {
     display: grid;
     gap: 0.9rem;
+  }
+
+  .projectHeroFrame h1 {
+    font-size: clamp(2.35rem, 10.5vw, 4rem);
+    line-height: 0.96;
+  }
+
+  .projectIntroSection > p:last-child {
+    font-size: clamp(1rem, 4.8vw, 1.35rem);
+  }
+
+  .projectScrollPanel h2 {
+    font-size: clamp(1rem, 5.4vw, 1.4rem);
+  }
+
+  .projectScrollMedia {
+    min-height: 18rem;
   }
 
   .solutionNodeLabel {

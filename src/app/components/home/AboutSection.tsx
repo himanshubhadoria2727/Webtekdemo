@@ -3,14 +3,18 @@ import { aboutBullets, animatedAboutLine, partnerNames } from "../../data/home";
 import styles from "../../page.module.css";
 
 export function AboutSection() {
+  const runningPartnerNames = [...partnerNames, ...partnerNames];
+
   return (
     <section id="about-us" className={styles.aboutSection}>
       <div className={styles.partnerRow}>
-        {partnerNames.map((name) => (
-          <span key={name} className={styles.partnerLogo}>
-            {name}
-          </span>
-        ))}
+        <div className={styles.partnerRowTrack}>
+          {runningPartnerNames.map((name, index) => (
+            <span key={`${name}-${index}`} className={styles.partnerLogo}>
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className={styles.aboutIntro}>

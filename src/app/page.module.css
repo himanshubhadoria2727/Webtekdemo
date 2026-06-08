@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -42,7 +42,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: clamp(0.8rem, 1.8vw, 2.2rem);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.9rem, 0.92vw, 1.05rem);
   font-weight: 700;
   text-transform: uppercase;
@@ -206,34 +206,41 @@
 }
 
 .aboutSection {
-  background: #c7bdb3;
+  background: #ececec;
   color: #0c0c0c;
   border-top: 0;
+  padding-top: clamp(5.8rem, 10vw, 7.8rem);
+}
+
+.aboutPage {
+  --about-header-offset: clamp(6.2rem, 9vh, 7.6rem);
+
+  background: #c7bdb3;
 }
 
 .aboutMosaicSection {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   background: #c7bdb3;
 }
 
 .aboutMosaicSticky {
   position: relative;
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   background: #c7bdb3;
 }
 
 .aboutMosaicKicker {
   position: absolute;
-  top: 30vh;
+  top: calc(var(--about-header-offset, 0rem) + 18vh);
   left: 50%;
   z-index: 3;
   display: inline-flex;
   align-items: center;
   gap: 0.52rem;
   transform: translateX(-50%);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.72rem, 0.9vw, 1rem);
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -249,7 +256,7 @@
 
 .aboutCenterDot {
   position: absolute;
-  top: 50%;
+  top: calc(50vh + (var(--about-header-offset, 0rem) / 2));
   left: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
@@ -257,15 +264,22 @@
 
 .aboutMosaicStage {
   position: absolute;
-  inset: 0;
+  inset: var(--about-header-offset, 0rem) 0 0;
   z-index: 1;
+  width: 100%;
+  height: calc(100svh - var(--about-header-offset, 0rem));
+  transform-origin: center;
 }
 
 .aboutTile {
   position: absolute;
+  top: 50%;
+  left: 50%;
   display: grid;
   place-items: center;
   overflow: hidden;
+  width: 0.55rem;
+  height: 0.55rem;
   min-width: 1px;
   min-height: 1px;
   border: 1px solid rgba(255, 255, 255, 0.72);
@@ -274,10 +288,12 @@
     var(--tile-bg);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
   color: rgba(255, 255, 255, 0.72);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.62rem, 0.8vw, 0.86rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.2);
 }
 
 .aboutTile::before,
@@ -292,9 +308,6 @@
 .aboutTile::before {
   top: -1px;
   left: -1px;
-  box-shadow:
-    calc(var(--tile-w) - 0.38rem) 0 #ffffff,
-    0 calc(var(--tile-h) - 0.38rem) #ffffff;
 }
 
 .aboutTile::after {
@@ -303,7 +316,14 @@
 }
 
 .aboutTile span {
+  position: relative;
+  z-index: 0;
   opacity: 0.5;
+}
+
+.aboutTileImage {
+  z-index: 1;
+  object-fit: cover;
 }
 
 .aboutTileDark {
@@ -328,6 +348,206 @@
   color: rgba(0, 0, 0, 0.45);
 }
 
+.aboutNarrativeSection {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(180px, 17vw) 1fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+  overflow: hidden;
+  min-height: 52vh;
+  padding: clamp(5rem, 11vh, 8rem) clamp(1.4rem, 3vw, 2.4rem) clamp(4rem, 8vh, 6rem);
+  background: #c7bdb3;
+  color: #030303;
+}
+
+.aboutNarrativeLabel {
+  margin-top: clamp(0.6rem, 1.3vw, 1.2rem);
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(0.78rem, 0.95vw, 1rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.aboutNarrativeSection::before,
+.aboutNarrativeSection::after {
+  content: "";
+  position: absolute;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 999px;
+}
+
+.aboutNarrativeSection::before {
+  left: 33.5%;
+  top: 47%;
+  background: #1f45ff;
+}
+
+.aboutNarrativeSection::after {
+  left: 49.5%;
+  bottom: 18%;
+  background: #ff9900;
+}
+
+.aboutMissionVisionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 2vw, 2rem);
+  width: 100%;
+  max-width: 78rem;
+}
+
+.aboutMissionCard,
+.aboutVisionCard {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(17rem, 24vw, 23rem);
+  padding: clamp(1.35rem, 2.8vw, 2.5rem);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 38%),
+    #0a0a0a;
+  color: #f5efe8;
+}
+
+.aboutMissionCard::before,
+.aboutVisionCard::before {
+  content: "";
+  position: absolute;
+  right: clamp(1rem, 2vw, 1.6rem);
+  bottom: clamp(1rem, 2vw, 1.6rem);
+  width: 0.62rem;
+  height: 0.62rem;
+  background: #ff3d0a;
+}
+
+.aboutMissionCard::after,
+.aboutVisionCard::after {
+  content: "";
+  position: absolute;
+  inset: auto clamp(1.35rem, 2.8vw, 2.5rem) clamp(4.1rem, 5vw, 5.5rem) clamp(1.35rem, 2.8vw, 2.5rem);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.aboutMissionCard h2,
+.aboutVisionCard h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 8ch;
+  margin: 0 0 clamp(2rem, 5vw, 4.5rem);
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+}
+
+.aboutMissionCard p,
+.aboutVisionCard p {
+  position: relative;
+  z-index: 1;
+  max-width: 36rem;
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.aboutVisionCard span {
+  color: #ff5a1f;
+}
+
+.aboutScrollAccordion {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(18rem, 50vw) minmax(0, 1fr);
+  gap: 0;
+  overflow: hidden;
+  height: calc(100svh - 5.9rem);
+  min-height: 34rem;
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(0.9rem, 1.25vw, 1.35rem) clamp(1.15rem, 1.4vw, 1.7rem);
+  background: #d2cbc4;
+  color: #111111;
+}
+
+.aboutAccordionRail {
+  display: grid;
+  align-content: space-between;
+  min-height: calc(100svh - 8.6rem);
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(0.78rem, 0.86vw, 0.98rem);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.aboutAccordionRailItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 2.25vw, 2.75rem);
+}
+
+.aboutAccordionRailDot {
+  flex: 0 0 auto;
+  width: 0.58rem;
+  height: 0.58rem;
+  background: #111111;
+}
+
+.aboutAccordionList {
+  align-self: start;
+  width: 100%;
+  will-change: transform;
+}
+
+.aboutAccordionItem {
+  border-top: 1px solid rgba(17, 17, 17, 0.9);
+}
+
+.aboutAccordionItem:last-child {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.9);
+}
+
+.aboutAccordionItem h2 {
+  margin: 0;
+  padding: clamp(0.78rem, 1.08vw, 1.2rem) 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1.65rem, 2.16vw, 2.72rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.aboutAccordionContent {
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+}
+
+.aboutAccordionContentInner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.74fr);
+  gap: clamp(1rem, 2.5vw, 2.6rem);
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(1.1rem, 1.8vw, 2rem) 0 clamp(1.15rem, 1.9vw, 2.15rem);
+}
+
+.aboutAccordionContentInner p {
+  max-width: 34rem;
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(0.86rem, 0.92vw, 1.04rem);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+}
+
 .partnerRow {
   display: flex;
   align-items: center;
@@ -341,7 +561,7 @@
 }
 
 .partnerLogo {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(1.1rem, 1.6vw, 2rem);
   font-weight: 700;
   color: #121212;
@@ -353,7 +573,7 @@
 }
 
 .aboutLabel {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   color: #222;
@@ -467,7 +687,7 @@
 
 .servicesTag {
   margin: 0;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: 1rem;
   letter-spacing: 0.04em;
 }
@@ -494,7 +714,7 @@
   border: 1px solid rgba(0, 0, 0, 0.6);
   background: transparent;
   color: #101010;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: 1rem;
   letter-spacing: 0.02em;
   padding: 0.9rem 1.2rem;
@@ -504,9 +724,10 @@
 .servicesStage {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(620px, 840px) minmax(220px, 1fr);
-  gap: clamp(1rem, 2.8vw, 2.4rem);
+  grid-template-columns: minmax(15rem, 1fr) minmax(28rem, 45vw) minmax(15rem, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
   align-items: center;
+  overflow: hidden;
 }
 
 .servicesSide {
@@ -516,11 +737,12 @@
 
 .servicesSide h3 {
   margin: 0;
-  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+  font-size: clamp(1.7rem, 3vw, 3rem);
   line-height: 0.96;
   letter-spacing: -0.03em;
   font-weight: 500;
   cursor: default;
+  overflow-wrap: anywhere;
 }
 
 .servicesSideRight {
@@ -531,7 +753,8 @@
   display: grid;
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: clamp(0.5rem, 0.9vw, 0.75rem);
-  min-height: clamp(380px, 42vw, 520px);
+  min-height: clamp(320px, 34vw, 480px);
+  min-width: 0;
 }
 
 .visualTile {
@@ -622,7 +845,7 @@
   position: relative;
   z-index: 1;
   margin: 0 0 0.8rem;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.78rem, 1vw, 1rem);
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -693,7 +916,7 @@
   display: grid;
   gap: 0.08rem;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 0.58rem;
   line-height: 1.05;
   letter-spacing: 0.04em;
@@ -719,7 +942,7 @@
   background: linear-gradient(145deg, #0b62a4, #073a77);
   border-radius: 0 0 42% 42%;
   clip-path: polygon(9% 8%, 32% 12%, 50% 0, 68% 12%, 91% 8%, 91% 72%, 50% 100%, 9% 72%);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 1.45rem;
 }
 
@@ -727,7 +950,7 @@
   grid-template-columns: auto auto;
   gap: 0.55rem;
   color: #4e4e4e;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(1.08rem, 1.7vw, 1.45rem);
   font-style: italic;
   font-weight: 500;
@@ -747,14 +970,14 @@
   min-height: 5.2rem;
   border: 4px solid #d51d3c;
   color: #d51d3c;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 1.2rem;
   line-height: 0.92;
 }
 
 .majid {
   color: #9a7b2f;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 3.4rem;
   text-shadow: 3px 0 0 #cfb56e;
 }
@@ -767,7 +990,7 @@
   background:
     repeating-conic-gradient(from -18deg, rgba(255, 186, 32, 0.84) 0 10deg, rgba(255, 159, 4, 0.92) 10deg 20deg),
     #ffae16;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 1.85rem;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
@@ -789,7 +1012,7 @@
 
 .solutionsTag {
   margin: 0;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.78rem, 1vw, 1rem);
   letter-spacing: 0.02em;
 }
@@ -818,7 +1041,7 @@
   border: 1px solid rgba(0, 0, 0, 0.82);
   background: transparent;
   color: #030303;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.8rem, 0.9vw, 1rem);
   letter-spacing: 0.01em;
   padding: 0.72rem 0.95rem;
@@ -889,7 +1112,7 @@
   z-index: 5;
   width: var(--node-length);
   height: 1px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.82rem, 1vw, 1.05rem);
   line-height: 1;
   transform-origin: 0 50%;
@@ -963,14 +1186,178 @@
   transform: scale(0.82) rotate(8deg);
 }
 
+.solutionsPage {
+  background: #d2cbc4;
+  color: #101010;
+}
+
+.solutionsDirectory {
+  min-height: 100svh;
+  padding: clamp(8.8rem, 12vw, 11rem) clamp(1rem, 3vw, 2.4rem) clamp(4rem, 7vw, 6rem);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+    #d2cbc4;
+  background-size: 7.5rem 7.5rem;
+  font-family: var(--font-body), sans-serif;
+}
+
+.solutionsDirectoryHeader {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.36fr) minmax(0, 1.1fr) minmax(18rem, 0.7fr);
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: end;
+  padding-bottom: clamp(1.4rem, 3vw, 2.5rem);
+  border-bottom: 1px solid rgba(16, 16, 16, 0.8);
+}
+
+.solutionsDirectoryHeader p,
+.solutionsDirectoryHeader span {
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  color: rgba(16, 16, 16, 0.76);
+}
+
+.solutionsDirectoryHeader p {
+  font-size: clamp(0.82rem, 0.95vw, 1rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.solutionsDirectoryHeader h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(3rem, 6.8vw, 7.8rem);
+  font-weight: 800;
+  line-height: 0.84;
+  letter-spacing: -0.08em;
+}
+
+.solutionsDirectoryHeader span {
+  max-width: 31rem;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.solutionsDirectoryGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.5rem);
+  padding-top: clamp(1rem, 2.5vw, 2rem);
+}
+
+.solutionsDirectoryCard {
+  position: relative;
+  display: grid;
+  min-height: clamp(17rem, 24vw, 25rem);
+  padding: clamp(1rem, 2vw, 1.8rem);
+  border: 1px solid rgba(16, 16, 16, 0.82);
+  background: rgba(210, 203, 196, 0.86);
+  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.solutionsDirectoryCard:nth-child(1),
+.solutionsDirectoryCard:nth-child(4) {
+  grid-column: span 5;
+}
+
+.solutionsDirectoryCard:nth-child(2),
+.solutionsDirectoryCard:nth-child(3) {
+  grid-column: span 7;
+}
+
+.solutionsDirectoryCard::before,
+.solutionsDirectoryCard::after {
+  content: "";
+  position: absolute;
+  width: 0.58rem;
+  height: 0.58rem;
+  background: #101010;
+}
+
+.solutionsDirectoryCard::before {
+  top: -1px;
+  left: -1px;
+}
+
+.solutionsDirectoryCard::after {
+  right: -1px;
+  bottom: -1px;
+}
+
+.solutionsDirectoryCardTop {
+  display: grid;
+  gap: clamp(0.8rem, 1.3vw, 1.1rem);
+  align-content: start;
+}
+
+.solutionsDirectoryCardTop span {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(0.8rem, 0.9vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ff3d0a;
+}
+
+.solutionsDirectoryCard h2 {
+  max-width: 9ch;
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(2.4rem, 4.4vw, 5.8rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+}
+
+.solutionsDirectoryCard ul {
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.65rem, 1.4vw, 1.3rem) clamp(1rem, 2vw, 2rem);
+  margin: clamp(2rem, 5vw, 4.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.solutionsDirectoryCard a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #101010;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1rem, 1.55vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.solutionsDirectoryCard a:hover {
+  color: #ff3d0a;
+  transform: translateX(0.25rem);
+}
+
+.solutionsDirectoryCard a span {
+  font-weight: 500;
+}
+
+.solutionsDirectoryFeatured a {
+  color: #ff3d0a;
+}
+
 .footerSection {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #000000;
   color: #ffffff;
   min-height: 100vh;
-  padding: clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 3vw, 3rem) 0;
-  font-family: var(--font-mono), monospace;
+  padding: clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 3vw, 3rem) clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-body), sans-serif;
 }
 
 .footerTopLine {
@@ -994,7 +1381,7 @@
 
 .footerBrand {
   display: block;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(5.8rem, 15vw, 16rem);
   line-height: 0.75;
   letter-spacing: -0.09em;
@@ -1024,7 +1411,7 @@
   margin: 0 0 1.35rem;
   padding-bottom: 0.55rem;
   border-bottom: 2px solid #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.1vw, 1.18rem);
   line-height: 1;
   font-weight: 700;
@@ -1080,7 +1467,7 @@
 
 .footerContact dt {
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.98rem, 1.08vw, 1.14rem);
   font-weight: 700;
 }
@@ -1093,7 +1480,7 @@
 
 .footerContact strong {
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(0.98rem, 1.08vw, 1.14rem);
 }
 
@@ -1136,7 +1523,7 @@
 
 .footerImportant p {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-weight: 700;
 }
 
@@ -1150,7 +1537,7 @@
 .footerBottom p {
   margin: 0;
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
 }
@@ -1307,6 +1694,36 @@
     gap: 1.4rem;
   }
 
+  .aboutNarrativeSection {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 1.4rem;
+    padding-top: 4.8rem;
+  }
+
+  .aboutMissionVisionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutScrollAccordion {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    min-height: auto;
+    padding-top: 4.8rem;
+  }
+
+  .aboutAccordionRail {
+    display: none;
+  }
+
+  .aboutAccordionItem h2 {
+    font-size: clamp(2.1rem, 9vw, 4rem);
+  }
+
+  .aboutAccordionContentInner {
+    grid-template-columns: 1fr;
+  }
+
   .servicesTop {
     grid-template-columns: 1fr;
     gap: 0.8rem;
@@ -1372,6 +1789,30 @@
     margin-bottom: 2.5rem;
   }
 
+  .solutionsDirectory {
+    padding-top: 9.5rem;
+  }
+
+  .solutionsDirectoryHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .solutionsDirectoryHeader h1 {
+    max-width: 100%;
+  }
+
+  .solutionsDirectoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .solutionsDirectoryCard,
+  .solutionsDirectoryCard:nth-child(1),
+  .solutionsDirectoryCard:nth-child(2),
+  .solutionsDirectoryCard:nth-child(3),
+  .solutionsDirectoryCard:nth-child(4) {
+    grid-column: auto;
+  }
+
   .solutionNode {
     font-size: 0.8rem;
   }
@@ -1409,6 +1850,24 @@
 
   .solutionsMap {
     height: 500px;
+  }
+
+  .solutionsDirectory {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .solutionsDirectoryHeader {
+    gap: 1rem;
+  }
+
+  .solutionsDirectoryCard {
+    min-height: 18rem;
+  }
+
+  .solutionsDirectoryCard ul {
+    display: grid;
+    gap: 0.9rem;
   }
 
   .solutionNodeLabel {

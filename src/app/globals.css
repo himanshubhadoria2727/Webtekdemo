@@ -1,6 +1,8 @@
-﻿:root {
+:root {
   --background: #040404;
   --foreground: #f4f4f4;
+  --font-display: var(--font-body);
+  --font-mono: var(--font-body);
 }
 
 html {
@@ -25,13 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-.brand {
-  font-family: var(--font-display), sans-serif;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -42,4 +37,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-

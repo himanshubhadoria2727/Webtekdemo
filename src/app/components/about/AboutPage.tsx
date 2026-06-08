@@ -5,25 +5,118 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import Image from "next/image";
 import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
 
+const aboutImages = [
+  { src: "/about/about-01.jpg", alt: "Team meeting behind glass in an office" },
+  { src: "/about/about-02.jpg", alt: "Business team reviewing analytics on a tablet" },
+  { src: "/about/about-03.jpg", alt: "Office building lit at night" },
+  { src: "/about/about-04.jpg", alt: "Business colleagues celebrating with a high five" },
+  { src: "/about/about-05.jpg", alt: "Team discussion in a bright meeting room" },
+  { src: "/about/about-06.jpg", alt: "Business team planning at a conference table" },
+  { src: "/about/about-07.jpg", alt: "Retail payment at a point of sale counter" },
+  { src: "/about/about-08.jpg", alt: "Close-up of a point of sale terminal" },
+  { src: "/about/about-09.jpg", alt: "Team working together on laptops" },
+  { src: "/about/about-10.jpg", alt: "Analytics dashboard open on a laptop" },
+  { src: "/about/about-11.jpg", alt: "Top-down laptop workspace with coffee" },
+  { src: "/about/about-12.jpg", alt: "People silhouetted in front of city windows" },
+  { src: "/about/about-13.jpg", alt: "Skyscrapers viewed from below" },
+  { src: "/about/about-14.jpg", alt: "Business team reviewing charts and reports" },
+  { src: "/about/about-15.jpg", alt: "Businessperson walking through a warm architectural interior" },
+  { src: "/about/about-16.jpg", alt: "UX planning sketches and color swatches on a desk" },
+] as const;
+
+const primaryTiles = [
+  { x: "23vw", y: "18vh", w: "27vw", h: "28vh" },
+  { x: "50vw", y: "18vh", w: "27vw", h: "28vh" },
+  { x: "23vw", y: "46vh", w: "27vw", h: "30vh" },
+  { x: "50vw", y: "46vh", w: "27vw", h: "30vh" },
+] as const;
+
 const mosaicTiles = [
-  { id: "01", x: "0vw", y: "-2vh", w: "26vw", h: "18vh", tone: "dark" },
-  { id: "02", x: "50vw", y: "-2vh", w: "26vw", h: "18vh", tone: "light" },
-  { id: "03", x: "24vw", y: "16vh", w: "26vw", h: "22vh", tone: "mid" },
-  { id: "04", x: "50vw", y: "16vh", w: "28vw", h: "22vh", tone: "accent" },
-  { id: "05", x: "11vw", y: "38vh", w: "13vw", h: "18vh", tone: "light" },
-  { id: "06", x: "24vw", y: "38vh", w: "26vw", h: "30vh", tone: "warm" },
-  { id: "07", x: "50vw", y: "38vh", w: "28vw", h: "30vh", tone: "dark" },
-  { id: "08", x: "78vw", y: "38vh", w: "13vw", h: "30vh", tone: "light" },
-  { id: "09", x: "11vw", y: "56vh", w: "13vw", h: "24vh", tone: "mid" },
-  { id: "10", x: "24vw", y: "68vh", w: "26vw", h: "18vh", tone: "light" },
-  { id: "11", x: "50vw", y: "68vh", w: "28vw", h: "18vh", tone: "accent" },
-  { id: "12", x: "78vw", y: "68vh", w: "13vw", h: "18vh", tone: "warm" },
-  { id: "13", x: "-8vw", y: "16vh", w: "19vw", h: "22vh", tone: "accent" },
-  { id: "14", x: "91vw", y: "16vh", w: "19vw", h: "22vh", tone: "mid" },
+  {
+    id: "01",
+    final: primaryTiles[0],
+    tone: "dark",
+  },
+  {
+    id: "02",
+    final: primaryTiles[1],
+    tone: "accent",
+  },
+  {
+    id: "03",
+    final: primaryTiles[2],
+    tone: "warm",
+  },
+  {
+    id: "04",
+    final: primaryTiles[3],
+    tone: "mid",
+  },
+  {
+    id: "05",
+    final: { x: "-4vw", y: "-10vh", w: "27vw", h: "28vh" },
+    tone: "light",
+  },
+  {
+    id: "06",
+    final: { x: "23vw", y: "-10vh", w: "27vw", h: "28vh" },
+    tone: "dark",
+  },
+  {
+    id: "07",
+    final: { x: "50vw", y: "-10vh", w: "27vw", h: "28vh" },
+    tone: "accent",
+  },
+  {
+    id: "08",
+    final: { x: "77vw", y: "-10vh", w: "27vw", h: "28vh" },
+    tone: "light",
+  },
+  {
+    id: "09",
+    final: { x: "-4vw", y: "18vh", w: "27vw", h: "28vh" },
+    tone: "mid",
+  },
+  {
+    id: "10",
+    final: { x: "77vw", y: "18vh", w: "27vw", h: "28vh" },
+    tone: "warm",
+  },
+  {
+    id: "11",
+    final: { x: "-4vw", y: "46vh", w: "27vw", h: "30vh" },
+    tone: "dark",
+  },
+  {
+    id: "12",
+    final: { x: "77vw", y: "46vh", w: "27vw", h: "30vh" },
+    tone: "warm",
+  },
+  {
+    id: "13",
+    final: { x: "-4vw", y: "76vh", w: "27vw", h: "26vh" },
+    tone: "light",
+  },
+  {
+    id: "14",
+    final: { x: "23vw", y: "76vh", w: "27vw", h: "26vh" },
+    tone: "accent",
+  },
+  {
+    id: "15",
+    final: { x: "50vw", y: "76vh", w: "27vw", h: "26vh" },
+    tone: "mid",
+  },
+  {
+    id: "16",
+    final: { x: "77vw", y: "76vh", w: "27vw", h: "26vh" },
+    tone: "dark",
+  },
 ] as const;
 
 const tileToneClasses = {
@@ -33,6 +126,42 @@ const tileToneClasses = {
   mid: styles.aboutTileMid,
   warm: styles.aboutTileWarm,
 };
+
+const accordionPrinciples = [
+  {
+    title: "What We Do",
+    subtext: "Helping every business to reach its goals faster!",
+  },
+  {
+    title: "Creative Approach",
+    subtext: "We aim to become the most trusted and creative digital marketing company in Dubai and surrounding countries.",
+  },
+  {
+    title: "Guaranteed Success",
+    subtext:
+      "We do not just provide services to make money. We provide services to bring a change to our client's website, branding strategies, and business growth.",
+  },
+  {
+    title: "A Foundation of Trust & Integrity",
+    subtext:
+      "We constantly motivate our team members to take responsibility for their duties. We believe in quality as much as quantity. Our client's trust and consistent collaboration are our backbones.",
+  },
+  {
+    title: "Fast Working Process",
+    subtext:
+      "We understand that as a brand owner, you already have a lot on your plates. Therefore, we work as a digital extension to help you develop a relevant marketing plan that brings growth and success.",
+  },
+  {
+    title: "Passionate Team Members",
+    subtext:
+      "Our team members do what they are best at. With the dedicated efforts and proactive attitude of our consultants, you can kickstart your online campaigns and maximize your revenues.",
+  },
+  {
+    title: "24/7 Customer Support",
+    subtext:
+      "The world is evolving at a fast pace and so are we! With advanced tools like AI chatbots, we are always able to answer all your queries even during the off hours.",
+  },
+] as const;
 
 export function AboutPage() {
   const pageRef = useRef<HTMLDivElement | null>(null);
@@ -45,39 +174,133 @@ export function AboutPage() {
       smoothWheel: true,
     });
 
+    lenis.on("scroll", ScrollTrigger.update);
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".aboutTile",
-        {
-          left: "50%",
-          top: "50%",
-          width: "0.55rem",
-          height: "0.55rem",
-          opacity: 0,
-          xPercent: -50,
-          yPercent: -50,
-          scale: 0.2,
+      const tileElements = gsap.utils.toArray<HTMLElement>(".aboutTile");
+
+      gsap.set(tileElements, {
+        left: "50%",
+        top: "50%",
+        width: "0.55rem",
+        height: "0.55rem",
+        opacity: 0,
+        xPercent: -50,
+        yPercent: -50,
+        scale: 0.2,
+      });
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".aboutMosaicSection",
+          start: "top top",
+          end: "+=180%",
+          scrub: 0.7,
+          pin: true,
         },
+      });
+
+      timeline.to(
+        tileElements,
         {
-          left: "var(--tile-x)",
-          top: "var(--tile-y)",
-          width: "var(--tile-w)",
-          height: "var(--tile-h)",
+          left: "var(--tile-final-x)",
+          top: "var(--tile-final-y)",
+          width: "var(--tile-final-w)",
+          height: "var(--tile-final-h)",
           opacity: 1,
           xPercent: 0,
           yPercent: 0,
           scale: 1,
-          ease: "none",
-          stagger: 0.025,
-          scrollTrigger: {
-            trigger: ".aboutMosaicSection",
-            start: "top top",
-            end: "+=260%",
-            scrub: 0.7,
-            pin: true,
+          duration: 1.9,
+          ease: "power2.out",
+          stagger: {
+            each: 0.055,
+            from: "start",
           },
         },
       );
+
+      const accordionItems = gsap.utils.toArray<HTMLElement>(".aboutScrollAccordionItem");
+      const accordionContents = gsap.utils.toArray<HTMLElement>(".aboutScrollAccordionContent");
+      const accordionRailLabels = gsap.utils.toArray<HTMLElement>(".aboutAccordionRailText");
+      const headerOffset = 92;
+      const getPanelHeight = (panel: HTMLElement) => {
+        const inner = panel.firstElementChild;
+
+        return inner instanceof HTMLElement ? inner.scrollHeight : panel.scrollHeight;
+      };
+
+      gsap.set(accordionContents, {
+        height: 0,
+        autoAlpha: 0,
+      });
+
+      if (accordionContents[0]) {
+        gsap.set(accordionContents[0], {
+          height: getPanelHeight(accordionContents[0]),
+          autoAlpha: 1,
+        });
+      }
+
+      const accordionTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".aboutScrollAccordion",
+          start: () => `top top+=${headerOffset}`,
+          end: () => `+=${window.innerHeight * (accordionItems.length - 1) * 0.48}`,
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const activeIndex = Math.min(
+              accordionPrinciples.length - 1,
+              Math.max(0, Math.round(self.progress * (accordionPrinciples.length - 1))),
+            );
+            const activeTitle = accordionPrinciples[activeIndex].title.toUpperCase();
+
+            accordionRailLabels.forEach((label) => {
+              label.textContent = activeTitle;
+            });
+          },
+        },
+      });
+
+      accordionContents.slice(0, -1).forEach((content, index) => {
+        const nextContent = accordionContents[index + 1];
+
+        accordionTimeline
+          .fromTo(
+            content,
+            {
+              height: () => getPanelHeight(content),
+              autoAlpha: 1,
+            },
+            {
+              height: 0,
+              autoAlpha: 0,
+              duration: 0.72,
+              ease: "none",
+              immediateRender: false,
+            },
+          )
+          .fromTo(
+            nextContent,
+            {
+              height: 0,
+              autoAlpha: 0,
+            },
+            {
+              height: () => getPanelHeight(nextContent),
+              autoAlpha: 1,
+              duration: 0.72,
+              ease: "none",
+              immediateRender: false,
+            },
+            "<",
+          )
+          .to({}, { duration: 0.18 });
+      });
 
       ScrollTrigger.refresh();
     }, pageRef);
@@ -99,25 +322,84 @@ export function AboutPage() {
             </p>
             <div className={styles.aboutCenterDot} aria-hidden="true" />
             <div className={styles.aboutMosaicStage} aria-label="Animated about image placeholders">
-              {mosaicTiles.map((tile) => (
+              {mosaicTiles.map((tile, index) => (
                 <div
                   key={tile.id}
-                  className={`${styles.aboutTile} aboutTile ${tileToneClasses[tile.tone]}`}
+                  className={`${styles.aboutTile} aboutTile ${
+                    Number(tile.id) <= 4 ? "aboutTilePrimary" : "aboutTileSecondary"
+                  } ${tileToneClasses[tile.tone]}`}
                   style={
                     {
-                      "--tile-x": tile.x,
-                      "--tile-y": tile.y,
-                      "--tile-w": tile.w,
-                      "--tile-h": tile.h,
+                      "--tile-final-x": tile.final.x,
+                      "--tile-final-y": tile.final.y,
+                      "--tile-final-w": tile.final.w,
+                      "--tile-final-h": tile.final.h,
+                      zIndex: Number(tile.id),
                     } as CSSProperties
                   }
                 >
+                  <Image
+                    src={aboutImages[index].src}
+                    alt={aboutImages[index].alt}
+                    fill
+                    sizes="(max-width: 900px) 60vw, 27vw"
+                    className={styles.aboutTileImage}
+                  />
                   <span>Image {tile.id}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        <section className={styles.aboutNarrativeSection}>
+          <p className={styles.aboutNarrativeLabel}>[MEET REF]</p>
+          <div className={styles.aboutMissionVisionGrid}>
+            <article className={styles.aboutMissionCard}>
+              <h2>Our Mission</h2>
+              <p>
+                We sincerely provide an all-inclusive range of services to revamp your brand’s success story.
+                While always keeping our client’s needs at the front, we make the latest digital branding
+                solutions accessible, efficient, and affordable for every industry.
+              </p>
+            </article>
+
+            <article className={styles.aboutVisionCard}>
+              <h2>Our Vision</h2>
+              <p>
+                We aim to become the most valuable{" "}
+                <span>digital marketing agency in Dubai</span> that supports every small, medium-sized, and
+                well-established organization by creating excellent branding solutions for them to succeed.
+                We work closely with our clients to help them meet their business targets.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section className={`${styles.aboutScrollAccordion} aboutScrollAccordion`}>
+          <div className={styles.aboutAccordionRail} aria-hidden="true">
+            {[0, 1, 2].map((item) => (
+              <div key={item} className={styles.aboutAccordionRailItem}>
+                <span className={styles.aboutAccordionRailDot} />
+                <span className="aboutAccordionRailText">{accordionPrinciples[0].title.toUpperCase()}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.aboutAccordionList}>
+            {accordionPrinciples.map((item) => (
+              <article key={item.title} className={`${styles.aboutAccordionItem} aboutScrollAccordionItem`}>
+                <h2>{item.title}</h2>
+                <div className={`${styles.aboutAccordionContent} aboutScrollAccordionContent`}>
+                  <div className={styles.aboutAccordionContentInner}>
+                    <p>{item.subtext}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>

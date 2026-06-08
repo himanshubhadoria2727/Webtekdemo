@@ -1,0 +1,91 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { solutionsPage } from "../../data/solutions";
+import styles from "../../page.module.css";
+import { Footer } from "../home/Footer";
+import { Header } from "../home/Header";
+
+const cardPlacements = [
+  { x: -42, y: 34, rotate: -2.5 },
+  { x: 48, y: 42, rotate: 2 },
+  { x: -34, y: -38, rotate: 1.5 },
+  { x: 38, y: -30, rotate: -1.5 },
+] as const;
+
+export function SolutionsPage() {
+  return (
+    <div className={styles.pageWrap}>
+      <Header />
+      <main className={styles.solutionsPage}>
+        <section className={styles.solutionsDirectory}>
+          <motion.div
+            className={styles.solutionsDirectoryHeader}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p>{solutionsPage.eyebrow}</p>
+            <h1>{solutionsPage.title}</h1>
+            <span>{solutionsPage.intro}</span>
+          </motion.div>
+
+          <div className={styles.solutionsDirectoryGrid}>
+            {solutionsPage.groups.map((group, groupIndex) => {
+              const placement = cardPlacements[groupIndex % cardPlacements.length];
+              const featuredItem = "featuredItem" in group ? group.featuredItem : undefined;
+
+              return (
+                <motion.section
+                  key={group.title}
+                  className={styles.solutionsDirectoryCard}
+                  initial={{
+                    opacity: 0,
+                    x: placement.x,
+                    y: placement.y,
+                    rotate: placement.rotate,
+                  }}
+                  whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{
+                    duration: 0.75,
+                    delay: groupIndex * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  <div className={styles.solutionsDirectoryCardTop}>
+                    <span>{String(groupIndex + 1).padStart(2, "0")}</span>
+                    <h2>{group.title}</h2>
+                  </div>
+
+                  <ul>
+                    {group.items.map((item, itemIndex) => (
+                      <motion.li
+                        key={item}
+                        className={item === featuredItem ? styles.solutionsDirectoryFeatured : undefined}
+                        initial={{ opacity: 0, y: 14 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{
+                          duration: 0.45,
+                          delay: groupIndex * 0.12 + itemIndex * 0.055 + 0.2,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        <a href={solutionsPage.itemHref}>
+                          {item}
+                          <span aria-hidden="true">-&gt;</span>
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.section>
+              );
+            })}
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}

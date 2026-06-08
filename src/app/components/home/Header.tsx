@@ -5,7 +5,7 @@ import styles from "../../page.module.css";
 const menuLinks: Record<string, string> = {
   "About Us": "/about-us",
   "Our Services": "/#our-services",
-  Solutions: "/#solutions",
+  Solutions: "/solutions",
   "Portfolio Media": "/#portfolio-media",
   "Contact Us": "/#contact-us",
 };

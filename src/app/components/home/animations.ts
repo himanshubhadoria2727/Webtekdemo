@@ -31,3 +31,35 @@ export const clienteleCardMotion: Variants = {
     transition: { duration: 0.68, ease: smoothEase },
   },
 };
+
+export const blogPageContainer: Variants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.18,
+    },
+  },
+};
+
+export const blogHeroReveal: Variants = {
+  hidden: { opacity: 0, y: 54, filter: "blur(10px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.82, ease: smoothEase },
+  },
+};
+
+export const blogArticleReveal: Variants = {
+  hidden: { opacity: 0, y: 72, scale: 0.97, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.78, ease: smoothEase },
+  },
+};

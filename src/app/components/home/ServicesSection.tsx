@@ -7,12 +7,12 @@ type TileId = 1 | 2 | 3 | 4 | 5 | 6;
 type TileScales = Record<TileId, number>;
 
 const defaultTileScales: TileScales = {
-  1: 0.9,
-  2: 0.9,
-  3: 0.9,
-  4: 0.9,
-  5: 0.9,
-  6: 0.9,
+  1: 0.88,
+  2: 0.88,
+  3: 0.88,
+  4: 0.88,
+  5: 0.88,
+  6: 0.88,
 };
 const serviceTileIds: TileId[] = [1, 2, 3, 4, 5, 6];
 const serviceTileClassNames: Record<TileId, keyof typeof styles> = {
@@ -35,7 +35,7 @@ const serviceTileImages: Record<TileId, { src: string; alt: string }> = {
 function getScaleFromDistance(distance: number) {
   const radius = 520;
   const proximity = Math.max(0, 1 - distance / radius);
-  return 0.9 + proximity * 0.3;
+  return 0.88 + proximity * 0.28;
 }
 
 export function ServicesSection() {

@@ -63,7 +63,9 @@ export function TestimonialsSection() {
 
           <div className={styles.testimonialSliderControls}>
             <button type="button" onClick={showPreviousTestimonial} aria-label="Previous testimonial">
-              ‹
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m15 5-7 7 7 7" />
+              </svg>
             </button>
             <div className={styles.testimonialSliderDots} aria-label="Choose testimonial">
               {testimonials.map((testimonial, index) => (
@@ -78,7 +80,9 @@ export function TestimonialsSection() {
               ))}
             </div>
             <button type="button" onClick={showNextTestimonial} aria-label="Next testimonial">
-              ›
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
             </button>
           </div>
         </div>

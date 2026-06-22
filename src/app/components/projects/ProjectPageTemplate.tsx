@@ -34,7 +34,6 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
       const contents = gsap.utils.toArray<HTMLElement>(".projectScrollContent");
       const mediaStack = document.querySelector<HTMLElement>(".projectScrollMediaStack");
       const mediaItems = gsap.utils.toArray<HTMLElement>(".projectScrollMedia");
-      const headerOffset = 92;
       const getPanelHeight = (panel: HTMLElement) => {
         const inner = panel.firstElementChild;
 
@@ -69,7 +68,7 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: ".projectScrollSection",
-          start: () => `top top+=${headerOffset}`,
+          start: "top top",
           end: () => `+=${window.innerHeight * (panels.length - 1) * 0.52}`,
           scrub: true,
           pin: true,
@@ -115,7 +114,17 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
       ScrollTrigger.refresh();
     }, pageRef);
 
+    let refreshTimer: number | undefined;
+    const refreshForHeader = () => {
+      window.clearTimeout(refreshTimer);
+      refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 420);
+    };
+
+    window.addEventListener("site-header-resize", refreshForHeader);
+
     return () => {
+      window.clearTimeout(refreshTimer);
+      window.removeEventListener("site-header-resize", refreshForHeader);
       ctx.revert();
       lenis.destroy();
     };

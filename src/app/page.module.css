@@ -729,6 +729,7 @@
 }
 
 .servicesSide h3 {
+  position: relative;
   margin: 0;
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1.05rem, 1.72vw, 1.72rem);
@@ -737,10 +738,48 @@
   font-weight: 300;
   cursor: default;
   overflow-wrap: anywhere;
+  transition:
+    color 260ms ease,
+    transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.servicesSide h3::after {
+  content: "";
+  position: absolute;
+  bottom: -0.35rem;
+  left: 0;
+  width: 2.25rem;
+  height: 1px;
+  background: #b37b13;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.servicesSide h3:hover,
+.serviceNameActive {
+  color: #9b680b;
+  transform: translateX(0.45rem);
+}
+
+.servicesSide h3:hover::after,
+.serviceNameActive::after {
+  transform: scaleX(1);
 }
 
 .servicesSideRight {
   text-align: right;
+}
+
+.servicesSideRight h3::after {
+  right: 0;
+  left: auto;
+  transform-origin: right;
+}
+
+.servicesSideRight h3:hover,
+.servicesSideRight .serviceNameActive {
+  transform: translateX(-0.45rem);
 }
 
 .servicesVisualGrid {
@@ -749,6 +788,7 @@
   gap: clamp(0.5rem, 0.9vw, 0.75rem);
   min-height: clamp(300px, 32vw, 460px);
   min-width: 0;
+  perspective: 900px;
 }
 
 .visualTile {
@@ -757,9 +797,63 @@
   width: 100%;
   min-width: 0;
   overflow: hidden;
-  transition: transform 300ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  opacity: 0;
+  transform: translateY(2.5rem) scale(0.9) rotateX(7deg);
+  transform-origin: center;
+  box-shadow: 0 0 0 rgba(15, 15, 15, 0);
+  transition:
+    opacity 420ms ease,
+    filter 420ms ease,
+    box-shadow 420ms ease,
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.servicesVisualGridVisible .visualTile {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0);
+}
+
+.servicesVisualGridVisible .visualOne {
+  transition-delay: 40ms;
+}
+
+.servicesVisualGridVisible .visualTwo {
+  transition-delay: 110ms;
+}
+
+.servicesVisualGridVisible .visualThree {
+  transition-delay: 180ms;
+}
+
+.servicesVisualGridVisible .visualFour {
+  transition-delay: 250ms;
+}
+
+.servicesVisualGridVisible .visualFive {
+  transition-delay: 320ms;
+}
+
+.servicesVisualGridVisible .visualSix {
+  transition-delay: 390ms;
+}
+
+.servicesVisualGridActive .visualTile {
+  opacity: 0.48;
+  filter: grayscale(0.7);
+  transform: scale(0.96);
+  transition-delay: 0ms;
+}
+
+.servicesVisualGridActive .visualTileActive,
+.visualTile:hover {
+  z-index: 3;
+  opacity: 1;
+  filter: none;
+  transform: translateY(-0.5rem) scale(1.06) rotateZ(-0.6deg);
+  box-shadow: 0 1.3rem 2.8rem rgba(18, 18, 18, 0.26);
+}
+
+.visualTile::before,
 .visualTile::after {
   content: "";
   position: absolute;
@@ -771,36 +865,44 @@
   pointer-events: none;
 }
 
+.visualTile::before {
+  z-index: 2;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.34) 48%, transparent 66%);
+  transform: translateX(-130%);
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visualTileActive::before,
+.visualTile:hover::before {
+  transform: translateX(130%);
+}
+
 .visualTileImage {
   object-fit: cover;
   filter: saturate(0.96) contrast(1.04);
+  transform: scale(1.02);
+  transition:
+    filter 500ms ease,
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .visualOne .visualTileImage,
 .visualFour .visualTileImage {
   height: 118% !important;
   max-width: none;
-  animation: serviceDeveloperRun 8s ease-in-out infinite alternate;
-}
-
-.visualFour .visualTileImage {
-  animation-delay: -4s;
-}
-
-@keyframes serviceDeveloperRun {
-  from {
-    transform: translateY(-7%) scale(1.04);
-  }
-
-  to {
-    transform: translateY(7%) scale(1.04);
-  }
+  top: -9% !important;
 }
 
 .visualRow {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.5rem, 0.9vw, 0.75rem);
-  transition: grid-template-columns 320ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.visualTileActive .visualTileImage,
+.visualTile:hover .visualTileImage {
+  filter: saturate(1.08) contrast(1.06);
+  transform: scale(1.13);
 }
 
 .visualOne {
@@ -1267,6 +1369,17 @@
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
+.testimonialSliderControls > button svg {
+  display: block;
+  width: 45%;
+  height: 45%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .testimonialSliderControls > button:hover {
   background: #101010;
   color: #fffaf2;
@@ -1376,8 +1489,7 @@
 }
 
 .blogCard {
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(16, 16, 16, 0.08);
@@ -1390,6 +1502,7 @@
 .blogCard a {
   display: grid;
   grid-template-rows: auto 1fr;
+  flex: 1;
   height: 100%;
   color: inherit;
 }
@@ -1412,7 +1525,8 @@
 
 .blogCardBody {
   display: grid;
-  align-content: start;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
   padding: clamp(1.1rem, 1.85vw, 1.7rem);
 }
 
@@ -2115,12 +2229,17 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(18rem, 42vw);
   gap: clamp(1rem, 3vw, 3rem);
-  height: calc(100svh - 5.9rem);
+  box-sizing: border-box;
+  height: 100svh;
   min-height: 38rem;
   margin-bottom: clamp(1.5rem, 3vw, 3rem);
-  padding: clamp(1rem, 1.6vw, 1.8rem) clamp(1rem, 3vw, 2.4rem);
+  padding:
+    calc(var(--site-header-height, 5.9rem) + clamp(1rem, 1.6vw, 1.8rem))
+    clamp(1rem, 3vw, 2.4rem)
+    clamp(1rem, 1.6vw, 1.8rem);
   overflow: hidden;
   background: #d2cbc4;
+  transition: padding-top 380ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .projectScrollText {
@@ -2152,7 +2271,8 @@
 .projectScrollList {
   display: grid;
   align-self: stretch;
-  min-height: calc(100svh - 9rem);
+  min-height: calc(100svh - var(--site-header-height, 5.9rem) - 3.1rem);
+  transition: min-height 380ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .projectScrollPanel {
@@ -2214,7 +2334,7 @@
   position: relative;
   display: grid;
   align-content: space-between;
-  min-height: calc(100svh - 9.5rem);
+  min-height: calc(100svh - var(--site-header-height, 5.9rem) - 3.6rem);
   padding: clamp(1rem, 2vw, 1.8rem);
   border: 1px solid rgba(16, 16, 16, 0.82);
   background:
@@ -2223,6 +2343,7 @@
     linear-gradient(180deg, rgba(16, 16, 16, 0.08) 1px, transparent 1px),
     #bdb4aa;
   background-size: auto, 3rem 3rem, 3rem 3rem, auto;
+  transition: min-height 380ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .projectScrollMedia::before,
@@ -2966,5 +3087,20 @@
 
   .footerSocials a {
     width: 2.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualTile,
+  .visualTileImage,
+  .visualTile::before,
+  .servicesSide h3,
+  .servicesSide h3::after {
+    transition-duration: 1ms !important;
+  }
+
+  .visualTile {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -32,6 +32,7 @@ export function Header() {
     const updateHeaderSpace = () => {
       const height = isHidden ? 0 : header.offsetHeight;
 
+      document.documentElement.dataset.siteHeaderHidden = String(isHidden);
       document.documentElement.style.setProperty("--site-header-height", `${height}px`);
       window.dispatchEvent(new CustomEvent("site-header-resize"));
     };
@@ -41,7 +42,9 @@ export function Header() {
     const observer = new ResizeObserver(updateHeaderSpace);
     observer.observe(header);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, [isHidden]);
 
   useMotionValueEvent(scrollY, "change", (currentScrollY) => {

@@ -40,6 +40,16 @@ export function Footer() {
     <footer id="contact-us" className={styles.footerSection}>
       <div className={styles.footerTopLine} aria-hidden="true" />
 
+      <div className={styles.footerCta}>
+        <div>
+          <p>Have a project in mind?</p>
+          <h2>Let&apos;s build something that performs.</h2>
+        </div>
+        <a href="mailto:Info@bhatia.co" className={styles.footerCtaLink}>
+          Start a conversation <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
       <div className={styles.footerGrid}>
         <div className={styles.footerColumnGroup}>
           <section className={styles.footerColumn}>
@@ -119,18 +129,18 @@ export function Footer() {
 
       <section className={styles.footerImportant}>
         <h2>Important Links</h2>
-        <p>
-          {footerImportantLinks.map((item, index) => (
+        <div className={styles.footerImportantLinks}>
+          {footerImportantLinks.map((item) => (
             <span key={item}>
               <a href="#contact-us">{item}</a>
-              {index < footerImportantLinks.length - 1 ? " | " : ""}
             </span>
           ))}
-        </p>
+        </div>
       </section>
 
       <div className={styles.footerBottom}>
-        <p>Copyright © 2025 Webtek Digital. All Rights Reserved.</p>
+        <p>© 2026 Webtek Digital. All rights reserved.</p>
+        <a href="#top">Back to top ↑</a>
       </div>
     </footer>
   );

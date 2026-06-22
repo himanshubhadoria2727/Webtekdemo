@@ -165,6 +165,8 @@ const accordionPrinciples = [
 
 export function AboutPage() {
   const pageRef = useRef<HTMLDivElement | null>(null);
+  const referenceText = "A POINT OF REFERENCE.";
+  const perspectiveText = "A BETTER PERSPECTIVE.";
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -178,6 +180,9 @@ export function AboutPage() {
 
     const ctx = gsap.context(() => {
       const tileElements = gsap.utils.toArray<HTMLElement>(".aboutTile");
+      const kicker = document.querySelector<HTMLElement>(".aboutMosaicKicker");
+      const leftKickerCharacters = gsap.utils.toArray<HTMLElement>(".aboutKickerLeftChar");
+      const rightKickerCharacters = gsap.utils.toArray<HTMLElement>(".aboutKickerRightChar");
 
       gsap.set(tileElements, {
         left: "50%",
@@ -190,6 +195,37 @@ export function AboutPage() {
         scale: 0.2,
       });
 
+      gsap.set([...leftKickerCharacters, ...rightKickerCharacters], {
+        opacity: 0,
+        y: 8,
+        filter: "blur(3px)",
+      });
+
+      gsap
+        .timeline({ defaults: { ease: "power2.out" } })
+        .to(
+          leftKickerCharacters,
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.3,
+            stagger: { each: 0.035, from: "end" },
+          },
+          0,
+        )
+        .to(
+          rightKickerCharacters,
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.3,
+            stagger: { each: 0.035, from: "start" },
+          },
+          0,
+        );
+
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: ".aboutMosaicSection",
@@ -199,6 +235,17 @@ export function AboutPage() {
           pin: true,
         },
       });
+
+      timeline.to(
+        kicker,
+        {
+          autoAlpha: 0,
+          y: -10,
+          duration: 0.18,
+          ease: "power1.out",
+        },
+        0,
+      );
 
       timeline.to(
         tileElements,
@@ -223,7 +270,6 @@ export function AboutPage() {
       const accordionItems = gsap.utils.toArray<HTMLElement>(".aboutScrollAccordionItem");
       const accordionContents = gsap.utils.toArray<HTMLElement>(".aboutScrollAccordionContent");
       const accordionRailLabels = gsap.utils.toArray<HTMLElement>(".aboutAccordionRailText");
-      const headerOffset = 92;
       const getPanelHeight = (panel: HTMLElement) => {
         const inner = panel.firstElementChild;
 
@@ -245,13 +291,21 @@ export function AboutPage() {
       const accordionTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: ".aboutScrollAccordion",
-          start: () => `top top+=${headerOffset}`,
+          start: "top top",
           end: () => `+=${window.innerHeight * (accordionItems.length - 1) * 0.48}`,
           scrub: true,
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onRefresh: (self) => {
+            const spacer = self.pin?.parentElement;
+
+            if (spacer?.classList.contains("pin-spacer")) {
+              spacer.style.marginBottom = "0";
+              spacer.style.backgroundColor = "#d2cbc4";
+            }
+          },
           onUpdate: (self) => {
             const activeIndex = Math.min(
               accordionPrinciples.length - 1,
@@ -305,7 +359,17 @@ export function AboutPage() {
       ScrollTrigger.refresh();
     }, pageRef);
 
+    let refreshTimer: number | undefined;
+    const refreshForHeader = () => {
+      window.clearTimeout(refreshTimer);
+      refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 420);
+    };
+
+    window.addEventListener("site-header-resize", refreshForHeader);
+
     return () => {
+      window.clearTimeout(refreshTimer);
+      window.removeEventListener("site-header-resize", refreshForHeader);
       ctx.revert();
       lenis.destroy();
     };
@@ -317,10 +381,25 @@ export function AboutPage() {
       <main className={styles.aboutPage}>
         <section className={`${styles.aboutMosaicSection} aboutMosaicSection`}>
           <div className={styles.aboutMosaicSticky}>
-            <p className={styles.aboutMosaicKicker}>
-              [A POINT OF REFERENCE. <span /> A BETTER PERSPECTIVE.]
+            <p className={`${styles.aboutMosaicKicker} aboutMosaicKicker`}>
+              <span aria-hidden="true">[</span>
+              <span className={styles.aboutKickerPhrase} aria-label={referenceText}>
+                {referenceText.split("").map((character, index) => (
+                  <span className="aboutKickerLeftChar" key={`${character}-${index}`}>
+                    {character === " " ? "\u00A0" : character}
+                  </span>
+                ))}
+              </span>
+              <span className={styles.aboutKickerDivider} aria-hidden="true" />
+              <span className={styles.aboutKickerPhrase} aria-label={perspectiveText}>
+                {perspectiveText.split("").map((character, index) => (
+                  <span className="aboutKickerRightChar" key={`${character}-${index}`}>
+                    {character === " " ? "\u00A0" : character}
+                  </span>
+                ))}
+              </span>
+              <span aria-hidden="true">]</span>
             </p>
-            <div className={styles.aboutCenterDot} aria-hidden="true" />
             <div className={styles.aboutMosaicStage} aria-label="Animated about image placeholders">
               {mosaicTiles.map((tile, index) => (
                 <div
@@ -399,7 +478,7 @@ export function AboutPage() {
             ))}
           </div>
         </section>
-
+        <div className={styles.aboutAccordionBottomSpace} aria-hidden="true" />
       </main>
       <Footer />
     </div>

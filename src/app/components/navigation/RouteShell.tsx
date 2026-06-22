@@ -85,5 +85,9 @@ export function RouteShell({ children }: RouteShellProps) {
     };
   }, []);
 
-  return <div key={pathname}>{children}</div>;
+  return (
+    <div id="top" key={pathname}>
+      {children}
+    </div>
+  );
 }

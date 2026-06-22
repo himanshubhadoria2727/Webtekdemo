@@ -193,7 +193,17 @@
 .aboutPage {
   --about-header-offset: clamp(6.2rem, 9vh, 7.6rem);
 
-  background: #c7bdb3;
+  display: flow-root;
+  background: #d2cbc4;
+}
+
+.aboutPage :global(.pin-spacer) {
+  margin-bottom: 0 !important;
+  background: #d2cbc4;
+}
+
+.aboutPage + .footerSection {
+  margin-top: 0;
 }
 
 .aboutMosaicSection {
@@ -211,13 +221,13 @@
 
 .aboutMosaicKicker {
   position: absolute;
-  top: calc(var(--about-header-offset, 0rem) + 18vh);
+  top: calc(50% + (var(--about-header-offset, 0rem) / 2));
   left: 50%;
   z-index: 3;
   display: inline-flex;
   align-items: center;
-  gap: 0.52rem;
-  transform: translateX(-50%);
+  gap: 0.48rem;
+  transform: translate(-50%, -50%);
   font-family: var(--font-body), sans-serif;
   font-size: clamp(0.72rem, 0.9vw, 1rem);
   letter-spacing: 0;
@@ -225,19 +235,20 @@
   color: #111;
 }
 
-.aboutMosaicKicker span,
-.aboutCenterDot {
+.aboutKickerPhrase {
+  display: inline-flex;
+}
+
+.aboutKickerPhrase > span {
+  display: inline-block;
+}
+
+.aboutKickerDivider {
+  display: inline-block;
+  flex: 0 0 auto;
   width: 0.55rem;
   height: 0.55rem;
   background: #0a0a0a;
-}
-
-.aboutCenterDot {
-  position: absolute;
-  top: calc(50vh + (var(--about-header-offset, 0rem) / 2));
-  left: 50%;
-  z-index: 2;
-  transform: translate(-50%, -50%);
 }
 
 .aboutMosaicStage {
@@ -446,18 +457,29 @@
   grid-template-columns: minmax(18rem, 50vw) minmax(0, 1fr);
   gap: 0;
   overflow: hidden;
-  height: calc(100svh - 5.9rem);
+  box-sizing: border-box;
+  height: 100svh;
   min-height: 34rem;
-  margin-bottom: clamp(1.5rem, 3vw, 3rem);
-  padding: clamp(0.9rem, 1.25vw, 1.35rem) clamp(1.15rem, 1.4vw, 1.7rem);
+  margin-bottom: 0;
+  padding:
+    calc(var(--site-header-height, 5.9rem) + clamp(0.9rem, 1.25vw, 1.35rem))
+    clamp(1.15rem, 1.4vw, 1.7rem)
+    clamp(1.5rem, 3vw, 2.5rem);
   background: #d2cbc4;
   color: #111111;
+  transition: padding-top 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aboutAccordionBottomSpace {
+  height: clamp(3rem, 6vh, 5rem);
+  background: #d2cbc4;
 }
 
 .aboutAccordionRail {
   display: grid;
   align-content: space-between;
-  min-height: calc(100svh - 8.6rem);
+  min-height: 0;
+  height: 100%;
   font-family: var(--font-body), sans-serif;
   font-size: clamp(0.78rem, 0.86vw, 0.98rem);
   letter-spacing: 0;
@@ -1712,8 +1734,10 @@
 
 .blogPageList {
   display: grid;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  padding-bottom: clamp(2rem, 3vw, 3rem);
   border-top: 1px solid rgba(5, 5, 5, 0.12);
+  background: #ffffff;
 }
 
 .blogPageArticle {
@@ -2338,11 +2362,11 @@
   box-sizing: border-box;
   height: 100svh;
   min-height: 38rem;
-  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: 0;
   padding:
     calc(var(--site-header-height, 5.9rem) + clamp(1rem, 1.6vw, 1.8rem))
     clamp(1rem, 3vw, 2.4rem)
-    clamp(1rem, 1.6vw, 1.8rem);
+    clamp(2.5rem, 4vw, 4rem);
   overflow: hidden;
   background: #d2cbc4;
   transition: padding-top 380ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -2501,23 +2525,72 @@
 
 .footerSection {
   position: relative;
-  overflow-x: hidden;
-  background: #000000;
+  overflow-x: clip;
+  overflow-y: visible;
+  background: #080808;
   color: #ffffff;
-  min-height: 100vh;
-  padding: clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 3vw, 3rem) clamp(2rem, 4vw, 3rem);
+  padding: 0 clamp(1.2rem, 4vw, 4.5rem) clamp(1.2rem, 2vw, 1.8rem);
   font-family: var(--font-body), sans-serif;
 }
 
 .footerTopLine {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.82);
+  display: none;
+}
+
+.footerCta {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+  margin: 0 calc(clamp(1.2rem, 4vw, 4.5rem) * -1);
+  min-height: clamp(14rem, 18vw, 18rem);
+  padding: clamp(2.8rem, 4.5vw, 4.5rem) clamp(1.2rem, 4vw, 4.5rem);
+  background: #d2cbc4;
+  color: #111111;
+  text-align: left;
+}
+
+.footerCta p {
+  margin: 0 0 0.8rem;
+  color: rgba(17, 17, 17, 0.58);
+  font-size: clamp(0.72rem, 0.82vw, 0.88rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footerCta h2 {
+  max-width: 22ch;
+  margin: 0;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.footerCtaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-width: clamp(14rem, 18vw, 18rem);
+  padding: 1rem 1.2rem;
+  border: 1px solid #111111;
+  background: #111111;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: clamp(0.82rem, 0.9vw, 0.95rem);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.footerCtaLink:hover {
+  background: transparent;
+  color: #111111;
+  transform: translateY(-2px);
 }
 
 .footerGrid {
-  max-width: 82rem;
-  margin-left: auto;
-  padding-top: clamp(2.4rem, 5vw, 4rem);
+  width: 100%;
+  padding-top: clamp(2.2rem, 3.5vw, 3.5rem);
 }
 
 .footerBrandBlock {
@@ -2525,16 +2598,18 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.2rem;
   align-items: end;
-  margin-top: clamp(4rem, 9vw, 7rem);
+  margin-top: clamp(2.5rem, 4vw, 4rem);
+  padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .footerBrand {
   display: block;
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(5.8rem, 15vw, 16rem);
-  line-height: 0.75;
-  letter-spacing: 0;
-  font-weight: 500;
+  font-size: clamp(4.8rem, 12.5vw, 12rem);
+  line-height: 0.72;
+  letter-spacing: -0.065em;
+  font-weight: 400;
   color: #ffffff;
   text-transform: none;
   max-width: 100%;
@@ -2549,17 +2624,17 @@
 
 .footerColumnGroup {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr) minmax(230px, 0.8fr);
-  gap: clamp(2.2rem, 4vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) minmax(15rem, 0.65fr);
+  gap: clamp(2rem, 3.5vw, 4rem);
   align-items: start;
 }
 
 .footerColumn h2,
 .footerImportant h2 {
-  display: inline-block;
-  margin: 0 0 1.35rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 2px solid #ffffff;
+  display: block;
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.1vw, 1.18rem);
   line-height: 1;
@@ -2579,7 +2654,7 @@
 }
 
 .footerColumn li + li {
-  margin-top: 0.58rem;
+  margin-top: 0.5rem;
 }
 
 .footerColumn a,
@@ -2592,8 +2667,8 @@
 .footerColumn a:hover,
 .footerContact a:hover,
 .footerImportant a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
+  color: #d9a53d;
+  text-decoration: none;
 }
 
 .footerColumn li,
@@ -2605,13 +2680,15 @@
 
 .footerContact dl {
   display: grid;
-  gap: 1.45rem;
+  gap: 1rem;
   margin: 0;
 }
 
 .footerContact dl > div {
   display: grid;
   gap: 0.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .footerContact dt {
@@ -2636,7 +2713,7 @@
 .footerSocials {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1.7rem;
+  margin-top: 1.2rem;
 }
 
 .footerSocials a {
@@ -2644,7 +2721,7 @@
   place-items: center;
   width: 2.8rem;
   aspect-ratio: 1;
-  border: 1px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   background: #ffffff;
   color: #000000;
@@ -2667,26 +2744,42 @@
 }
 
 .footerImportant {
-  max-width: min(76rem, 100%);
-  margin: clamp(2.2rem, 4vw, 3.4rem) auto 0;
-  text-align: center;
+  margin: clamp(2rem, 3.5vw, 3rem) 0 0;
+  text-align: left;
 }
 
 .footerImportant h2 {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
 }
 
-.footerImportant p {
-  margin: 0;
-  font-family: var(--font-body), sans-serif;
-  font-weight: 500;
+.footerImportantLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.footerImportantLinks a {
+  display: block;
+  padding: 0.48rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.72rem, 0.8vw, 0.86rem);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footerImportantLinks a:hover {
+  border-color: #d9a53d;
 }
 
 .footerBottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
   margin-top: clamp(1.2rem, 2.4vw, 2rem);
   border-top: 1px solid rgba(255, 255, 255, 0.34);
-  padding: 1rem;
-  text-align: center;
+  padding: 1.2rem 0 0;
 }
 
 .footerBottom p {
@@ -2694,7 +2787,13 @@
   color: #ffffff;
   font-family: var(--font-body), sans-serif;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+.footerBottom a {
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-decoration: none;
 }
 
 @keyframes solutionLineBoxMove {
@@ -3060,6 +3159,11 @@
     margin-left: 0;
   }
 
+  .footerCta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .footerBrandBlock {
     grid-template-columns: 1fr;
     margin-top: 3rem;
@@ -3074,7 +3178,11 @@
   }
 
   .footerColumnGroup {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footerContact {
+    grid-column: 1 / -1;
   }
 }
 
@@ -3204,8 +3312,21 @@
     grid-template-columns: 1fr;
   }
 
+  .footerColumnGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .footerContact {
+    grid-column: auto;
+  }
+
   .footerSocials a {
     width: 2.45rem;
+  }
+
+  .footerBottom {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

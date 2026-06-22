@@ -15,9 +15,15 @@ const socialIcons: Record<string, ReactNode> = {
   ),
   WhatsApp: (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M12 2.8a9 9 0 0 1 7.6 13.8l1.1 4-4.1-1.1A9 9 0 0 1 3 11.8a9 9 0 0 1 9-9Zm0 1.8a7.2 7.2 0 0 0-6 11.2l.3.4-.6 2.1 2.2-.6.4.2A7.2 7.2 0 1 0 12 4.6Zm-3.1 3.7c.2 0 .4 0 .5.4l.7 1.7c.1.2.1.4 0 .5l-.4.5c-.1.1-.2.3-.1.5.4.7.9 1.4 1.5 1.9.7.6 1.4 1 2.2 1.3.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.3.4.5 0 .5-.3 1.3-.7 1.6-.5.4-1.1.5-1.9.3-1.5-.3-3.1-1.1-4.4-2.4-1.4-1.3-2.5-3-2.9-4.5-.2-.7-.1-1.3.3-1.8.3-.4.8-.7 1.3-.7Z" />
+      <path d="M12.04 2a9.84 9.84 0 0 0-8.45 14.88L2.05 22l5.25-1.5A9.92 9.92 0 1 0 12.04 2Zm0 17.98a8.03 8.03 0 0 1-4.1-1.12l-.3-.18-3.12.89.9-3.04-.2-.31a8 8 0 1 1 6.82 3.76Zm4.4-6.01c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2a7.27 7.27 0 0 1-1.34-1.67c-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.43-.59 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28Z" />
     </svg>
   ),
+};
+
+const socialLinks: Record<string, string> = {
+  Facebook: "#contact-us",
+  Instagram: "#contact-us",
+  WhatsApp: "https://wa.me/971581263762",
 };
 
 function splitIntoColumns(items: string[], columnCount: number) {
@@ -91,7 +97,13 @@ export function Footer() {
 
             <div className={styles.footerSocials} aria-label="Social links">
               {footerSocials.map((item) => (
-                <a key={item} href="#contact-us" aria-label={item}>
+                <a
+                  key={item}
+                  href={socialLinks[item]}
+                  aria-label={item}
+                  target={item === "WhatsApp" ? "_blank" : undefined}
+                  rel={item === "WhatsApp" ? "noreferrer" : undefined}
+                >
                   {socialIcons[item]}
                 </a>
               ))}

@@ -9,15 +9,15 @@ export const menuItems = [
 export const partnerNames = ["Homey", "Blossom", "Leafe", "Orbitc", "Hitech", "Invert", "Homy"];
 
 export const aboutBullets = [
-  "Design a brand worth remembering",
-  "Story-driven web experiences that convert",
-  "Pitch decks for 9-figure raises, literally",
-  "Dedicated product designers",
-  "Output focused design sprints",
+  "Brand strategy and digital experiences",
+  "Website and ecommerce development",
+  "Search engine optimization",
+  "Performance marketing",
+  "Android and iOS app development",
 ];
 
 export const animatedAboutLine =
-  "From carefully curating awesome content to enhancing it online with our excellent SEO and PPC activities, we bring practical growth strategies that perform.";
+  "Webtek Digital is one of Dubai’s leading digital marketing and app development companies, helping ambitious brands launch, market, and scale across the UAE. We bring together brand strategy, web and ecommerce development, SEO, and performance marketing under one team, so every project we touch is built to convert, not just to look good. From a single landing page to a full Android app development build, our approach starts with your business goals and works backward into design, technology, and media spend that gets results. Over 1,500 clients, including government bodies, retail groups, and direct-to-consumer brands, have trusted Webtek Digital to build and grow their digital presence in Dubai and across the wider GCC.";
 
 export const leftServices = [
   "Website & Ecommerce Development",

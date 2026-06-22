@@ -36,14 +36,30 @@ export function RouteShell({ children }: RouteShellProps) {
   const pathname = usePathname();
 
   useLayoutEffect(() => {
+    resetDocumentScrollState();
+    scrollToRouteTop();
+  }, [pathname]);
+
+  useEffect(() => {
     const previousScrollRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
 
-    resetDocumentScrollState();
-    scrollToRouteTop();
-
     return () => {
       window.history.scrollRestoration = previousScrollRestoration;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash) return;
+
+    const animationFrame = window.requestAnimationFrame(scrollToRouteTop);
+    const shortReset = window.setTimeout(scrollToRouteTop, 50);
+    const finalReset = window.setTimeout(scrollToRouteTop, 180);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(shortReset);
+      window.clearTimeout(finalReset);
     };
   }, [pathname]);
 

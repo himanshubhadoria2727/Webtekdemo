@@ -33,7 +33,7 @@ export function BlogSection() {
             variants={clienteleCardMotion}
             whileHover={{ y: -10, boxShadow: "0 22px 46px rgba(16, 16, 16, 0.18)" }}
           >
-            <Link href={post.href} scroll={false}>
+            <Link href={post.href}>
               <div className={styles.blogImageWrap}>
                 <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 900px) 100vw, 31vw" />
               </div>

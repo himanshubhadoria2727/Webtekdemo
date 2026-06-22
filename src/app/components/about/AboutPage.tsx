@@ -432,7 +432,7 @@ export function AboutPage() {
         </section>
 
         <section className={styles.aboutNarrativeSection}>
-          <p className={styles.aboutNarrativeLabel}>[MEET REF]</p>
+          <p className={styles.aboutNarrativeLabel}>[MEET WEBTEK]</p>
           <div className={styles.aboutMissionVisionGrid}>
             <article className={styles.aboutMissionCard}>
               <h2>Our Mission</h2>

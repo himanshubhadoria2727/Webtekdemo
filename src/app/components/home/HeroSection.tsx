@@ -7,11 +7,11 @@ import styles from "../../page.module.css";
 
 const heroSlides = [
   {
-    // kicker: "Webtek Digital Agency",
+    kicker: "",
     title: ["Custom", "SEO", "Packages for", "Your Brand"],
   },
   {
-    // kicker: "Webtek Digital Agency",
+    kicker: "",
     title: ["360", "Digital Marketing", "Service"],
   },
 ];

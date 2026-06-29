@@ -10,7 +10,7 @@ import styles from "../../page.module.css";
 
 const menuLinks: Record<string, string> = {
   "About Us": "/about-us",
-  "Our Services": "/#our-services",
+  "Our Services": "/our-services",
   Solutions: "/solutions",
   "Portfolio Media": "/#portfolio-media",
   "Contact Us": "/#contact-us",
@@ -75,7 +75,7 @@ export function Header() {
         className={styles.brand}
       >
         <Link href="/" aria-label="Webtek Digital home">
-          <Image src="/logo.webp" alt="Webtek Digital" width={170} height={48} priority className={styles.brandLogo} />
+          <Image src="/logo.png" alt="Webtek Digital" width={220} height={126} priority className={styles.brandLogo} />
         </Link>
       </motion.div>
 
@@ -88,7 +88,6 @@ export function Header() {
             transition={{ duration: 0.45, delay: idx * 0.08 + 0.2 }}
           >
             <Link href={menuLinks[item]}>
-              {idx === 1 ? <span className={styles.navCounter}>[06]</span> : null}
               {item}
             </Link>
           </motion.div>

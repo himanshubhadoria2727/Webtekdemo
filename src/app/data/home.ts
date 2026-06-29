@@ -1,8 +1,8 @@
 export const menuItems = [
-  "About Us",
   "Our Services",
-  "Solutions",
   "Portfolio Media",
+  "About Us",
+  "Solutions",
   "Contact Us",
 ];
 

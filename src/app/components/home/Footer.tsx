@@ -59,7 +59,7 @@ export function Footer() {
                 <ul key={`services-${index}`}>
                   {column.map((item) => (
                     <li key={item}>
-                      <a href="#our-services">{item}</a>
+                      <a href="/our-services">{item}</a>
                     </li>
                   ))}
                 </ul>

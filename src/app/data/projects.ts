@@ -14,7 +14,7 @@ export const projectPages = {
       imageAlt: "Two Talabat restaurant app screens shown in phone mockups",
     },
     intro:
-      "The grocery delivery service is now one of the biggest industries of the eCommerce segment. With the surging popularity of InstaShop, one of the leading grocery delivery apps in Dubai, many similar business models are looking forward to creating a white-labeled clone app to facilitate their businesses. Are you also looking for an InstaShop clone app? Now kickstart your online grocery shop by using our InstaShop clone app powered by amazing features.",
+      "Food delivery is one of the most competitive on-demand markets in Dubai and across the UAE. A Talabat clone app gives restaurants, cloud kitchens, delivery operators, and marketplace founders a faster path to launch with customer ordering, restaurant management, delivery tracking, commission control, and admin operations built into one white-labeled platform. Webtek Digital customizes the experience around your food delivery model, service zones, payment flow, and growth plan so you can launch with a product that feels like your brand from day one.",
     scrollLabel: "Project Details",
     scrollItems: [
       {

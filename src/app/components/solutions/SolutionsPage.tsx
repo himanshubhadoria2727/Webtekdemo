@@ -6,13 +6,6 @@ import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
 
-const cardPlacements = [
-  { x: -42, y: 34, rotate: -2.5 },
-  { x: 48, y: 42, rotate: 2 },
-  { x: -34, y: -38, rotate: 1.5 },
-  { x: 38, y: -30, rotate: -1.5 },
-] as const;
-
 export function SolutionsPage() {
   return (
     <div className={styles.pageWrap}>
@@ -32,30 +25,25 @@ export function SolutionsPage() {
 
           <div className={styles.solutionsDirectoryGrid}>
             {solutionsPage.groups.map((group, groupIndex) => {
-              const placement = cardPlacements[groupIndex % cardPlacements.length];
               const featuredItem = "featuredItem" in group ? group.featuredItem : undefined;
 
               return (
                 <motion.section
                   key={group.title}
                   className={styles.solutionsDirectoryCard}
-                  initial={{
-                    opacity: 0,
-                    x: placement.x,
-                    y: placement.y,
-                    rotate: placement.rotate,
-                  }}
-                  whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{
-                    duration: 0.75,
-                    delay: groupIndex * 0.1,
+                    duration: 0.6,
+                    delay: groupIndex * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
                   <div className={styles.solutionsDirectoryCardTop}>
                     <span>{String(groupIndex + 1).padStart(2, "0")}</span>
                     <h2>{group.title}</h2>
+                    <p>{group.description}</p>
                   </div>
 
                   <ul>
@@ -67,8 +55,8 @@ export function SolutionsPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{
-                          duration: 0.45,
-                          delay: groupIndex * 0.12 + itemIndex * 0.055 + 0.2,
+                          duration: 0.4,
+                          delay: groupIndex * 0.08 + itemIndex * 0.04 + 0.18,
                           ease: [0.22, 1, 0.36, 1],
                         }}
                       >

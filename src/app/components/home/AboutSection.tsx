@@ -13,17 +13,37 @@ const reveal = {
 };
 
 export function AboutSection() {
-  const runningPartnerNames = [...partnerNames, ...partnerNames];
+  const runningPartnerNames = [...partnerNames, ...partnerNames, ...partnerNames, ...partnerNames];
+  const reversePartnerNames = [...partnerNames].reverse();
+  const reverseRunningPartnerNames = [
+    ...reversePartnerNames,
+    ...reversePartnerNames,
+    ...reversePartnerNames,
+    ...reversePartnerNames,
+  ];
 
   return (
     <section id="about-us" className={styles.aboutSection}>
       <div className={styles.partnerRow}>
-        <div className={styles.partnerRowTrack}>
-          {runningPartnerNames.map((name, index) => (
-            <span key={`${name}-${index}`} className={styles.partnerLogo}>
-              {name}
-            </span>
-          ))}
+        <div className={`${styles.partnerRowTrack} ${styles.partnerRowTrackDark}`}>
+          <div className={styles.partnerRowTicker}>
+            {runningPartnerNames.map((name, index) => (
+              <span key={`${name}-${index}`} className={styles.partnerLogo}>
+                {name}
+                <span aria-hidden="true">*</span>
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className={`${styles.partnerRowTrack} ${styles.partnerRowTrackAccent}`}>
+          <div className={styles.partnerRowTicker}>
+            {reverseRunningPartnerNames.map((name, index) => (
+              <span key={`${name}-reverse-${index}`} className={styles.partnerLogo}>
+                {name}
+                <span aria-hidden="true">*</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 

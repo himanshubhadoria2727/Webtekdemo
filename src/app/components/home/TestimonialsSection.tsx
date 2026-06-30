@@ -1,22 +1,34 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { testimonials } from "../../data/home";
 import styles from "../../page.module.css";
 import { clienteleContainer, clienteleFadeUp } from "./animations";
 
+const visibleTestimonialCount = 3;
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2);
+}
+
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeTestimonial = testimonials[activeIndex];
-  const visiblePreviews = [1, 2].map((offset) => testimonials[(activeIndex + offset) % testimonials.length]);
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleTestimonials = Array.from(
+    { length: visibleTestimonialCount },
+    (_, index) => testimonials[(startIndex + index) % testimonials.length],
+  );
 
   const showPreviousTestimonial = () => {
-    setActiveIndex((currentIndex) => (currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1));
+    setStartIndex((currentIndex) => (currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1));
   };
 
   const showNextTestimonial = () => {
-    setActiveIndex((currentIndex) => (currentIndex + 1) % testimonials.length);
+    setStartIndex((currentIndex) => (currentIndex + 1) % testimonials.length);
   };
 
   return (
@@ -28,86 +40,72 @@ export function TestimonialsSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.24 }}
     >
-      <div className={styles.testimonialsAccent} aria-hidden="true" />
       <div className={styles.testimonialsHeader}>
-        <motion.p className={styles.testimonialsLabel} variants={clienteleFadeUp}>
-          TESTIMONIALS
-        </motion.p>
-        <motion.h2 id="testimonials-heading" variants={clienteleFadeUp}>
-          Teams choose us when growth needs structure, speed, and clearer results
-        </motion.h2>
+        <div>
+          <motion.p className={styles.testimonialsLabel} variants={clienteleFadeUp}>
+            testimonials
+          </motion.p>
+          <motion.h2 id="testimonials-heading" variants={clienteleFadeUp}>
+            what our clients say
+          </motion.h2>
+          <motion.p className={styles.testimonialsIntro} variants={clienteleFadeUp}>
+            hear directly from our satisfied partners.
+          </motion.p>
+        </div>
+
+        <motion.div className={styles.testimonialSliderControls} variants={clienteleFadeUp}>
+          <button type="button" onClick={showPreviousTestimonial} aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m15 5-7 7 7 7" />
+            </svg>
+          </button>
+          <button type="button" onClick={showNextTestimonial} aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+        </motion.div>
       </div>
 
-      <div className={styles.testimonialsSlider}>
-        <div className={styles.testimonialSliderMain}>
-          <AnimatePresence mode="wait">
-            <motion.article
-              key={activeTestimonial.name}
-              className={`${styles.testimonialCard} ${styles.testimonialCardFeatured}`}
-              initial={{ opacity: 0, x: 42, scale: 0.98 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -42, scale: 0.98 }}
-              transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className={styles.testimonialCardTop}>
-                <span>{activeTestimonial.rating}</span>
-                <span>{activeTestimonial.result}</span>
-              </div>
-              <p className={styles.testimonialQuote}>{activeTestimonial.quote}</p>
-              <div className={styles.testimonialAuthor}>
-                <span>{activeTestimonial.name}</span>
-                <span>{activeTestimonial.role}</span>
-              </div>
-            </motion.article>
-          </AnimatePresence>
-
-          <div className={styles.testimonialSliderControls}>
-            <button type="button" onClick={showPreviousTestimonial} aria-label="Previous testimonial">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m15 5-7 7 7 7" />
-              </svg>
-            </button>
-            <div className={styles.testimonialSliderDots} aria-label="Choose testimonial">
-              {testimonials.map((testimonial, index) => (
-                <button
-                  key={testimonial.name}
-                  type="button"
-                  className={index === activeIndex ? styles.testimonialSliderDotActive : undefined}
-                  onClick={() => setActiveIndex(index)}
-                  aria-label={`Show testimonial ${index + 1}`}
-                  aria-current={index === activeIndex ? "true" : undefined}
-                />
-              ))}
+      <motion.div
+        key={startIndex}
+        className={styles.testimonialsSlider}
+        variants={clienteleFadeUp}
+        initial={{ opacity: 0, x: 34 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {visibleTestimonials.map((testimonial) => (
+          <article key={testimonial.name} className={styles.testimonialCard}>
+            <div className={styles.testimonialCardTop}>
+              <span aria-hidden="true">&quot;</span>
+              <span aria-label={`${testimonial.rating} star rating`}>*****</span>
             </div>
-            <button type="button" onClick={showNextTestimonial} aria-label="Next testimonial">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m9 5 7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
+            <p className={styles.testimonialQuote}>{testimonial.quote}</p>
+            <div className={styles.testimonialAuthor}>
+              <span className={styles.testimonialAvatar} aria-hidden="true">
+                {getInitials(testimonial.name)}
+              </span>
+              <span>
+                <strong>{testimonial.name}</strong>
+                <small>{testimonial.role}</small>
+              </span>
+            </div>
+          </article>
+        ))}
+      </motion.div>
 
-        <div className={styles.testimonialPreviewStack} aria-hidden="true">
-          {visiblePreviews.map((testimonial) => (
-            <motion.article
-              key={testimonial.name}
-              className={styles.testimonialCard}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className={styles.testimonialCardTop}>
-                <span>{testimonial.rating}</span>
-                <span>{testimonial.result}</span>
-              </div>
-              <p className={styles.testimonialQuote}>{testimonial.quote}</p>
-              <div className={styles.testimonialAuthor}>
-                <span>{testimonial.name}</span>
-                <span>{testimonial.role}</span>
-              </div>
-            </motion.article>
-          ))}
-        </div>
+      <div className={styles.testimonialSliderDots} aria-label="Choose testimonial">
+        {testimonials.map((testimonial, index) => (
+          <button
+            key={testimonial.name}
+            type="button"
+            className={index === startIndex ? styles.testimonialSliderDotActive : undefined}
+            onClick={() => setStartIndex(index)}
+            aria-label={`Show testimonial ${index + 1}`}
+            aria-current={index === startIndex ? "true" : undefined}
+          />
+        ))}
       </div>
     </motion.section>
   );

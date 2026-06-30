@@ -9,15 +9,16 @@ import { ClienteleSection } from "./ClienteleSection";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { HeroSection } from "./HeroSection";
-import { ServicesSection } from "./ServicesSection";
-import { SolutionsSection } from "./SolutionsSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 
 export function HomePage() {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
+      lerp: 0.18,
       smoothWheel: true,
+      syncTouch: true,
+      wheelMultiplier: 1.2,
     });
 
     return () => {
@@ -31,9 +32,8 @@ export function HomePage() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ServicesSection />
         <ClienteleSection />
-        <SolutionsSection />
+        {/* <SolutionsSection /> */}
         <TestimonialsSection />
         <BlogSection />
         <Footer />

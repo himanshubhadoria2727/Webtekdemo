@@ -17,12 +17,17 @@ export function BlogSection() {
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className={styles.blogHeader}>
-        <motion.p className={styles.blogLabel} variants={clienteleFadeUp}>
-          OUR BLOGS
-        </motion.p>
-        <motion.h2 id="blogs-heading" variants={clienteleFadeUp}>
-          Practical digital growth notes for Dubai businesses
-        </motion.h2>
+        <div>
+          <motion.p className={styles.blogLabel} variants={clienteleFadeUp}>
+            our blogs
+          </motion.p>
+          <motion.h2 id="blogs-heading" variants={clienteleFadeUp}>
+            practical digital growth notes for dubai businesses
+          </motion.h2>
+          <motion.p className={styles.blogIntro} variants={clienteleFadeUp}>
+            ideas, guides, and campaign lessons for teams building stronger digital channels.
+          </motion.p>
+        </div>
       </div>
 
       <div className={styles.blogGrid}>

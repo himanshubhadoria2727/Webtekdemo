@@ -1,16 +1,6 @@
-import { motion } from "framer-motion";
-import { aboutBullets, animatedAboutLine, partnerNames } from "../../data/home";
+import { partnerNames } from "../../data/home";
 import styles from "../../page.module.css";
-import { SeoServicesSection } from "./SeoServicesSection";
-
-const reveal = {
-  hidden: { opacity: 0, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
+import { ServicesSection } from "./ServicesSection";
 
 export function AboutSection() {
   const runningPartnerNames = [...partnerNames, ...partnerNames, ...partnerNames, ...partnerNames];
@@ -47,7 +37,9 @@ export function AboutSection() {
         </div>
       </div>
 
-      <div className={styles.aboutIntro}>
+      <ServicesSection />
+
+      {/* <div className={styles.aboutIntro}>
         <motion.p
           className={styles.aboutLabel}
           variants={reveal}
@@ -76,9 +68,9 @@ export function AboutSection() {
             whileHover={{ scale: 1.03 }}
           />
         </div>
-      </div>
+      </div> */}
 
-      <motion.div
+      {/* <motion.div
         className={styles.aboutDetails}
         initial="hidden"
         whileInView="visible"
@@ -110,9 +102,9 @@ export function AboutSection() {
             </motion.li>
           ))}
         </motion.ul>
-      </motion.div>
+      </motion.div> */}
 
-      <SeoServicesSection />
+      {/* <SeoServicesSection /> */}
     </section>
   );
 }

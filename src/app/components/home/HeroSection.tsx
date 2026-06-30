@@ -35,10 +35,17 @@ const infoLine = {
   },
 };
 
+const gridMotionVectors = [
+  { x: 118, y: 0 },
+  { x: -118, y: 0 },
+  { x: 0, y: 118 },
+  { x: 0, y: -118 },
+];
+
 export function HeroSection() {
   const [activeHero, setActiveHero] = useState(0);
   const [outgoingHero, setOutgoingHero] = useState<number | null>(null);
-  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [gridMotionVector, setGridMotionVector] = useState(gridMotionVectors[0]);
   const transitionTimer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -49,7 +56,7 @@ export function HeroSection() {
     };
   }, []);
 
-  const goToHero = (nextIndex: number, nextDirection: "next" | "prev") => {
+  const goToHero = (nextIndex: number) => {
     if (nextIndex === activeHero || outgoingHero !== null) {
       return;
     }
@@ -58,21 +65,21 @@ export function HeroSection() {
       window.clearTimeout(transitionTimer.current);
     }
 
-    setDirection(nextDirection);
+    setGridMotionVector(gridMotionVectors[Math.floor(Math.random() * gridMotionVectors.length)]);
     setOutgoingHero(activeHero);
     setActiveHero(nextIndex);
 
     transitionTimer.current = window.setTimeout(() => {
       setOutgoingHero(null);
-    }, 1200);
+    }, 1600);
   };
 
   const previousHero = () => {
-    goToHero((activeHero - 1 + heroSlides.length) % heroSlides.length, "prev");
+    goToHero((activeHero - 1 + heroSlides.length) % heroSlides.length);
   };
 
   const nextHero = () => {
-    goToHero((activeHero + 1) % heroSlides.length, "next");
+    goToHero((activeHero + 1) % heroSlides.length);
   };
 
   const currentHero = heroSlides[activeHero];
@@ -90,18 +97,33 @@ export function HeroSection() {
               return (
                 <span
                   key={`${outgoingSlide.title.join("-")}-${index}`}
-                  className={`${styles.heroGridCell} ${
-                    direction === "next" ? styles.heroGridCellNext : styles.heroGridCellPrev
-                  }`}
+                  className={styles.heroGridCell}
                   style={
                     {
                       "--grid-delay": `${(6 - row) * 0.035 + col * 0.012}s`,
-                      "--grid-duration": `${0.48 + (6 - row) * 0.075}s`,
-                      "--grid-bg-x": `${col * 25}%`,
-                      "--grid-bg-y": `${row * 16.6667}%`,
+                      "--grid-duration": `${0.72 + (6 - row) * 0.095}s`,
+                      "--grid-nudge-x": `${gridMotionVector.x === 0 ? 0 : Math.sign(gridMotionVector.x) * 8}%`,
+                      "--grid-nudge-y": `${gridMotionVector.y === 0 ? 0 : Math.sign(gridMotionVector.y) * 8}%`,
+                      "--grid-exit-x": `${gridMotionVector.x}%`,
+                      "--grid-exit-y": `${gridMotionVector.y}%`,
+                      "--grid-offset-x": `${col * -100}%`,
+                      "--grid-offset-y": `${row * -100}%`,
                     } as CSSProperties
                   }
-                />
+                >
+                  <span className={styles.heroGridCellScene}>
+                    <span className={styles.heroGridCellContent}>
+                      <span className={styles.heroGridCellText}>
+                        {outgoingSlide.kicker ? <span>{outgoingSlide.kicker}</span> : null}
+                        <strong>
+                          {outgoingSlide.title.map((line, titleIndex) =>
+                            titleIndex === 1 ? <em key={line}>{line}</em> : <span key={line}>{line}</span>,
+                          )}
+                        </strong>
+                      </span>
+                    </span>
+                  </span>
+                </span>
               );
             })}
           </div>

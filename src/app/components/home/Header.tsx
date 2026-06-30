@@ -18,8 +18,8 @@ const menuLinks: Record<string, string> = {
 
 export function Header() {
   const { scrollY } = useScroll();
-  const previousScrollY = useRef(0);
   const headerRef = useRef<HTMLElement | null>(null);
+  const isHiddenRef = useRef(false);
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
@@ -48,16 +48,12 @@ export function Header() {
   }, [isHidden]);
 
   useMotionValueEvent(scrollY, "change", (currentScrollY) => {
-    const previous = previousScrollY.current;
-    const delta = currentScrollY - previous;
+    const nextIsHidden = isHiddenRef.current ? currentScrollY > 24 : currentScrollY > 80;
 
-    if (currentScrollY <= 24) {
-      setIsHidden(false);
-    } else if (Math.abs(delta) >= 4) {
-      setIsHidden(delta > 0 && currentScrollY > 80);
+    if (nextIsHidden !== isHiddenRef.current) {
+      isHiddenRef.current = nextIsHidden;
+      setIsHidden(nextIsHidden);
     }
-
-    previousScrollY.current = currentScrollY;
   });
 
   return (

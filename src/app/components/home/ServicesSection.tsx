@@ -1,134 +1,112 @@
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { leftServices, rightServices, tileServiceMap } from "../../data/home";
+import { useState } from "react";
 import styles from "../../page.module.css";
 
-type TileId = 1 | 2 | 3 | 4 | 5 | 6;
-const serviceTileIds: TileId[] = [1, 2, 3, 4, 5, 6];
-const serviceTileClassNames: Record<TileId, keyof typeof styles> = {
-  1: "visualOne",
-  2: "visualTwo",
-  3: "visualThree",
-  4: "visualFour",
-  5: "visualFive",
-  6: "visualSix",
-};
-const serviceTileImages: Record<TileId, { src: string; alt: string }> = {
-  1: { src: "/about/about-16.jpg", alt: "UX sketches and color swatches on a desk" },
-  2: { src: "/about/about-10.jpg", alt: "Analytics dashboard open on a laptop" },
-  3: { src: "/about/about-08.jpg", alt: "Payment terminal close-up" },
-  4: { src: "/about/about-09.jpg", alt: "Team working together on laptops" },
-  5: { src: "/about/about-14.jpg", alt: "Business team reviewing charts and reports" },
-  6: { src: "/about/about-02.jpg", alt: "Business team reviewing analytics on a tablet" },
-};
-const serviceTileByName = Object.fromEntries(
-  Object.entries(tileServiceMap).map(([tile, service]) => [service, Number(tile) as TileId]),
-) as Record<string, TileId>;
+const services = [
+  {
+    label: "website design & build",
+    image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
+    alt: "Digital team working in a glass-walled office",
+  },
+  {
+    label: "mobile app design & build",
+    image: "/about/about-12.jpg",
+    alt: "Digital workspace with screens and devices",
+  },
+  {
+    label: "artificial intelligence - ai",
+    image: "/about/about-10.jpg",
+    alt: "Analytics dashboard open on a laptop",
+  },
+  {
+    label: "e-commerce website development",
+    image: "/talabat/customer-panel.png.webp",
+    alt: "Ecommerce customer panel interface",
+  },
+  {
+    label: "search engine optimization agency in dubai",
+    image: "/about/about-11.jpg",
+    alt: "Person working on a laptop in a bright office",
+  },
+  {
+    label: "strategic & digital consulting",
+    image: "/about/about-09.jpg",
+    alt: "Team collaborating in a modern office",
+  },
+  {
+    label: "video & film services",
+    image: "/about/about-04.jpg",
+    alt: "Creative team planning a campaign in a studio",
+  },
+];
 
 export function ServicesSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeTile, setActiveTile] = useState<TileId | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const activeService = services[activeIndex];
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+  const setActiveService = (index: number) => {
+    if (index === activeIndex) {
+      return;
+    }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setIsVisible(true);
-        observer.disconnect();
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  const renderService = (item: string) => {
-    const tile = serviceTileByName[item];
-    const isActive = activeTile === tile;
-
-    return (
-      <h3
-        key={item}
-        className={isActive ? styles.serviceNameActive : undefined}
-        onMouseEnter={() => setActiveTile(tile)}
-        onMouseLeave={() => setActiveTile(null)}
-      >
-        {item}
-      </h3>
-    );
+    setDirection(index > activeIndex ? 1 : -1);
+    setActiveIndex(index);
   };
 
   return (
-    <section ref={sectionRef} id="our-services" className={styles.servicesSection}>
+    <section id="our-services" className={styles.servicesSection}>
       <div className={styles.servicesTop}>
-        <p className={styles.servicesTag}>WORK</p>
-        <h2>Instead of adapting to change, we shape it.</h2>
-        <button type="button">SEE OUR WORK</button>
+        <p className={styles.servicesTag}>our services</p>
+        <h2>helping brands by building elegant &amp; refined digital experiences</h2>
       </div>
 
       <div className={styles.servicesStage}>
-        <div className={styles.servicesSide}>{leftServices.map(renderService)}</div>
-
-        <div
-          className={[
-            styles.servicesVisualGrid,
-            isVisible ? styles.servicesVisualGridVisible : "",
-            activeTile ? styles.servicesVisualGridActive : "",
-          ].join(" ")}
-          aria-hidden="true"
-          onMouseLeave={() => setActiveTile(null)}
-        >
-          <div className={styles.visualRow}>
-            {serviceTileIds.slice(0, 3).map((tile) => (
-              <div
-                key={tile}
-                className={[
-                  styles.visualTile,
-                  styles[serviceTileClassNames[tile]],
-                  activeTile === tile ? styles.visualTileActive : "",
-                ].join(" ")}
-                onMouseEnter={() => setActiveTile(tile)}
-              >
-                <Image
-                  src={serviceTileImages[tile].src}
-                  alt={serviceTileImages[tile].alt}
-                  fill
-                  sizes="(max-width: 960px) 33vw, 16vw"
-                  className={styles.visualTileImage}
-                />
-              </div>
-            ))}
-          </div>
-          <div className={styles.visualRow}>
-            {serviceTileIds.slice(3).map((tile) => (
-              <div
-                key={tile}
-                className={[
-                  styles.visualTile,
-                  styles[serviceTileClassNames[tile]],
-                  activeTile === tile ? styles.visualTileActive : "",
-                ].join(" ")}
-                onMouseEnter={() => setActiveTile(tile)}
-              >
-                <Image
-                  src={serviceTileImages[tile].src}
-                  alt={serviceTileImages[tile].alt}
-                  fill
-                  sizes="(max-width: 960px) 33vw, 16vw"
-                  className={styles.visualTileImage}
-                />
-              </div>
-            ))}
-          </div>
+        <div className={styles.servicesImageFrame} aria-hidden="true">
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            <motion.div
+              key={activeService.image}
+              className={styles.servicesImageSlide}
+              custom={direction}
+              initial={(swipeDirection: number) => ({
+                y: swipeDirection > 0 ? "100%" : "-100%",
+              })}
+              animate={{ y: "0%" }}
+              exit={(swipeDirection: number) => ({
+                y: swipeDirection > 0 ? "-100%" : "100%",
+              })}
+              transition={{ duration: 0.72, ease: [0.77, 0, 0.175, 1] }}
+            >
+              <Image
+                src={activeService.image}
+                alt={activeService.alt}
+                fill
+                sizes="(max-width: 900px) 100vw, 34vw"
+                className={styles.servicesImage}
+                priority={activeIndex === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        <div className={`${styles.servicesSide} ${styles.servicesSideRight}`}>
-          {rightServices.map(renderService)}
+        <div className={styles.servicesList}>
+          {services.map((service, index) => {
+            const isActive = activeIndex === index;
+
+            return (
+              <button
+                key={service.label}
+                type="button"
+                className={[styles.servicesListItem, isActive ? styles.serviceNameActive : ""].join(" ")}
+                onFocus={() => setActiveService(index)}
+                onMouseEnter={() => setActiveService(index)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{service.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>

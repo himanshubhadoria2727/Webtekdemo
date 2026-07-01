@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { footerImportantLinks, footerServices, footerSocials, footerSolutions } from "../../data/home";
+import { footerServices, footerSocials, footerSolutions } from "../../data/home";
 import styles from "../../page.module.css";
 
 const socialIcons: Record<string, ReactNode> = {
@@ -39,7 +39,7 @@ export function Footer() {
   return (
     <footer id="contact-us" className={styles.footerSection}>
       <div className={styles.footerTopLine} aria-hidden="true" />
-
+{/* 
       <div className={styles.footerCta}>
         <div>
           <p>Have a project in mind?</p>
@@ -48,7 +48,7 @@ export function Footer() {
         <a href="mailto:Info@bhatia.co" className={styles.footerCtaLink}>
           Start a conversation <span aria-hidden="true">→</span>
         </a>
-      </div>
+      </div> */}
 
       <div className={styles.footerGrid}>
         <div className={styles.footerColumnGroup}>
@@ -121,22 +121,6 @@ export function Footer() {
           </section>
         </div>
       </div>
-
-      <div className={styles.footerBrandBlock}>
-        <span className={styles.footerBrand}>WEBTEK</span>
-        <span className={styles.footerLanguage}>DUBAI, UAE</span>
-      </div>
-
-      <section className={styles.footerImportant}>
-        <h2>Important Links</h2>
-        <div className={styles.footerImportantLinks}>
-          {footerImportantLinks.map((item) => (
-            <span key={item}>
-              <a href="#contact-us">{item}</a>
-            </span>
-          ))}
-        </div>
-      </section>
 
       <div className={styles.footerBottom}>
         <p>© 2026 Webtek Digital. All rights reserved.</p>

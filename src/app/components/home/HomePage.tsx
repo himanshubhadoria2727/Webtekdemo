@@ -10,6 +10,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { HeroSection } from "./HeroSection";
 import { TestimonialsSection } from "./TestimonialsSection";
+import { VideoCtaSection } from "../shared/VideoCtaSection";
 
 export function HomePage() {
   useEffect(() => {
@@ -32,10 +33,11 @@ export function HomePage() {
       <main>
         <HeroSection />
         <AboutSection />
+        <TestimonialsSection />
         <ClienteleSection />
         {/* <SolutionsSection /> */}
-        <TestimonialsSection />
         <BlogSection />
+        <VideoCtaSection />
         <Footer />
       </main>
     </div>

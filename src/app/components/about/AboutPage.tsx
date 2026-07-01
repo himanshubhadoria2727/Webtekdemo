@@ -1,484 +1,378 @@
 "use client";
 
-import type { CSSProperties } from "react";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
+import { VideoCtaSection } from "../shared/VideoCtaSection";
 
-const aboutImages = [
-  { src: "/about/about-01.jpg", alt: "Team meeting behind glass in an office" },
-  { src: "/about/about-02.jpg", alt: "Business team reviewing analytics on a tablet" },
-  { src: "/about/about-03.jpg", alt: "Office building lit at night" },
-  { src: "/about/about-04.jpg", alt: "Business colleagues celebrating with a high five" },
-  { src: "/about/about-05.jpg", alt: "Team discussion in a bright meeting room" },
-  { src: "/about/about-06.jpg", alt: "Business team planning at a conference table" },
-  { src: "/about/about-07.jpg", alt: "Retail payment at a point of sale counter" },
-  { src: "/about/about-08.jpg", alt: "Close-up of a point of sale terminal" },
-  { src: "/about/about-09.jpg", alt: "Team working together on laptops" },
-  { src: "/about/about-10.jpg", alt: "Analytics dashboard open on a laptop" },
-  { src: "/about/about-11.jpg", alt: "Top-down laptop workspace with coffee" },
-  { src: "/about/about-12.jpg", alt: "People silhouetted in front of city windows" },
-  { src: "/about/about-13.jpg", alt: "Skyscrapers viewed from below" },
-  { src: "/about/about-14.jpg", alt: "Business team reviewing charts and reports" },
-  { src: "/about/about-15.jpg", alt: "Businessperson walking through a warm architectural interior" },
-  { src: "/about/about-16.jpg", alt: "UX planning sketches and color swatches on a desk" },
+const galleryImages = [
+  { src: "/about/about-04.jpg", alt: "Webtek Digital team collaborating in a bright workspace" },
+  { src: "/about/about-09.jpg", alt: "Digital marketing team working together on laptops" },
+  { src: "/about/about-13.jpg", alt: "Dubai skyscrapers representing Webtek Digital's UAE presence" },
+  { src: "/about/about-15.jpg", alt: "Warm architectural interior for creative business thinking" },
+  { src: "/about/about-16.jpg", alt: "UX planning sketches and brand design materials" },
 ] as const;
 
-const primaryTiles = [
-  { x: "23vw", y: "18vh", w: "27vw", h: "28vh" },
-  { x: "50vw", y: "18vh", w: "27vw", h: "28vh" },
-  { x: "23vw", y: "46vh", w: "27vw", h: "30vh" },
-  { x: "50vw", y: "46vh", w: "27vw", h: "30vh" },
-] as const;
-
-const mosaicTiles = [
+const impactStats = [
   {
-    id: "01",
-    final: primaryTiles[0],
-    tone: "dark",
+    value: "10+",
+    countTo: 10,
+    suffix: "+",
+    label: "years of digital excellence",
+    detail: "Helping businesses grow across Dubai, the UAE and beyond.",
   },
   {
-    id: "02",
-    final: primaryTiles[1],
-    tone: "accent",
+    value: "2,000+",
+    countTo: 2000,
+    suffix: "+",
+    label: "projects delivered",
+    detail: "From websites and branding to performance marketing campaigns.",
   },
   {
-    id: "03",
-    final: primaryTiles[2],
-    tone: "warm",
+    value: "500+",
+    countTo: 500,
+    suffix: "+",
+    label: "businesses empowered",
+    detail: "Building long-term partnerships across multiple industries.",
   },
   {
-    id: "04",
-    final: primaryTiles[3],
-    tone: "mid",
+    value: "20+",
+    countTo: 20,
+    suffix: "+",
+    label: "industries served",
+    detail: "Delivering tailored digital solutions for diverse business sectors.",
   },
   {
-    id: "05",
-    final: { x: "-4vw", y: "-10vh", w: "27vw", h: "28vh" },
-    tone: "light",
+    value: "10M+",
+    countTo: 10,
+    suffix: "M+",
+    label: "qualified leads generated",
+    detail: "Creating customer journeys that convert visitors into customers.",
   },
   {
-    id: "06",
-    final: { x: "23vw", y: "-10vh", w: "27vw", h: "28vh" },
-    tone: "dark",
-  },
-  {
-    id: "07",
-    final: { x: "50vw", y: "-10vh", w: "27vw", h: "28vh" },
-    tone: "accent",
-  },
-  {
-    id: "08",
-    final: { x: "77vw", y: "-10vh", w: "27vw", h: "28vh" },
-    tone: "light",
-  },
-  {
-    id: "09",
-    final: { x: "-4vw", y: "18vh", w: "27vw", h: "28vh" },
-    tone: "mid",
-  },
-  {
-    id: "10",
-    final: { x: "77vw", y: "18vh", w: "27vw", h: "28vh" },
-    tone: "warm",
-  },
-  {
-    id: "11",
-    final: { x: "-4vw", y: "46vh", w: "27vw", h: "30vh" },
-    tone: "dark",
-  },
-  {
-    id: "12",
-    final: { x: "77vw", y: "46vh", w: "27vw", h: "30vh" },
-    tone: "warm",
-  },
-  {
-    id: "13",
-    final: { x: "-4vw", y: "76vh", w: "27vw", h: "26vh" },
-    tone: "light",
-  },
-  {
-    id: "14",
-    final: { x: "23vw", y: "76vh", w: "27vw", h: "26vh" },
-    tone: "accent",
-  },
-  {
-    id: "15",
-    final: { x: "50vw", y: "76vh", w: "27vw", h: "26vh" },
-    tone: "mid",
-  },
-  {
-    id: "16",
-    final: { x: "77vw", y: "76vh", w: "27vw", h: "26vh" },
-    tone: "dark",
+    value: "AED 50M+",
+    countTo: 50,
+    prefix: "AED ",
+    suffix: "M+",
+    label: "advertising budget managed",
+    detail: "Driving measurable growth through Google Ads, Meta Ads and performance marketing.",
   },
 ] as const;
 
-const tileToneClasses = {
-  accent: styles.aboutTileAccent,
-  dark: styles.aboutTileDark,
-  light: styles.aboutTileLight,
-  mid: styles.aboutTileMid,
-  warm: styles.aboutTileWarm,
-};
-
-const accordionPrinciples = [
+const approachSteps = [
   {
-    title: "What We Do",
-    subtext: "Helping every business to reach its goals faster!",
+    title: "Discover",
+    text: "Understanding your business, customers, competitors and market opportunities.",
   },
   {
-    title: "Creative Approach",
-    subtext: "We aim to become the most trusted and creative digital marketing company in Dubai and surrounding countries.",
+    title: "Strategise",
+    text: "Developing data-driven digital marketing strategies aligned with your business objectives.",
   },
   {
-    title: "Guaranteed Success",
-    subtext:
-      "We do not just provide services to make money. We provide services to bring a change to our client's website, branding strategies, and business growth.",
+    title: "Create",
+    text: "Designing websites, branding, content and digital experiences that inspire confidence.",
   },
   {
-    title: "A Foundation of Trust & Integrity",
-    subtext:
-      "We constantly motivate our team members to take responsibility for their duties. We believe in quality as much as quantity. Our client's trust and consistent collaboration are our backbones.",
+    title: "Accelerate",
+    text: "Generating qualified traffic through SEO, Google Ads, Meta Ads, social media marketing and content marketing.",
   },
   {
-    title: "Fast Working Process",
-    subtext:
-      "We understand that as a brand owner, you already have a lot on your plates. Therefore, we work as a digital extension to help you develop a relevant marketing plan that brings growth and success.",
+    title: "Optimise",
+    text: "Using analytics, customer insights and continuous testing to improve every campaign and customer interaction.",
   },
   {
-    title: "Passionate Team Members",
-    subtext:
-      "Our team members do what they are best at. With the dedicated efforts and proactive attitude of our consultants, you can kickstart your online campaigns and maximize your revenues.",
-  },
-  {
-    title: "24/7 Customer Support",
-    subtext:
-      "The world is evolving at a fast pace and so are we! With advanced tools like AI chatbots, we are always able to answer all your queries even during the off hours.",
+    title: "Scale",
+    text: "Expanding your digital ecosystem through automation, CRM integration, conversion optimisation and long-term growth strategies.",
   },
 ] as const;
 
-export function AboutPage() {
-  const pageRef = useRef<HTMLDivElement | null>(null);
-  const referenceText = "A POINT OF REFERENCE.";
-  const perspectiveText = "A BETTER PERSPECTIVE.";
+const services = [
+  "Website Design & Development",
+  "Search Engine Optimisation",
+  "Google Ads Management",
+  "Meta Advertising",
+  "Social Media Marketing",
+  "Branding & Creative Design",
+  "Content Creation",
+  "Video Shooting & Production",
+  "Performance Marketing",
+  "Marketing Automation & CRM Integration",
+  "Email Marketing",
+  "Analytics & Conversion Optimisation",
+] as const;
+
+const reasons = [
+  "Over a decade of industry experience",
+  "Customer journey-focused marketing strategies",
+  "Data-driven decision making",
+  "Transparent reporting and measurable KPIs",
+  "Certified expertise across leading digital platforms",
+  "Dedicated account management",
+  "Creative thinking backed by performance insights",
+  "End-to-end digital marketing solutions",
+] as const;
+
+const industries = [
+  "Healthcare",
+  "Real Estate",
+  "Education",
+  "Retail & E-commerce",
+  "Hospitality & Restaurants",
+  "Automotive",
+  "Construction",
+  "Professional Services",
+  "Beauty & Wellness",
+  "Technology",
+  "Corporate & B2B",
+  "Startups & SMEs",
+] as const;
+
+function CountUpNumber({
+  value,
+  countTo,
+  prefix = "",
+  suffix = "",
+}: {
+  value: string;
+  countTo: number;
+  prefix?: string;
+  suffix?: string;
+}) {
+  const numberRef = useRef<HTMLElement | null>(null);
+  const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const element = numberRef.current;
 
-    const lenis = new Lenis({
-      autoRaf: true,
-      smoothWheel: true,
-    });
+    if (!element) {
+      return;
+    }
 
-    lenis.on("scroll", ScrollTrigger.update);
+    let frameId = 0;
+    let hasAnimated = false;
+    const duration = 950;
 
-    const ctx = gsap.context(() => {
-      const tileElements = gsap.utils.toArray<HTMLElement>(".aboutTile");
-      const kicker = document.querySelector<HTMLElement>(".aboutMosaicKicker");
-      const leftKickerCharacters = gsap.utils.toArray<HTMLElement>(".aboutKickerLeftChar");
-      const rightKickerCharacters = gsap.utils.toArray<HTMLElement>(".aboutKickerRightChar");
-
-      gsap.set(tileElements, {
-        left: "50%",
-        top: "50%",
-        width: "0.55rem",
-        height: "0.55rem",
-        opacity: 0,
-        xPercent: -50,
-        yPercent: -50,
-        scale: 0.2,
-      });
-
-      gsap.set([...leftKickerCharacters, ...rightKickerCharacters], {
-        opacity: 0,
-        y: 8,
-        filter: "blur(3px)",
-      });
-
-      gsap
-        .timeline({ defaults: { ease: "power2.out" } })
-        .to(
-          leftKickerCharacters,
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 0.3,
-            stagger: { each: 0.035, from: "end" },
-          },
-          0,
-        )
-        .to(
-          rightKickerCharacters,
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 0.3,
-            stagger: { each: 0.035, from: "start" },
-          },
-          0,
-        );
-
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".aboutMosaicSection",
-          start: "top top",
-          end: "+=180%",
-          scrub: 0.7,
-          pin: true,
-        },
-      });
-
-      timeline.to(
-        kicker,
-        {
-          autoAlpha: 0,
-          y: -10,
-          duration: 0.18,
-          ease: "power1.out",
-        },
-        0,
-      );
-
-      timeline.to(
-        tileElements,
-        {
-          left: "var(--tile-final-x)",
-          top: "var(--tile-final-y)",
-          width: "var(--tile-final-w)",
-          height: "var(--tile-final-h)",
-          opacity: 1,
-          xPercent: 0,
-          yPercent: 0,
-          scale: 1,
-          duration: 1.9,
-          ease: "power2.out",
-          stagger: {
-            each: 0.055,
-            from: "start",
-          },
-        },
-      );
-
-      const accordionItems = gsap.utils.toArray<HTMLElement>(".aboutScrollAccordionItem");
-      const accordionContents = gsap.utils.toArray<HTMLElement>(".aboutScrollAccordionContent");
-      const accordionRailLabels = gsap.utils.toArray<HTMLElement>(".aboutAccordionRailText");
-      const getPanelHeight = (panel: HTMLElement) => {
-        const inner = panel.firstElementChild;
-
-        return inner instanceof HTMLElement ? inner.scrollHeight : panel.scrollHeight;
-      };
-
-      gsap.set(accordionContents, {
-        height: 0,
-        autoAlpha: 0,
-      });
-
-      if (accordionContents[0]) {
-        gsap.set(accordionContents[0], {
-          height: getPanelHeight(accordionContents[0]),
-          autoAlpha: 1,
-        });
+    const runAnimation = () => {
+      if (hasAnimated) {
+        return;
       }
 
-      const accordionTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".aboutScrollAccordion",
-          start: "top top",
-          end: () => `+=${window.innerHeight * (accordionItems.length - 1) * 0.48}`,
-          scrub: true,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onRefresh: (self) => {
-            const spacer = self.pin?.parentElement;
+      hasAnimated = true;
 
-            if (spacer?.classList.contains("pin-spacer")) {
-              spacer.style.marginBottom = "0";
-              spacer.style.backgroundColor = "#d2cbc4";
-            }
-          },
-          onUpdate: (self) => {
-            const activeIndex = Math.min(
-              accordionPrinciples.length - 1,
-              Math.max(0, Math.round(self.progress * (accordionPrinciples.length - 1))),
-            );
-            const activeTitle = accordionPrinciples[activeIndex].title.toUpperCase();
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setDisplayValue(countTo);
+        return;
+      }
 
-            accordionRailLabels.forEach((label) => {
-              label.textContent = activeTitle;
-            });
-          },
-        },
-      });
+      const startTime = performance.now();
 
-      accordionContents.slice(0, -1).forEach((content, index) => {
-        const nextContent = accordionContents[index + 1];
+      const tick = (currentTime: number) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-        accordionTimeline
-          .fromTo(
-            content,
-            {
-              height: () => getPanelHeight(content),
-              autoAlpha: 1,
-            },
-            {
-              height: 0,
-              autoAlpha: 0,
-              duration: 0.72,
-              ease: "none",
-              immediateRender: false,
-            },
-          )
-          .fromTo(
-            nextContent,
-            {
-              height: 0,
-              autoAlpha: 0,
-            },
-            {
-              height: () => getPanelHeight(nextContent),
-              autoAlpha: 1,
-              duration: 0.72,
-              ease: "none",
-              immediateRender: false,
-            },
-            "<",
-          )
-          .to({}, { duration: 0.18 });
-      });
+        setDisplayValue(Math.round(countTo * easedProgress));
 
-      ScrollTrigger.refresh();
-    }, pageRef);
+        if (progress < 1) {
+          frameId = requestAnimationFrame(tick);
+        }
+      };
 
-    let refreshTimer: number | undefined;
-    const refreshForHeader = () => {
-      window.clearTimeout(refreshTimer);
-      refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 420);
+      frameId = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("site-header-resize", refreshForHeader);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          runAnimation();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(element);
 
     return () => {
-      window.clearTimeout(refreshTimer);
-      window.removeEventListener("site-header-resize", refreshForHeader);
-      ctx.revert();
-      lenis.destroy();
+      observer.disconnect();
+      cancelAnimationFrame(frameId);
     };
-  }, []);
+  }, [countTo]);
 
   return (
-    <div className={styles.pageWrap} ref={pageRef}>
+    <strong ref={numberRef} aria-label={value}>
+      {prefix}
+      {displayValue.toLocaleString("en-US")}
+      {suffix}
+    </strong>
+  );
+}
+
+export function AboutPage() {
+  return (
+    <div className={styles.pageWrap}>
       <Header />
-      <main className={styles.aboutPage}>
-        <section className={`${styles.aboutMosaicSection} aboutMosaicSection`}>
-          <div className={styles.aboutMosaicSticky}>
-            <p className={`${styles.aboutMosaicKicker} aboutMosaicKicker`}>
-              <span aria-hidden="true">[</span>
-              <span className={styles.aboutKickerPhrase} aria-label={referenceText}>
-                {referenceText.split("").map((character, index) => (
-                  <span className="aboutKickerLeftChar" key={`${character}-${index}`}>
-                    {character === " " ? "\u00A0" : character}
-                  </span>
-                ))}
-              </span>
-              <span className={styles.aboutKickerDivider} aria-hidden="true" />
-              <span className={styles.aboutKickerPhrase} aria-label={perspectiveText}>
-                {perspectiveText.split("").map((character, index) => (
-                  <span className="aboutKickerRightChar" key={`${character}-${index}`}>
-                    {character === " " ? "\u00A0" : character}
-                  </span>
-                ))}
-              </span>
-              <span aria-hidden="true">]</span>
+      <main className={styles.aboutUsPage}>
+        <section className={styles.aboutUsHero}>
+          <div>
+            {/* <p className={styles.aboutUsEyebrow}>about webtek digital</p> */}
+            <h1>building customer journeys that create lasting business growth</h1>
+          </div>
+          <div className={styles.aboutUsHeroCopy}>
+            <p>
+              Digital success is not about one campaign, one website or one advertisement. It is about
+              creating a connected customer journey that attracts the right audience, builds trust, generates
+              qualified leads and turns them into loyal customers.
             </p>
-            <div className={styles.aboutMosaicStage} aria-label="Animated about image placeholders">
-              {mosaicTiles.map((tile, index) => (
-                <div
-                  key={tile.id}
-                  className={`${styles.aboutTile} aboutTile ${
-                    Number(tile.id) <= 4 ? "aboutTilePrimary" : "aboutTileSecondary"
-                  } ${tileToneClasses[tile.tone]}`}
-                  style={
-                    {
-                      "--tile-final-x": tile.final.x,
-                      "--tile-final-y": tile.final.y,
-                      "--tile-final-w": tile.final.w,
-                      "--tile-final-h": tile.final.h,
-                      zIndex: Number(tile.id),
-                    } as CSSProperties
-                  }
-                >
-                  <Image
-                    src={aboutImages[index].src}
-                    alt={aboutImages[index].alt}
-                    fill
-                    sizes="(max-width: 900px) 60vw, 27vw"
-                    className={styles.aboutTileImage}
-                  />
-                  <span>Image {tile.id}</span>
-                </div>
-              ))}
-            </div>
+            <p>
+              At Webtek Digital, we have spent more than a decade helping businesses across Dubai and the UAE
+              grow through strategy-led digital marketing, innovative technology and measurable performance.
+            </p>
+            <Link href="/#contact-us" className={styles.aboutUsTextLink}>
+              <span aria-hidden="true">-&gt;</span> Let&apos;s build your growth strategy
+            </Link>
           </div>
         </section>
 
-        <section className={styles.aboutNarrativeSection}>
-          <p className={styles.aboutNarrativeLabel}>[MEET WEBTEK]</p>
-          <div className={styles.aboutMissionVisionGrid}>
-            <article className={styles.aboutMissionCard}>
-              <h2>Our Mission</h2>
-              <p>
-                We sincerely provide an all-inclusive range of services to revamp your brand’s success story.
-                While always keeping our client’s needs at the front, we make the latest digital branding
-                solutions accessible, efficient, and affordable for every industry.
-              </p>
-            </article>
-
-            <article className={styles.aboutVisionCard}>
-              <h2>Our Vision</h2>
-              <p>
-                We aim to become the most valuable{" "}
-                <span>digital marketing agency in Dubai</span> that supports every small, medium-sized, and
-                well-established organization by creating excellent branding solutions for them to succeed.
-                We work closely with our clients to help them meet their business targets.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section className={`${styles.aboutScrollAccordion} aboutScrollAccordion`}>
-          <div className={styles.aboutAccordionRail} aria-hidden="true">
-            {[0, 1, 2].map((item) => (
-              <div key={item} className={styles.aboutAccordionRailItem}>
-                <span className={styles.aboutAccordionRailDot} />
-                <span className="aboutAccordionRailText">{accordionPrinciples[0].title.toUpperCase()}</span>
+        <section className={styles.aboutUsGallery} aria-label="Webtek Digital team and work moments">
+          <div className={styles.aboutUsGalleryTrack}>
+            {[0, 1].map((setIndex) => (
+              <div
+                key={setIndex}
+                className={styles.aboutUsGalleryGroup}
+                aria-hidden={setIndex === 1 ? "true" : undefined}
+              >
+                {galleryImages.map((image) => (
+                  <figure key={`${setIndex}-${image.src}`} className={styles.aboutUsGalleryItem}>
+                    <Image
+                      src={image.src}
+                      alt={setIndex === 0 ? image.alt : ""}
+                      fill
+                      sizes="(max-width: 760px) 82vw, 38vw"
+                    />
+                  </figure>
+                ))}
               </div>
             ))}
           </div>
+        </section>
 
-          <div className={styles.aboutAccordionList}>
-            {accordionPrinciples.map((item) => (
-              <article key={item.title} className={`${styles.aboutAccordionItem} aboutScrollAccordionItem`}>
-                <h2>{item.title}</h2>
-                <div className={`${styles.aboutAccordionContent} aboutScrollAccordionContent`}>
-                  <div className={styles.aboutAccordionContentInner}>
-                    <p>{item.subtext}</p>
-                  </div>
-                </div>
+        <section className={styles.aboutUsImpact}>
+          <div className={styles.aboutUsImpactIntro}>
+            <p>our impact</p>
+            <h2>A decade of growth. Thousands of success stories.</h2>
+          </div>
+          <p className={styles.aboutUsImpactText}>
+            Over the years, we have partnered with businesses of every size, from ambitious startups to
+            established enterprises, helping them strengthen their digital presence and accelerate business
+            growth through integrated marketing solutions.
+          </p>
+          <div className={styles.aboutUsStatsGrid}>
+            {impactStats.map((stat) => (
+              <article key={stat.label} className={styles.aboutUsStat}>
+                <p>{stat.label}</p>
+                <CountUpNumber
+                  value={stat.value}
+                  countTo={stat.countTo}
+                  prefix={"prefix" in stat ? stat.prefix : undefined}
+                  suffix={stat.suffix}
+                />
+                <span>{stat.detail}</span>
               </article>
             ))}
           </div>
         </section>
-        <div className={styles.aboutAccordionBottomSpace} aria-hidden="true" />
+
+        <section className={styles.aboutUsSplit}>
+          <h2>who we are</h2>
+          <div className={styles.aboutUsBodyCopy}>
+            <p>
+              More than a digital marketing agency, Webtek Digital is your growth partner. Every business has
+              a unique story, and every customer follows a different journey.
+            </p>
+            <p>
+              As a leading 360 degree digital marketing agency in Dubai, we combine strategy, creativity,
+              technology and performance marketing to help businesses attract, engage and convert their ideal
+              customers. Whether someone discovers your business through Google Search, social media, paid
+              advertising or your website, every interaction should feel seamless, consistent and purposeful.
+            </p>
+            <p>
+              For over 10 years, we have partnered with businesses across healthcare, real estate, education,
+              hospitality, retail, automotive, professional services and many other industries to create digital
+              ecosystems that deliver measurable business results.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.aboutUsSplit}>
+          <h2>our philosophy</h2>
+          <div className={styles.aboutUsBodyCopy}>
+            <p>
+              Marketing is not about generating more clicks. It is about creating meaningful experiences that
+              guide customers through every stage of their decision-making process.
+            </p>
+            <p>
+              From the first impression to the final conversion and beyond, we optimise every digital touchpoint
+              to strengthen your brand, improve engagement and maximise return on investment. Sustainable growth
+              happens when every part of your digital presence works together.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.aboutUsApproach}>
+          <div className={styles.aboutUsSectionHeader}>
+            <p>our approach</p>
+            <h2>a connected growth framework</h2>
+          </div>
+          <div className={styles.aboutUsApproachGrid}>
+            {approachSteps.map((step, index) => (
+              <article key={step.title} className={styles.aboutUsApproachCard}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.aboutUsLists}>
+          <div className={styles.aboutUsSectionHeader}>
+            <p>our services</p>
+            <h2>everything your business needs under one roof</h2>
+          </div>
+          <p className={styles.aboutUsListsLead}>
+            Every service is designed to work together, creating one connected customer journey that delivers
+            measurable business outcomes.
+          </p>
+          <div className={styles.aboutUsListColumns}>
+            <ul>
+              {services.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
+            </ul>
+            <ul>
+              {reasons.map((reason) => (
+                <li key={reason}>{reason}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className={styles.aboutUsIndustries}>
+          <div className={styles.aboutUsSectionHeader}>
+            <p>industries we serve</p>
+            <h2>tailored digital marketing strategies for every business</h2>
+          </div>
+          <div className={styles.aboutUsIndustryGrid}>
+            {industries.map((industry) => (
+              <span key={industry}>{industry}</span>
+            ))}
+          </div>
+        </section>
+
+        <VideoCtaSection />
       </main>
       <Footer />
     </div>

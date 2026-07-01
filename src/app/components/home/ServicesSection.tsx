@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "../../page.module.css";
@@ -41,6 +41,18 @@ const services = [
   },
 ];
 
+const servicesImageVariants: Variants = {
+  enter: (swipeDirection: number) => ({
+    y: swipeDirection > 0 ? "100%" : "-100%",
+  }),
+  center: {
+    y: "0%",
+  },
+  exit: (swipeDirection: number) => ({
+    y: swipeDirection > 0 ? "-100%" : "100%",
+  }),
+};
+
 export function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -69,13 +81,10 @@ export function ServicesSection() {
               key={activeService.image}
               className={styles.servicesImageSlide}
               custom={direction}
-              initial={(swipeDirection: number) => ({
-                y: swipeDirection > 0 ? "100%" : "-100%",
-              })}
-              animate={{ y: "0%" }}
-              exit={(swipeDirection: number) => ({
-                y: swipeDirection > 0 ? "-100%" : "100%",
-              })}
+              variants={servicesImageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
               transition={{ duration: 0.72, ease: [0.77, 0, 0.175, 1] }}
             >
               <Image

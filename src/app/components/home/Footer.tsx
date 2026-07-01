@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { footerServices, footerSocials, footerSolutions } from "../../data/home";
 import styles from "../../page.module.css";
 
@@ -51,6 +52,11 @@ export function Footer() {
       </div> */}
 
       <div className={styles.footerGrid}>
+        <div className={styles.footerLogoRow}>
+          <Image src="/logo.png" alt="Webtek Digital" width={220} height={126} className={styles.footerLogo} />
+          <span>Dubai, UAE</span>
+        </div>
+
         <div className={styles.footerColumnGroup}>
           <section className={styles.footerColumn}>
             <h2>Our Services</h2>

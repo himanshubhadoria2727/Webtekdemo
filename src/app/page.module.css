@@ -2501,6 +2501,71 @@
   transform: scale(1.2);
 }
 
+.growthTouchpointSection {
+  background: #ffffff;
+  color: #050505;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1.35rem, 4.4vw, 5.2rem);
+  border-top: 1px solid rgba(5, 5, 5, 0.1);
+}
+
+.growthTouchpointLabel {
+  max-width: 92rem;
+  margin: 0 auto clamp(2.3rem, 4vw, 3.6rem);
+  color: #2a2a2a;
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.growthTouchpointGrid {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(2.2rem, 7vw, 8rem);
+  align-items: start;
+  max-width: 92rem;
+  margin: 0 auto;
+}
+
+.growthTouchpointGrid h2 {
+  max-width: 14ch;
+  margin: 0;
+  color: #050505;
+  font-size: clamp(2.1rem, 3.15vw, 3.85rem);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+.growthTouchpointCopy {
+  display: grid;
+  gap: clamp(1.05rem, 1.75vw, 1.45rem);
+  max-width: 47rem;
+}
+
+.growthTouchpointCopy p {
+  margin: 0;
+  color: rgba(5, 5, 5, 0.74);
+  font-size: clamp(0.98rem, 1.08vw, 1.12rem);
+  line-height: 1.58;
+}
+
+.growthTouchpointCopy a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: clamp(0.4rem, 0.9vw, 0.75rem);
+  color: #050505;
+  font-size: clamp(1.15rem, 1.45vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: lowercase;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.growthTouchpointCopy a:hover {
+  color: #d99a16;
+  transform: translateX(0.18rem);
+}
+
 .blogSection {
   position: relative;
   overflow: hidden;
@@ -3728,6 +3793,28 @@
   border-top: 1px solid rgba(5, 5, 5, 0.12);
 }
 
+.footerLogoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(2rem, 3.5vw, 3.4rem);
+}
+
+.footerLogo {
+  display: block;
+  width: clamp(7.5rem, 10vw, 10.5rem);
+  height: auto;
+  object-fit: contain;
+}
+
+.footerLogoRow span {
+  color: rgba(5, 5, 5, 0.62);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .footerBrandBlock {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -4274,6 +4361,16 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .growthTouchpointGrid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .growthTouchpointGrid h2,
+  .growthTouchpointCopy {
+    max-width: 100%;
+  }
+
   .testimonialPreviewStack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4455,6 +4552,19 @@
     padding-left: 1rem;
   }
 
+  .growthTouchpointSection {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .growthTouchpointLabel {
+    margin-bottom: 1.7rem;
+  }
+
+  .growthTouchpointGrid h2 {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
   .testimonialsSlider {
     grid-template-columns: 1fr;
   }
@@ -4587,6 +4697,11 @@
 
   .footerColumnGroup {
     grid-template-columns: 1fr;
+  }
+
+  .footerLogoRow {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .footerContact {

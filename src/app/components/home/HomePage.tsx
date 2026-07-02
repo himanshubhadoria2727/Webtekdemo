@@ -9,6 +9,7 @@ import { ClienteleSection } from "./ClienteleSection";
 import { Footer } from "./Footer";
 import { GrowthTouchpointSection } from "./GrowthTouchpointSection";
 import { Header } from "./Header";
+import { HeaderVideoSection } from "./HeaderVideoSection";
 import { HeroSection } from "./HeroSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
@@ -35,6 +36,7 @@ export function HomePage() {
         <HeroSection />
         <AboutSection />
         <GrowthTouchpointSection />
+        <HeaderVideoSection />
         <TestimonialsSection />
         <ClienteleSection />
         {/* <SolutionsSection /> */}

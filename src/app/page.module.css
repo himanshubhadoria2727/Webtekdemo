@@ -572,6 +572,114 @@
   text-stroke: 2px var(--hero-accent);
 }
 
+.headerVideoSection {
+  position: relative;
+  overflow: clip;
+  padding: clamp(2.75rem, 7vw, 6.5rem) clamp(2rem, 8vw, 9rem);
+  background: #ffffff;
+}
+
+.headerVideoFrame {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #050505;
+  color: inherit;
+  cursor: none;
+}
+
+.headerVideoMedia {
+  display: block;
+  width: 100%;
+  height: min(68vw, 42rem);
+  min-height: clamp(16rem, 44vw, 32rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+.headerVideoCursor {
+  position: absolute;
+  top: var(--video-cursor-y, 50%);
+  left: var(--video-cursor-x, 50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: clamp(4.5rem, 7vw, 6.4rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #050505;
+  font-size: clamp(0.82rem, 0.9vw, 0.96rem);
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%) scale(0.78);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.headerVideoCursor[data-visible="true"] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.headerVideoModal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.headerVideoModalBackdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.82);
+  cursor: pointer;
+}
+
+.headerVideoModalPanel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 74rem);
+  background: #050505;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.42);
+}
+
+.headerVideoModalClose {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.8rem);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.78rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.84rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.headerVideoModalMedia {
+  display: block;
+  width: 100%;
+  max-height: min(78svh, 44rem);
+  background: #050505;
+}
+
 .heroInfo {
   position: relative;
   min-height: min(64svh, 35rem);
@@ -4171,6 +4279,29 @@
     min-height: min(76svh, 36rem);
     padding-top: 3.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  .headerVideoSection {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .headerVideoMedia {
+    height: min(76vw, 32rem);
+    min-height: 18rem;
+  }
+
+  .headerVideoFrame {
+    cursor: pointer;
+  }
+
+  .headerVideoCursor {
+    display: none;
+  }
+
+  .headerVideoModalClose {
+    right: 0;
+    bottom: calc(100% + 0.55rem);
   }
 
   .heroInfo::after {

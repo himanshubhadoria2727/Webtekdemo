@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
+import { HeaderVideoSection } from "../home/HeaderVideoSection";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 
 const galleryImages = [
@@ -305,6 +306,8 @@ export function AboutPage() {
             </p>
           </div>
         </section>
+
+        <HeaderVideoSection />
 
         <section className={styles.aboutUsSplit}>
           <h2>our philosophy</h2>

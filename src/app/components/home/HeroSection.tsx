@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import styles from "../../page.module.css";
+import { HeaderVideoSection } from "./HeaderVideoSection";
 
 const heroSlides = [
   {
@@ -149,6 +150,8 @@ export function HeroSection() {
           </div>
         </div>
       </section>
+
+      <HeaderVideoSection />
 
       <section className={styles.heroInfo}>
         <motion.p

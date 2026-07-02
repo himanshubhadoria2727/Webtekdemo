@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties, MouseEvent } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../page.module.css";
@@ -131,6 +133,63 @@ const industries = [
   "Startups & SMEs",
 ] as const;
 
+const industriesSectionReveal = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.12,
+    },
+  },
+};
+
+const industriesRevealItem = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const servicesSectionReveal = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const reasonsSectionReveal = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const reasonsRevealItem = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.52, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const servicesRevealItem = {
+  hidden: { opacity: 0, y: 22 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 function CountUpNumber({
   value,
   countTo,
@@ -212,6 +271,15 @@ function CountUpNumber({
 }
 
 export function AboutPage() {
+  const handleIndustriesPointerMove = (event: MouseEvent<HTMLElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+
+    event.currentTarget.style.setProperty("--industry-spot-x", `${x}%`);
+    event.currentTarget.style.setProperty("--industry-spot-y", `${y}%`);
+  };
+
   return (
     <div className={styles.pageWrap}>
       <Header />
@@ -340,40 +408,95 @@ export function AboutPage() {
           </div>
         </section>
 
-        <section className={styles.aboutUsLists}>
-          <div className={styles.aboutUsSectionHeader}>
-            <p>our services</p>
-            <h2>everything your business needs under one roof</h2>
-          </div>
-          <p className={styles.aboutUsListsLead}>
+        <motion.section
+          className={styles.aboutUsLists}
+          variants={servicesSectionReveal}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.24 }}
+        >
+          <div className={styles.aboutUsServicesHeader}>
+            <div className={styles.aboutUsSectionHeader}>
+              <motion.p variants={servicesRevealItem}>our services</motion.p>
+              <motion.h2 variants={servicesRevealItem}>everything your business needs under one roof</motion.h2>
+            </div>
+            <motion.p className={styles.aboutUsListsLead} variants={servicesRevealItem}>
             Every service is designed to work together, creating one connected customer journey that delivers
             measurable business outcomes.
-          </p>
-          <div className={styles.aboutUsListColumns}>
-            <ul>
-              {services.map((service) => (
-                <li key={service}>{service}</li>
-              ))}
-            </ul>
-            <ul>
-              {reasons.map((reason) => (
-                <li key={reason}>{reason}</li>
-              ))}
-            </ul>
+            </motion.p>
           </div>
-        </section>
+          <div className={styles.aboutUsServiceShowcase}>
+            <motion.div className={styles.aboutUsSimpleList} variants={servicesSectionReveal}>
+              {services.map((service, index) => (
+                <motion.div key={service} className={styles.aboutUsSimpleListItem} variants={servicesRevealItem}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{service}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.section>
 
-        <section className={styles.aboutUsIndustries}>
-          <div className={styles.aboutUsSectionHeader}>
-            <p>industries we serve</p>
-            <h2>tailored digital marketing strategies for every business</h2>
+        <motion.section
+          className={styles.aboutUsReasons}
+          variants={reasonsSectionReveal}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.24 }}
+        >
+          <div className={styles.aboutUsReasonsHeader}>
+            <div className={styles.aboutUsSectionHeader}>
+              <motion.p variants={reasonsRevealItem}>why businesses choose webtek</motion.p>
+              <motion.h2 variants={reasonsRevealItem}>strategy, performance and clarity working together</motion.h2>
+            </div>
+            <motion.p variants={reasonsRevealItem}>
+              Built for teams that need a partner who can plan, execute and improve every stage of digital growth.
+            </motion.p>
           </div>
-          <div className={styles.aboutUsIndustryGrid}>
-            {industries.map((industry) => (
-              <span key={industry}>{industry}</span>
+
+          <motion.div className={styles.aboutUsSimpleReasonGrid} variants={reasonsSectionReveal}>
+            {reasons.map((reason, index) => (
+              <motion.article key={reason} className={styles.aboutUsSimpleReason} variants={reasonsRevealItem}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{reason}</p>
+              </motion.article>
             ))}
+          </motion.div>
+        </motion.section>
+
+        <motion.section
+          className={styles.aboutUsIndustries}
+          variants={industriesSectionReveal}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.24 }}
+          onMouseMove={handleIndustriesPointerMove}
+          style={
+            {
+              "--industry-spot-x": "72%",
+              "--industry-spot-y": "36%",
+            } as CSSProperties
+          }
+        >
+          <div className={styles.aboutUsSectionHeader}>
+            <motion.p variants={industriesRevealItem}>industries we serve</motion.p>
+            <motion.h2 variants={industriesRevealItem}>tailored digital marketing strategies for every business</motion.h2>
           </div>
-        </section>
+          <motion.div className={styles.aboutUsIndustryGrid} variants={industriesSectionReveal}>
+            {industries.map((industry, index) => (
+              <motion.article
+                key={industry}
+                className={styles.aboutUsIndustryItem}
+                variants={industriesRevealItem}
+                data-index={String(index + 1).padStart(2, "0")}
+                tabIndex={0}
+              >
+                <span className={styles.aboutUsIndustryName}>{industry}</span>
+                <span className={styles.aboutUsIndustryIndex}>{String(index + 1).padStart(2, "0")}</span>
+              </motion.article>
+            ))}
+          </motion.div>
+        </motion.section>
 
         <VideoCtaSection />
       </main>

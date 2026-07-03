@@ -20,7 +20,6 @@ export function AboutSection() {
             {runningPartnerNames.map((name, index) => (
               <span key={`${name}-${index}`} className={styles.partnerLogo}>
                 {name}
-                <span aria-hidden="true">*</span>
               </span>
             ))}
           </div>
@@ -30,7 +29,6 @@ export function AboutSection() {
             {reverseRunningPartnerNames.map((name, index) => (
               <span key={`${name}-reverse-${index}`} className={styles.partnerLogo}>
                 {name}
-                <span aria-hidden="true">*</span>
               </span>
             ))}
           </div>

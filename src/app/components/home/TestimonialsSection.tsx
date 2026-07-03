@@ -43,13 +43,13 @@ export function TestimonialsSection() {
       <div className={styles.testimonialsHeader}>
         <div>
           <motion.p className={styles.testimonialsLabel} variants={clienteleFadeUp}>
-            testimonials
+            Testimonials
           </motion.p>
           <motion.h2 id="testimonials-heading" variants={clienteleFadeUp}>
-            what our clients say
+            Customer Testimonials
           </motion.h2>
           <motion.p className={styles.testimonialsIntro} variants={clienteleFadeUp}>
-            hear directly from our satisfied partners.
+            Hear directly from our satisfied partners.
           </motion.p>
         </div>
 

@@ -5,39 +5,59 @@ import styles from "../../page.module.css";
 
 const services = [
   {
-    label: "website design & build",
+    label: "Website Design & Development",
     image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
     alt: "Digital team working in a glass-walled office",
   },
   {
-    label: "mobile app design & build",
+    label: "Mobile App Development",
     image: "/about/about-12.jpg",
     alt: "Digital workspace with screens and devices",
   },
   {
-    label: "artificial intelligence - ai",
+    label: "Branding & Public Relations",
     image: "/about/about-10.jpg",
-    alt: "Analytics dashboard open on a laptop",
+    alt: "Brand strategy and analytics workspace",
   },
   {
-    label: "e-commerce website development",
-    image: "/talabat/customer-panel.png.webp",
-    alt: "Ecommerce customer panel interface",
-  },
-  {
-    label: "search engine optimization agency in dubai",
+    label: "SEO & Online Reputation Management",
     image: "/about/about-11.jpg",
-    alt: "Person working on a laptop in a bright office",
+    alt: "Person working on search visibility reports",
   },
   {
-    label: "strategic & digital consulting",
+    label: "Social Media Management & Marketing",
     image: "/about/about-09.jpg",
-    alt: "Team collaborating in a modern office",
+    alt: "Team collaborating on social media marketing",
   },
   {
-    label: "video & film services",
+    label: "Google Ads & Performance Marketing",
+    image: "/about/about-14.jpg",
+    alt: "Business team reviewing campaign performance reports",
+  },
+  {
+    label: "UI/UX Design",
+    image: "/talabat/customer-panel.png.webp",
+    alt: "Mobile app user interface screens",
+  },
+  {
+    label: "Graphic Design & Video Editing",
     image: "/about/about-04.jpg",
-    alt: "Creative team planning a campaign in a studio",
+    alt: "Creative team planning visual content in a studio",
+  },
+  {
+    label: "Telecalling Services",
+    image: "/about/about-15.jpg",
+    alt: "Team discussing customer communication workflows",
+  },
+  {
+    label: "Content Creation",
+    image: "/about/about-16.jpg",
+    alt: "Marketing sketches and content planning notes",
+  },
+  {
+    label: "Photography & Videography",
+    image: "/about/about-04.jpg",
+    alt: "Creative production team preparing photo and video content",
   },
 ];
 
@@ -70,8 +90,8 @@ export function ServicesSection() {
   return (
     <section id="our-services" className={styles.servicesSection}>
       <div className={styles.servicesTop}>
-        <p className={styles.servicesTag}>our services</p>
-        <h2>helping brands by building elegant &amp; refined digital experiences</h2>
+        <p className={styles.servicesTag}>Our Services</p>
+        <h2>Helping Brands by Building Elegant &amp; Refined Digital Experiences</h2>
       </div>
 
       <div className={styles.servicesStage}>

@@ -7,7 +7,7 @@ export const projectPages = {
       ref: "WEB-TALABAT-01",
     },
     hero: {
-      title: "Talabat clone app for fast delivery businesses.",
+      title: "Talabat clone app for fast delivery businesses",
       kicker: "Food delivery platform",
       // imageLabel: "Talabat restaurant app screens",
       imageSrc: "/talabat/banner-wel.png.webp",

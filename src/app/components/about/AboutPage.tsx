@@ -287,7 +287,7 @@ export function AboutPage() {
         <section className={styles.aboutUsHero}>
           <div>
             {/* <p className={styles.aboutUsEyebrow}>about webtek digital</p> */}
-            <h1>building customer journeys that create lasting business growth</h1>
+            <h1>Building customer journeys that create lasting business growth</h1>
           </div>
           <div className={styles.aboutUsHeroCopy}>
             <p>
@@ -331,7 +331,7 @@ export function AboutPage() {
         <section className={styles.aboutUsImpact}>
           <div className={styles.aboutUsImpactIntro}>
             <p>our impact</p>
-            <h2>A decade of growth. Thousands of success stories.</h2>
+            <h2>A decade of growth, thousands of success stories</h2>
           </div>
           <p className={styles.aboutUsImpactText}>
             Over the years, we have partnered with businesses of every size, from ambitious startups to
@@ -355,7 +355,7 @@ export function AboutPage() {
         </section>
 
         <section className={styles.aboutUsSplit}>
-          <h2>who we are</h2>
+          <h2>Who we are</h2>
           <div className={styles.aboutUsBodyCopy}>
             <p>
               More than a digital marketing agency, Webtek Digital is your growth partner. Every business has
@@ -378,7 +378,7 @@ export function AboutPage() {
         <HeaderVideoSection />
 
         <section className={styles.aboutUsSplit}>
-          <h2>our philosophy</h2>
+          <h2>Our philosophy</h2>
           <div className={styles.aboutUsBodyCopy}>
             <p>
               Marketing is not about generating more clicks. It is about creating meaningful experiences that
@@ -394,8 +394,8 @@ export function AboutPage() {
 
         <section className={styles.aboutUsApproach}>
           <div className={styles.aboutUsSectionHeader}>
-            <p>our approach</p>
-            <h2>a connected growth framework</h2>
+            <p>Our approach</p>
+            <h2>A connected growth framework</h2>
           </div>
           <div className={styles.aboutUsApproachGrid}>
             {approachSteps.map((step, index) => (
@@ -417,8 +417,8 @@ export function AboutPage() {
         >
           <div className={styles.aboutUsServicesHeader}>
             <div className={styles.aboutUsSectionHeader}>
-              <motion.p variants={servicesRevealItem}>our services</motion.p>
-              <motion.h2 variants={servicesRevealItem}>everything your business needs under one roof</motion.h2>
+              <motion.p variants={servicesRevealItem}>Our Services</motion.p>
+              <motion.h2 variants={servicesRevealItem}>Everything your business needs under one roof</motion.h2>
             </div>
             <motion.p className={styles.aboutUsListsLead} variants={servicesRevealItem}>
             Every service is designed to work together, creating one connected customer journey that delivers
@@ -446,8 +446,8 @@ export function AboutPage() {
         >
           <div className={styles.aboutUsReasonsHeader}>
             <div className={styles.aboutUsSectionHeader}>
-              <motion.p variants={reasonsRevealItem}>why businesses choose webtek</motion.p>
-              <motion.h2 variants={reasonsRevealItem}>strategy, performance and clarity working together</motion.h2>
+              <motion.p variants={reasonsRevealItem}>Why businesses choose Webtek</motion.p>
+              <motion.h2 variants={reasonsRevealItem}>Strategy, performance and clarity working together</motion.h2>
             </div>
             <motion.p variants={reasonsRevealItem}>
               Built for teams that need a partner who can plan, execute and improve every stage of digital growth.
@@ -479,8 +479,8 @@ export function AboutPage() {
           }
         >
           <div className={styles.aboutUsSectionHeader}>
-            <motion.p variants={industriesRevealItem}>industries we serve</motion.p>
-            <motion.h2 variants={industriesRevealItem}>tailored digital marketing strategies for every business</motion.h2>
+            <motion.p variants={industriesRevealItem}>Industries we serve</motion.p>
+            <motion.h2 variants={industriesRevealItem}>Tailored digital marketing strategies for every business</motion.h2>
           </div>
           <motion.div className={styles.aboutUsIndustryGrid} variants={industriesSectionReveal}>
             {industries.map((industry, index) => (

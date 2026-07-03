@@ -12,9 +12,9 @@ export function HeaderVideoSection() {
   const headerVideoRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: headerVideoRef,
-    offset: ["start 82%", "start 16%"],
+    offset: ["start 86%", "start 4%"],
   });
-  const headerVideoPadding = useTransform(scrollYProgress, [0, 1], ["clamp(2rem, 8vw, 9rem)", "0rem"]);
+  const headerVideoScale = useTransform(scrollYProgress, [0, 0.18, 0.92], [0.92, 0.92, 1]);
 
   useEffect(() => {
     if (!isVideoModalOpen) {
@@ -50,10 +50,9 @@ export function HeaderVideoSection() {
       <motion.section
         ref={headerVideoRef}
         className={styles.headerVideoSection}
-        style={{ paddingInline: headerVideoPadding }}
         aria-label="Webtek Digital brand video"
       >
-        <button
+        <motion.button
           className={styles.headerVideoFrame}
           type="button"
           onClick={() => setIsVideoModalOpen(true)}
@@ -65,6 +64,7 @@ export function HeaderVideoSection() {
             {
               "--video-cursor-x": `${videoCursorPosition.x}px`,
               "--video-cursor-y": `${videoCursorPosition.y}px`,
+              scaleX: headerVideoScale,
             } as CSSProperties
           }
         >
@@ -80,7 +80,7 @@ export function HeaderVideoSection() {
           <span className={styles.headerVideoCursor} data-visible={isVideoCursorVisible}>
             play
           </span>
-        </button>
+        </motion.button>
       </motion.section>
 
       {isVideoModalOpen ? (

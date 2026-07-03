@@ -7,6 +7,7 @@ import { AboutSection } from "./AboutSection";
 import { BlogSection } from "./BlogSection";
 import { ClienteleSection } from "./ClienteleSection";
 import { Footer } from "./Footer";
+import { FloatingWhatsAppButton } from "./FloatingWhatsAppButton";
 import { GrowthTouchpointSection } from "./GrowthTouchpointSection";
 import { Header } from "./Header";
 import { HeroSection } from "./HeroSection";
@@ -42,6 +43,7 @@ export function HomePage() {
         <VideoCtaSection />
         <Footer />
       </main>
+      <FloatingWhatsAppButton />
     </div>
   );
 }

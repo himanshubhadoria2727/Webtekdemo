@@ -1,21 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { CSSProperties } from "react";
-import { useEffect, useRef, useState } from "react";
 import styles from "../../page.module.css";
 import { HeaderVideoSection } from "./HeaderVideoSection";
-
-const heroSlides = [
-  {
-    kicker: "",
-    title: ["Custom", "SEO", "Packages for", "Your Brand"],
-  },
-  {
-    kicker: "",
-    title: ["360", "Digital Marketing", "Service"],
-  },
-];
 
 const infoContainer = {
   hidden: {},
@@ -36,58 +23,10 @@ const infoLine = {
   },
 };
 
-const gridMotionVectors = [
-  { x: 118, y: 0 },
-  { x: -118, y: 0 },
-  { x: 0, y: 118 },
-  { x: 0, y: -118 },
-];
-
 export function HeroSection() {
-  const [activeHero, setActiveHero] = useState(0);
-  const [outgoingHero, setOutgoingHero] = useState<number | null>(null);
-  const [gridMotionVector, setGridMotionVector] = useState(gridMotionVectors[0]);
-  const transitionTimer = useRef<number | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (transitionTimer.current) {
-        window.clearTimeout(transitionTimer.current);
-      }
-    };
-  }, []);
-
-  const goToHero = (nextIndex: number) => {
-    if (nextIndex === activeHero || outgoingHero !== null) {
-      return;
-    }
-
-    if (transitionTimer.current) {
-      window.clearTimeout(transitionTimer.current);
-    }
-
-    setGridMotionVector(gridMotionVectors[Math.floor(Math.random() * gridMotionVectors.length)]);
-    setOutgoingHero(activeHero);
-    setActiveHero(nextIndex);
-
-    transitionTimer.current = window.setTimeout(() => {
-      setOutgoingHero(null);
-    }, 1600);
-  };
-
-  const previousHero = () => {
-    goToHero((activeHero - 1 + heroSlides.length) % heroSlides.length);
-  };
-
-  const nextHero = () => {
-    goToHero((activeHero + 1) % heroSlides.length);
-  };
-
-  const currentHero = heroSlides[activeHero];
-  const outgoingSlide = outgoingHero === null ? null : heroSlides[outgoingHero];
-
   return (
     <>
+      {/*
       <section className={styles.heroShowcase}>
         {outgoingSlide ? (
           <div className={styles.heroGridWipe} aria-hidden="true">
@@ -150,11 +89,10 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-
-      <HeaderVideoSection />
+      */}
 
       <section className={styles.heroInfo}>
-        <motion.p
+        {/* <motion.p
           className={styles.heroKicker}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,21 +100,23 @@ export function HeroSection() {
           transition={{ duration: 0.55, delay: 0.1 }}
         >
           Webtek Digital Agency
-        </motion.p>
+        </motion.p> */}
 
         <motion.h2 className={styles.heroTitle} variants={infoContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.45 }}>
           <motion.span className={styles.heroLine} variants={infoLine}>
             Driven by results, WebTek Digital helps businesses grow through
           </motion.span>{" "}
           <motion.span className={`${styles.heroLine} ${styles.heroHighlight}`} variants={infoLine}>
-            smart digital marketing strategies
+            smart digital marketing strategies.
           </motion.span>
           <motion.span className={styles.heroLine} variants={infoLine}>
-            . We focus on every step of the customer journey to increase visibility, generate quality leads, and drive
-            long-term business growth.
+            We focus on every step of the customer journey to increase visibility, generate quality leads, and drive long-term
+            business growth
           </motion.span>
         </motion.h2>
       </section>
+
+      <HeaderVideoSection />
     </>
   );
 }

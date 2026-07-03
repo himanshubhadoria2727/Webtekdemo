@@ -69,7 +69,7 @@ export function SolutionsSection() {
           viewport={{ once: true, amount: 0.45 }}
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2>At the intersection of strategy and business, tech and design, we&apos;ll create your best work yet.</h2>
+          <h2>At the intersection of strategy and business, tech and design, we&apos;ll create your best work yet</h2>
           <button type="button">SEE OUR CAPABILITIES</button>
         </motion.div>
       </div>

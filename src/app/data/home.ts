@@ -6,7 +6,19 @@ export const menuItems = [
   "Contact Us",
 ];
 
-export const partnerNames = ["Homey", "Blossom", "Leafe", "Orbitc", "Hitech", "Invert", "Homy"];
+export const partnerNames = [
+  "Website Design & Development",
+  "Mobile App Development",
+  "Branding & Public Relations",
+  "SEO & Online Reputation Management",
+  "Social Media Management & Marketing",
+  "Google Ads & Performance Marketing",
+  "UI/UX Design",
+  "Graphic Design & Video Editing",
+  "Telecalling Services",
+  "Content Creation",
+  "Photography & Videography",
+];
 
 export const aboutBullets = [
   "Brand strategy and digital experiences",
@@ -97,7 +109,7 @@ export const blogPosts = [
         imageAlt: "Modern workspace with people collaborating near a long table",
       },
       {
-        title: "1. Search Engine Optimization (SEO)",
+        title: "1 Search Engine Optimization (SEO)",
         excerpt:
           "SEO improves visibility on Google by strengthening website structure, content, and technical performance for relevant searches.",
         paragraphs: [
@@ -108,7 +120,7 @@ export const blogPosts = [
         imageAlt: "Analytics dashboard displayed on a laptop",
       },
       {
-        title: "2. Pay-Per-Click Advertising (PPC)",
+        title: "2 Pay-Per-Click Advertising (PPC)",
         excerpt:
           "PPC gives businesses immediate visibility and helps generate leads quickly through Google Ads and paid social campaigns.",
         paragraphs: [
@@ -119,7 +131,7 @@ export const blogPosts = [
         imageAlt: "Business team reviewing campaign performance reports",
       },
       {
-        title: "3. Social Media Marketing",
+        title: "3 Social Media Marketing",
         excerpt:
           "Instagram, LinkedIn, Facebook, and TikTok are widely used in the UAE, making social media a key channel for engagement.",
         paragraphs: [
@@ -130,7 +142,7 @@ export const blogPosts = [
         imageAlt: "Team discussing a digital marketing plan",
       },
       {
-        title: "4. Content Marketing",
+        title: "4 Content Marketing",
         excerpt:
           "High-quality blogs, videos, landing pages, and guides educate audiences while supporting SEO and conversions.",
         paragraphs: [
@@ -141,7 +153,7 @@ export const blogPosts = [
         imageAlt: "Marketing sketches and content planning notes on a desk",
       },
       {
-        title: "5. Email Marketing",
+        title: "5 Email Marketing",
         excerpt:
           "Email marketing keeps communication active with leads and customers, making it useful for retention and repeat purchases.",
         paragraphs: [
@@ -152,7 +164,7 @@ export const blogPosts = [
         imageAlt: "Person working on a laptop in a bright office",
       },
       {
-        title: "6. Website Optimization",
+        title: "6 Website Optimization",
         excerpt:
           "A professional website must be mobile-friendly, fast-loading, secure, and designed to convert marketing traffic into enquiries.",
         paragraphs: [

@@ -44,7 +44,7 @@ export function Footer() {
       <div className={styles.footerCta}>
         <div>
           <p>Have a project in mind?</p>
-          <h2>Let&apos;s build something that performs.</h2>
+          <h2>Let&apos;s build something that performs</h2>
         </div>
         <a href="mailto:Info@bhatia.co" className={styles.footerCtaLink}>
           Start a conversation <span aria-hidden="true">→</span>
@@ -103,12 +103,12 @@ export function Footer() {
                   <a href="mailto:Info@bhatia.co">Info@bhatia.co</a>
                 </dd>
               </div>
-              <div>
+              {/* <div>
                 <dt>Address</dt>
                 <dd>
                   <span>P.O. Box 30301, Dubai, UAE</span>
                 </dd>
-              </div>
+              </div> */}
             </dl>
 
             <div className={styles.footerSocials} aria-label="Social links">

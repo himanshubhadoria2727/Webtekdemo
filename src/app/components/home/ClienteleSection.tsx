@@ -7,15 +7,15 @@ import { clienteleContainer, clienteleFadeUp } from "./animations";
 const brandLogos = [
   {
     name: "Mohammed Bin Rashid School of Government",
-    image: "/brands/bin_rashid-removebg-preview.png.webp",
+    image: "/brands/bin_rashid-removebg-preview.png",
   },
   {
     name: "Abu Dhabi",
-    image: "/brands/abodhabi-removebg-preview.png.webp",
+    image: "/brands/abodhabi-removebg-preview.png",
   },
   {
     name: "Dubai University",
-    image: "/brands/dubai-uni-removebg-preview.png.webp",
+    image: "/brands/dubai-uni-removebg-preview.png",
   },
   {
     name: "Home Box",
@@ -23,7 +23,7 @@ const brandLogos = [
   },
   {
     name: "Luxury",
-    image: "/brands/luxury-removebg-preview.png.webp",
+    image: "/brands/luxury-removebg-preview.png",
   },
   {
     name: "Majid Al Futtaim",
@@ -31,7 +31,7 @@ const brandLogos = [
   },
   {
     name: "Ounass",
-    image: "/brands/ounass-removebg-preview.png.webp",
+    image: "/brands/ounass-removebg-preview.png",
   },
   {
     name: "Sharaf DG",
@@ -40,20 +40,18 @@ const brandLogos = [
 ];
 
 export function ClienteleSection() {
-  const [orderedBrands, setOrderedBrands] = useState(brandLogos);
+  const [activeBrandIndex, setActiveBrandIndex] = useState(0);
+  const visibleBrands = Array.from(
+    { length: 4 },
+    (_, index) => brandLogos[(activeBrandIndex + index) % brandLogos.length],
+  );
 
   const showPrevious = () => {
-    setOrderedBrands((current) => {
-      const previous = current[current.length - 1];
-      return [previous, ...current.slice(0, -1)];
-    });
+    setActiveBrandIndex((currentIndex) => (currentIndex === 0 ? brandLogos.length - 1 : currentIndex - 1));
   };
 
   const showNext = () => {
-    setOrderedBrands((current) => {
-      const [next, ...rest] = current;
-      return [...rest, next];
-    });
+    setActiveBrandIndex((currentIndex) => (currentIndex + 1) % brandLogos.length);
   };
 
   return (
@@ -67,39 +65,39 @@ export function ClienteleSection() {
     >
       <div className={styles.clienteleDots} aria-hidden="true" />
       <motion.p className={styles.clienteleLabel} variants={clienteleFadeUp}>
-        our clientele
+        Our Clientele
       </motion.p>
       <motion.h2 id="clientele-heading" variants={clienteleFadeUp}>
-        trusted by brands and organizations of all sizes
+        Trusted By Brands And Organizations Of All Sizes
       </motion.h2>
       <motion.p className={styles.clienteleIntro} variants={clienteleFadeUp}>
-        a selection of teams and institutions that have trusted our digital work.
+        We have satisfied clients globally who have benefitted from our expert services. We ensure perfection in all work that we do.
       </motion.p>
 
       <motion.div className={styles.clienteleCarousel} variants={clienteleFadeUp}>
-        <motion.button
+        <button
           className={styles.clienteleArrow}
           type="button"
           aria-label="Previous client"
           onClick={showPrevious}
-          whileHover={{ x: -4 }}
-          whileTap={{ scale: 0.9 }}
         >
           {"<"}
-        </motion.button>
+        </button>
 
         <div className={styles.clienteleViewport}>
-          <motion.div className={styles.clienteleCards} layout transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-            {orderedBrands.map((brand) => (
-              <motion.article
+          <div className={styles.clienteleCards}>
+            {visibleBrands.map((brand) => (
+              <article
                 key={brand.name}
-                layout
                 className={styles.clienteleCard}
                 aria-label={brand.name}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -5, boxShadow: "0 12px 26px rgba(5, 5, 5, 0.14)" }}
               >
-                <div className={styles.clientLogo}>
+                <div
+                  className={[
+                    styles.clientLogo,
+                    brand.image === "/brands/bin_rashid-removebg-preview.png" ? styles.clientLogoPadded : "",
+                  ].join(" ")}
+                >
                   <Image
                     src={brand.image}
                     alt={brand.name}
@@ -108,21 +106,19 @@ export function ClienteleSection() {
                     className={styles.clientLogoImage}
                   />
                 </div>
-              </motion.article>
+              </article>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        <motion.button
+        <button
           className={styles.clienteleArrow}
           type="button"
           aria-label="Next client"
           onClick={showNext}
-          whileHover={{ x: 4 }}
-          whileTap={{ scale: 0.9 }}
         >
           {">"}
-        </motion.button>
+        </button>
       </motion.div>
     </motion.section>
   );

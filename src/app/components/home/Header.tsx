@@ -30,7 +30,7 @@ export function Header() {
     }
 
     const updateHeaderSpace = () => {
-      const height = isHidden ? 0 : header.offsetHeight;
+      const height = header.offsetHeight;
 
       document.documentElement.dataset.siteHeaderHidden = String(isHidden);
       document.documentElement.style.setProperty("--site-header-height", `${height}px`);

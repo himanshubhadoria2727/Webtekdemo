@@ -19,13 +19,13 @@ export function BlogSection() {
       <div className={styles.blogHeader}>
         <div>
           <motion.p className={styles.blogLabel} variants={clienteleFadeUp}>
-            our blogs
+            News and Articles
           </motion.p>
           <motion.h2 id="blogs-heading" variants={clienteleFadeUp}>
-            practical digital growth notes for dubai businesses
+            Practical Digital Growth Notes for Dubai Businesses
           </motion.h2>
           <motion.p className={styles.blogIntro} variants={clienteleFadeUp}>
-            ideas, guides, and campaign lessons for teams building stronger digital channels.
+            Ideas, guides, and campaign lessons for teams building stronger digital channels.
           </motion.p>
         </div>
       </div>

@@ -4,7 +4,7 @@ import styles from "../../page.module.css";
 export function GrowthTouchpointSection() {
   return (
     <section className={styles.growthTouchpointSection}>
-      <p className={styles.growthTouchpointLabel}>who we are</p>
+      <p className={styles.growthTouchpointLabel}>Who We Are</p>
       <div className={styles.growthTouchpointGrid}>
         <h2>Driving Digital Growth Across Every Customer Touchpoint</h2>
         <div className={styles.growthTouchpointCopy}>

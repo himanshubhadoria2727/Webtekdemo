@@ -1,6 +1,6 @@
 export const solutionsPage = {
   eyebrow: "Solutions",
-  title: "Digital solutions we build.",
+  title: "Digital solutions we build",
   intro:
     "We build mobile apps and digital platforms tailored to how your business actually operates, not a one-size-fits-all template. Whether you need a fast clone app, a custom service platform, or a full operational system, our team in Dubai handles the design, development, and launch end-to-end. Browse the categories below to find the solution that fits your business model.",
   itemHref: "#contact-us",

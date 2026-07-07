@@ -4,9 +4,9 @@ import styles from "../../page.module.css";
 export function GrowthTouchpointSection() {
   return (
     <section className={styles.growthTouchpointSection}>
-      <p className={styles.growthTouchpointLabel}>Who We Are</p>
+      <p className={styles.growthTouchpointLabel}>Who we are</p>
       <div className={styles.growthTouchpointGrid}>
-        <h2>Driving Digital Growth Across Every Customer Touchpoint</h2>
+        <h2>Driving digital growth across every customer touchpoint</h2>
         <div className={styles.growthTouchpointCopy}>
           <p>
             At Webtek Digital, we believe digital success isn&apos;t built through isolated marketing efforts -

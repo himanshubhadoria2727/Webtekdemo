@@ -46,7 +46,7 @@ export function TestimonialsSection() {
             Testimonials
           </motion.p>
           <motion.h2 id="testimonials-heading" variants={clienteleFadeUp}>
-            Customer Testimonials
+            Customer testimonials
           </motion.h2>
           <motion.p className={styles.testimonialsIntro} variants={clienteleFadeUp}>
             Hear directly from our satisfied partners.

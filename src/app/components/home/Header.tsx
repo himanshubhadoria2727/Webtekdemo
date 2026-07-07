@@ -9,11 +9,11 @@ import { menuItems } from "../../data/home";
 import styles from "../../page.module.css";
 
 const menuLinks: Record<string, string> = {
-  "About Us": "/about-us",
-  "Our Services": "/our-services",
+  "About us": "/about-us",
+  "Our services": "/our-services",
   Solutions: "/solutions",
-  "Portfolio Media": "/#portfolio-media",
-  "Contact Us": "/#contact-us",
+  "Portfolio media": "/#portfolio-media",
+  "Contact us": "/#contact-us",
 };
 
 export function Header() {

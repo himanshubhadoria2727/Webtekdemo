@@ -11,10 +11,10 @@ type VideoCtaSectionProps = {
 };
 
 export function VideoCtaSection({
-  eyebrow = "Ready to Grow?",
-  title = "Let's Build Your Digital Success Story",
+  eyebrow = "Ready to grow?",
+  title = "Let's build your digital success story",
   body = "Whether you're looking to generate more qualified leads, increase online visibility, improve conversions or transform your entire digital presence, we're ready to help.",
-  ctaLabel = "Book Your Free Strategy Consultation Today.",
+  ctaLabel = "Book your free strategy consultation today.",
   ctaHref = "/#contact-us",
   videoSrc = "/footer-vid.mp4",
 }: VideoCtaSectionProps) {

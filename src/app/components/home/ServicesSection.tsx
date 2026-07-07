@@ -3,63 +3,79 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "../../page.module.css";
 
-const services = [
+type ServiceItem = {
+  label: string;
+  image: string;
+  alt: string;
+};
+
+const defaultServices: readonly ServiceItem[] = [
   {
-    label: "Website Design & Development",
+    label: "Website design & development",
     image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
     alt: "Digital team working in a glass-walled office",
   },
   {
-    label: "Mobile App Development",
+    label: "Mobile app development",
     image: "/about/about-12.jpg",
     alt: "Digital workspace with screens and devices",
   },
   {
-    label: "Branding & Public Relations",
+    label: "Branding & public relations",
     image: "/about/about-10.jpg",
     alt: "Brand strategy and analytics workspace",
   },
   {
-    label: "SEO & Online Reputation Management",
+    label: "SEO & online reputation management",
     image: "/about/about-11.jpg",
     alt: "Person working on search visibility reports",
   },
   {
-    label: "Social Media Management & Marketing",
+    label: "Social media management & marketing",
     image: "/about/about-09.jpg",
     alt: "Team collaborating on social media marketing",
   },
   {
-    label: "Google Ads & Performance Marketing",
+    label: "Google Ads & performance marketing",
     image: "/about/about-14.jpg",
     alt: "Business team reviewing campaign performance reports",
   },
   {
-    label: "UI/UX Design",
+    label: "UI/UX design",
     image: "/talabat/customer-panel.png.webp",
     alt: "Mobile app user interface screens",
   },
   {
-    label: "Graphic Design & Video Editing",
+    label: "Graphic design & video editing",
     image: "/about/about-04.jpg",
     alt: "Creative team planning visual content in a studio",
   },
   {
-    label: "Telecalling Services",
+    label: "Telecalling services",
     image: "/about/about-15.jpg",
     alt: "Team discussing customer communication workflows",
   },
   {
-    label: "Content Creation",
+    label: "Content creation",
     image: "/about/about-16.jpg",
     alt: "Marketing sketches and content planning notes",
   },
   {
-    label: "Photography & Videography",
+    label: "Photography & videography",
     image: "/about/about-04.jpg",
     alt: "Creative production team preparing photo and video content",
   },
 ];
+
+type ServicesSectionProps = {
+  id?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  items?: readonly ServiceItem[];
+  className?: string;
+  priorityFirstImage?: boolean;
+};
 
 const servicesImageVariants: Variants = {
   enter: (swipeDirection: number) => ({
@@ -73,10 +89,18 @@ const servicesImageVariants: Variants = {
   }),
 };
 
-export function ServicesSection() {
+export function ServicesSection({
+  id = "our-services",
+  label = "Our services",
+  title = "Helping brands by building elegant & refined digital experiences",
+  description,
+  items = defaultServices,
+  className,
+  priorityFirstImage = true,
+}: ServicesSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const activeService = services[activeIndex];
+  const activeService = items[activeIndex] ?? items[0] ?? defaultServices[0];
 
   const setActiveService = (index: number) => {
     if (index === activeIndex) {
@@ -88,10 +112,13 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="our-services" className={styles.servicesSection}>
-      <div className={styles.servicesTop}>
-        <p className={styles.servicesTag}>Our Services</p>
-        <h2>Helping Brands by Building Elegant &amp; Refined Digital Experiences</h2>
+    <section id={id} className={[styles.servicesSection, className ?? ""].join(" ")}>
+      <div className={[styles.servicesTop, description ? styles.servicesTopWithText : ""].join(" ")}>
+        <div>
+          <p className={styles.servicesTag}>{label}</p>
+          <h2>{title}</h2>
+        </div>
+        {description ? <p className={styles.servicesLead}>{description}</p> : null}
       </div>
 
       <div className={styles.servicesStage}>
@@ -113,14 +140,14 @@ export function ServicesSection() {
                 fill
                 sizes="(max-width: 900px) 100vw, 34vw"
                 className={styles.servicesImage}
-                priority={activeIndex === 0}
+                priority={priorityFirstImage && activeIndex === 0}
               />
             </motion.div>
           </AnimatePresence>
         </div>
 
         <div className={styles.servicesList}>
-          {services.map((service, index) => {
+          {items.map((service, index) => {
             const isActive = activeIndex === index;
 
             return (

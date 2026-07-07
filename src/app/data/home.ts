@@ -1,23 +1,23 @@
 export const menuItems = [
-  "Our Services",
-  "Portfolio Media",
-  "About Us",
+  "Our services",
+  "Portfolio media",
+  "About us",
   "Solutions",
-  "Contact Us",
+  "Contact us",
 ];
 
 export const partnerNames = [
-  "Website Design & Development",
-  "Mobile App Development",
-  "Branding & Public Relations",
-  "SEO & Online Reputation Management",
-  "Social Media Management & Marketing",
-  "Google Ads & Performance Marketing",
-  "UI/UX Design",
-  "Graphic Design & Video Editing",
-  "Telecalling Services",
-  "Content Creation",
-  "Photography & Videography",
+  "Website design & development",
+  "Mobile app development",
+  "Branding & public relations",
+  "SEO & online reputation management",
+  "Social media management & marketing",
+  "Google Ads & performance marketing",
+  "UI/UX design",
+  "Graphic design & video editing",
+  "Telecalling services",
+  "Content creation",
+  "Photography & videography",
 ];
 
 export const aboutBullets = [
@@ -32,15 +32,15 @@ export const animatedAboutLine =
   "Webtek Digital is one of Dubai’s leading digital marketing and app development companies, helping ambitious brands launch, market, and scale across the UAE. We bring together brand strategy, web and ecommerce development, SEO, and performance marketing under one team, so every project we touch is built to convert, not just to look good. From a single landing page to a full Android app development build, our approach starts with your business goals and works backward into design, technology, and media spend that gets results. Over 1,500 clients, including government bodies, retail groups, and direct-to-consumer brands, have trusted Webtek Digital to build and grow their digital presence in Dubai and across the wider GCC.";
 
 export const leftServices = [
-  "Website & Ecommerce Development",
-  "Search Engine Optimization (SEO)",
-  "Lead Generation & Performance Marketing",
+  "Website & ecommerce development",
+  "Search engine optimization (SEO)",
+  "Lead generation & performance marketing",
 ];
 
 export const rightServices = [
-  "Mobile App Development (iOS & Android)",
-  "Social Media Marketing",
-  "Google Ads - Shopping, Text, Display",
+  "Mobile app development (iOS & Android)",
+  "Social media marketing",
+  "Google Ads - shopping, text, display",
 ];
 
 export const clienteleCards = [
@@ -78,7 +78,7 @@ export const clienteleCards = [
 
 export const blogPosts = [
   {
-    title: "Digital Marketing in Dubai: The Complete Guide to Business Growth",
+    title: "Digital marketing in Dubai: the complete guide to business growth",
     excerpt:
       "In today's competitive environment, digital marketing in Dubai has become essential for businesses that want to increase visibility, attract customers, and grow revenue.",
     category: "Growth",
@@ -87,18 +87,18 @@ export const blogPosts = [
     href: "/blog/digital-marketing-in-dubai",
     articles: [
       {
-        title: "Digital Marketing in Dubai: The Complete Guide to Business Growth",
+        title: "Digital marketing in Dubai: the complete guide to business growth",
         excerpt:
           "In today's competitive environment, digital marketing in Dubai is essential for businesses that want stronger visibility, better leads, and measurable growth in a crowded market.",
         paragraphs: [
           "With e-commerce, mobile usage, and social media shaping buying behaviour, customers now research online before choosing a product or service.",
         ],
-        category: "Digital Marketing",
+        category: "Digital marketing",
         image: "/about/about-04.jpg",
         imageAlt: "Creative team discussing campaign ideas around a table",
       },
       {
-        title: "Why Digital Marketing Matters in Dubai",
+        title: "Why digital marketing matters in Dubai",
         excerpt:
           "Dubai has high internet usage, and customers rely on search engines, reviews, and social media before choosing products or services.",
         paragraphs: [
@@ -109,7 +109,7 @@ export const blogPosts = [
         imageAlt: "Modern workspace with people collaborating near a long table",
       },
       {
-        title: "1 Search Engine Optimization (SEO)",
+        title: "1 Search engine optimization (SEO)",
         excerpt:
           "SEO improves visibility on Google by strengthening website structure, content, and technical performance for relevant searches.",
         paragraphs: [
@@ -120,18 +120,18 @@ export const blogPosts = [
         imageAlt: "Analytics dashboard displayed on a laptop",
       },
       {
-        title: "2 Pay-Per-Click Advertising (PPC)",
+        title: "2 Pay-per-click advertising (PPC)",
         excerpt:
           "PPC gives businesses immediate visibility and helps generate leads quickly through Google Ads and paid social campaigns.",
         paragraphs: [
           "With precise targeting by location, interests, and demographics, well-managed campaigns can deliver strong returns.",
         ],
-        category: "Paid Media",
+        category: "Paid media",
         image: "/about/about-14.jpg",
         imageAlt: "Business team reviewing campaign performance reports",
       },
       {
-        title: "3 Social Media Marketing",
+        title: "3 Social media marketing",
         excerpt:
           "Instagram, LinkedIn, Facebook, and TikTok are widely used in the UAE, making social media a key channel for engagement.",
         paragraphs: [
@@ -142,7 +142,7 @@ export const blogPosts = [
         imageAlt: "Team discussing a digital marketing plan",
       },
       {
-        title: "4 Content Marketing",
+        title: "4 Content marketing",
         excerpt:
           "High-quality blogs, videos, landing pages, and guides educate audiences while supporting SEO and conversions.",
         paragraphs: [
@@ -153,7 +153,7 @@ export const blogPosts = [
         imageAlt: "Marketing sketches and content planning notes on a desk",
       },
       {
-        title: "5 Email Marketing",
+        title: "5 Email marketing",
         excerpt:
           "Email marketing keeps communication active with leads and customers, making it useful for retention and repeat purchases.",
         paragraphs: [
@@ -164,7 +164,7 @@ export const blogPosts = [
         imageAlt: "Person working on a laptop in a bright office",
       },
       {
-        title: "6 Website Optimization",
+        title: "6 Website optimization",
         excerpt:
           "A professional website must be mobile-friendly, fast-loading, secure, and designed to convert marketing traffic into enquiries.",
         paragraphs: [
@@ -177,7 +177,7 @@ export const blogPosts = [
     ],
   },
   {
-    title: "Best Digital Marketing Agency in Dubai: Your Complete Guide to Choosing the Right Partner",
+    title: "Best digital marketing agency in Dubai: your complete guide to choosing the right partner",
     excerpt:
       "A grounded guide to choosing a partner that brings structure, useful reporting, and creative execution to every growth channel.",
     category: "Partners",
@@ -212,7 +212,7 @@ export const blogPosts = [
     ],
   },
   {
-    title: "The Importance of SEO in Dubai for Modern Businesses",
+    title: "The importance of SEO in Dubai for modern businesses",
     excerpt:
       "Search visibility helps modern companies show up when customers are ready to compare, enquire, book, or buy.",
     category: "Search",
@@ -321,53 +321,53 @@ export const solutionNodes = [
 ] as const;
 
 export const tileServiceMap: Record<1 | 2 | 3 | 4 | 5 | 6, string> = {
-  1: "Website & Ecommerce Development",
-  2: "Search Engine Optimization (SEO)",
-  3: "Lead Generation & Performance Marketing",
-  4: "Mobile App Development (iOS & Android)",
-  5: "Social Media Marketing",
-  6: "Google Ads - Shopping, Text, Display",
+  1: "Website & ecommerce development",
+  2: "Search engine optimization (SEO)",
+  3: "Lead generation & performance marketing",
+  4: "Mobile app development (iOS & Android)",
+  5: "Social media marketing",
+  6: "Google Ads - shopping, text, display",
 };
 
 export const footerServices = [
-  "Mobile App Development (iOS & Android)",
-  "Lead Generation & Performance Marketing",
-  "Google Ads - Shopping, Text, Display",
-  "Social Media Marketing",
-  "Search Engine Optimization (SEO)",
-  "Programmatic Media Buying",
-  "Digital PR & Reputation Management",
-  "Design & Video Creations",
-  "Content Marketing",
-  "Outdoor Advertising",
+  "Mobile app development (iOS & Android)",
+  "Lead generation & performance marketing",
+  "Google Ads - shopping, text, display",
+  "Social media marketing",
+  "Search engine optimization (SEO)",
+  "Programmatic media buying",
+  "Digital PR & reputation management",
+  "Design & video creations",
+  "Content marketing",
+  "Outdoor advertising",
 ];
 
 export const footerSolutions = [
   "Grocery",
   "Ecommerce",
   "Pharmacy",
-  "Taxi Booking",
-  "Restaurant Delivery",
-  "Handyman / Home Maintenance Services",
-  "Our Blogs",
+  "Taxi booking",
+  "Restaurant delivery",
+  "Handyman / home maintenance services",
+  "Our blogs",
   "E-Learning",
-  "Gym & Fitness",
-  "Beauty Service App",
+  "Gym & fitness",
+  "Beauty service app",
   "Laundry",
 ];
 
 export const footerImportantLinks = [
-  "Best SEO Services in UAE",
-  "Best SEO Company in Abu Dhabi",
-  "Best SEO Company in Dubai",
-  "Google Ads Agency in Dubai",
-  "Top Social Media Companies in Dubai",
-  "SEO Agency in Abu Dhabi",
-  "Best SEO Agency in Dubai",
-  "Digital Marketing in Dubai",
-  "Best Mobile App Development Company in Dubai",
-  "Best Website Development Company in Dubai",
-  "Best Web Design company in Dubai",
+  "Best SEO services in UAE",
+  "Best SEO company in Abu Dhabi",
+  "Best SEO company in Dubai",
+  "Google Ads agency in Dubai",
+  "Top social media companies in Dubai",
+  "SEO agency in Abu Dhabi",
+  "Best SEO agency in Dubai",
+  "Digital marketing in Dubai",
+  "Best mobile app development company in Dubai",
+  "Best website development company in Dubai",
+  "Best web design company in Dubai",
 ];
 
 export const footerSocials = ["Facebook", "Instagram", "WhatsApp"];

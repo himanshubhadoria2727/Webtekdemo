@@ -59,7 +59,7 @@ export function Footer() {
 
         <div className={styles.footerColumnGroup}>
           <section className={styles.footerColumn}>
-            <h2>Our Services</h2>
+            <h2>Our services</h2>
             <div className={styles.footerListGrid}>
               {serviceColumns.map((column, index) => (
                 <ul key={`services-${index}`}>
@@ -74,7 +74,7 @@ export function Footer() {
           </section>
 
           <section className={styles.footerColumn}>
-            <h2>Our Solutions</h2>
+            <h2>Our solutions</h2>
             <div className={styles.footerListGrid}>
               {solutionColumns.map((column, index) => (
                 <ul key={`solutions-${index}`}>
@@ -89,16 +89,16 @@ export function Footer() {
           </section>
 
           <section className={`${styles.footerColumn} ${styles.footerContact}`}>
-            <h2>Quick Contact</h2>
+            <h2>Quick contact</h2>
             <dl>
               <div>
-                <dt>Mobile No.</dt>
+                <dt>Mobile no.</dt>
                 <dd>
                   <a href="tel:+971581263762">+971 58 126 3762</a>
                 </dd>
               </div>
               <div>
-                <dt>Send Email</dt>
+                <dt>Send email</dt>
                 <dd>
                   <a href="mailto:Info@bhatia.co">Info@bhatia.co</a>
                 </dd>

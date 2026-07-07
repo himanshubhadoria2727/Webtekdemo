@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { CSSProperties, MouseEvent } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +8,7 @@ import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
 import { HeaderVideoSection } from "../home/HeaderVideoSection";
+import { ServicesSection } from "../home/ServicesSection";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 
 const galleryImages = [
@@ -92,19 +92,67 @@ const approachSteps = [
   },
 ] as const;
 
-const services = [
-  "Website Design & Development",
-  "Search Engine Optimisation",
-  "Google Ads Management",
-  "Meta Advertising",
-  "Social Media Marketing",
-  "Branding & Creative Design",
-  "Content Creation",
-  "Video Shooting & Production",
-  "Performance Marketing",
-  "Marketing Automation & CRM Integration",
-  "Email Marketing",
-  "Analytics & Conversion Optimisation",
+const aboutServices = [
+  {
+    label: "Website design & development",
+    image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
+    alt: "Digital team working in a glass-walled office",
+  },
+  {
+    label: "Search engine optimisation",
+    image: "/about/about-11.jpg",
+    alt: "Person working on search visibility reports",
+  },
+  {
+    label: "Google Ads management",
+    image: "/about/about-14.jpg",
+    alt: "Business team reviewing campaign performance reports",
+  },
+  {
+    label: "Meta advertising",
+    image: "/about/about-09.jpg",
+    alt: "Team collaborating on social media marketing",
+  },
+  {
+    label: "Social media marketing",
+    image: "/about/about-15.jpg",
+    alt: "Team discussing social media marketing plans",
+  },
+  {
+    label: "Branding & creative design",
+    image: "/about/about-10.jpg",
+    alt: "Brand strategy and analytics workspace",
+  },
+  {
+    label: "Content creation",
+    image: "/about/about-16.jpg",
+    alt: "Marketing sketches and content planning notes",
+  },
+  {
+    label: "Video shooting & production",
+    image: "/about/about-04.jpg",
+    alt: "Creative team planning visual content in a studio",
+  },
+  {
+    label: "Performance marketing",
+    image: "/about/about-14.jpg",
+    alt: "Business team reviewing campaign performance reports",
+  },
+  {
+    label: "Marketing automation & CRM integration",
+    image: "/about/about-12.jpg",
+    alt: "Digital workspace with screens and devices",
+  },
+  {
+    label: "Email marketing",
+    image: "/about/about-11.jpg",
+    alt: "Person working on a laptop in a bright office",
+  },
+  {
+    label: "Analytics & conversion optimisation",
+    image: "/about/about-13.jpg",
+    alt: "Dubai skyscrapers representing Webtek Digital's UAE presence",
+  },
 ] as const;
 
 const reasons = [
@@ -120,14 +168,14 @@ const reasons = [
 
 const industries = [
   "Healthcare",
-  "Real Estate",
+  "Real estate",
   "Education",
-  "Retail & E-commerce",
-  "Hospitality & Restaurants",
+  "Retail & e-commerce",
+  "Hospitality & restaurants",
   "Automotive",
   "Construction",
-  "Professional Services",
-  "Beauty & Wellness",
+  "Professional services",
+  "Beauty & wellness",
   "Technology",
   "Corporate & B2B",
   "Startups & SMEs",
@@ -152,16 +200,6 @@ const industriesRevealItem = {
   },
 };
 
-const servicesSectionReveal = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.08,
-    },
-  },
-};
-
 const reasonsSectionReveal = {
   hidden: {},
   show: {
@@ -178,15 +216,6 @@ const reasonsRevealItem = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.52, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const servicesRevealItem = {
-  hidden: { opacity: 0, y: 22 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -271,15 +300,6 @@ function CountUpNumber({
 }
 
 export function AboutPage() {
-  const handleIndustriesPointerMove = (event: MouseEvent<HTMLElement>) => {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
-    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
-
-    event.currentTarget.style.setProperty("--industry-spot-x", `${x}%`);
-    event.currentTarget.style.setProperty("--industry-spot-y", `${y}%`);
-  };
-
   return (
     <div className={styles.pageWrap}>
       <Header />
@@ -287,7 +307,9 @@ export function AboutPage() {
         <section className={styles.aboutUsHero}>
           <div>
             {/* <p className={styles.aboutUsEyebrow}>about webtek digital</p> */}
-            <h1>Building customer journeys that create lasting business growth</h1>
+            <h1>
+              Building customer journeys that create lasting <span>business</span> growth
+            </h1>
           </div>
           <div className={styles.aboutUsHeroCopy}>
             <p>
@@ -408,34 +430,14 @@ export function AboutPage() {
           </div>
         </section>
 
-        <motion.section
-          className={styles.aboutUsLists}
-          variants={servicesSectionReveal}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.24 }}
-        >
-          <div className={styles.aboutUsServicesHeader}>
-            <div className={styles.aboutUsSectionHeader}>
-              <motion.p variants={servicesRevealItem}>Our Services</motion.p>
-              <motion.h2 variants={servicesRevealItem}>Everything your business needs under one roof</motion.h2>
-            </div>
-            <motion.p className={styles.aboutUsListsLead} variants={servicesRevealItem}>
-            Every service is designed to work together, creating one connected customer journey that delivers
-            measurable business outcomes.
-            </motion.p>
-          </div>
-          <div className={styles.aboutUsServiceShowcase}>
-            <motion.div className={styles.aboutUsSimpleList} variants={servicesSectionReveal}>
-              {services.map((service, index) => (
-                <motion.div key={service} className={styles.aboutUsSimpleListItem} variants={servicesRevealItem}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <p>{service}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.section>
+        <ServicesSection
+          id="about-services"
+          label="Our services"
+          title="Everything your business needs under one roof"
+          description="At Webtek Digital, every service is designed to work together, creating one connected customer journey that delivers measurable business outcomes."
+          items={aboutServices}
+          priorityFirstImage={false}
+        />
 
         <motion.section
           className={styles.aboutUsReasons}
@@ -446,11 +448,11 @@ export function AboutPage() {
         >
           <div className={styles.aboutUsReasonsHeader}>
             <div className={styles.aboutUsSectionHeader}>
-              <motion.p variants={reasonsRevealItem}>Why businesses choose Webtek</motion.p>
-              <motion.h2 variants={reasonsRevealItem}>Strategy, performance and clarity working together</motion.h2>
+              <motion.p variants={reasonsRevealItem}>Why businesses choose Webtek Digital</motion.p>
+              <motion.h2 variants={reasonsRevealItem}>Built on strategy. Driven by performance.</motion.h2>
             </div>
             <motion.p variants={reasonsRevealItem}>
-              Built for teams that need a partner who can plan, execute and improve every stage of digital growth.
+              Our clients choose us because we focus on what matters most: business growth.
             </motion.p>
           </div>
 
@@ -470,13 +472,6 @@ export function AboutPage() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.24 }}
-          onMouseMove={handleIndustriesPointerMove}
-          style={
-            {
-              "--industry-spot-x": "72%",
-              "--industry-spot-y": "36%",
-            } as CSSProperties
-          }
         >
           <div className={styles.aboutUsSectionHeader}>
             <motion.p variants={industriesRevealItem}>Industries we serve</motion.p>

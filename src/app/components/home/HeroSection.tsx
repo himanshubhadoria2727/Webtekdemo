@@ -104,7 +104,7 @@ export function HeroSection() {
 
         <motion.h2 className={styles.heroTitle} variants={infoContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.45 }}>
           <motion.span className={styles.heroLine} variants={infoLine}>
-            Driven by results, WebTek Digital helps businesses grow through
+            Driven by results, Webtek Digital helps businesses grow through
           </motion.span>{" "}
           <motion.span className={`${styles.heroLine} ${styles.heroHighlight}`} variants={infoLine}>
             smart digital marketing strategies.

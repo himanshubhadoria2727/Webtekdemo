@@ -19,10 +19,10 @@ export function BlogSection() {
       <div className={styles.blogHeader}>
         <div>
           <motion.p className={styles.blogLabel} variants={clienteleFadeUp}>
-            News and Articles
+            News and articles
           </motion.p>
           <motion.h2 id="blogs-heading" variants={clienteleFadeUp}>
-            Practical Digital Growth Notes for Dubai Businesses
+            Practical digital growth notes for Dubai businesses
           </motion.h2>
           <motion.p className={styles.blogIntro} variants={clienteleFadeUp}>
             Ideas, guides, and campaign lessons for teams building stronger digital channels.
@@ -45,7 +45,7 @@ export function BlogSection() {
               <div className={styles.blogCardBody}>
                 <h3>{post.title}</h3>
                 <p>{post.excerpt}</p>
-                <span className={styles.blogCardLink}>READ MORE</span>
+                <span className={styles.blogCardLink}>Read more</span>
               </div>
             </Link>
           </motion.div>

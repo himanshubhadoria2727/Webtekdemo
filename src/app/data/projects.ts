@@ -19,17 +19,17 @@ export const projectPages = {
     scrollItems: [
       {
         title: "Customer App",
-        text: "A polished customer-facing app for browsing restaurants, grocery stores, menus, offers, carts, checkout, delivery tracking, and order history.",
+        text: "A polished customer-facing app for browsing restaurants, menus, offers, carts, checkout, delivery tracking, and order history.",
         imageLabel: "Customer app screens",
         imageSrc: "/talabat/customer-panel.png.webp",
         imageAlt: "Talabat restaurant menu screen in a phone mockup",
       },
       {
         title: "Vendor Dashboard",
-        text: "A practical control panel for restaurant and store partners to manage products, pricing, incoming orders, availability, promotions, and branch operations.",
-        imageLabel: "Grocery storefront screens",
+        text: "A practical control panel for restaurant partners to manage menus, pricing, incoming orders, availability, promotions, and branch operations.",
+        imageLabel: "Restaurant partner screens",
         imageSrc: "/talabat/app-screen3.png.webp",
-        imageAlt: "Grocery app sign in, shopping, and wishlist screens in phone mockups",
+        imageAlt: "Restaurant ordering app screens shown in phone mockups",
       },
       {
         title: "Delivery Workflow",
@@ -48,9 +48,9 @@ export const projectPages = {
       {
         title: "Growth Features",
         text: "Built-in support for push notifications, loyalty offers, wallet payments, referrals, ratings, analytics, and campaign-ready customer engagement.",
-        imageLabel: "Grocery app growth screens",
+        imageLabel: "Food delivery growth screens",
         imageSrc: "/talabat/app-screen3.png.webp",
-        imageAlt: "Grocery app screens showing login, offers, and wishlist views",
+        imageAlt: "Food delivery app screens showing login, offers, and saved items",
       },
     ],
   },

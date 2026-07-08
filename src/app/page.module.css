@@ -1749,6 +1749,9 @@
 
 .servicesImage {
   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .servicesList {
@@ -3081,119 +3084,298 @@
 }
 
 .solutionsPage {
-  color: #101010;
-  background: #d2cbc4;
+  color: #050505;
+  font-family: var(--font-body), sans-serif;
+  background: #fff;
+}
+
+.solutionsHero {
+  background: #fff;
+  grid-template-columns: minmax(0, .95fr) minmax(23rem, .72fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 8rem);
+  min-height: min(82svh, 43rem);
+  padding: clamp(7.6rem, 13vh, 9.2rem) clamp(1.3rem, 4.4vw, 5.2rem) clamp(3.6rem, 7vh, 5rem);
+  display: grid;
+}
+
+.solutionsHeroEyebrow, .solutionsOverviewHeader p {
+  color: #666;
+  text-transform: none;
+  margin: 0;
+  font-size: clamp(1.2rem, 1.45vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.solutionsHero h1 {
+  letter-spacing: 0;
+  text-transform: none;
+  max-width: 18ch;
+  margin: clamp(1.3rem, 2.6vw, 2rem) 0 0;
+  font-size: clamp(2.9rem, 4.15vw, 5rem);
+  font-weight: 500;
+  line-height: 1.03;
+}
+
+.solutionsHero h1 span, .solutionsTextHighlight {
+  color: #d9a53d;
+}
+
+.solutionsTextHighlight {
+  font-weight: 700;
+}
+
+.solutionsHeroCopy {
+  gap: clamp(.85rem, 1.1vw, 1.1rem);
+  max-width: 39rem;
+  padding-top: clamp(2rem, 8vh, 4.5rem);
+  display: grid;
+}
+
+.solutionsHeroCopy p {
+  color: #171717;
+  margin: 0;
+  font-size: clamp(.92rem, .98vw, 1.04rem);
+  line-height: 1.58;
+}
+
+.solutionsTextLink {
+  color: #050505;
+  text-transform: none;
+  align-items: center;
+  gap: .65rem;
+  width: fit-content;
+  margin-top: clamp(.85rem, 1.4vw, 1.35rem);
+  font-size: clamp(1rem, 1.25vw, 1.32rem);
+  line-height: 1;
+  transition: color .2s, transform .2s;
+  display: inline-flex;
+}
+
+.solutionsTextLink:hover {
+  color: #d9a53d;
+  transform: translateX(.18rem);
+}
+
+.solutionsTextLink span {
+  font-size: 1.35em;
+  line-height: 0;
+}
+
+.solutionsGallery {
+  background: #fff;
+  padding: clamp(1rem, 2.4vw, 2rem) 0 clamp(2.8rem, 6vw, 4.6rem);
+  overflow: hidden;
+}
+
+.solutionsGalleryTrack {
+  will-change: transform;
+  gap: 0;
+  width: max-content;
+  padding: 0;
+  animation: 42s linear infinite aboutUsGalleryMarquee;
+  display: flex;
+}
+
+.solutionsGalleryGroup {
+  flex: none;
+  gap: clamp(1rem, 1.7vw, 1.8rem);
+  padding-left: clamp(1.3rem, 4.4vw, 5.2rem);
+  display: flex;
+}
+
+.solutionsGalleryItem {
+  aspect-ratio: 1.48;
+  background: #ececec;
+  flex: 0 0 clamp(17rem, 34vw, 39rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.solutionsGalleryItem:nth-child(2n) {
+  flex-basis: clamp(15rem, 28vw, 32rem);
+}
+
+.solutionsGalleryItem img {
+  object-fit: cover;
+}
+
+.solutionsOverview {
+  background: #fff;
+  border-top: 1px solid #0505051a;
+  padding: clamp(3.8rem, 6.5vw, 5.6rem) clamp(1.3rem, 4.4vw, 5.2rem);
+}
+
+.solutionsOverviewHeader {
+  grid-template-columns: minmax(13rem, .72fr) minmax(0, 1.28fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 7rem);
+  display: grid;
+}
+
+.solutionsOverviewHeader h2 {
+  letter-spacing: 0;
+  text-transform: none;
+  max-width: 18ch;
+  margin: 0;
+  font-size: clamp(2.65rem, 4.1vw, 4.75rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.solutionsOverviewGrid {
+  border-top: 1px solid #05050533;
+  border-left: 1px solid #05050533;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.1rem, 4vw, 3.4rem);
+  display: grid;
+}
+
+.solutionsOverviewCard {
+  border-bottom: 1px solid #05050533;
+  border-right: 1px solid #05050533;
+  align-content: space-between;
+  min-height: clamp(14rem, 16vw, 18rem);
+  padding: clamp(1.1rem, 1.8vw, 1.8rem);
+  display: grid;
+}
+
+.solutionsOverviewCard span {
+  color: #d9a53d;
+  font-size: clamp(.9rem, 1vw, 1.05rem);
+}
+
+.solutionsOverviewCard h3 {
+  margin: clamp(2rem, 3.2vw, 3rem) 0 0;
+  font-size: clamp(1.45rem, 2vw, 2.35rem);
+  font-weight: 300;
+  line-height: 1.02;
+}
+
+.solutionsOverviewCard p {
+  color: #151515;
+  margin: clamp(1rem, 1.6vw, 1.4rem) 0 0;
+  font-size: clamp(.9rem, .98vw, 1rem);
+  line-height: 1.55;
+}
+
+.solutionsKeywordRail {
+  border-top: 1px solid #05050526;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: clamp(2.1rem, 4vw, 3.4rem);
+  padding-top: clamp(1.1rem, 2vw, 1.7rem);
+  display: flex;
+}
+
+.solutionsKeywordRail span {
+  color: #d9a53d;
+  border: 1px solid #d9a53d73;
+  padding: .54rem .78rem;
+  font-size: clamp(.82rem, .9vw, .96rem);
+  font-weight: 700;
+  line-height: 1;
 }
 
 .solutionsDirectory {
-  min-height: 100svh;
-  font-family: var(--font-body), sans-serif;
-  background-color: #d2cbc4;
-  background-image: linear-gradient(90deg, #0000000e 1px, #0000 1px), linear-gradient(#0000000e 1px, #0000 1px), none;
-  background-position: 0 0, 0 0, 0 0;
-  background-repeat: repeat, repeat, repeat;
-  background-size: 7.5rem 7.5rem;
-  background-attachment: scroll, scroll, scroll;
-  background-origin: padding-box, padding-box, padding-box;
-  background-clip: border-box, border-box, border-box;
-  padding: clamp(8.8rem, 12vw, 11rem) clamp(1.15rem, 3.6vw, 4.2rem) clamp(4rem, 7vw, 6rem);
+  background: #fff;
+  padding: clamp(3.8rem, 6.5vw, 5.5rem) clamp(1.3rem, 4.4vw, 5.2rem) clamp(4.2rem, 7vw, 6.2rem);
+}
+
+.solutionsDirectoryHeader, .solutionsDirectoryGrid {
+  width: min(100%, 88rem);
+  margin: 0 auto;
 }
 
 .solutionsDirectoryHeader {
-  border-bottom: 1px solid #101010cc;
-  grid-template-columns: minmax(7rem, .28fr) minmax(18rem, .72fr) minmax(26rem, 1fr);
+  border-top: 1px solid #05050526;
+  border-bottom: 1px solid #05050526;
+  grid-template-columns: minmax(9rem, .28fr) minmax(18rem, .68fr) minmax(22rem, .9fr);
   align-items: start;
-  gap: clamp(1.2rem, 3.2vw, 4rem);
-  padding-bottom: clamp(1.8rem, 3.2vw, 3rem);
+  gap: clamp(1.2rem, 3vw, 3.8rem);
+  padding: clamp(1.7rem, 3vw, 2.5rem) 0;
   display: grid;
 }
 
 .solutionsDirectoryHeader p, .solutionsDirectoryHeader span {
   font-family: var(--font-body), sans-serif;
-  color: #101010c2;
+  color: #171717;
   margin: 0;
 }
 
 .solutionsDirectoryHeader p {
+  color: #666;
   letter-spacing: 0;
   text-transform: none;
-  font-size: clamp(.82rem, .95vw, 1rem);
+  font-size: clamp(.98rem, 1.15vw, 1.18rem);
+  line-height: 1.2;
 }
 
-.solutionsDirectoryHeader h1 {
-  max-width: 11ch;
+.solutionsDirectoryHeader h2 {
+  max-width: 15ch;
   font-family: var(--font-body), sans-serif;
   letter-spacing: 0;
   margin: 0;
-  font-size: clamp(3.25rem, 6.5vw, 7.5rem);
-  font-weight: 500;
-  line-height: .88;
+  font-size: clamp(2.1rem, 3vw, 3.45rem);
+  font-weight: 400;
+  line-height: 1.04;
 }
 
 .solutionsDirectoryHeader span {
   letter-spacing: 0;
-  max-width: 50rem;
-  font-size: clamp(.98rem, 1.12vw, 1.18rem);
-  font-weight: 500;
-  line-height: 1.55;
+  max-width: 38rem;
+  font-size: clamp(.95rem, 1.05vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.58;
 }
 
 .solutionsDirectoryGrid {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: stretch;
-  gap: clamp(1rem, 1.7vw, 1.65rem);
-  padding-top: clamp(1.4rem, 3vw, 2.7rem);
+  border-bottom: 1px solid #05050526;
   display: grid;
 }
 
 .solutionsDirectoryCard {
-  background: #d2cbc4db;
-  border: 1px solid #101010d1;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(1.05rem, 1.8vw, 2rem);
-  min-height: clamp(23rem, 27vw, 29rem);
-  padding: clamp(1.25rem, 2vw, 2rem);
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 1.4rem 3rem #00000014;
+  border-top: 1px solid #05050526;
+  grid-template-columns: minmax(2.8rem, 4.25rem) minmax(15rem, 23rem) minmax(0, 1fr);
+  column-gap: clamp(1.35rem, 3vw, 3.5rem);
+  row-gap: clamp(1rem, 1.6vw, 1.45rem);
+  align-items: start;
+  min-height: auto;
+  padding: clamp(2.15rem, 4vw, 3.75rem) clamp(.2rem, 1.1vw, 1rem);
+  display: grid;
+  transition: background .2s;
+}
+
+.solutionsDirectoryCard:hover {
+  background: #fbfaf7;
 }
 
 .solutionsDirectoryCard:first-child, .solutionsDirectoryCard:nth-child(2), .solutionsDirectoryCard:nth-child(3), .solutionsDirectoryCard:nth-child(4) {
-  grid-column: span 6;
+  grid-column: auto;
 }
 
 .solutionsDirectoryCard:before, .solutionsDirectoryCard:after {
-  content: "";
-  background: #101010;
-  width: .58rem;
-  height: .58rem;
-  position: absolute;
-}
-
-.solutionsDirectoryCard:before {
-  top: -1px;
-  left: -1px;
-}
-
-.solutionsDirectoryCard:after {
-  bottom: -1px;
-  right: -1px;
+  display: none;
 }
 
 .solutionsDirectoryCardTop {
-  align-content: start;
-  gap: clamp(.65rem, 1vw, 1rem);
-  display: grid;
+  display: contents;
 }
 
 .solutionsDirectoryCardTop span {
   font-family: var(--font-body), sans-serif;
   letter-spacing: 0;
   color: #d9a53d;
-  font-size: clamp(.8rem, .9vw, 1rem);
+  border: 1px solid #d9a53d70;
+  border-radius: 999px;
+  place-items: center;
+  width: clamp(2.35rem, 3vw, 2.9rem);
+  height: clamp(2.35rem, 3vw, 2.9rem);
+  font-size: clamp(.84rem, .92vw, .98rem);
   font-weight: 500;
+  line-height: 1;
+  display: grid;
 }
 
 .solutionsDirectoryCard h2 {
@@ -3201,28 +3383,28 @@
   font-family: var(--font-body), sans-serif;
   letter-spacing: 0;
   margin: 0;
-  font-size: clamp(2.55rem, 3.7vw, 5rem);
-  font-weight: 500;
-  line-height: .92;
+  font-size: clamp(2rem, 2.72vw, 3.15rem);
+  font-weight: 400;
+  line-height: 1.03;
 }
 
 .solutionsDirectoryCardTop p {
-  color: #101010c2;
-  max-width: 52rem;
+  color: #171717;
+  max-width: 47rem;
   font-family: var(--font-body), sans-serif;
   letter-spacing: 0;
   margin: 0;
-  font-size: clamp(.9rem, .96vw, 1rem);
-  font-weight: 500;
+  font-size: clamp(.95rem, 1.05vw, 1.12rem);
+  font-weight: 400;
   line-height: 1.58;
 }
 
 .solutionsDirectoryCard ul {
-  border-top: 1px solid #1010103d;
+  grid-column: 3;
   flex-wrap: wrap;
-  gap: clamp(.75rem, 1vw, 1rem) clamp(1rem, 1.5vw, 1.45rem);
+  gap: clamp(.6rem, .9vw, .85rem);
   margin: 0;
-  padding: clamp(.8rem, 1.1vw, 1.1rem) 0 0;
+  padding: 0;
   list-style: none;
   display: flex;
 }
@@ -3232,18 +3414,25 @@
   font-family: var(--font-body), sans-serif;
   letter-spacing: 0;
   align-items: center;
-  gap: .55rem;
-  font-size: clamp(.96rem, 1.18vw, 1.26rem);
+  gap: .42rem;
+  background: #fff;
+  border: 1px solid #05050524;
+  border-radius: 999px;
+  padding: .62rem .85rem;
+  font-size: clamp(.88rem, .98vw, 1rem);
   font-weight: 500;
   line-height: 1.15;
+  text-underline-offset: .18em;
   text-decoration: none;
-  transition: color .2s, transform .2s;
+  transition: color .2s, background .2s, border-color .2s, transform .2s;
   display: inline-flex;
 }
 
 .solutionsDirectoryCard a:hover {
-  color: #d9a53d;
-  transform: translateX(.25rem);
+  color: #fff;
+  background: #050505;
+  border-color: #050505;
+  transform: translateX(.15rem);
 }
 
 .solutionsDirectoryCard a span {
@@ -3252,6 +3441,8 @@
 
 .solutionsDirectoryFeatured a {
   color: #d9a53d;
+  background: #fff9ec;
+  border-color: #d9a53d70;
 }
 
 .servicesPage {
@@ -4612,8 +4803,13 @@
     margin-bottom: 2.5rem;
   }
 
-  .solutionsDirectory {
-    padding-top: 9.5rem;
+  .solutionsHero, .solutionsOverviewHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .solutionsHero {
+    min-height: auto;
+    padding-top: clamp(7rem, 14vh, 8.5rem);
   }
 
   .solutionsDirectoryHeader, .servicesPageHeroInner {
@@ -4632,8 +4828,12 @@
     position: static;
   }
 
-  .solutionsDirectoryHeader h1 {
+  .solutionsHero h1, .solutionsDirectoryHeader h2 {
     max-width: 100%;
+  }
+
+  .solutionsOverviewGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .solutionsDirectoryGrid {
@@ -4642,7 +4842,21 @@
 
   .solutionsDirectoryCard, .solutionsDirectoryCard:first-child, .solutionsDirectoryCard:nth-child(2), .solutionsDirectoryCard:nth-child(3), .solutionsDirectoryCard:nth-child(4) {
     grid-column: auto;
+    grid-template-columns: 1fr;
     min-height: auto;
+  }
+
+  .solutionsDirectoryCardTop {
+    gap: .85rem;
+    display: grid;
+  }
+
+  .solutionsDirectoryCard h2 {
+    max-width: 100%;
+  }
+
+  .solutionsDirectoryCardTop p, .solutionsDirectoryCard ul {
+    grid-column: auto;
   }
 
   .projectMetaBar, .projectIntroSection, .projectScrollSection, .projectScrollText {
@@ -4794,13 +5008,39 @@
     height: 500px;
   }
 
-  .solutionsDirectory {
+  .solutionsHero, .solutionsOverview, .solutionsDirectory {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
+  .solutionsHero h1, .solutionsOverviewHeader h2, .solutionsDirectoryHeader h2 {
+    font-size: clamp(2.2rem, 9.5vw, 3.35rem);
+    line-height: 1.04;
+  }
+
+  .solutionsGalleryTrack {
+    animation-duration: 34s;
+  }
+
+  .solutionsGalleryGroup {
+    padding-left: 1rem;
+  }
+
+  .solutionsGalleryItem, .solutionsGalleryItem:nth-child(2n) {
+    flex-basis: min(82vw, 24rem);
+  }
+
+  .solutionsOverviewGrid {
+    grid-template-columns: 1fr;
+  }
+
   .solutionsDirectoryHeader {
     gap: 1rem;
+  }
+
+  .solutionsDirectoryCard {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .servicesPageHero, .servicesPageList {
@@ -4810,10 +5050,6 @@
 
   .servicesPageCardBody ul {
     grid-template-columns: 1fr;
-  }
-
-  .solutionsDirectoryCard {
-    min-height: 18rem;
   }
 
   .solutionsDirectoryCard ul {

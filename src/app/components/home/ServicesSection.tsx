@@ -1,5 +1,4 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
 import styles from "../../page.module.css";
 
@@ -7,6 +6,31 @@ type ServiceItem = {
   label: string;
   image: string;
   alt: string;
+  video?: string;
+};
+
+const serviceVideoByLabel: Record<string, string> = {
+  "Website design & development": "/services/websites.mp4",
+  "Mobile app development": "/services/mobile%20apps.mp4",
+  "Branding & public relations": "/services/branding%20%26%20public%20relations.mp4",
+  "SEO & online reputation management": "/services/Google.mp4",
+  "Social media management & marketing": "/services/Social.mp4",
+  "Google Ads & performance marketing": "/services/Google.mp4",
+  "UI/UX design": "/services/mobile%20apps.mp4",
+  "Graphic design & video editing": "/services/Editing%26%20graphics.mp4",
+  "Telecalling services": "/services/Tele.mp4",
+  "Content creation": "/services/Content%20Creator.mp4",
+  "Photography & videography": "/services/Videographer%20%26%20Photographer.mp4",
+  "Search engine optimisation": "/services/Google.mp4",
+  "Google Ads management": "/services/Google.mp4",
+  "Meta advertising": "/services/Social.mp4",
+  "Social media marketing": "/services/Social.mp4",
+  "Branding & creative design": "/services/branding%20%26%20public%20relations.mp4",
+  "Video shooting & production": "/services/Videographer%20%26%20Photographer.mp4",
+  "Performance marketing": "/services/Google.mp4",
+  "Marketing automation & CRM integration": "/services/websites.mp4",
+  "Email marketing": "/services/Content%20Creator.mp4",
+  "Analytics & conversion optimisation": "/services/Google.mp4",
 };
 
 const defaultServices: readonly ServiceItem[] = [
@@ -96,11 +120,11 @@ export function ServicesSection({
   description,
   items = defaultServices,
   className,
-  priorityFirstImage = true,
 }: ServicesSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const activeService = items[activeIndex] ?? items[0] ?? defaultServices[0];
+  const activeVideo = activeService.video ?? serviceVideoByLabel[activeService.label] ?? "/services/websites.mp4";
 
   const setActiveService = (index: number) => {
     if (index === activeIndex) {
@@ -125,7 +149,7 @@ export function ServicesSection({
         <div className={styles.servicesImageFrame} aria-hidden="true">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
-              key={activeService.image}
+              key={`${activeService.label}-${activeVideo}`}
               className={styles.servicesImageSlide}
               custom={direction}
               variants={servicesImageVariants}
@@ -134,13 +158,17 @@ export function ServicesSection({
               exit="exit"
               transition={{ duration: 0.72, ease: [0.77, 0, 0.175, 1] }}
             >
-              <Image
-                src={activeService.image}
-                alt={activeService.alt}
-                fill
-                sizes="(max-width: 900px) 100vw, 34vw"
+              <video
                 className={styles.servicesImage}
-                priority={priorityFirstImage && activeIndex === 0}
+                src={activeVideo}
+                poster={activeService.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+                suppressHydrationWarning
               />
             </motion.div>
           </AnimatePresence>

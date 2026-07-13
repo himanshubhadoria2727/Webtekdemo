@@ -3843,6 +3843,84 @@
   line-height: 1.5;
 }
 
+.projectBenefitsSection {
+  border-top: 1px solid #050505;
+  background: #f4f2ee;
+  padding: clamp(3.6rem, 6.4vw, 5.8rem) clamp(1.3rem, 4.4vw, 5.2rem);
+}
+
+.projectBenefitsHeader {
+  grid-template-columns: minmax(12rem, .42fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.5rem, 5vw, 6rem);
+  margin-bottom: clamp(2rem, 3.8vw, 3.5rem);
+  display: grid;
+}
+
+.projectBenefitsHeader span {
+  color: #666;
+  font-size: clamp(1.35rem, 1.75vw, 2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.projectBenefitsHeader h2 {
+  max-width: 14ch;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0;
+  font-size: clamp(3rem, 4.9vw, 6.1rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.projectBenefitsGrid {
+  border-top: 1px solid #05050530;
+  border-left: 1px solid #05050530;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid;
+}
+
+.projectBenefitCard {
+  min-height: clamp(15rem, 18vw, 20rem);
+  background: #fff;
+  border-right: 1px solid #05050530;
+  border-bottom: 1px solid #05050530;
+  align-content: space-between;
+  padding: clamp(1.2rem, 2vw, 2rem);
+  display: grid;
+}
+
+.projectBenefitCard span {
+  color: #d9a53d;
+  border: 1px solid #d9a53d70;
+  border-radius: 999px;
+  place-items: center;
+  width: clamp(2.45rem, 3vw, 3rem);
+  height: clamp(2.45rem, 3vw, 3rem);
+  font-size: clamp(.82rem, .94vw, 1rem);
+  font-weight: 500;
+  line-height: 1;
+  display: grid;
+}
+
+.projectBenefitCard h3 {
+  letter-spacing: 0;
+  text-transform: none;
+  margin: clamp(2.1rem, 3.4vw, 3.2rem) 0 0;
+  font-size: clamp(1.45rem, 2vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.04;
+}
+
+.projectBenefitCard p {
+  color: #171717;
+  margin: clamp(.9rem, 1.3vw, 1.2rem) 0 0;
+  font-size: clamp(.92rem, 1vw, 1.06rem);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
 .projectFeatureSection {
   border-top: 1px solid #050505;
   background: #fff;
@@ -4952,6 +5030,15 @@
     margin: clamp(2rem, 5vw, 3.4rem) 0 0;
   }
 
+  .projectBenefitsHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .projectBenefitsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .projectFeatureHeader {
     flex-direction: column;
     align-items: flex-start;
@@ -5178,6 +5265,24 @@
 
   .projectStatementImage, .projectFeatureImage {
     padding: 1.1rem;
+  }
+
+  .projectBenefitsSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .projectBenefitsHeader h2 {
+    max-width: 100%;
+    font-size: clamp(2.55rem, 11vw, 4.2rem);
+  }
+
+  .projectBenefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectBenefitCard {
+    min-height: 13.5rem;
   }
 
   .projectFeatureGrid {

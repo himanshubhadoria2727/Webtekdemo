@@ -87,10 +87,28 @@ export function ProjectPageTemplate({ project }: ProjectPageTemplateProps) {
           </div>
         </section>
 
+        {project.featureHighlights ? (
+          <section id="project-benefits" className={styles.projectBenefitsSection}>
+            <div className={styles.projectBenefitsHeader}>
+              <span>03.</span>
+              <h2>Built for daily delivery operations</h2>
+            </div>
+            <div className={styles.projectBenefitsGrid}>
+              {project.featureHighlights.map((item, index) => (
+                <article key={item.title} className={styles.projectBenefitCard}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section id="project-features" className={styles.projectFeatureSection}>
           <div className={styles.projectFeatureHeader}>
             <div className={styles.projectSectionHeading}>
-              <span>03.</span>
+              <span>{project.featureHighlights ? "04." : "03."}</span>
               <h2>{project.scrollLabel}</h2>
             </div>
             <Link href="#contact-us">

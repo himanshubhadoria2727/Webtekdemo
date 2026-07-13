@@ -65,7 +65,6 @@ export const solutionsPage = {
       description:
         "For businesses selling physical goods that need a seamless path from browsing to checkout to delivery. Our product app development builds cover catalog management, cart and checkout flows, inventory tracking, and delivery coordination - purpose-built for grocery, e-commerce, and restaurant delivery models that need to move fast and scale with demand.",
       items: [{ label: "Grocery" }, { label: "E-Commerce" }, { label: "Restaurant Delivery" }],
-      featuredItem: "E-Commerce",
     },
     {
       title: "Health & Beauty",

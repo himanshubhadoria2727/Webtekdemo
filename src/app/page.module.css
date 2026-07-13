@@ -3158,11 +3158,6 @@
   transform: translateX(.18rem);
 }
 
-.solutionsTextLink span {
-  font-size: 1.35em;
-  line-height: 0;
-}
-
 .solutionsGallery {
   background: #fff;
   padding: clamp(1rem, 2.4vw, 2rem) 0 clamp(2.8rem, 6vw, 4.6rem);
@@ -3280,7 +3275,7 @@
 
 .solutionsDirectory {
   background: #fff;
-  padding: clamp(3.8rem, 6.5vw, 5.5rem) clamp(1.3rem, 4.4vw, 5.2rem) clamp(4.2rem, 7vw, 6.2rem);
+  padding: clamp(1.2rem, 2.8vw, 2.4rem) clamp(1.3rem, 4.4vw, 5.2rem) clamp(4.2rem, 7vw, 6.2rem);
 }
 
 .solutionsDirectoryHeader, .solutionsDirectoryGrid {
@@ -3291,10 +3286,11 @@
 .solutionsDirectoryHeader {
   border-top: 1px solid #05050526;
   border-bottom: 1px solid #05050526;
-  grid-template-columns: minmax(9rem, .28fr) minmax(18rem, .68fr) minmax(22rem, .9fr);
+  grid-template-columns: minmax(18rem, .72fr) minmax(22rem, .66fr);
   align-items: start;
-  gap: clamp(1.2rem, 3vw, 3.8rem);
-  padding: clamp(1.7rem, 3vw, 2.5rem) 0;
+  column-gap: clamp(2rem, 5vw, 6rem);
+  row-gap: clamp(.95rem, 1.8vw, 1.45rem);
+  padding: clamp(1.4rem, 2.4vw, 2rem) 0;
   display: grid;
 }
 
@@ -3305,6 +3301,7 @@
 }
 
 .solutionsDirectoryHeader p {
+  grid-column: 1 / -1;
   color: #666;
   letter-spacing: 0;
   text-transform: none;
@@ -3313,7 +3310,7 @@
 }
 
 .solutionsDirectoryHeader h2 {
-  max-width: 15ch;
+  max-width: 17ch;
   font-family: var(--font-body), sans-serif;
   letter-spacing: 0;
   margin: 0;
@@ -3323,6 +3320,7 @@
 }
 
 .solutionsDirectoryHeader span {
+  align-self: end;
   letter-spacing: 0;
   max-width: 38rem;
   font-size: clamp(.95rem, 1.05vw, 1.1rem);
@@ -3437,6 +3435,37 @@
 
 .solutionsDirectoryCard a span {
   font-weight: 500;
+}
+
+.buttonArrow {
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  flex: none;
+  place-items: center;
+  width: 1.55em;
+  font-size: .82em;
+  font-weight: 500;
+  line-height: 1;
+  transition: color .2s, background .2s, border-color .2s, transform .2s;
+  display: inline-grid;
+}
+
+.buttonArrow svg {
+  width: .82em;
+  height: .82em;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.solutionsTextLink:hover .buttonArrow,
+.solutionsDirectoryCard a:hover .buttonArrow,
+.projectHeroCta:hover .buttonArrow,
+.projectFeatureHeader a:hover .buttonArrow {
+  transform: translateX(.14rem);
 }
 
 .solutionsDirectoryFeatured a {
@@ -3594,302 +3623,324 @@
 }
 
 .projectPage {
-  color: #101010;
+  color: #050505;
   font-family: var(--font-body), sans-serif;
-  background: #d2cbc4;
+  background: #fff;
 }
 
 .projectHero {
-  min-height: 100svh;
-  padding: clamp(7.8rem, 10vw, 9.5rem) clamp(1rem, 1.6vw, 1.7rem) clamp(2.2rem, 4vw, 3.6rem);
-}
-
-.projectMetaBar {
-  font-family: var(--font-body), sans-serif;
-  letter-spacing: 0;
-  text-transform: none;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  align-items: baseline;
-  gap: clamp(1rem, 2.4vw, 3rem);
-  margin-bottom: clamp(1.2rem, 2vw, 1.8rem);
-  font-size: clamp(.8rem, .95vw, 1rem);
+  min-height: min(88svh, 52rem);
+  background: #fff;
+  align-content: space-between;
+  gap: clamp(1.8rem, 3.2vw, 3.6rem);
+  padding: calc(var(--site-header-height, 5.8rem) + clamp(1.8rem, 3.4vw, 3.4rem))
+    clamp(1.3rem, 4.4vw, 5.2rem)
+    clamp(2rem, 3.6vw, 3.4rem);
   display: grid;
 }
 
-.projectMetaBar p {
-  margin: 0;
+.projectHeroTitleRow {
+  grid-template-columns: minmax(0, .86fr) minmax(24rem, .82fr);
+  align-items: center;
+  gap: clamp(2.2rem, 4.8vw, 6rem);
+  display: grid;
 }
 
-.projectMetaBar strong {
-  text-transform: none;
+.projectHeroCopy {
+  min-width: 0;
+}
+
+.projectHeroCopy h1 {
+  max-width: 11.4ch;
   letter-spacing: 0;
-  margin-left: .35rem;
-  font-size: clamp(1.1rem, 1.55vw, 1.7rem);
-  font-weight: 500;
+  text-transform: none;
+  margin: 0;
+  font-size: clamp(3rem, 4.9vw, 5.9rem);
+  font-weight: 300;
+  line-height: 1.04;
+}
+
+.projectHeroCopy p {
+  color: #242424;
+  max-width: 38rem;
+  margin: clamp(1rem, 1.65vw, 1.55rem) 0 0;
+  font-size: clamp(.94rem, 1vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.58;
+}
+
+.projectHeroCta {
+  color: #fff;
+  background: #050505;
+  border: 1px solid #050505;
+  border-radius: 999px;
+  align-items: center;
+  gap: .58rem;
+  width: fit-content;
+  margin-top: clamp(1.4rem, 2.4vw, 2.35rem);
+  padding: .82rem 1.06rem;
+  font-size: clamp(.9rem, 1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1;
+  transition: color .2s, background .2s, transform .2s;
+  display: inline-flex;
+}
+
+.projectHeroCta:hover {
+  color: #050505;
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.projectHeroSide {
+  display: grid;
 }
 
 .projectHeroFrame {
-  background: linear-gradient(135deg, #d9a53d2e, #0000 34%), linear-gradient(90deg, #10101014 1px, #0000 1px) 0 0 / 4rem 4rem, linear-gradient(#10101014 1px, #0000 1px) 0 0 / 4rem 4rem, #bdb4aa;
-  border: 1px solid #101010d1;
-  place-items: center;
-  min-height: clamp(32rem, 72vh, 47rem);
-  display: grid;
+  isolation: isolate;
+  background: radial-gradient(circle at 50% 42%, #171717, #050505 58%);
+  aspect-ratio: 1.32;
+  min-height: clamp(21rem, 34vw, 35rem);
   position: relative;
   overflow: hidden;
-}
-
-.projectHeroFrame:before, .projectHeroFrame:after {
-  content: "";
-  z-index: 1;
-  border: 1px solid #1010106b;
-  width: clamp(10rem, 22vw, 23rem);
-  height: clamp(10rem, 22vw, 23rem);
-  position: absolute;
-  transform: rotate(9deg);
+  animation: projectHeroPhotoIn .9s cubic-bezier(.22, 1, .36, 1) both;
+  box-shadow: 0 1.4rem 3rem #05050517;
 }
 
 .projectHeroFrame:before {
-  bottom: 12%;
-  left: 8%;
-}
-
-.projectHeroFrame:after {
-  top: 10%;
-  right: 12%;
-  transform: rotate(-6deg);
-}
-
-.projectHeroFrame span {
-  z-index: 3;
-  letter-spacing: 0;
-  text-transform: none;
-  font-size: clamp(.78rem, .9vw, 1rem);
-  font-weight: 500;
+  content: "";
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 52% 46%, #ffffff1f, transparent 20%),
+    linear-gradient(115deg, transparent 0 34%, #ffffff10 45%, transparent 58% 100%);
+  opacity: .7;
   position: absolute;
-  top: clamp(1rem, 2vw, 1.6rem);
-  left: clamp(1rem, 2vw, 1.6rem);
+  inset: 0;
+  animation: projectHeroPhotoGlow 5.5s ease-in-out infinite alternate;
 }
 
 .projectHeroImage {
   z-index: 1;
   object-fit: contain;
   object-position: center;
-  opacity: .86;
-  filter: drop-shadow(0 1.4rem 2.6rem #10101047);
-  padding: clamp(2.5rem, 5vw, 5rem);
-}
-
-.projectHeroFrame h1 {
-  z-index: 4;
-  max-width: 15ch;
-  font-family: var(--font-body), sans-serif;
-  letter-spacing: 0;
-  text-align: center;
-  text-transform: none;
-  color: #fffaf2;
-  text-shadow: 0 2px #101010f2, 0 .28rem #101010b8, 0 1.4rem 3.4rem #1010106b;
-  margin: 0;
-  font-size: clamp(3.25rem, 6.2vw, 7.25rem);
-  font-weight: 500;
-  line-height: .92;
-  position: relative;
-}
-
-.projectHeroFrame p {
-  z-index: 3;
-  color: #101010ad;
-  margin: 0;
-  font-size: clamp(.85rem, 1vw, 1.05rem);
-  position: absolute;
-  bottom: clamp(1rem, 2vw, 1.6rem);
-  right: clamp(1rem, 2vw, 1.6rem);
+  padding: clamp(1.4rem, 3vw, 3.2rem);
+  filter: drop-shadow(0 1.25rem 2.6rem #0000008a);
+  animation: projectHeroPhoneFloat 4.8s ease-in-out .65s infinite;
 }
 
 .projectIntroSection {
-  border-top: 1px solid #101010cc;
-  border-bottom: 1px solid #101010cc;
-  grid-template-columns: minmax(10rem, .35fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 5vw, 6rem);
-  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 3vw, 2.4rem);
+  grid-template-columns: minmax(16rem, .45fr) minmax(0, 1fr);
+  gap: clamp(2rem, 7vw, 8rem);
+  padding: clamp(4.8rem, 8vw, 7rem) clamp(1.3rem, 4.4vw, 5.2rem);
   display: grid;
 }
 
-.projectIntroLabel {
+.projectSectionHeading {
+  align-content: start;
+  gap: clamp(1.45rem, 2.2vw, 2.1rem);
+  display: grid;
+}
+
+.projectSectionHeading span, .projectStatementText > span {
+  color: #666;
+  margin: 0;
+  font-size: clamp(1.35rem, 1.75vw, 2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.projectSectionHeading h2 {
+  max-width: 9.5ch;
   letter-spacing: 0;
   text-transform: none;
   margin: 0;
-  font-size: clamp(.78rem, .9vw, 1rem);
+  font-size: clamp(3.3rem, 5.5vw, 6.8rem);
+  font-weight: 300;
+  line-height: 1.02;
 }
 
-.projectIntroSection > p:last-child {
-  letter-spacing: 0;
+.projectIntroCopy {
   max-width: 68rem;
+}
+
+.projectIntroCopy p {
+  color: #151515;
   margin: 0;
-  font-size: clamp(1.05rem, 1.45vw, 1.65rem);
-  font-weight: 500;
-  line-height: 1.22;
+  font-size: clamp(1.05rem, 1.42vw, 1.58rem);
+  font-weight: 400;
+  line-height: 1.48;
 }
 
-.projectScrollSection {
-  box-sizing: border-box;
-  height: 100svh;
-  min-height: 38rem;
-  padding: calc(var(--site-header-height, 5.9rem) + clamp(1rem, 1.6vw, 1.8rem))
-    clamp(1rem, 3vw, 2.4rem)
-    clamp(2.5rem, 4vw, 4rem);
-  background: #d2cbc4;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 42vw);
-  gap: clamp(1rem, 3vw, 3rem);
-  margin-bottom: 0;
-  transition: padding-top .38s cubic-bezier(.22, 1, .36, 1);
+.projectStatementSection {
+  border-top: 1px solid #050505;
+  grid-template-areas:
+    "statement media"
+    "copy media";
+  grid-template-columns: minmax(0, .92fr) minmax(24rem, .78fr);
+  align-items: start;
+  column-gap: clamp(2.4rem, 6vw, 7.5rem);
+  row-gap: clamp(1.7rem, 3vw, 3rem);
+  min-height: auto;
+  padding: clamp(3.4rem, 6vw, 5.4rem) clamp(1.3rem, 4.4vw, 5.2rem) clamp(4rem, 7vw, 6rem);
+  background: #fff;
   display: grid;
-  position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
-.projectScrollText {
-  min-width: 0;
+.projectStatementText {
+  grid-area: statement;
+  max-width: 58rem;
 }
 
-.projectScrollRail {
+.projectStatementText h2 {
+  max-width: 12ch;
   letter-spacing: 0;
   text-transform: none;
-  align-content: space-between;
-  min-height: calc(100svh - 9rem);
-  font-size: clamp(.78rem, .88vw, 1rem);
-  display: grid;
+  margin: clamp(1.5rem, 2.8vw, 2.6rem) 0 0;
+  font-size: clamp(3rem, 4.8vw, 6.1rem);
+  font-weight: 300;
+  line-height: 1;
 }
 
-.projectScrollRailItem {
-  align-items: center;
-  gap: clamp(1.2rem, 2vw, 2.4rem);
-  display: flex;
-}
-
-.projectScrollRailItem > span:first-child {
-  background: #101010;
-  flex: none;
-  width: .58rem;
-  height: .58rem;
-}
-
-.projectScrollList {
-  min-height: calc(100svh - var(--site-header-height, 5.9rem) - 3.1rem);
-  align-self: stretch;
-  transition: min-height .38s cubic-bezier(.22, 1, .36, 1);
-  display: grid;
-}
-
-.projectScrollPanel {
-  border-top: 1px solid #101010db;
-  align-content: start;
-  display: grid;
-}
-
-.projectScrollPanel:last-child {
-  border-bottom: 1px solid #101010db;
-}
-
-.projectScrollPanel h2 {
-  letter-spacing: 0;
-  align-items: baseline;
-  gap: clamp(.8rem, 1.4vw, 1.4rem);
-  margin: 0;
-  padding: clamp(1.05rem, 1.55vh, 1.45rem) 0;
-  font-size: clamp(1rem, 1.45vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.08;
-  display: flex;
-}
-
-.projectScrollPanel h2 span {
-  color: #d9a53d;
-  letter-spacing: 0;
-  min-width: 2ch;
-  font-size: .72em;
-}
-
-.projectScrollContent {
-  visibility: hidden;
-  height: 0;
+.projectStatementMedia {
+  grid-area: media;
+  background: #050505;
+  width: 100%;
+  aspect-ratio: 1.35;
+  margin-top: clamp(1.8rem, 4vw, 4.5rem);
+  position: relative;
   overflow: hidden;
 }
 
-.projectScrollContentInner {
-  padding: clamp(1.35rem, 2.4vh, 2.1rem) 0 clamp(2.6rem, 5vh, 5.4rem);
-}
-
-.projectScrollContentInner p {
-  letter-spacing: 0;
-  max-width: 42rem;
-  margin: 0;
-  font-size: clamp(.95rem, 1vw, 1.08rem);
-  font-weight: 500;
-  line-height: 1.42;
-}
-
-.projectScrollMediaStack {
-  will-change: transform;
-  align-content: start;
-  gap: clamp(1rem, 2vw, 1.6rem);
-  display: grid;
-}
-
-.projectScrollMedia {
-  min-height: calc(100svh - var(--site-header-height, 5.9rem) - 3.6rem);
-  background: linear-gradient(135deg, #d9a53d29, #0000 36%), linear-gradient(90deg, #10101014 1px, #0000 1px) 0 0 / 3rem 3rem, linear-gradient(#10101014 1px, #0000 1px) 0 0 / 3rem 3rem, #bdb4aa;
-  border: 1px solid #101010d1;
-  align-content: space-between;
-  padding: clamp(1rem, 2vw, 1.8rem);
-  transition: min-height .38s cubic-bezier(.22, 1, .36, 1);
-  display: grid;
-  position: relative;
-}
-
-.projectScrollMedia:before, .projectScrollMedia:after {
+.projectStatementMedia:before {
   content: "";
-  z-index: 2;
-  background: #101010;
-  width: .64rem;
-  height: .64rem;
+  pointer-events: none;
+  border: 1px solid #ffffff21;
   position: absolute;
+  inset: clamp(.7rem, 1.2vw, 1.1rem);
 }
 
-.projectScrollMedia:before {
-  top: -1px;
-  left: -1px;
-}
-
-.projectScrollMedia:after {
-  bottom: -1px;
-  right: -1px;
-}
-
-.projectScrollMedia span {
-  z-index: 2;
-  color: #d9a53d;
-  letter-spacing: 0;
-  font-size: clamp(.8rem, 1vw, 1rem);
-  font-weight: 500;
-  position: relative;
-}
-
-.projectScrollMedia p {
-  z-index: 2;
-  letter-spacing: 0;
-  max-width: 22rem;
-  margin: 0;
-  font-size: clamp(1.2rem, 2vw, 2.25rem);
-  font-weight: 500;
-  line-height: .98;
-  position: relative;
-}
-
-.projectScrollMediaImage {
+.projectStatementImage {
   object-fit: contain;
   object-position: center;
-  filter: drop-shadow(0 1.2rem 2.4rem #10101038);
-  padding: clamp(1.8rem, 4vw, 4rem);
+  padding: clamp(1.2rem, 3vw, 3rem);
+  filter: drop-shadow(0 1.25rem 2.8rem #00000082);
+}
+
+.projectStatementCopy {
+  grid-area: copy;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
+  width: min(100%, 42rem);
+  margin: clamp(1rem, 2vw, 2rem) 0 0;
+  display: grid;
+}
+
+.projectStatementCopy p {
+  color: #1a1a1a;
+  margin: 0;
+  font-size: clamp(1rem, 1.17vw, 1.22rem);
+  line-height: 1.5;
+}
+
+.projectFeatureSection {
+  border-top: 1px solid #050505;
+  background: #fff;
+  padding: clamp(3.8rem, 6.8vw, 6.2rem) clamp(1.3rem, 4.4vw, 5.2rem) clamp(5rem, 8vw, 7rem);
+}
+
+.projectFeatureHeader {
+  align-items: end;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-bottom: clamp(2.2rem, 4vw, 3.8rem);
+  display: flex;
+}
+
+.projectFeatureHeader .projectSectionHeading h2 {
+  max-width: none;
+  font-size: clamp(3rem, 4.6vw, 5.6rem);
+}
+
+.projectFeatureHeader a {
+  color: #050505;
+  border: 1px solid #050505;
+  border-radius: 999px;
+  align-items: center;
+  gap: .58rem;
+  padding: .82rem 1.08rem;
+  font-size: clamp(.92rem, 1.05vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1;
+  transition: color .2s, background .2s, transform .2s;
+  display: inline-flex;
+}
+
+.projectFeatureHeader a:hover {
+  color: #fff;
+  background: #050505;
+  transform: translateY(-1px);
+}
+
+.projectFeatureGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.2rem, 2vw, 2.4rem);
+  display: grid;
+}
+
+.projectFeatureCard {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+}
+
+.projectFeatureMedia {
+  background: #050505;
+  aspect-ratio: 1.48;
+  position: relative;
+  overflow: hidden;
+}
+
+.projectFeatureImage {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(1.3rem, 2.8vw, 3.2rem);
+  filter: drop-shadow(0 1.1rem 2.4rem #00000075);
+}
+
+.projectFeatureBody {
+  padding-top: clamp(1.1rem, 1.8vw, 1.65rem);
+}
+
+.projectFeatureBody h3 {
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.projectFeatureBody p {
+  color: #7a7a7a;
+  margin: clamp(1rem, 1.4vw, 1.35rem) 0 0;
+  font-size: clamp(.95rem, 1.06vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.projectIntroLabel,
+.projectScrollSection,
+.projectScrollText,
+.projectScrollRail,
+.projectScrollRailItem,
+.projectScrollList,
+.projectScrollPanel,
+.projectScrollContent,
+.projectScrollContentInner,
+.projectScrollMediaStack,
+.projectScrollMedia {
+  display: none;
 }
 
 .footerSection {
@@ -4859,33 +4910,55 @@
     grid-column: auto;
   }
 
-  .projectMetaBar, .projectIntroSection, .projectScrollSection, .projectScrollText {
+  .projectHeroTitleRow, .projectIntroSection {
     grid-template-columns: 1fr;
   }
 
   .projectHero {
-    padding-top: 9.2rem;
-  }
-
-  .projectMetaBar {
-    gap: .7rem;
+    min-height: auto;
+    padding-top: calc(var(--site-header-height, 5.8rem) + 2.6rem);
   }
 
   .projectHeroFrame {
-    min-height: 30rem;
+    min-height: clamp(19rem, 52vw, 30rem);
   }
 
-  .projectScrollSection {
-    gap: 1.6rem;
+  .projectStatementSection {
+    grid-template-areas:
+      "statement"
+      "media"
+      "copy";
+    grid-template-columns: 1fr;
     min-height: auto;
+    overflow: visible;
   }
 
-  .projectScrollRail {
-    display: none;
+  .projectStatementText {
+    max-width: 100%;
   }
 
-  .projectScrollMediaStack {
-    gap: 1rem;
+  .projectStatementMedia {
+    aspect-ratio: 1.62;
+    width: 100%;
+    margin-top: 0;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  .projectStatementCopy {
+    grid-template-columns: 1fr;
+    width: min(100%, 54rem);
+    margin: clamp(2rem, 5vw, 3.4rem) 0 0;
+  }
+
+  .projectFeatureHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projectFeatureGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .solutionNode {
@@ -5057,21 +5130,58 @@
     display: grid;
   }
 
-  .projectHeroFrame h1 {
-    font-size: clamp(2.55rem, 11.2vw, 4.35rem);
-    line-height: .96;
+  .projectHero, .projectIntroSection, .projectStatementSection, .projectFeatureSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .projectIntroSection > p:last-child {
-    font-size: clamp(1rem, 4.8vw, 1.35rem);
+  .projectHero {
+    gap: 2.4rem;
+    padding-top: calc(var(--site-header-height, 5.8rem) + 2.8rem);
   }
 
-  .projectScrollPanel h2 {
-    font-size: clamp(1rem, 5.4vw, 1.4rem);
+  .projectHeroCopy h1 {
+    font-size: clamp(2.55rem, 11vw, 4rem);
+    line-height: 1.02;
   }
 
-  .projectScrollMedia {
+  .projectHeroCopy p {
+    font-size: clamp(.9rem, 3.7vw, 1rem);
+  }
+
+  .projectHeroFrame {
     min-height: 18rem;
+    aspect-ratio: 1.05;
+  }
+
+  .projectHeroImage {
+    padding: 1.25rem;
+  }
+
+  .projectSectionHeading h2 {
+    font-size: clamp(2.5rem, 12vw, 4.5rem);
+  }
+
+  .projectIntroCopy p {
+    font-size: clamp(1rem, 4.4vw, 1.22rem);
+  }
+
+  .projectStatementText h2 {
+    max-width: 100%;
+    font-size: clamp(2.9rem, 13vw, 5rem);
+    line-height: .98;
+  }
+
+  .projectStatementMedia, .projectFeatureMedia {
+    aspect-ratio: 1.28;
+  }
+
+  .projectStatementImage, .projectFeatureImage {
+    padding: 1.1rem;
+  }
+
+  .projectFeatureGrid {
+    grid-template-columns: 1fr;
   }
 
   .solutionNodeLabel {
@@ -5111,7 +5221,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .partnerRowTicker, .aboutUsGalleryTrack, .aboutUsIndustries:before {
+  .partnerRowTicker, .aboutUsGalleryTrack, .aboutUsIndustries:before, .projectHeroFrame, .projectHeroFrame:before, .projectHeroImage {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
   }
@@ -5121,6 +5231,11 @@
   }
 
   .visualTile {
+    opacity: 1;
+    transform: none;
+  }
+
+  .projectHeroFrame, .projectHeroImage {
     opacity: 1;
     transform: none;
   }
@@ -5170,6 +5285,40 @@
   100% {
     opacity: 0;
     transform: translate3d(var(--grid-exit-x), var(--grid-exit-y), 0);
+  }
+}
+
+@keyframes projectHeroPhotoIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes projectHeroPhoneFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -1.1rem, 0) scale(1.025);
+  }
+}
+
+@keyframes projectHeroPhotoGlow {
+  from {
+    opacity: .45;
+    transform: translateX(-4%) scale(1);
+  }
+
+  to {
+    opacity: .85;
+    transform: translateX(4%) scale(1.04);
   }
 }
 

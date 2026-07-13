@@ -8,6 +8,8 @@ import { solutionsPage } from "../../data/solutions";
 import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
+import { HeaderVideoSection } from "../home/HeaderVideoSection";
+import { ArrowIcon } from "../shared/ArrowIcon";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 
 const highlightPattern = new RegExp(
@@ -59,7 +61,10 @@ export function SolutionsPage() {
           >
             <p>{renderHighlightedCopy(solutionsPage.intro)}</p>
             <Link href={solutionsPage.ctaHref} className={styles.solutionsTextLink}>
-              <span aria-hidden="true">-&gt;</span> {solutionsPage.ctaLabel}
+              {solutionsPage.ctaLabel}
+              <span className={styles.buttonArrow} aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </Link>
           </motion.div>
         </section>
@@ -86,6 +91,8 @@ export function SolutionsPage() {
             ))}
           </div>
         </section>
+
+        <HeaderVideoSection />
 
         <section id="solutions" className={styles.solutionsDirectory}>
           <motion.div
@@ -142,7 +149,9 @@ export function SolutionsPage() {
                       >
                         <Link href={"href" in item ? item.href : solutionsPage.itemHref}>
                           {item.label}
-                          <span aria-hidden="true">-&gt;</span>
+                          <span className={styles.buttonArrow} aria-hidden="true">
+                            <ArrowIcon />
+                          </span>
                         </Link>
                       </motion.li>
                     ))}

@@ -356,18 +356,4 @@ export const footerSolutions = [
   "Laundry",
 ];
 
-export const footerImportantLinks = [
-  "Best SEO services in UAE",
-  "Best SEO company in Abu Dhabi",
-  "Best SEO company in Dubai",
-  "Google Ads agency in Dubai",
-  "Top social media companies in Dubai",
-  "SEO agency in Abu Dhabi",
-  "Best SEO agency in Dubai",
-  "Digital marketing in Dubai",
-  "Best mobile app development company in Dubai",
-  "Best website development company in Dubai",
-  "Best web design company in Dubai",
-];
-
 export const footerSocials = ["Facebook", "Instagram", "WhatsApp"];

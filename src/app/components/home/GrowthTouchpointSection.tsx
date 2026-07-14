@@ -10,15 +10,25 @@ export function GrowthTouchpointSection() {
         <div className={styles.growthTouchpointCopy}>
           <p>
             At Webtek Digital, we believe digital success isn&apos;t built through isolated marketing efforts -
-            it&apos;s created through connected customer experiences. As a 360 degree digital marketing agency in
-            Dubai with over a decade of experience, we help businesses attract the right audience, convert more
-            customers and build lasting brand loyalty.
+            it&apos;s created through connected customer experiences. As a{" "}
+            <Link href="/our-services" className={styles.growthTouchpointInlineLink}>
+              360 degree digital marketing agency in Dubai
+            </Link>{" "}
+            with over a decade of experience, we help businesses attract the right audience, convert more customers and
+            build lasting brand loyalty.
           </p>
           <p>
-            From website design and development to SEO, Google Ads, Meta Ads, social media marketing, branding,
-            content creation and marketing automation, every solution is designed to work together as part of one
-            growth-focused strategy. We don&apos;t simply deliver marketing services - we build digital ecosystems
-            that support every stage of your customer&apos;s journey.
+            From{" "}
+            <Link href="/our-services" className={styles.growthTouchpointInlineLink}>
+              website design and development
+            </Link>{" "}
+            to SEO, Google Ads, Meta Ads, social media marketing, branding, content creation,{" "}
+            <Link href="/solutions" className={styles.growthTouchpointInlineLink}>
+              Android and iOS app development solutions
+            </Link>{" "}
+            and marketing automation, every solution is designed to work together as part of one growth-focused
+            strategy. We don&apos;t simply deliver marketing services - we build digital ecosystems that support every
+            stage of your customer&apos;s journey.
           </p>
           <p>
             Whether you&apos;re launching a new brand, scaling an established business or looking to improve your

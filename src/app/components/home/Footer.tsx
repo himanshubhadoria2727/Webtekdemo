@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { footerServices, footerSocials, footerSolutions } from "../../data/home";
 import styles from "../../page.module.css";
+
+const contactEmail = "info@webtekdigital.com";
+const footerAddress = "P.O. Box 30301, Dubai, UAE";
 
 const socialIcons: Record<string, ReactNode> = {
   Facebook: (
@@ -27,6 +31,10 @@ const socialLinks: Record<string, string> = {
   WhatsApp: "https://wa.me/971581263762",
 };
 
+const solutionLinks: Record<string, string> = {
+  "Our blogs": "/blog",
+};
+
 function splitIntoColumns(items: string[], columnCount: number) {
   const columnSize = Math.ceil(items.length / columnCount);
 
@@ -46,7 +54,7 @@ export function Footer() {
           <p>Have a project in mind?</p>
           <h2>Let&apos;s build something that performs</h2>
         </div>
-        <a href="mailto:Info@bhatia.co" className={styles.footerCtaLink}>
+        <a href="mailto:info@webtekdigital.com" className={styles.footerCtaLink}>
           Start a conversation <span aria-hidden="true">→</span>
         </a>
       </div> */}
@@ -54,7 +62,7 @@ export function Footer() {
       <div className={styles.footerGrid}>
         <div className={styles.footerLogoRow}>
           <Image src="/logo.png" alt="Webtek Digital" width={220} height={126} className={styles.footerLogo} />
-          <span>Dubai, UAE</span>
+          <span>{footerAddress}</span>
         </div>
 
         <div className={styles.footerColumnGroup}>
@@ -65,7 +73,7 @@ export function Footer() {
                 <ul key={`services-${index}`}>
                   {column.map((item) => (
                     <li key={item}>
-                      <a href="/our-services">{item}</a>
+                      <Link href="/our-services">{item}</Link>
                     </li>
                   ))}
                 </ul>
@@ -80,7 +88,7 @@ export function Footer() {
                 <ul key={`solutions-${index}`}>
                   {column.map((item) => (
                     <li key={item}>
-                      <a href="#solutions">{item}</a>
+                      <Link href={solutionLinks[item] ?? "/solutions#solutions"}>{item}</Link>
                     </li>
                   ))}
                 </ul>
@@ -100,15 +108,15 @@ export function Footer() {
               <div>
                 <dt>Send email</dt>
                 <dd>
-                  <a href="mailto:Info@bhatia.co">Info@bhatia.co</a>
+                  <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                 </dd>
               </div>
-              {/* <div>
+              <div>
                 <dt>Address</dt>
                 <dd>
-                  <span>P.O. Box 30301, Dubai, UAE</span>
+                  <span>{footerAddress}</span>
                 </dd>
-              </div> */}
+              </div>
             </dl>
 
             <div className={styles.footerSocials} aria-label="Social links">

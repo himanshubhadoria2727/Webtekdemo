@@ -11,7 +11,8 @@ const bodyFont = Sora({
 
 export const metadata: Metadata = {
   title: "Webtek Digital",
-  description: "Creative digital studio site",
+  description:
+    "Webtek Digital is a Dubai digital marketing and app development agency specializing in SEO, paid advertising, content, websites and mobile apps.",
 };
 
 export default function RootLayout({

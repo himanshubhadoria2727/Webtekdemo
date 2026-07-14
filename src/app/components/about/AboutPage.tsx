@@ -12,11 +12,25 @@ import { ServicesSection } from "../home/ServicesSection";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 
 const galleryImages = [
-  { src: "/about/about-04.jpg", alt: "Webtek Digital team collaborating in a bright workspace" },
-  { src: "/about/about-09.jpg", alt: "Digital marketing team working together on laptops" },
-  { src: "/about/about-13.jpg", alt: "Dubai skyscrapers representing Webtek Digital's UAE presence" },
-  { src: "/about/about-15.jpg", alt: "Warm architectural interior for creative business thinking" },
-  { src: "/about/about-16.jpg", alt: "UX planning sketches and brand design materials" },
+  { src: "/about/about-01.jpg", alt: "Webtek Digital team reviewing campaign analytics in a Dubai meeting room" },
+  { src: "/about/about-02.jpg", alt: "Webtek Digital consultants discussing marketing reports with a client" },
+  { src: "/about/about-03.jpg", alt: "Dubai office tower representing Webtek Digital's UAE market presence" },
+  { src: "/about/about-04.jpg", alt: "Webtek Digital team celebrating campaign progress in a client workshop" },
+  { src: "/about/about-05.jpg", alt: "Webtek Digital strategy team discussing growth plans with a client" },
+  {
+    src: "/about/about-06.jpg",
+    alt: "Webtek Digital consultants planning a digital marketing strategy around a conference table",
+  },
+  { src: "/about/about-07.jpg", alt: "Retail point of sale system used for ecommerce app planning" },
+  { src: "/about/about-08.jpg", alt: "Customer payment terminal supporting ecommerce technology projects" },
+  { src: "/about/about-09.jpg", alt: "Webtek Digital team collaborating on website and app development laptops" },
+  { src: "/about/about-10.jpg", alt: "Analytics dashboard showing digital marketing campaign performance" },
+  { src: "/about/about-11.jpg", alt: "Webtek Digital marketer preparing content and SEO notes on a desk" },
+  { src: "/about/about-12.jpg", alt: "Dubai skyline viewed from a business office during growth planning" },
+  { src: "/about/about-13.jpg", alt: "Dubai skyscrapers representing app development and digital marketing growth" },
+  { src: "/about/about-14.jpg", alt: "Webtek Digital team reviewing campaign reports and business documents" },
+  { src: "/about/about-15.jpg", alt: "Professional walking through a modern Dubai office interior" },
+  { src: "/about/about-16.jpg", alt: "Brand design mood board for Webtek Digital creative planning" },
 ] as const;
 
 const impactStats = [
@@ -35,11 +49,11 @@ const impactStats = [
     detail: "From websites and branding to performance marketing campaigns.",
   },
   {
-    value: "500+",
-    countTo: 500,
+    value: "1,500+",
+    countTo: 1500,
     suffix: "+",
-    label: "businesses empowered",
-    detail: "Building long-term partnerships across multiple industries.",
+    label: "clients served",
+    detail: "Building long-term partnerships across Dubai, the UAE and wider GCC.",
   },
   {
     value: "20+",
@@ -96,62 +110,62 @@ const aboutServices = [
   {
     label: "Website design & development",
     image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
-    alt: "Digital team working in a glass-walled office",
+    alt: "Webtek Digital website design team working in a glass-walled office",
   },
   {
     label: "Search engine optimisation",
     image: "/about/about-11.jpg",
-    alt: "Person working on search visibility reports",
+    alt: "Webtek Digital SEO specialist preparing search visibility notes",
   },
   {
     label: "Google Ads management",
     image: "/about/about-14.jpg",
-    alt: "Business team reviewing campaign performance reports",
+    alt: "Webtek Digital team reviewing Google Ads campaign reports",
   },
   {
     label: "Meta advertising",
     image: "/about/about-09.jpg",
-    alt: "Team collaborating on social media marketing",
+    alt: "Webtek Digital team collaborating on social media advertising",
   },
   {
     label: "Social media marketing",
     image: "/about/about-15.jpg",
-    alt: "Team discussing social media marketing plans",
+    alt: "Modern Dubai office setting for social media marketing planning",
   },
   {
     label: "Branding & creative design",
     image: "/about/about-10.jpg",
-    alt: "Brand strategy and analytics workspace",
+    alt: "Analytics dashboard supporting brand strategy and creative design",
   },
   {
     label: "Content creation",
     image: "/about/about-16.jpg",
-    alt: "Marketing sketches and content planning notes",
+    alt: "Brand design mood board for content creation planning",
   },
   {
     label: "Video shooting & production",
     image: "/about/about-04.jpg",
-    alt: "Creative team planning visual content in a studio",
+    alt: "Webtek Digital team planning visual content with a client",
   },
   {
     label: "Performance marketing",
     image: "/about/about-14.jpg",
-    alt: "Business team reviewing campaign performance reports",
+    alt: "Webtek Digital team reviewing performance marketing reports",
   },
   {
     label: "Marketing automation & CRM integration",
     image: "/about/about-12.jpg",
-    alt: "Digital workspace with screens and devices",
+    alt: "Dubai business office used for CRM and marketing automation planning",
   },
   {
     label: "Email marketing",
     image: "/about/about-11.jpg",
-    alt: "Person working on a laptop in a bright office",
+    alt: "Webtek Digital marketer preparing email campaign notes",
   },
   {
     label: "Analytics & conversion optimisation",
     image: "/about/about-13.jpg",
-    alt: "Dubai skyscrapers representing Webtek Digital's UAE presence",
+    alt: "Dubai skyscrapers representing analytics-led digital growth",
   },
 ] as const;
 
@@ -308,7 +322,7 @@ export function AboutPage() {
           <div>
             {/* <p className={styles.aboutUsEyebrow}>about webtek digital</p> */}
             <h1>
-              Building customer journeys that create lasting <span>business</span> growth
+              About Webtek Digital, a digital marketing agency in <span>Dubai</span>
             </h1>
           </div>
           <div className={styles.aboutUsHeroCopy}>
@@ -318,8 +332,8 @@ export function AboutPage() {
               qualified leads and turns them into loyal customers.
             </p>
             <p>
-              At Webtek Digital, we have spent more than a decade helping businesses across Dubai and the UAE
-              grow through strategy-led digital marketing, innovative technology and measurable performance.
+              At Webtek Digital, we have spent more than a decade helping over 1,500 clients across Dubai and
+              the UAE grow through strategy-led digital marketing, innovative technology and measurable performance.
             </p>
             <Link href="/#contact-us" className={styles.aboutUsTextLink}>
               <span aria-hidden="true">-&gt;</span> Let&apos;s build your growth strategy
@@ -356,9 +370,9 @@ export function AboutPage() {
             <h2>A decade of growth, thousands of success stories</h2>
           </div>
           <p className={styles.aboutUsImpactText}>
-            Over the years, we have partnered with businesses of every size, from ambitious startups to
-            established enterprises, helping them strengthen their digital presence and accelerate business
-            growth through integrated marketing solutions.
+            Over the years, we have partnered with more than 1,500 clients, from ambitious startups to established
+            enterprises, helping them strengthen their digital presence and accelerate business growth through
+            integrated marketing solutions.
           </p>
           <div className={styles.aboutUsStatsGrid}>
             {impactStats.map((stat) => (
@@ -384,15 +398,15 @@ export function AboutPage() {
               a unique story, and every customer follows a different journey.
             </p>
             <p>
-              As a leading 360 degree digital marketing agency in Dubai, we combine strategy, creativity,
-              technology and performance marketing to help businesses attract, engage and convert their ideal
-              customers. Whether someone discovers your business through Google Search, social media, paid
-              advertising or your website, every interaction should feel seamless, consistent and purposeful.
+              As a digital marketing and app development company in Dubai, we combine strategy, creativity,
+              technology and performance marketing to help businesses attract, engage and convert their ideal customers.
+              Whether someone discovers your business through Google Search, social media, paid advertising, a mobile
+              app or your website, every interaction should feel seamless, consistent and purposeful.
             </p>
             <p>
-              For over 10 years, we have partnered with businesses across healthcare, real estate, education,
-              hospitality, retail, automotive, professional services and many other industries to create digital
-              ecosystems that deliver measurable business results.
+              For over 10 years, we have partnered with more than 1,500 clients across healthcare, real estate,
+              education, hospitality, retail, automotive, professional services and many other industries to create
+              digital ecosystems that deliver measurable business results.
             </p>
           </div>
         </section>

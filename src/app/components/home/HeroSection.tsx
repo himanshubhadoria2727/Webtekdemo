@@ -102,7 +102,7 @@ export function HeroSection() {
           Webtek Digital Agency
         </motion.p> */}
 
-        <motion.h2 className={styles.heroTitle} variants={infoContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.45 }}>
+        <motion.h1 className={styles.heroTitle} variants={infoContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.45 }}>
           <motion.span className={styles.heroLine} variants={infoLine}>
             Driven by results, Webtek Digital helps businesses grow through
           </motion.span>{" "}
@@ -113,7 +113,7 @@ export function HeroSection() {
             We focus on every step of the customer journey to increase visibility, generate quality leads, and drive long-term
             business growth
           </motion.span>
-        </motion.h2>
+        </motion.h1>
       </section>
 
       <HeaderVideoSection />

@@ -9,6 +9,7 @@ import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
 import { HeaderVideoSection } from "../home/HeaderVideoSection";
 import { ServicesSection } from "../home/ServicesSection";
+import { ArrowIcon } from "../shared/ArrowIcon";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 
 const galleryImages = [
@@ -336,7 +337,10 @@ export function AboutPage() {
               the UAE grow through strategy-led digital marketing, innovative technology and measurable performance.
             </p>
             <Link href="/#contact-us" className={styles.aboutUsTextLink}>
-              <span aria-hidden="true">-&gt;</span> Let&apos;s build your growth strategy
+              Let&apos;s build your growth strategy
+              <span className={styles.buttonArrow} aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </Link>
           </div>
         </section>

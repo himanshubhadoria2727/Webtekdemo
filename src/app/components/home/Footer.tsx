@@ -5,7 +5,6 @@ import { footerServices, footerSocials, footerSolutions } from "../../data/home"
 import styles from "../../page.module.css";
 
 const contactEmail = "info@webtekdigital.com";
-const footerAddress = "P.O. Box 30301, Dubai, UAE";
 
 const socialIcons: Record<string, ReactNode> = {
   Facebook: (
@@ -62,7 +61,6 @@ export function Footer() {
       <div className={styles.footerGrid}>
         <div className={styles.footerLogoRow}>
           <Image src="/logo.png" alt="Webtek Digital" width={220} height={126} className={styles.footerLogo} />
-          <span>{footerAddress}</span>
         </div>
 
         <div className={styles.footerColumnGroup}>
@@ -109,12 +107,6 @@ export function Footer() {
                 <dt>Send email</dt>
                 <dd>
                   <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Address</dt>
-                <dd>
-                  <span>{footerAddress}</span>
                 </dd>
               </div>
             </dl>

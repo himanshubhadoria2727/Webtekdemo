@@ -145,7 +145,7 @@
 
 .navSubmenuHoverBridge {
   pointer-events: none;
-  width: min(64rem, calc(100vw - 2rem));
+  width: min(76rem, calc(100vw - 2rem));
   z-index: 2;
   position: fixed;
   top: var(--site-header-height, 5.8rem);
@@ -162,17 +162,16 @@
   opacity: 0;
   pointer-events: none;
   background: #fff;
-  grid-template-columns: minmax(14rem, .82fr) minmax(22rem, 1.18fr);
-  gap: clamp(1.2rem, 2.2vw, 2.2rem);
-  width: min(64rem, calc(100vw - 2rem));
+  width: min(68rem, calc(100vw - 2rem));
   max-height: calc(100vh - var(--site-header-height, 5.8rem) - 1.7rem);
-  padding: clamp(1rem, 1.8vw, 1.55rem);
-  display: grid !important;
+  padding: clamp(1rem, 1.6vw, 1.45rem);
+  display: block !important;
   position: fixed;
   z-index: 3;
   top: calc(var(--site-header-height, 5.8rem) + .55rem);
   left: 50%;
   box-shadow: 0 1.5rem 3.8rem #00000024;
+  overflow: hidden;
   transform: translate(-50%, .45rem);
   transition: opacity .18s ease, transform .18s ease;
 }
@@ -195,55 +194,6 @@
 .navItemWithSubmenuOpen .navHoverBackdrop {
   opacity: 1;
   pointer-events: auto;
-}
-
-.navSubmenuPreview {
-  aspect-ratio: .82;
-  background: #3f7d72;
-  min-height: 0;
-  max-height: 32rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.navSubmenuPreview img {
-  object-fit: cover;
-  padding: clamp(.7rem, 1.35vw, 1.05rem);
-}
-
-.navSubmenuServices {
-  display: grid !important;
-}
-
-.navSubmenuServices a {
-  color: #050505;
-  opacity: .72;
-  border-bottom: 1px solid #05050530;
-  grid-template-columns: 2.8rem minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(.9rem, 1.5vw, 1.4rem);
-  padding: clamp(.5rem, .9vw, .72rem) 0;
-  font-size: clamp(.86rem, 1.05vw, 1.08rem);
-  line-height: 1.15;
-  display: grid;
-  width: 100%;
-}
-
-.navSubmenuServices a:first-child {
-  border-top: 0;
-  opacity: 1;
-}
-
-.navSubmenuServices a span:first-child {
-  color: #050505;
-  font-size: .82em;
-}
-
-.navSubmenuServices a:hover,
-.navSubmenuServices a:focus-visible {
-  color: #4542f2;
-  opacity: 1;
-  transform: none;
 }
 
 .heroShowcase {
@@ -1970,6 +1920,64 @@
 .servicesListItem:focus-visible {
   outline-offset: .35rem;
   outline: 2px solid #4542f2;
+}
+
+.navSubmenuServicesSection {
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  display: block !important;
+}
+
+.navSubmenuServicesSection .servicesTop {
+  display: none !important;
+}
+
+.navSubmenuServicesSection .servicesStage {
+  grid-template-columns: minmax(18rem, .84fr) minmax(23rem, 1fr);
+  align-items: start;
+  gap: clamp(1.8rem, 3.4vw, 3.4rem);
+  display: grid !important;
+  overflow: visible;
+}
+
+.navSubmenuServicesSection .servicesImageFrame {
+  aspect-ratio: .86;
+  width: 100%;
+  min-height: clamp(19rem, 28vw, 27rem);
+  max-height: none;
+  margin-top: 0;
+  display: block !important;
+}
+
+.navSubmenuServicesSection .servicesImageFrame:after {
+  background: linear-gradient(#27756814, #040c0b1a);
+}
+
+.navSubmenuServicesSection .servicesImageSlide {
+  display: block !important;
+}
+
+.navSubmenuServicesSection .servicesList {
+  padding-top: 0;
+  display: grid !important;
+}
+
+.navSubmenuServicesSection .servicesListItem {
+  min-height: clamp(2.6rem, 3.1vw, 3.1rem);
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: clamp(.85rem, 1.4vw, 1.25rem);
+  padding: clamp(.38rem, .68vw, .58rem) 0;
+  display: grid !important;
+}
+
+.navSubmenuServicesSection .servicesListItem span:first-child {
+  font-size: .82rem;
+}
+
+.navSubmenuServicesSection .servicesListItem span:last-child {
+  font-size: clamp(.82rem, .98vw, 1rem);
+  line-height: 1.15;
 }
 
 .clienteleSection {
@@ -5125,27 +5133,29 @@
   }
 
   .navSubmenu {
-    grid-template-columns: 1fr;
-    gap: .8rem;
-    width: min(22rem, calc(100vw - 2rem));
-    max-height: min(78vh, 34rem);
+    width: min(30rem, calc(100vw - 2rem));
+    max-height: min(78vh, 36rem);
     overflow-y: auto;
     padding: .8rem;
   }
 
-  .navSubmenuPreview {
+  .navSubmenuServicesSection .servicesStage {
+    grid-template-columns: 1fr;
+    gap: .9rem;
+    display: grid !important;
+  }
+
+  .navSubmenuServicesSection .servicesImageFrame {
     aspect-ratio: 1.6;
     min-height: 8rem;
+    max-height: 12rem;
+    display: block !important;
   }
 
-  .navSubmenuPreview img {
-    padding: .55rem;
-  }
-
-  .navSubmenuServices a {
+  .navSubmenuServicesSection .servicesListItem {
     grid-template-columns: 2.2rem minmax(0, 1fr);
     padding: .55rem 0;
-    font-size: .82rem;
+    display: grid !important;
   }
 
   .heroShowcase {

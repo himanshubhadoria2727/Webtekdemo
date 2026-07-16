@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { menuItems } from "../../data/home";
-import { servicesPage } from "../../data/services";
 import styles from "../../page.module.css";
+import { ServicesSection } from "./ServicesSection";
 
 const menuLinks: Record<string, string> = {
   "About us": "/about-us",
@@ -15,11 +15,6 @@ const menuLinks: Record<string, string> = {
   Solutions: "/solutions",
   "Portfolio media": "/#portfolio-media",
   "Contact us": "/#contact-us",
-};
-
-const servicesMenuImage = {
-  src: "/about/about-12.jpg",
-  alt: "Webtek Digital service preview",
 };
 
 export function Header() {
@@ -172,18 +167,7 @@ export function Header() {
               <>
                 <div className={styles.navSubmenuHoverBridge} aria-hidden="true" onMouseEnter={clearServicesMenuClose} />
                 <div className={styles.navSubmenu} onMouseEnter={clearServicesMenuClose}>
-                  <div className={styles.navSubmenuPreview} aria-hidden="true">
-                    <Image src={servicesMenuImage.src} alt="" fill sizes="32rem" />
-                  </div>
-
-                  <div className={styles.navSubmenuServices}>
-                    {servicesPage.services.map((service, serviceIndex) => (
-                      <Link key={service.title} href="/our-services">
-                        <span>{String(serviceIndex + 1).padStart(2, "0")}</span>
-                        <span>{service.title}</span>
-                      </Link>
-                    ))}
-                  </div>
+                  <ServicesSection id="services-submenu" className={styles.navSubmenuServicesSection} />
                 </div>
               </>
             ) : null}

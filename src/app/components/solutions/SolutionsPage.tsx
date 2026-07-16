@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,27 +10,6 @@ import { Header } from "../home/Header";
 import { HeaderVideoSection } from "../home/HeaderVideoSection";
 import { ArrowIcon } from "../shared/ArrowIcon";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
-
-const highlightPattern = new RegExp(
-  `(${solutionsPage.highlights.map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
-  "gi",
-);
-
-function renderHighlightedCopy(text: string) {
-  return text.split(highlightPattern).map((part, index) => {
-    const isHighlight = solutionsPage.highlights.some((phrase) => phrase.toLowerCase() === part.toLowerCase());
-
-    if (isHighlight) {
-      return (
-        <strong key={`${part}-${index}`} className={styles.solutionsTextHighlight}>
-          {part}
-        </strong>
-      );
-    }
-
-    return <Fragment key={`${part}-${index}`}>{part}</Fragment>;
-  });
-}
 
 export function SolutionsPage() {
   const [titleLead, titleTail = ""] = solutionsPage.title.split(solutionsPage.titleHighlight);
@@ -46,7 +24,6 @@ export function SolutionsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className={styles.solutionsHeroEyebrow}>{solutionsPage.eyebrow}</p>
             <h1>
               {titleLead}
               <span>{solutionsPage.titleHighlight}</span>
@@ -59,7 +36,7 @@ export function SolutionsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p>{renderHighlightedCopy(solutionsPage.intro)}</p>
+            <p>{solutionsPage.intro}</p>
             <Link href={solutionsPage.ctaHref} className={styles.solutionsTextLink}>
               {solutionsPage.ctaLabel}
               <span className={styles.buttonArrow} aria-hidden="true">
@@ -94,6 +71,24 @@ export function SolutionsPage() {
 
         <HeaderVideoSection />
 
+        <section className={styles.solutionsContentSection}>
+          <motion.div
+            className={styles.solutionsContentInner}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className={styles.solutionsContentHeading}>
+              <p>{solutionsPage.growth.eyebrow}</p>
+              <h2>{solutionsPage.growth.title}</h2>
+            </div>
+            <div className={styles.solutionsContentCopy}>
+              {solutionsPage.growth.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          </motion.div>
+        </section>
+
         <section id="solutions" className={styles.solutionsDirectory}>
           <motion.div
             className={styles.solutionsDirectoryHeader}
@@ -102,12 +97,9 @@ export function SolutionsPage() {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p>Solution categories</p>
-            <h2>Browse the app models we build</h2>
-            <span>
-              Choose the business model closest to your operations, then we shape the design, workflows, admin
-              tools, and launch plan around your market.
-            </span>
+            <p>{solutionsPage.directory.eyebrow}</p>
+            <h2>{solutionsPage.directory.title}</h2>
+            <span>{solutionsPage.directory.intro}</span>
           </motion.div>
 
           <div className={styles.solutionsDirectoryGrid}>
@@ -129,8 +121,13 @@ export function SolutionsPage() {
                 >
                   <div className={styles.solutionsDirectoryCardTop}>
                     <span>{String(groupIndex + 1).padStart(2, "0")}</span>
-                    <h2>{group.title}</h2>
-                    <p>{renderHighlightedCopy(group.description)}</p>
+                    <div className={styles.solutionsDirectoryTitle}>
+                      <small>{group.eyebrow}</small>
+                      <h2>{group.title}</h2>
+                    </div>
+                    <div className={styles.solutionsDirectoryDescription}>
+                      {group.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
                   </div>
 
                   <ul>
@@ -162,7 +159,68 @@ export function SolutionsPage() {
           </div>
         </section>
 
-        <VideoCtaSection />
+        <section className={`${styles.solutionsContentSection} ${styles.solutionsWhySection}`}>
+          <div className={styles.solutionsContentInner}>
+            <motion.div
+              className={styles.solutionsContentHeading}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p>{solutionsPage.whyChoose.eyebrow}</p>
+              <h2>{solutionsPage.whyChoose.title}</h2>
+            </motion.div>
+            <motion.div
+              className={styles.solutionsContentCopy}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {solutionsPage.whyChoose.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <h3>{solutionsPage.whyChoose.listTitle}</h3>
+              <ul className={styles.solutionsExpectations}>
+                {solutionsPage.whyChoose.expectations.map((item, index) => (
+                  <motion.li
+                    key={item}
+                    initial={{ opacity: 0, y: 6 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.35, delay: index * 0.025 }}
+                  >
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className={`${styles.solutionsContentSection} ${styles.solutionsSeoSection}`}>
+          <motion.div
+            className={styles.solutionsContentInner}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className={styles.solutionsContentHeading}>
+              <p>{solutionsPage.seo.eyebrow}</p>
+              <h2>{solutionsPage.seo.title}</h2>
+            </div>
+            <div className={styles.solutionsContentCopy}>
+              {solutionsPage.seo.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          </motion.div>
+        </section>
+
+        <VideoCtaSection
+          title={solutionsPage.finalCta.title}
+          body={solutionsPage.finalCta.body}
+          ctaLabel={solutionsPage.finalCta.label}
+          ctaHref={solutionsPage.ctaHref}
+        />
       </main>
       <Footer />
     </div>

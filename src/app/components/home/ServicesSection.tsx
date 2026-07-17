@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 import styles from "../../page.module.css";
 
@@ -7,6 +8,7 @@ type ServiceItem = {
   image: string;
   alt: string;
   video?: string;
+  href?: string;
 };
 
 const serviceVideoByLabel: Record<string, string> = {
@@ -35,14 +37,15 @@ const serviceVideoByLabel: Record<string, string> = {
 
 const defaultServices: readonly ServiceItem[] = [
   {
-    label: "Website design & development",
-    image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
-    alt: "Digital team working in a glass-walled office",
-  },
-  {
     label: "Mobile app development",
     image: "/about/about-12.jpg",
     alt: "Digital workspace with screens and devices",
+    href: "/our-services/mobile-app-development-company-dubai",
+  },
+  {
+    label: "Website design & development",
+    image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
+    alt: "Digital team working in a glass-walled office",
   },
   {
     label: "Branding & public relations",
@@ -177,17 +180,37 @@ export function ServicesSection({
         <div className={styles.servicesList}>
           {items.map((service, index) => {
             const isActive = activeIndex === index;
+            const itemClassName = [styles.servicesListItem, isActive ? styles.serviceNameActive : ""].join(" ");
+            const itemContent = (
+              <>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{service.label}</span>
+              </>
+            );
+
+            if (service.href) {
+              return (
+                <Link
+                  key={service.label}
+                  href={service.href}
+                  className={itemClassName}
+                  onFocus={() => setActiveService(index)}
+                  onMouseEnter={() => setActiveService(index)}
+                >
+                  {itemContent}
+                </Link>
+              );
+            }
 
             return (
               <button
                 key={service.label}
                 type="button"
-                className={[styles.servicesListItem, isActive ? styles.serviceNameActive : ""].join(" ")}
+                className={itemClassName}
                 onFocus={() => setActiveService(index)}
                 onMouseEnter={() => setActiveService(index)}
               >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>{service.label}</span>
+                {itemContent}
               </button>
             );
           })}

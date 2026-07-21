@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { Footer } from "../../components/home/Footer";
-import { FloatingWhatsAppButton } from "../../components/home/FloatingWhatsAppButton";
-import { Header } from "../../components/home/Header";
-import { VideoCtaSection } from "../../components/shared/VideoCtaSection";
-import { ServicesCarousel } from "./ServicesCarousel";
-import styles from "./page.module.css";
+import { SingleServicePage, type SingleServicePageConfig } from "../../components/services/SingleServicePage";
 
 const pageUrl = "https://www.webtekdigital.com/our-services/mobile-app-development-company-dubai/";
 
@@ -195,163 +189,45 @@ const faqs = [
   ["How do I start my mobile app project with Webtek Digital?", "Send a brief description of the idea, users, features, preferred platforms and any reference apps. We will arrange an initial discussion and recommend next steps."],
 ] as const;
 
-const schema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Webtek Digital",
-    url: "https://www.webtekdigital.com/",
-    email: "info@webtekdigital.com",
-    telephone: "+971581263762",
+const config: SingleServicePageConfig = {
+  pageUrl,
+  serviceName: "Mobile App Development in Dubai",
+  serviceTypes: ["Android app development", "iOS app development", "Flutter app development", "React Native app development", "AI app development"],
+  breadcrumbName: "Mobile App Development Company Dubai",
+  hero: {
+    title: "Mobile App Development Company in Dubai",
+    description: "Turn your app idea into a secure, scalable and user-friendly digital product. Webtek Digital provides end-to-end mobile app development in Dubai for startups, SMEs and established businesses. We design and develop custom Android, iOS and cross-platform applications that help companies improve customer experience, automate operations, generate revenue and grow with confidence.",
+    primaryCta: "Get a Free App Consultation",
+    secondaryCta: "Request a Custom Quote",
+    note: "Tell us your idea, business goals and required features. Our team will recommend the right technology, scope and development approach.",
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Mobile App Development in Dubai",
-    provider: { "@type": "Organization", name: "Webtek Digital" },
-    areaServed: ["Dubai", "United Arab Emirates"],
-    serviceType: ["Android app development", "iOS app development", "Flutter app development", "React Native app development", "AI app development"],
-    url: pageUrl,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.webtekdigital.com/" },
-      { "@type": "ListItem", position: 2, name: "Our Services", item: "https://www.webtekdigital.com/our-services/" },
-      { "@type": "ListItem", position: 3, name: "Mobile App Development Company Dubai", item: pageUrl },
+  intro: {
+    eyebrow: "Built around outcomes",
+    title: "Custom mobile apps built around your business goals",
+    items: [
+      "A successful mobile application is more than a collection of features. It must solve a real problem, be easy to use, perform reliably and support measurable business objectives.",
+      <>We combine business analysis, <Link href="/our-services#services-overview">UI/UX design</Link>, software engineering, quality assurance and post-launch support. Whether you are launching a digital product, building an internal app, modernising an existing product or adding AI, every project is planned around your users, operations, budget and future growth.</>,
+      "Our Dubai team creates Android and iOS solutions using native and cross-platform technologies, connecting apps with websites, CRM, ERP, payments, bookings, maps, analytics, cloud services and third-party APIs.",
     ],
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map(([question, answer]) => ({
-      "@type": "Question",
-      name: question,
-      acceptedAnswer: { "@type": "Answer", text: answer },
-    })),
+  services: { eyebrow: "Strategy to support", title: "End-to-end mobile app development services in Dubai", items: services, images: serviceCarouselImages, ctaLead: "Have a product in mind?", ctaLabel: "Tell us what you want to build" },
+  outcomes: { title: "What can a mobile app do for your business?", description: "The right product can become a direct sales channel, a customer-service platform, an operational tool or a complete digital business model.", items: outcomes },
+  industries: { eyebrow: "Made for your operating model", title: "Mobile applications for different industries", description: "Every sector has different workflows, compliance needs and customer expectations. We plan the product around how your business actually operates.", items: industries, labels: industryVisualLabels, images: industryCarouselImages },
+  features: { eyebrow: "Exactly what the product needs", title: "Features we can build into your mobile application", items: features },
+  process: { eyebrow: "Clear stages, visible progress", title: "Our mobile app development process", items: process },
+  technology: { eyebrow: "Practical choices, not defaults", title: "Mobile app technologies we work with", description: "The right stack depends on purpose, complexity, budget, performance and roadmap. We recommend what fits the product.", image: { src: "/about/about-09.jpg", alt: "Digital product team collaborating around a table" }, items: technologies },
+  reasons: {
+    eyebrow: "One team from brief to growth",
+    title: "Why choose Webtek Digital as your app development company in Dubai?",
+    items: reasons,
+    footer: <>Planning the launch too? Explore our <Link href="/our-services#services-overview">web development</Link>, <Link href="/our-services#services-overview">digital marketing</Link>, <Link href="/our-services#services-overview">SEO</Link> and <Link href="/our-services#services-overview">Google Ads</Link> capabilities.</>,
   },
-];
-
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
-
-function SectionHeading({ number, eyebrow, title }: { number: string; eyebrow?: string; title: string }) {
-  return (
-    <header className={styles.sectionHeading}>
-      <span>{number}</span>
-      <div>{eyebrow ? <p>{eyebrow}</p> : null}<h2>{title}</h2></div>
-    </header>
-  );
-}
+  cost: { title: "How much does mobile app development cost in Dubai?", description: "Cost depends on scope rather than a single fixed rate. A simple app with standard features requires a different budget from a marketplace, delivery platform, enterprise system or AI-powered product.", buttonLabel: "Request an app development estimate", factorsLabel: "Main factors that influence cost", factors: costFactors, note: "After an initial consultation, we can prepare a scope and quotation based on required features, recommended technology and estimated development stages." },
+  conversion: { eyebrow: "Have an app idea?", title: "Get a clear development roadmap.", description: "Speak with a Dubai-based digital team. We’ll review your idea, identify core functionality and recommend a practical path for design, development and launch.", benefits: ["Free initial consultation", "Android, iOS and cross-platform solutions", "UI/UX design and interactive prototyping", "Backend, API and payment integration", "Store submission support", "Ongoing maintenance options"], requirementLabel: "App requirement", requirementName: "App requirement", requirementPlaceholder: "Tell us about the idea, users and essential features", buttonLabel: "Discuss your app project" },
+  faq: { eyebrow: "The practical details", title: "Frequently asked questions", items: faqs },
+  finalCta: { eyebrow: "Ready when you are", title: "Ready to build a mobile app for your business?", body: "Launch a new app, digitise an existing service or improve an outdated mobile product with a clear recommendation based on your goals, users and required functionality.", label: "Book a free consultation" },
+};
 
 export default function Page() {
-  return (
-    <div className={styles.page}>
-      <Header />
-      <main>
-        <section className={styles.hero}>
-          <div className={styles.heroGrid}>
-            <div className={styles.heroCopy}>
-              <h1>Mobile App Development Company in Dubai</h1>
-            </div>
-            <div className={styles.heroContent}>
-              <p>Turn your app idea into a secure, scalable and user-friendly digital product. Webtek Digital provides end-to-end mobile app development in Dubai for startups, SMEs and established businesses. We design and develop custom Android, iOS and cross-platform applications that help companies improve customer experience, automate operations, generate revenue and grow with confidence.</p>
-              <div className={styles.heroLinks}>
-                <a className={styles.heroLink} href="#project-form">Get a Free App Consultation <span aria-hidden="true">&rarr;</span></a>
-                <a className={styles.heroLink} href="#project-form">Request a Custom Quote <span aria-hidden="true">&rarr;</span></a>
-              </div>
-              <small>Tell us your idea, business goals and required features. Our team will recommend the right technology, scope and development approach.</small>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.intro}>
-          <SectionHeading number="01." eyebrow="Built around outcomes" title="Custom mobile apps built around your business goals" />
-          <div className={styles.introBody}>
-            <article><span>01</span><p>A successful mobile application is more than a collection of features. It must solve a real problem, be easy to use, perform reliably and support measurable business objectives.</p></article>
-            <article><span>02</span><p>We combine business analysis, <Link href="/our-services#services-overview">UI/UX design</Link>, software engineering, quality assurance and post-launch support. Whether you are launching a digital product, building an internal app, modernising an existing product or adding AI, every project is planned around your users, operations, budget and future growth.</p></article>
-            <article><span>03</span><p>Our Dubai team creates Android and iOS solutions using native and cross-platform technologies, connecting apps with websites, CRM, ERP, payments, bookings, maps, analytics, cloud services and third-party APIs.</p></article>
-          </div>
-        </section>
-
-        <section className={styles.services} id="services">
-          <SectionHeading number="02." eyebrow="Strategy to support" title="End-to-end mobile app development services in Dubai" />
-          <ServicesCarousel items={services} images={serviceCarouselImages} />
-          <div className={styles.inlineCta}><p>Have a product in mind?</p><a href="#project-form">Tell us what you want to build <Arrow /></a></div>
-        </section>
-
-        <section className={styles.outcomes}>
-          <div className={styles.outcomesTitle}><span>03.</span><h2>What can a mobile app do for your business?</h2><p>The right product can become a direct sales channel, a customer-service platform, an operational tool or a complete digital business model.</p></div>
-          <ol>{outcomes.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol>
-        </section>
-
-        <section className={styles.industries}>
-          <div className={styles.industriesIntro}>
-            <SectionHeading number="04." eyebrow="Made for your operating model" title="Mobile applications for different industries" />
-            <div className={styles.industriesLead}>
-              <p>Every sector has different workflows, compliance needs and customer expectations. We plan the product around how your business actually operates.</p>
-            </div>
-          </div>
-          <ServicesCarousel items={industries} visualLabels={industryVisualLabels} images={industryCarouselImages} theme="light" />
-        </section>
-
-        <section className={styles.features}>
-          <SectionHeading number="05." eyebrow="Exactly what the product needs" title="Features we can build into your mobile application" />
-          <ul>{features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-        </section>
-
-        <section className={styles.process} id="process">
-          <SectionHeading number="06." eyebrow="Clear stages, visible progress" title="Our mobile app development process" />
-          <div className={styles.processGrid}>{process.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{body}</p></div></article>)}</div>
-        </section>
-
-        <section className={styles.technology}>
-          <div className={styles.techMedia}><Image src="/about/about-09.jpg" alt="Digital product team collaborating around a table" fill sizes="(max-width: 900px) 100vw, 42vw" /></div>
-          <div className={styles.techContent}><span>07.</span><p className={styles.kicker}>Practical choices, not defaults</p><h2>Mobile app technologies we work with</h2><p>The right stack depends on purpose, complexity, budget, performance and roadmap. We recommend what fits the product.</p><div>{technologies.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div></div>
-        </section>
-
-        <section className={styles.why}>
-          <SectionHeading number="08." eyebrow="One team from brief to growth" title="Why choose Webtek Digital as your app development company in Dubai?" />
-          <div className={styles.whyGrid}>{reasons.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div>
-          <p className={styles.internalLinks}>Planning the launch too? Explore our <Link href="/our-services#services-overview">web development</Link>, <Link href="/our-services#services-overview">digital marketing</Link>, <Link href="/our-services#services-overview">SEO</Link> and <Link href="/our-services#services-overview">Google Ads</Link> capabilities.</p>
-        </section>
-
-        <section className={styles.cost}>
-          <div className={styles.costIntro}><span>09.</span><h2>How much does mobile app development cost in Dubai?</h2><p>Cost depends on scope rather than a single fixed rate. A simple app with standard features requires a different budget from a marketplace, delivery platform, enterprise system or AI-powered product.</p><a className={styles.lightButton} href="#project-form">Request an app development estimate <Arrow /></a></div>
-          <div className={styles.costFactors}><p>Main factors that influence cost</p><ul>{costFactors.map((item) => <li key={item}>{item}</li>)}</ul><p>After an initial consultation, we can prepare a scope and quotation based on required features, recommended technology and estimated development stages.</p></div>
-        </section>
-
-        <section className={styles.conversion} id="project-form">
-          <div className={styles.conversionCopy}><p>Have an app idea?</p><h2>Get a clear development roadmap.</h2><p>Speak with a Dubai-based digital team. We’ll review your idea, identify core functionality and recommend a practical path for design, development and launch.</p><ul><li>Free initial consultation</li><li>Android, iOS and cross-platform solutions</li><li>UI/UX design and interactive prototyping</li><li>Backend, API and payment integration</li><li>Store submission support</li><li>Ongoing maintenance options</li></ul></div>
-          <form className={styles.form} action="mailto:info@webtekdigital.com" method="post" encType="text/plain">
-            <div><label htmlFor="name">Name</label><input id="name" name="Name" required placeholder="Your name" /></div>
-            <div><label htmlFor="company">Company</label><input id="company" name="Company" placeholder="Company name" /></div>
-            <div><label htmlFor="contact">Phone or email</label><input id="contact" name="Contact" required placeholder="How can we reach you?" /></div>
-            <div><label htmlFor="budget">Budget range</label><select id="budget" name="Budget"><option value="">Select a range</option><option>AED 25k–50k</option><option>AED 50k–100k</option><option>AED 100k+</option><option>Not sure yet</option></select></div>
-            <div className={styles.fullField}><label htmlFor="requirement">App requirement</label><textarea id="requirement" name="App requirement" required rows={4} placeholder="Tell us about the idea, users and essential features" /></div>
-            <button type="submit">Discuss your app project <Arrow /></button>
-            <small>Prefer WhatsApp? <a href="https://wa.me/971581263762" target="_blank" rel="noreferrer">Message our team directly.</a></small>
-          </form>
-        </section>
-
-        <section className={styles.faq}>
-          <SectionHeading number="10." eyebrow="The practical details" title="Frequently asked questions" />
-          <div className={styles.faqList}>{faqs.map(([question, answer], index) => <details key={question}><summary><span>{String(index + 1).padStart(2, "0")}</span><h3>{question}</h3><i aria-hidden="true">+</i></summary><p>{answer}</p></details>)}</div>
-        </section>
-
-        <VideoCtaSection
-          eyebrow="Ready when you are"
-          title="Ready to build a mobile app for your business?"
-          body="Launch a new app, digitise an existing service or improve an outdated mobile product with a clear recommendation based on your goals, users and required functionality."
-          ctaLabel="Book a free consultation"
-          ctaHref="#project-form"
-        />
-      </main>
-      <Footer />
-      <FloatingWhatsAppButton />
-      {schema.map((item, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(item).replace(/</g, "\\u003c") }} />)}
-    </div>
-  );
+  return <SingleServicePage config={config} />;
 }

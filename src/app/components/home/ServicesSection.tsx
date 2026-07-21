@@ -46,6 +46,7 @@ const defaultServices: readonly ServiceItem[] = [
     label: "Website design & development",
     image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
     alt: "Digital team working in a glass-walled office",
+    href: "/our-services/website-design-development-company-dubai",
   },
   {
     label: "Branding & public relations",

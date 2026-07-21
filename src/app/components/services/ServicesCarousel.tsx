@@ -1,13 +1,10 @@
 "use client";
 
-import { useRef, useState, type CSSProperties, type UIEvent } from "react";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { useRef, useState, type CSSProperties, type UIEvent } from "react";
+import styles from "./SingleServicePage.module.css";
 
-type CarouselImage = {
-  src: string;
-  alt: string;
-};
+export type CarouselImage = { src: string; alt: string };
 
 type ServicesCarouselProps = {
   items: readonly (readonly [string, string])[];
@@ -17,7 +14,6 @@ type ServicesCarouselProps = {
 };
 
 const accents = ["#ff5a43", "#665cff", "#21a67a", "#e8b63f", "#db4d8f"];
-const visualLabels = ["Custom build", "Android", "iOS", "Flutter", "React Native", "Enterprise", "Applied AI", "UI / UX", "Modernise", "Support"];
 
 function ServiceVisual({ index, label, image }: { index: number; label: string; image?: CarouselImage }) {
   return (
@@ -30,7 +26,7 @@ function ServiceVisual({ index, label, image }: { index: number; label: string; 
   );
 }
 
-export function ServicesCarousel({ items, visualLabels: customVisualLabels, images, theme = "dark" }: ServicesCarouselProps) {
+export function ServicesCarousel({ items, visualLabels, images, theme = "dark" }: ServicesCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -43,7 +39,6 @@ export function ServicesCarousel({ items, visualLabels: customVisualLabels, imag
       const nextDistance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
       return nextDistance < currentDistance ? index : nearest;
     }, 0);
-
     setActiveIndex(nearestIndex);
     setIsAtEnd(track.scrollLeft >= track.scrollWidth - track.clientWidth - 2);
   };
@@ -51,11 +46,9 @@ export function ServicesCarousel({ items, visualLabels: customVisualLabels, imag
   const move = (direction: -1 | 1) => {
     const track = trackRef.current;
     if (!track) return;
-
     const firstCard = track.firstElementChild as HTMLElement | null;
     const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
-    const distance = (firstCard?.offsetWidth ?? track.clientWidth * 0.8) + gap;
-    track.scrollBy({ left: distance * direction, behavior: "smooth" });
+    track.scrollBy({ left: ((firstCard?.offsetWidth ?? track.clientWidth * 0.8) + gap) * direction, behavior: "smooth" });
   };
 
   return (
@@ -68,20 +61,11 @@ export function ServicesCarousel({ items, visualLabels: customVisualLabels, imag
           <button type="button" onClick={() => move(1)} disabled={isAtEnd} aria-label="Next services">→</button>
         </div>
       </div>
-
       <div ref={trackRef} className={styles.serviceCarouselTrack} onScroll={updatePosition}>
         {items.map(([title, body], index) => (
-          <article
-            className={styles.serviceCarouselCard}
-            key={title}
-            style={{ "--service-card-accent": accents[index % accents.length] } as CSSProperties}
-          >
-            <ServiceVisual index={index} label={customVisualLabels?.[index] ?? visualLabels[index] ?? title} image={images?.[index]} />
-            <div className={styles.serviceCarouselCopy}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </div>
+          <article className={styles.serviceCarouselCard} key={title} style={{ "--service-card-accent": accents[index % accents.length] } as CSSProperties}>
+            <ServiceVisual index={index} label={visualLabels?.[index] ?? title} image={images?.[index]} />
+            <div className={styles.serviceCarouselCopy}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></div>
           </article>
         ))}
       </div>

@@ -72,16 +72,16 @@ const industries = [
 const industryVisualLabels = ["Retail", "Real estate", "Healthcare", "Food & delivery", "Education", "Logistics", "Hospitality", "Fitness", "Business", "On-demand"] as const;
 
 const serviceCarouselImages = [
-  { src: "/about/about-12.jpg", alt: "Product team reviewing a custom mobile application" },
-  { src: "/talabat/customer-panel.png.webp", alt: "Customer-facing mobile application interface" },
-  { src: "/talabat/app-screen3.png.webp", alt: "Mobile application screens displayed on smartphones" },
-  { src: "/about/about-09.jpg", alt: "Development team collaborating on a cross-platform product" },
-  { src: "/about/about-10.jpg", alt: "Digital specialists planning a mobile product" },
-  { src: "/about/about-14.jpg", alt: "Business team reviewing enterprise application requirements" },
-  { src: "/about/about-11.jpg", alt: "Specialist working with digital analytics and AI tools" },
-  { src: "/talabat/banner-wel.png.webp", alt: "Branded mobile application welcome screen" },
-  { src: "/about/about-02.jpg", alt: "Team discussing a digital product redesign" },
-  { src: "/about/about-15.jpg", alt: "Digital team supporting an application after launch" },
+  { src: "/services/app-development/1-slider/Mobile App Development .png", alt: "Custom mobile app development services" },
+  { src: "/services/app-development/1-slider/Android App development.png", alt: "Android app development services" },
+  { src: "/services/app-development/1-slider/IOS APP Development.png", alt: "iOS app development services" },
+  { src: "/services/app-development/1-slider/Flutter App Development.png", alt: "Flutter app development services" },
+  { src: "/services/app-development/1-slider/React Native App Development.png", alt: "React Native app development services" },
+  { src: "/services/app-development/1-slider/Enterprise Mobile App Development.png", alt: "Enterprise mobile app development services" },
+  { src: "/services/app-development/1-slider/AI-Powered Mobile App Development.png", alt: "AI-powered mobile app development services" },
+  { src: "/services/app-development/1-slider/Mobile App UI_UX Design.png", alt: "Mobile app UI and UX design services" },
+  { src: "/services/app-development/1-slider/pp Redesign & Modernisation.png", alt: "Mobile app redesign and modernisation services" },
+  { src: "/services/app-development/1-slider/App Maintenance & Support.png", alt: "Mobile app maintenance and support services" },
 ] as const;
 
 const industryCarouselImages = [
@@ -206,7 +206,7 @@ const config: SingleServicePageConfig = {
     title: "Custom mobile apps built around your business goals",
     items: [
       "A successful mobile application is more than a collection of features. It must solve a real problem, be easy to use, perform reliably and support measurable business objectives.",
-      <>We combine business analysis, <Link href="/our-services#services-overview">UI/UX design</Link>, software engineering, quality assurance and post-launch support. Whether you are launching a digital product, building an internal app, modernising an existing product or adding AI, every project is planned around your users, operations, budget and future growth.</>,
+      <>We combine business analysis, <Link href="/our-services/ui-ux-design-company-dubai">UI/UX design</Link>, software engineering, quality assurance and post-launch support. Whether you are launching a digital product, building an internal app, modernising an existing product or adding AI, every project is planned around your users, operations, budget and future growth.</>,
       "Our Dubai team creates Android and iOS solutions using native and cross-platform technologies, connecting apps with websites, CRM, ERP, payments, bookings, maps, analytics, cloud services and third-party APIs.",
     ],
   },
@@ -220,7 +220,7 @@ const config: SingleServicePageConfig = {
     eyebrow: "One team from brief to growth",
     title: "Why choose Webtek Digital as your app development company in Dubai?",
     items: reasons,
-    footer: <>Planning the launch too? Explore our <Link href="/our-services#services-overview">web development</Link>, <Link href="/our-services#services-overview">digital marketing</Link>, <Link href="/our-services#services-overview">SEO</Link> and <Link href="/our-services#services-overview">Google Ads</Link> capabilities.</>,
+    footer: <>Planning the launch too? Explore our <Link href="/our-services/website-design-development-company-dubai">web development</Link>, <Link href="/our-services/social-media-management-marketing-company-dubai">digital marketing</Link>, <Link href="/our-services/seo-online-reputation-management-company-dubai">SEO</Link> and <Link href="/our-services/google-ads-performance-marketing-company-dubai">Google Ads</Link> capabilities.</>,
   },
   cost: { title: "How much does mobile app development cost in Dubai?", description: "Cost depends on scope rather than a single fixed rate. A simple app with standard features requires a different budget from a marketplace, delivery platform, enterprise system or AI-powered product.", buttonLabel: "Request an app development estimate", factorsLabel: "Main factors that influence cost", factors: costFactors, note: "After an initial consultation, we can prepare a scope and quotation based on required features, recommended technology and estimated development stages." },
   conversion: { eyebrow: "Have an app idea?", title: "Get a clear development roadmap.", description: "Speak with a Dubai-based digital team. We’ll review your idea, identify core functionality and recommend a practical path for design, development and launch.", benefits: ["Free initial consultation", "Android, iOS and cross-platform solutions", "UI/UX design and interactive prototyping", "Backend, API and payment integration", "Store submission support", "Ongoing maintenance options"], requirementLabel: "App requirement", requirementName: "App requirement", requirementPlaceholder: "Tell us about the idea, users and essential features", buttonLabel: "Discuss your app project" },

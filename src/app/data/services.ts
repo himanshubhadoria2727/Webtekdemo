@@ -1,3 +1,122 @@
+export const serviceRoutes = {
+  services: "/our-services",
+  mobileApp: "/our-services/mobile-app-development-company-dubai",
+  website: "/our-services/website-design-development-company-dubai",
+  branding: "/our-services/branding-pr-company-dubai",
+  seoReputation:
+    "/our-services/seo-online-reputation-management-company-dubai",
+  socialMedia:
+    "/our-services/social-media-management-marketing-company-dubai",
+  googleAds:
+    "/our-services/google-ads-performance-marketing-company-dubai",
+  uiUx: "/our-services/ui-ux-design-company-dubai",
+} as const;
+
+export type ServiceDirectoryItem = {
+  key: string;
+  label: string;
+  image: string;
+  alt: string;
+  video: string;
+  href: string;
+};
+
+/**
+ * The shared service directory used by the homepage, navigation menu, About
+ * page, Services overview and footer. Add a service here to publish it across
+ * every general service listing.
+ */
+export const serviceDirectory = [
+  {
+    key: "mobile-app-development",
+    label: "Mobile app development",
+    image: "/about/about-12.jpg",
+    alt: "Digital workspace with screens and devices",
+    video: "/services/mobile%20apps.mp4",
+    href: serviceRoutes.mobileApp,
+  },
+  {
+    key: "website-design-development",
+    label: "Website design & development",
+    image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
+    alt: "Digital team working in a glass-walled office",
+    video: "/services/websites.mp4",
+    href: serviceRoutes.website,
+  },
+  {
+    key: "branding-public-relations",
+    label: "Branding & public relations",
+    image: "/about/about-10.jpg",
+    alt: "Brand strategy and analytics workspace",
+    video: "/services/branding%20%26%20public%20relations.mp4",
+    href: serviceRoutes.branding,
+  },
+  {
+    key: "seo-reputation-management",
+    label: "SEO & online reputation management",
+    image: "/about/about-11.jpg",
+    alt: "Person working on search visibility reports",
+    video: "/services/Google.mp4",
+    href: serviceRoutes.seoReputation,
+  },
+  {
+    key: "social-media-marketing",
+    label: "Social media management & marketing",
+    image: "/about/about-09.jpg",
+    alt: "Team collaborating on social media marketing",
+    video: "/services/Social.mp4",
+    href: serviceRoutes.socialMedia,
+  },
+  {
+    key: "google-ads-performance",
+    label: "Google Ads & performance marketing",
+    image: "/about/about-14.jpg",
+    alt: "Business team reviewing campaign performance reports",
+    video: "/services/Google.mp4",
+    href: serviceRoutes.googleAds,
+  },
+  {
+    key: "ui-ux-design",
+    label: "UI/UX design",
+    image: "/talabat/customer-panel.png.webp",
+    alt: "Mobile app user interface screens",
+    video: "/services/mobile%20apps.mp4",
+    href: serviceRoutes.uiUx,
+  },
+  {
+    key: "graphic-design-video-editing",
+    label: "Graphic design & video editing",
+    image: "/about/about-04.jpg",
+    alt: "Creative team planning visual content in a studio",
+    video: "/services/Editing%26%20graphics.mp4",
+    href: serviceRoutes.branding,
+  },
+  {
+    key: "telecalling-services",
+    label: "Telecalling services",
+    image: "/about/about-15.jpg",
+    alt: "Team discussing customer communication workflows",
+    video: "/services/Tele.mp4",
+    href: `${serviceRoutes.services}#contact-us`,
+  },
+  {
+    key: "content-creation",
+    label: "Content creation",
+    image: "/about/about-16.jpg",
+    alt: "Marketing sketches and content planning notes",
+    video: "/services/Content%20Creator.mp4",
+    href: `${serviceRoutes.services}#contact-us`,
+  },
+  {
+    key: "photography-videography",
+    label: "Photography & videography",
+    image: "/about/about-04.jpg",
+    alt: "Creative production team preparing photo and video content",
+    video: "/services/Videographer%20%26%20Photographer.mp4",
+    href: `${serviceRoutes.services}#contact-us`,
+  },
+] as const satisfies readonly ServiceDirectoryItem[];
+
 export const servicesPage = {
   eyebrow: "Our Services",
   title: "Our Services",
@@ -6,6 +125,7 @@ export const servicesPage = {
   services: [
     {
       title: "Mobile App Development (iOS & Android)",
+      href: serviceRoutes.mobileApp,
       primaryKeyword: "mobile app development company in Dubai",
       description: [
         "Webtek Digital builds mobile apps for Dubai businesses that need more than a working prototype - they need a product that performs under real-world load and earns repeat use. Our mobile app development team works across native Android and iOS as well as cross-platform frameworks, covering the full build cycle from product strategy and UI/UX design through development, QA, and post-launch support.",
@@ -21,6 +141,7 @@ export const servicesPage = {
     },
     {
       title: "Lead Generation & Performance Marketing",
+      href: serviceRoutes.googleAds,
       primaryKeyword: "performance marketing agency in Dubai",
       description: [
         "Traffic without conversion is just spend. Our performance marketing team builds full-funnel lead generation systems for Dubai businesses - from landing page design and offer structuring through to CRM handoff and sales follow-up - so every campaign is judged on qualified leads and revenue, not impressions.",
@@ -36,6 +157,7 @@ export const servicesPage = {
     },
     {
       title: "Google Ads - Shopping, Text, Display",
+      href: serviceRoutes.googleAds,
       primaryKeyword: "Google Ads agency in Dubai",
       description: [
         "As a certified Google Ads agency in Dubai, Webtek Digital manages campaigns across Search, Shopping, Display, and YouTube for brands that want their ad spend to work harder. Every account is structured around clear conversion goals, with audience targeting and bid strategy refined continuously rather than left to run on autopilot.",
@@ -51,6 +173,7 @@ export const servicesPage = {
     },
     {
       title: "Social Media Marketing",
+      href: serviceRoutes.socialMedia,
       primaryKeyword: "social media marketing agency in Dubai",
       description: [
         "Social platforms move fast, and a content calendar alone will not build a following that converts. Our social media marketing team plans, creates, and manages organic and paid content across Instagram, Facebook, TikTok, and LinkedIn, tailored to how each platform's audience actually behaves rather than a one-size-fits-all posting schedule.",
@@ -66,6 +189,7 @@ export const servicesPage = {
     },
     {
       title: "Search Engine Optimization (SEO)",
+      href: serviceRoutes.seoReputation,
       primaryKeyword: "best SEO company in Dubai",
       description: [
         "Webtek Digital is recognized among the best SEO companies in Dubai for brands that want organic visibility built on a technical foundation, not just a stack of backlinks. Our SEO process starts with a full technical audit - site speed, crawlability, structured data, and on-page health - before moving into keyword strategy and content execution.",
@@ -81,6 +205,7 @@ export const servicesPage = {
     },
     {
       title: "Programmatic Media Buying",
+      href: `${serviceRoutes.services}#contact-us`,
       primaryKeyword: "programmatic advertising agency in Dubai",
       description: [
         "Programmatic media buying lets Dubai brands reach precisely defined audiences across thousands of websites and apps without manually negotiating placements. Our team manages demand-side platform (DSP) campaigns that combine first-party data, contextual targeting, and real-time bidding to put display, video, and native ads in front of the right audience at the right moment.",
@@ -96,6 +221,7 @@ export const servicesPage = {
     },
     {
       title: "Digital PR & Reputation Management",
+      href: serviceRoutes.seoReputation,
       primaryKeyword: "digital PR agency in Dubai",
       description: [
         "How a brand appears in search results and across review platforms shapes trust before a customer ever clicks through to a website. Our digital PR and reputation management work combines media outreach, guest placements, and review management to build a presence that holds up to scrutiny.",
@@ -111,6 +237,7 @@ export const servicesPage = {
     },
     {
       title: "Design & Video Creations",
+      href: serviceRoutes.branding,
       primaryKeyword: "creative design agency in Dubai",
       description: [
         "Performance campaigns and organic content both live or die on the strength of the creative behind them. Our in-house design and video team produces everything from social media graphics and ad creative to product videos, brand films, and motion graphics - built to perform on the platform they are made for, not just look good in isolation.",
@@ -126,6 +253,7 @@ export const servicesPage = {
     },
     {
       title: "Content Marketing",
+      href: `${serviceRoutes.services}#contact-us`,
       primaryKeyword: "content marketing agency in Dubai",
       description: [
         "Webtek Digital is consistently ranked among the best content marketing companies in Dubai for brands that need a long-term organic growth engine rather than one-off blog posts. Our content strategists pair keyword research with a content calendar tied directly to the sales funnel - covering SEO-optimized landing pages, thought-leadership articles, and social content.",
@@ -141,6 +269,7 @@ export const servicesPage = {
     },
     {
       title: "Outdoor Advertising",
+      href: `${serviceRoutes.services}#contact-us`,
       primaryKeyword: "outdoor advertising agency in Dubai",
       description: [
         "Digital channels do not cover every moment a customer notices a brand. Our outdoor advertising service plans and books out-of-home (OOH) media across Dubai and the UAE - billboards, mall and metro placements, and transit advertising - to extend campaign reach into the physical spaces a target audience actually moves through.",

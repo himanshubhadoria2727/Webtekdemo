@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import styles from "../../page.module.css";
 
 const appDevelopmentServices = [
@@ -88,7 +89,11 @@ export function SeoServicesSection() {
           transition={{ duration: 0.35 }}
         >
           <p className={styles.seoServiceNumber}>02</p>
-          <h3>Best Advertising Agency in Dubai for Google Ads &amp; Performance Marketing</h3>
+          <h3>
+            <Link href="/our-services/google-ads-performance-marketing-company-dubai">
+              Best Advertising Agency in Dubai for Google Ads &amp; Performance Marketing
+            </Link>
+          </h3>
           <p>
             Webtek Digital is recognized as one of the best advertising agencies in Dubai for brands that want their ad
             spend to work harder. As a certified AdWords agency in Dubai, we manage Google Ads across Search, Shopping,

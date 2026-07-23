@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { footerServices, footerSocials, footerSolutions } from "../../data/home";
+import { footerSocials, footerSolutions } from "../../data/home";
+import { serviceDirectory } from "../../data/services";
 import styles from "../../page.module.css";
 
 const contactEmail = "info@webtekdigital.com";
@@ -34,14 +35,14 @@ const solutionLinks: Record<string, string> = {
   "Our blogs": "/blog",
 };
 
-function splitIntoColumns(items: string[], columnCount: number) {
+function splitIntoColumns<T>(items: readonly T[], columnCount: number) {
   const columnSize = Math.ceil(items.length / columnCount);
 
   return Array.from({ length: columnCount }, (_, index) => items.slice(index * columnSize, (index + 1) * columnSize));
 }
 
 export function Footer() {
-  const serviceColumns = splitIntoColumns(footerServices, 2);
+  const serviceColumns = splitIntoColumns(serviceDirectory, 2);
   const solutionColumns = splitIntoColumns(footerSolutions, 2);
 
   return (
@@ -69,9 +70,9 @@ export function Footer() {
             <div className={styles.footerListGrid}>
               {serviceColumns.map((column, index) => (
                 <ul key={`services-${index}`}>
-                  {column.map((item) => (
-                    <li key={item}>
-                      <Link href="/our-services">{item}</Link>
+                  {column.map((service) => (
+                    <li key={service.key}>
+                      <Link href={service.href}>{service.label}</Link>
                     </li>
                   ))}
                 </ul>

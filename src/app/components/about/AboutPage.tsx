@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { serviceDirectory } from "../../data/services";
 import styles from "../../page.module.css";
 import { Footer } from "../home/Footer";
 import { Header } from "../home/Header";
@@ -104,69 +105,6 @@ const approachSteps = [
   {
     title: "Scale",
     text: "Expanding your digital ecosystem through automation, CRM integration, conversion optimisation and long-term growth strategies.",
-  },
-] as const;
-
-const aboutServices = [
-  {
-    label: "Website design & development",
-    image: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg",
-    alt: "Webtek Digital website design team working in a glass-walled office",
-  },
-  {
-    label: "Search engine optimisation",
-    image: "/about/about-11.jpg",
-    alt: "Webtek Digital SEO specialist preparing search visibility notes",
-  },
-  {
-    label: "Google Ads management",
-    image: "/about/about-14.jpg",
-    alt: "Webtek Digital team reviewing Google Ads campaign reports",
-  },
-  {
-    label: "Meta advertising",
-    image: "/about/about-09.jpg",
-    alt: "Webtek Digital team collaborating on social media advertising",
-  },
-  {
-    label: "Social media marketing",
-    image: "/about/about-15.jpg",
-    alt: "Modern Dubai office setting for social media marketing planning",
-  },
-  {
-    label: "Branding & creative design",
-    image: "/about/about-10.jpg",
-    alt: "Analytics dashboard supporting brand strategy and creative design",
-  },
-  {
-    label: "Content creation",
-    image: "/about/about-16.jpg",
-    alt: "Brand design mood board for content creation planning",
-  },
-  {
-    label: "Video shooting & production",
-    image: "/about/about-04.jpg",
-    alt: "Webtek Digital team planning visual content with a client",
-  },
-  {
-    label: "Performance marketing",
-    image: "/about/about-14.jpg",
-    alt: "Webtek Digital team reviewing performance marketing reports",
-  },
-  {
-    label: "Marketing automation & CRM integration",
-    image: "/about/about-12.jpg",
-    alt: "Dubai business office used for CRM and marketing automation planning",
-  },
-  {
-    label: "Email marketing",
-    image: "/about/about-11.jpg",
-    alt: "Webtek Digital marketer preparing email campaign notes",
-  },
-  {
-    label: "Analytics & conversion optimisation",
-    image: "/about/about-13.jpg",
-    alt: "Dubai skyscrapers representing analytics-led digital growth",
   },
 ] as const;
 
@@ -453,7 +391,7 @@ export function AboutPage() {
           label="Our services"
           title="Everything your business needs under one roof"
           description="At Webtek Digital, every service is designed to work together, creating one connected customer journey that delivers measurable business outcomes."
-          items={aboutServices}
+          items={serviceDirectory}
           priorityFirstImage={false}
         />
 

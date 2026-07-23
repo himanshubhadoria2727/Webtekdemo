@@ -6,20 +6,6 @@ export const menuItems = [
   "Contact us",
 ];
 
-export const partnerNames = [
-  "Website design & development",
-  "Mobile app development",
-  "Branding & public relations",
-  "SEO & online reputation management",
-  "Social media management & marketing",
-  "Google Ads & performance marketing",
-  "UI/UX design",
-  "Graphic design & video editing",
-  "Telecalling services",
-  "Content creation",
-  "Photography & videography",
-];
-
 export const aboutBullets = [
   "Brand strategy and digital experiences",
   "Website and ecommerce development",
@@ -30,18 +16,6 @@ export const aboutBullets = [
 
 export const animatedAboutLine =
   "Webtek Digital is one of Dubai’s leading digital marketing and app development companies, helping ambitious brands launch, market, and scale across the UAE. We bring together brand strategy, web and ecommerce development, SEO, and performance marketing under one team, so every project we touch is built to convert, not just to look good. From a single landing page to a full Android app development build, our approach starts with your business goals and works backward into design, technology, and media spend that gets results. Over 1,500 clients, including government bodies, retail groups, and direct-to-consumer brands, have trusted Webtek Digital to build and grow their digital presence in Dubai and across the wider GCC.";
-
-export const leftServices = [
-  "Website & ecommerce development",
-  "Search engine optimization (SEO)",
-  "Lead generation & performance marketing",
-];
-
-export const rightServices = [
-  "Mobile app development (iOS & Android)",
-  "Social media marketing",
-  "Google Ads - shopping, text, display",
-];
 
 export const clienteleCards = [
   {
@@ -319,28 +293,6 @@ export const solutionNodes = [
   { label: "TECHNOLOGY", length: 22, angle: 126, delay: 238, align: "right" },
   { label: "STRATEGY & BUSINESS", length: 32, angle: -28, delay: 612, align: "right" },
 ] as const;
-
-export const tileServiceMap: Record<1 | 2 | 3 | 4 | 5 | 6, string> = {
-  1: "Website & ecommerce development",
-  2: "Search engine optimization (SEO)",
-  3: "Lead generation & performance marketing",
-  4: "Mobile app development (iOS & Android)",
-  5: "Social media marketing",
-  6: "Google Ads - shopping, text, display",
-};
-
-export const footerServices = [
-  "Mobile app development (iOS & Android)",
-  "Lead generation & performance marketing",
-  "Google Ads - shopping, text, display",
-  "Social media marketing",
-  "Search engine optimization (SEO)",
-  "Programmatic media buying",
-  "Digital PR & reputation management",
-  "Design & video creations",
-  "Content marketing",
-  "Outdoor advertising",
-];
 
 export const footerSolutions = [
   "Grocery",

@@ -1,28 +1,29 @@
-import { partnerNames } from "../../data/home";
+import Link from "next/link";
+import { serviceDirectory } from "../../data/services";
 import styles from "../../page.module.css";
 import { SeoServicesSection } from "./SeoServicesSection";
 import { ServicesSection } from "./ServicesSection";
 
 export function AboutSection() {
-  const reversePartnerNames = [...partnerNames].reverse();
+  const reverseServices = [...serviceDirectory].reverse();
 
   return (
     <section id="about-us" className={styles.aboutSection}>
       <div className={styles.partnerRow}>
         <div className={`${styles.partnerRowTrack} ${styles.partnerRowTrackDark}`}>
           <div className={styles.partnerRowTicker}>
-            {partnerNames.map((name, index) => (
-              <span key={`${name}-${index}`} className={styles.partnerLogo}>
-                {name}
-              </span>
+            {serviceDirectory.map((service, index) => (
+              <Link key={`${service.key}-${index}`} href={service.href} className={styles.partnerLogo}>
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
         <div className={`${styles.partnerRowTrack} ${styles.partnerRowTrackAccent}`} aria-hidden="true">
           <div className={styles.partnerRowTicker}>
-            {reversePartnerNames.map((name, index) => (
-              <span key={`${name}-reverse-${index}`} className={styles.partnerLogo}>
-                {name}
+            {reverseServices.map((service, index) => (
+              <span key={`${service.key}-reverse-${index}`} className={styles.partnerLogo}>
+                {service.label}
               </span>
             ))}
           </div>

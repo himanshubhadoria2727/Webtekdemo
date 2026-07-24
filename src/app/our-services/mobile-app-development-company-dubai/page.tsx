@@ -85,16 +85,16 @@ const serviceCarouselImages = [
 ] as const;
 
 const industryCarouselImages = [
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand presentation representing ecommerce applications" },
-  { src: "/about/about-13.jpg", alt: "Modern property environment representing real estate applications" },
-  { src: "/about/about-08.jpg", alt: "Professional workspace representing healthcare application planning" },
-  { src: "/talabat/banner-wel.png.webp", alt: "Food ordering application welcome interface" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education brand presentation representing learning applications" },
-  { src: "/about/about-15.jpg", alt: "Mobile professional representing logistics and field-service applications" },
-  { src: "/about/about-05.jpg", alt: "Hospitality environment representing guest-service applications" },
-  { src: "/about/about-06.jpg", alt: "Active team environment representing fitness applications" },
-  { src: "/about/about-14.jpg", alt: "Business team reviewing dashboards and operational applications" },
-  { src: "/talabat/app-screen3.png.webp", alt: "On-demand service application displayed across mobile screens" },
+  { src: "/services/app-development/2-slider/E-commerce & retail.png", alt: "E-commerce and retail mobile application solutions" },
+  { src: "/services/app-development/2-slider/Real Estate digital solutions.png", alt: "Real estate mobile application solutions" },
+  { src: "/services/app-development/2-slider/Healthcare & wellness.png", alt: "Healthcare and wellness mobile application solutions" },
+  { src: "/services/app-development/2-slider/Restaurants & food delivery.png", alt: "Restaurant and food delivery mobile application solutions" },
+  { src: "/services/app-development/2-slider/Education & training .png", alt: "Education and training mobile application solutions" },
+  { src: "/services/app-development/2-slider/Logistics and delivery solutions.png", alt: "Logistics and delivery mobile application solutions" },
+  { src: "/services/app-development/2-slider/Hospitality & Travel.png", alt: "Hospitality and travel mobile application solutions" },
+  { src: "/services/app-development/2-slider/Fitness & Sports.png", alt: "Fitness and sports mobile application solutions" },
+  { src: "/services/app-development/2-slider/Financial & business.png", alt: "Financial and business mobile application solutions" },
+  { src: "/services/app-development/2-slider/Home & on-demand services.png", alt: "Home and on-demand service mobile application solutions" },
 ] as const;
 
 const features = [

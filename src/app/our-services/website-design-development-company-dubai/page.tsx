@@ -31,16 +31,16 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg", alt: "Designer planning a custom business website" },
-  { src: "/about/about-12.jpg", alt: "Team reviewing a corporate website" },
-  { src: "/about/about-10.jpg", alt: "Ecommerce team planning an online store" },
-  { src: "/about/about-11.jpg", alt: "Campaign landing page analytics workspace" },
-  { src: "/about/about-09.jpg", alt: "Developers collaborating on a content-managed website" },
-  { src: "/about/about-04.jpg", alt: "Retail team reviewing a Shopify storefront" },
-  { src: "/about/about-14.jpg", alt: "Business team reviewing a web application dashboard" },
-  { src: "/about/about-02.jpg", alt: "Creative team discussing a website redesign" },
-  { src: "/about/about-15.jpg", alt: "Specialist providing website support" },
-  { src: "/about/about-16.jpg", alt: "Team analysing website performance" },
+  { src: "/services/web-development/2-slider/Custom Website Design.png", alt: "Custom website design" },
+  { src: "/services/web-development/2-slider/Corporate Website Development.png", alt: "Corporate website development" },
+  { src: "/services/web-development/2-slider/Ecommerce Development.png", alt: "Ecommerce website development" },
+  { src: "/services/web-development/2-slider/Landing Page Development.png", alt: "Landing page development" },
+  { src: "/services/web-development/2-slider/WordPress Development.png", alt: "WordPress website development" },
+  { src: "/services/web-development/2-slider/Shopify Development.png", alt: "Shopify website development" },
+  { src: "/services/web-development/2-slider/Web Application Development.png", alt: "Web application development" },
+  { src: "/services/web-development/2-slider/Website Redesign.png", alt: "Website redesign and modernisation" },
+  { src: "/services/web-development/2-slider/Website Maintenance.png", alt: "Website maintenance and support" },
+  { src: "/services/web-development/2-slider/Conversion & Performance Optimisation.png", alt: "Website conversion and performance optimisation" },
 ] as const;
 
 const outcomes = [
@@ -71,16 +71,16 @@ const industries = [
 
 const industryLabels = ["Retail", "Real estate", "Healthcare", "Hospitality", "Education", "Professional", "Construction", "Technology", "Automotive", "Enterprise"] as const;
 const industryImages = [
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand representing ecommerce website development" },
-  { src: "/about/about-13.jpg", alt: "Property setting representing real estate websites" },
-  { src: "/about/about-08.jpg", alt: "Professional setting representing healthcare websites" },
-  { src: "/about/about-05.jpg", alt: "Hospitality setting representing hotel and restaurant websites" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education brand representing university websites" },
-  { src: "/about/about-14.jpg", alt: "Consulting team representing professional services websites" },
-  { src: "/about/about-03.jpg", alt: "Modern development representing construction websites" },
-  { src: "/about/about-11.jpg", alt: "Digital workspace representing technology websites" },
-  { src: "/about/about-06.jpg", alt: "Premium environment representing automotive websites" },
-  { src: "/about/about-12.jpg", alt: "Enterprise team representing large-scale website projects" },
+  { src: "/services/web-development/1-slider/Retail & ecommerce.png", alt: "Retail and ecommerce website design and development" },
+  { src: "/services/web-development/1-slider/Real estate.png", alt: "Real estate website design and development" },
+  { src: "/services/web-development/1-slider/Healthcare & wellness.png", alt: "Healthcare and wellness website design and development" },
+  { src: "/services/web-development/1-slider/Hospitality & restaurants.png", alt: "Hospitality and restaurant website design and development" },
+  { src: "/services/web-development/1-slider/Education & training.png", alt: "Education and training website design and development" },
+  { src: "/services/web-development/1-slider/Professional services.png", alt: "Professional services website design and development" },
+  { src: "/services/web-development/1-slider/Construction & property.png", alt: "Construction and property website design and development" },
+  { src: "/services/web-development/1-slider/Technology & startups.png", alt: "Technology and startup website design and development" },
+  { src: "/services/web-development/1-slider/Automotive.png", alt: "Automotive website design and development" },
+  { src: "/services/web-development/1-slider/Government & enterprise.png", alt: "Government and enterprise website design and development" },
 ] as const;
 
 const features = [

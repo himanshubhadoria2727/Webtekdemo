@@ -10,6 +10,11 @@ export const serviceRoutes = {
   googleAds:
     "/our-services/google-ads-performance-marketing-company-dubai",
   uiUx: "/our-services/ui-ux-design-company-dubai",
+  graphicDesign:
+    "/our-services/graphic-design-video-editing-company-dubai",
+  telecalling: "/our-services/telecalling-services-company-dubai",
+  visualContent:
+    "/our-services/photography-videography-content-creation-company-dubai",
 } as const;
 
 export type ServiceDirectoryItem = {
@@ -49,7 +54,7 @@ export const serviceDirectory = [
     image: "/about/about-10.jpg",
     alt: "Brand strategy and analytics workspace",
     video: "/services/branding%20%26%20public%20relations.mp4",
-    href: serviceRoutes.branding,
+    href: serviceRoutes.graphicDesign,
   },
   {
     key: "seo-reputation-management",
@@ -97,7 +102,7 @@ export const serviceDirectory = [
     image: "/about/about-15.jpg",
     alt: "Team discussing customer communication workflows",
     video: "/services/Tele.mp4",
-    href: `${serviceRoutes.services}#contact-us`,
+    href: serviceRoutes.telecalling,
   },
   {
     key: "content-creation",
@@ -105,7 +110,7 @@ export const serviceDirectory = [
     image: "/about/about-16.jpg",
     alt: "Marketing sketches and content planning notes",
     video: "/services/Content%20Creator.mp4",
-    href: `${serviceRoutes.services}#contact-us`,
+    href: serviceRoutes.visualContent,
   },
   {
     key: "photography-videography",
@@ -113,7 +118,7 @@ export const serviceDirectory = [
     image: "/about/about-04.jpg",
     alt: "Creative production team preparing photo and video content",
     video: "/services/Videographer%20%26%20Photographer.mp4",
-    href: `${serviceRoutes.services}#contact-us`,
+    href: serviceRoutes.visualContent,
   },
 ] as const satisfies readonly ServiceDirectoryItem[];
 

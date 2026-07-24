@@ -61,17 +61,17 @@ export function FloatingWhatsAppButton() {
           </a>
 
           <div className={styles.floatingContactBar}>
-            <p>Free consultation</p>
+            <p>Free Consultation</p>
             <div className={styles.floatingContactActions}>
               <a className={styles.floatingConnectButton} href="https://wa.me/971581263762" target="_blank" rel="noreferrer">
-                <span>Connect now</span>
+                <span>Connect Now</span>
                 <WhatsAppIcon />
               </a>
               <a className={styles.floatingIconButton} href="tel:+971581263762" aria-label="Call Webtek Digital">
                 <PhoneIcon />
               </a>
               <a className={styles.floatingAppointmentButton} href="#contact-us">
-                <span>Book appointment</span>
+                <span>Book Appointment</span>
                 <span className={styles.floatingAppointmentIcon}>
                   <ArrowIcon />
                 </span>

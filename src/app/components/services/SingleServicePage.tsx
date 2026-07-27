@@ -15,6 +15,7 @@ export type SingleServicePageConfig = {
   serviceName: string;
   serviceTypes: readonly string[];
   breadcrumbName: string;
+  articleDescription?: string;
   hero: { title: string; description: string; primaryCta: string; secondaryCta: string; note: string };
   intro: Heading & { items: readonly ReactNode[] };
   services: Heading & { items: readonly Pair[]; images: readonly CarouselImage[]; labels?: readonly string[]; ctaLead: string; ctaLabel: string };
@@ -46,6 +47,15 @@ export function SingleServicePage({ config }: { config: SingleServicePageConfig 
       { "@type": "ListItem", position: 3, name: config.breadcrumbName, item: config.pageUrl },
     ] },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: config.faq.items.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+    ...(config.articleDescription ? [{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: config.serviceName,
+      description: config.articleDescription,
+      mainEntityOfPage: config.pageUrl,
+      author: { "@type": "Organization", name: "Webtek Digital" },
+      publisher: { "@type": "Organization", name: "Webtek Digital" },
+    }] : []),
   ];
 
   return (

@@ -13,6 +13,8 @@ export const serviceRoutes = {
   graphicDesign:
     "/our-services/graphic-design-video-editing-company-dubai",
   telecalling: "/our-services/telecalling-services-company-dubai",
+  contentCreation:
+    "/our-services/content-creation-services-company-dubai",
   visualContent:
     "/our-services/photography-videography-content-creation-company-dubai",
 } as const;
@@ -54,7 +56,7 @@ export const serviceDirectory = [
     image: "/about/about-10.jpg",
     alt: "Brand strategy and analytics workspace",
     video: "/services/branding%20%26%20public%20relations.mp4",
-    href: serviceRoutes.graphicDesign,
+    href: serviceRoutes.branding,
   },
   {
     key: "seo-reputation-management",
@@ -94,7 +96,7 @@ export const serviceDirectory = [
     image: "/about/about-04.jpg",
     alt: "Creative team planning visual content in a studio",
     video: "/services/Editing%26%20graphics.mp4",
-    href: serviceRoutes.branding,
+    href: serviceRoutes.graphicDesign,
   },
   {
     key: "telecalling-services",
@@ -110,7 +112,7 @@ export const serviceDirectory = [
     image: "/about/about-16.jpg",
     alt: "Marketing sketches and content planning notes",
     video: "/services/Content%20Creator.mp4",
-    href: serviceRoutes.visualContent,
+    href: serviceRoutes.contentCreation,
   },
   {
     key: "photography-videography",

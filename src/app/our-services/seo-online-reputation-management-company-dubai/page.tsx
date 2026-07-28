@@ -92,20 +92,20 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/about/about-11.jpg", alt: "SEO specialists reviewing search performance" },
-  { src: "/about/about-09.jpg", alt: "Technical SEO team analysing a website" },
-  { src: "/about/about-10.jpg", alt: "Content specialist working on on-page SEO" },
-  { src: "/about/about-13.jpg", alt: "Dubai skyline representing local SEO" },
-  { src: "/about/about-04.jpg", alt: "SEO content planning session" },
-  { src: "/about/about-14.jpg", alt: "Digital PR and authority-building team" },
-  { src: "/about/about-03.jpg", alt: "Specialists planning a link-building campaign" },
-  { src: "/about/about-06.jpg", alt: "Ecommerce SEO planning workspace" },
-  { src: "/about/about-12.jpg", alt: "Enterprise team reviewing organic growth" },
-  { src: "/about/about-15.jpg", alt: "Online reputation consultant supporting a client" },
-  { src: "/about/about-08.jpg", alt: "Customer review management discussion" },
-  { src: "/about/about-02.jpg", alt: "Brand monitoring and sentiment analysis" },
-  { src: "/about/about-05.jpg", alt: "Crisis communications planning meeting" },
-  { src: "/about/about-16.jpg", alt: "Executive reputation and personal branding session" },
+  { src: "/services/seo-reputation-management/1-slider/01-search-engine-optimisation.png", alt: "Search engine optimisation service" },
+  { src: "/services/seo-reputation-management/1-slider/02-technical-seo.png", alt: "Technical SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/03-on-page-seo.png", alt: "On-page SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/04-local-seo.png", alt: "Local SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/05-content-seo.png", alt: "Content SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/06-off-page-seo.png", alt: "Off-page SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/07-link-building.png", alt: "Link-building service" },
+  { src: "/services/seo-reputation-management/1-slider/08-ecommerce-seo.png", alt: "Ecommerce SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/09-enterprise-seo.png", alt: "Enterprise SEO service" },
+  { src: "/services/seo-reputation-management/1-slider/10-online-reputation-management.png", alt: "Online reputation management service" },
+  { src: "/services/seo-reputation-management/1-slider/11-google-review-management.png", alt: "Google review management service" },
+  { src: "/services/seo-reputation-management/1-slider/12-brand-monitoring.png", alt: "Brand monitoring service" },
+  { src: "/services/seo-reputation-management/1-slider/13-crisis-reputation-management.png", alt: "Crisis reputation management service" },
+  { src: "/services/seo-reputation-management/1-slider/14-executive-reputation-management.png", alt: "Executive reputation management service" },
 ] as const;
 
 const outcomes = [
@@ -165,13 +165,13 @@ const industryLabels = [
 ] as const;
 
 const industryImages = [
-  { src: "/about/about-08.jpg", alt: "Healthcare setting representing medical SEO" },
-  { src: "/about/about-13.jpg", alt: "Dubai property setting representing real estate SEO" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand representing ecommerce SEO" },
-  { src: "/about/about-05.jpg", alt: "Hospitality setting representing tourism SEO" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "University brand representing education SEO" },
-  { src: "/about/about-14.jpg", alt: "Professional team representing services SEO" },
-  { src: "/about/about-11.jpg", alt: "Technology workspace representing startup SEO" },
+  { src: "/services/seo-reputation-management/2-slider/01-healthcare-medical.png", alt: "Healthcare and medical SEO service" },
+  { src: "/services/seo-reputation-management/2-slider/02-real-estate.png", alt: "Real estate SEO service" },
+  { src: "/services/seo-reputation-management/2-slider/03-ecommerce.png", alt: "Ecommerce SEO service" },
+  { src: "/services/seo-reputation-management/2-slider/04-hospitality-tourism.png", alt: "Hospitality and tourism SEO service" },
+  { src: "/services/seo-reputation-management/2-slider/05-education-training.png", alt: "Education and training SEO service" },
+  { src: "/services/seo-reputation-management/2-slider/06-professional-services.png", alt: "Professional services SEO service" },
+  { src: "/services/seo-reputation-management/2-slider/07-technology-startups.png", alt: "Technology and startup SEO service" },
 ] as const;
 
 const features = [

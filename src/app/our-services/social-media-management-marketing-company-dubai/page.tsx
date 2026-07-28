@@ -47,15 +47,15 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/about/about-12.jpg", alt: "Social media strategists planning platform content" },
-  { src: "/about/about-09.jpg", alt: "Team managing social media accounts and publishing" },
-  { src: "/about/about-04.jpg", alt: "Creative team producing branded social content" },
-  { src: "/about/about-06.jpg", alt: "Short-form social video production session" },
-  { src: "/about/about-16.jpg", alt: "Copywriter developing captions and campaign messages" },
-  { src: "/about/about-15.jpg", alt: "Community management team responding to customers" },
-  { src: "/about/about-14.jpg", alt: "Marketing team reviewing paid social campaign performance" },
-  { src: "/about/about-05.jpg", alt: "Creator partnership and influencer campaign planning" },
-  { src: "/about/about-11.jpg", alt: "Social media analytics and reporting workspace" },
+  { src: "/services/social-media/1-slider/01-social-media-strategy-development.png", alt: "Social media strategy development service" },
+  { src: "/services/social-media/1-slider/02-social-media-account-management.png", alt: "Social media account management service" },
+  { src: "/services/social-media/1-slider/03-content-creation.png", alt: "Social media content creation service" },
+  { src: "/services/social-media/1-slider/04-short-form-video-content.png", alt: "Short-form social media video service" },
+  { src: "/services/social-media/1-slider/05-social-media-copywriting.png", alt: "Social media copywriting service" },
+  { src: "/services/social-media/1-slider/06-community-management.png", alt: "Social media community management service" },
+  { src: "/services/social-media/1-slider/07-social-media-advertising.png", alt: "Social media advertising service" },
+  { src: "/services/social-media/1-slider/08-influencer-marketing.png", alt: "Influencer marketing service" },
+  { src: "/services/social-media/1-slider/09-social-media-analytics-reporting.png", alt: "Social media analytics and reporting service" },
 ] as const;
 
 const outcomes = [
@@ -90,14 +90,14 @@ const industries = [
 const industryLabels = ["Healthcare", "Real estate", "Food & dining", "Hospitality", "Ecommerce", "Education", "Professional", "Technology"] as const;
 
 const industryImages = [
-  { src: "/about/about-08.jpg", alt: "Professional environment representing healthcare social media" },
-  { src: "/about/about-13.jpg", alt: "Premium property environment representing real estate content" },
-  { src: "/about/about-06.jpg", alt: "Creative environment representing restaurant social media" },
-  { src: "/about/about-05.jpg", alt: "Guest environment representing hospitality content" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand presentation representing ecommerce marketing" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education brand presentation representing student campaigns" },
-  { src: "/about/about-14.jpg", alt: "Business team representing professional services content" },
-  { src: "/about/about-09.jpg", alt: "Digital workspace representing technology marketing" },
+  { src: "/services/social-media/2-slider/01-healthcare-medical.png", alt: "Healthcare and medical social media service" },
+  { src: "/services/social-media/2-slider/02-real-estate.png", alt: "Real estate social media service" },
+  { src: "/services/social-media/2-slider/03-restaurants-cafes.png", alt: "Restaurant and cafe social media service" },
+  { src: "/services/social-media/2-slider/04-hospitality.png", alt: "Hospitality social media service" },
+  { src: "/services/social-media/2-slider/05-ecommerce.png", alt: "Ecommerce social media service" },
+  { src: "/services/social-media/2-slider/06-education.png", alt: "Education social media service" },
+  { src: "/services/social-media/2-slider/07-professional-services.png", alt: "Professional services social media service" },
+  { src: "/services/social-media/2-slider/08-technology-companies.png", alt: "Technology company social media service" },
 ] as const;
 
 const features = [

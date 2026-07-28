@@ -29,14 +29,14 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/about/about-11.jpg", alt: "Google Search Ads campaign planning and analysis" },
-  { src: "/about/about-04.jpg", alt: "Creative team planning Google Display advertising" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Ecommerce brand representing Google Shopping campaigns" },
-  { src: "/about/about-06.jpg", alt: "Video production environment representing YouTube advertising" },
-  { src: "/about/about-09.jpg", alt: "Performance Max campaign management workspace" },
-  { src: "/about/about-15.jpg", alt: "Marketing specialist managing remarketing campaigns" },
-  { src: "/about/about-02.jpg", alt: "Team reviewing a conversion-focused landing page" },
-  { src: "/about/about-16.jpg", alt: "Conversion tracking and advertising analytics dashboard review" },
+  { src: "/services/google-ads/1-slider/01-google-search-ads.png", alt: "Google Search Ads service" },
+  { src: "/services/google-ads/1-slider/02-google-display-ads.png", alt: "Google Display Ads service" },
+  { src: "/services/google-ads/1-slider/03-google-shopping-ads.png", alt: "Google Shopping Ads service" },
+  { src: "/services/google-ads/1-slider/04-youtube-ads.png", alt: "YouTube Ads service" },
+  { src: "/services/google-ads/1-slider/05-performance-max-campaigns.png", alt: "Performance Max campaigns service" },
+  { src: "/services/google-ads/1-slider/06-remarketing-campaigns.png", alt: "Remarketing campaigns service" },
+  { src: "/services/google-ads/1-slider/07-landing-page-optimisation.png", alt: "Landing page optimisation service" },
+  { src: "/services/google-ads/1-slider/08-conversion-tracking-analytics.png", alt: "Conversion tracking and analytics service" },
 ] as const;
 
 const outcomes = [
@@ -56,14 +56,14 @@ const industries = [
 
 const industryLabels = ["Healthcare", "Real estate", "Ecommerce", "Hospitality", "Education", "Professional", "Home services", "Automotive"] as const;
 const industryImages = [
-  { src: "/about/about-08.jpg", alt: "Healthcare setting representing medical Google Ads campaigns" },
-  { src: "/about/about-13.jpg", alt: "Property setting representing real estate PPC campaigns" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand representing ecommerce performance marketing" },
-  { src: "/about/about-05.jpg", alt: "Hospitality setting representing booking campaigns" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education brand representing student recruitment campaigns" },
-  { src: "/about/about-14.jpg", alt: "Business team representing professional service campaigns" },
-  { src: "/about/about-15.jpg", alt: "Service professional representing local lead generation" },
-  { src: "/about/about-06.jpg", alt: "Premium setting representing automotive advertising" },
+  { src: "/services/google-ads/2-slider/01-healthcare-medical.png", alt: "Healthcare and medical Google Ads service" },
+  { src: "/services/google-ads/2-slider/02-real-estate.png", alt: "Real estate Google Ads service" },
+  { src: "/services/google-ads/2-slider/03-ecommerce.png", alt: "Ecommerce Google Ads service" },
+  { src: "/services/google-ads/2-slider/04-hospitality.png", alt: "Hospitality Google Ads service" },
+  { src: "/services/google-ads/2-slider/05-education.png", alt: "Education Google Ads service" },
+  { src: "/services/google-ads/2-slider/06-professional-services.png", alt: "Professional services Google Ads service" },
+  { src: "/services/google-ads/2-slider/07-home-services.png", alt: "Home services Google Ads service" },
+  { src: "/services/google-ads/2-slider/08-automotive.png", alt: "Automotive Google Ads service" },
 ] as const;
 
 const features = [

@@ -51,18 +51,18 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/about/about-12.jpg", alt: "Brand strategists discussing business positioning" },
-  { src: "/about/about-01.jpg", alt: "Creative team developing a visual brand identity" },
-  { src: "/about/about-02.jpg", alt: "Designer refining a business logo concept" },
-  { src: "/about/about-03.jpg", alt: "Brand guideline and identity planning session" },
-  { src: "/about/about-14.jpg", alt: "Corporate branding team collaborating in Dubai" },
-  { src: "/about/about-11.jpg", alt: "Executive personal branding and profile planning" },
-  { src: "/about/about-04.jpg", alt: "Public relations specialists planning a campaign" },
-  { src: "/about/about-05.jpg", alt: "Media relations and editorial outreach discussion" },
-  { src: "/about/about-06.jpg", alt: "Press release writing and communication planning" },
-  { src: "/about/about-07.jpg", alt: "Team monitoring brand reputation and audience response" },
-  { src: "/about/about-08.jpg", alt: "Crisis communication planning with business leaders" },
-  { src: "/about/about-10.jpg", alt: "Influencer and media outreach campaign planning" },
+  { src: "/services/branding-pr/1-slider/01-brand-strategy.png", alt: "Brand strategy service" },
+  { src: "/services/branding-pr/1-slider/02-brand-identity-design.png", alt: "Brand identity design service" },
+  { src: "/services/branding-pr/1-slider/03-logo-design.png", alt: "Logo design service" },
+  { src: "/services/branding-pr/1-slider/04-brand-guidelines.png", alt: "Brand guidelines service" },
+  { src: "/services/branding-pr/1-slider/05-corporate-branding.png", alt: "Corporate branding service" },
+  { src: "/services/branding-pr/1-slider/06-personal-branding-final.png", alt: "Personal branding service" },
+  { src: "/services/branding-pr/1-slider/07-public-relations.png", alt: "Public relations service" },
+  { src: "/services/branding-pr/1-slider/08-media-relations.png", alt: "Media relations service" },
+  { src: "/services/branding-pr/1-slider/09-press-release-writing-distribution.png", alt: "Press release writing and distribution service" },
+  { src: "/services/branding-pr/1-slider/10-reputation-management.png", alt: "Reputation management service" },
+  { src: "/services/branding-pr/1-slider/11-crisis-communication.png", alt: "Crisis communication service" },
+  { src: "/services/branding-pr/1-slider/12-influencer-media-outreach.png", alt: "Influencer and media outreach service" },
 ] as const;
 
 const outcomes = [
@@ -99,16 +99,16 @@ const industries = [
 const industryLabels = ["Real estate", "Healthcare", "Hospitality", "Retail", "Education", "Professional", "Technology", "Industrial", "Food brands", "Public sector"] as const;
 
 const industryImages = [
-  { src: "/about/about-13.jpg", alt: "Premium environment representing real estate branding" },
-  { src: "/about/about-08.jpg", alt: "Professional environment representing healthcare branding" },
-  { src: "/about/about-05.jpg", alt: "Guest environment representing hospitality and tourism branding" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand presentation representing ecommerce branding" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education brand presentation representing institutional branding" },
-  { src: "/about/about-14.jpg", alt: "Business team representing professional services branding" },
-  { src: "/about/about-09.jpg", alt: "Digital team representing technology and startup branding" },
-  { src: "/about/about-15.jpg", alt: "Professional setting representing industrial corporate branding" },
-  { src: "/about/about-06.jpg", alt: "Creative environment representing restaurant and food branding" },
-  { src: "/about/about-16.jpg", alt: "Collaborative setting representing public-sector communications" },
+  { src: "/services/branding-pr/2-slider/01-real-estate.png", alt: "Real estate branding and public relations campaign" },
+  { src: "/services/branding-pr/2-slider/02-healthcare-medical.png", alt: "Healthcare and medical brand communication" },
+  { src: "/services/branding-pr/2-slider/03-hospitality-tourism.png", alt: "Hospitality and tourism brand storytelling" },
+  { src: "/services/branding-pr/2-slider/04-retail-ecommerce.png", alt: "Retail and ecommerce brand campaign" },
+  { src: "/services/branding-pr/2-slider/05-education-training.png", alt: "Education and training brand communication" },
+  { src: "/services/branding-pr/2-slider/06-corporate-professional-services.png", alt: "Corporate and professional services branding" },
+  { src: "/services/branding-pr/2-slider/07-technology-startups.png", alt: "Technology and startup brand positioning" },
+  { src: "/services/branding-pr/2-slider/08-manufacturing-industrial.png", alt: "Manufacturing and industrial corporate branding" },
+  { src: "/services/branding-pr/2-slider/09-restaurants-food-brands.png", alt: "Restaurant and food brand campaign" },
+  { src: "/services/branding-pr/2-slider/10-government-public-sector.png", alt: "Government and public-sector communication campaign" },
 ] as const;
 
 const features = [

@@ -30,15 +30,15 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/about/about-12.jpg", alt: "UX researchers planning a user-centred digital product" },
-  { src: "/talabat/customer-panel.png.webp", alt: "User interface design displayed across application screens" },
-  { src: "/about/about-04.jpg", alt: "Design team preparing product wireframes" },
-  { src: "/talabat/app-screen3.png.webp", alt: "Interactive mobile application prototype" },
-  { src: "/services/app-development/1-slider/Mobile App UI_UX Design.png", alt: "Mobile app UI and UX design presentation" },
-  { src: "/nordwood-themes-wt4gUtdv1-U-unsplash.jpg", alt: "Website UI and UX design workspace" },
-  { src: "/about/about-11.jpg", alt: "SaaS dashboard and analytics interface planning" },
-  { src: "/about/about-09.jpg", alt: "Product designers collaborating on a design system" },
-  { src: "/about/about-15.jpg", alt: "Specialist conducting digital product usability testing" },
+  { src: "/services/ui-ux-design/1-slider/02-user-experience-research.png", alt: "User experience research service" },
+  { src: "/services/ui-ux-design/1-slider/03-user-interface-design.png", alt: "User interface design service" },
+  { src: "/services/ui-ux-design/1-slider/04-wireframing.png", alt: "Wireframing service" },
+  { src: "/services/ui-ux-design/1-slider/05-interactive-prototyping.png", alt: "Interactive prototyping service" },
+  { src: "/services/ui-ux-design/1-slider/06-mobile-app-ui-ux-design.png", alt: "Mobile app UI and UX design service" },
+  { src: "/services/ui-ux-design/1-slider/07-website-ui-ux-design.png", alt: "Website UI and UX design service" },
+  { src: "/services/ui-ux-design/1-slider/08-saas-dashboard-design.png", alt: "SaaS and dashboard design service" },
+  { src: "/services/ui-ux-design/1-slider/09-design-systems.png", alt: "Design systems service" },
+  { src: "/services/ui-ux-design/1-slider/10-usability-testing.png", alt: "Usability testing service" },
 ] as const;
 
 const outcomes = [
@@ -58,14 +58,14 @@ const industries = [
 
 const industryLabels = ["Healthcare", "Ecommerce", "Real estate", "Education", "Financial", "Hospitality", "Enterprise", "Startups"] as const;
 const industryImages = [
-  { src: "/about/about-08.jpg", alt: "Healthcare environment representing patient-centred UX design" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Retail brand representing ecommerce UX design" },
-  { src: "/about/about-13.jpg", alt: "Property environment representing real estate platform design" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education brand representing learning platform UX" },
-  { src: "/about/about-14.jpg", alt: "Professional team representing financial product design" },
-  { src: "/about/about-05.jpg", alt: "Hospitality environment representing booking experience design" },
-  { src: "/about/about-11.jpg", alt: "Analytics workspace representing enterprise software UX" },
-  { src: "/about/about-09.jpg", alt: "Product team representing startup UI UX design" },
+  { src: "/services/ui-ux-design/2-slider/01-healthcare-medical.png", alt: "Healthcare and medical UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/03-ecommerce.png", alt: "Ecommerce UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/02-real-estate.png", alt: "Real estate UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/04-education.png", alt: "Education UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/05-financial-services.png", alt: "Financial services UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/06-hospitality-tourism.png", alt: "Hospitality and tourism UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/07-saas-enterprise.png", alt: "SaaS and enterprise UI UX design service" },
+  { src: "/services/ui-ux-design/2-slider/08-startups.png", alt: "Startup UI UX design service" },
 ] as const;
 
 const features = [

@@ -54,10 +54,16 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  "/about/about-01.jpg", "/about/about-03.jpg", "/about/about-06.jpg",
-  "/about/about-10.jpg", "/about/about-11.jpg", "/about/about-15.jpg",
-  "/about/about-09.jpg", "/about/about-04.jpg", "/about/about-13.jpg",
-  "/about/about-14.jpg",
+  "/services/telecalling/1-slider/01-outbound-telecalling.png",
+  "/services/telecalling/1-slider/02-inbound-call-handling.png",
+  "/services/telecalling/1-slider/03-lead-generation.png",
+  "/services/telecalling/1-slider/04-appointment-setting.png",
+  "/services/telecalling/1-slider/05-telesales-services.png",
+  "/services/telecalling/1-slider/06-customer-follow-up-calls.png",
+  "/services/telecalling/1-slider/07-customer-surveys-feedback.png",
+  "/services/telecalling/1-slider/08-crm-data-verification.png",
+  "/services/telecalling/1-slider/09-event-webinar-calls.png",
+  "/services/telecalling/1-slider/10-customer-retention-campaigns.png",
 ].map((src, index) => ({
   src,
   alt: `${services[index][0]} delivered by Webtek Digital in Dubai`,
@@ -84,6 +90,20 @@ const industries = [
   ["B2B Businesses", "Professional prospecting, decision-maker qualification, appointment setting, product demonstrations, account-based calling and pipeline follow-up."],
   ["Government & Public Services", "Organised information, survey, awareness, verification, scheduling and community outreach campaigns."],
 ] as const;
+
+const industryImages = [
+  "/services/telecalling/2-slider/01-healthcare-medical.png",
+  "/services/telecalling/2-slider/02-real-estate.png",
+  "/services/telecalling/2-slider/03-education-training.png",
+  "/services/telecalling/2-slider/04-ecommerce-retail.png",
+  "/services/telecalling/2-slider/05-financial-services.png",
+  "/services/telecalling/2-slider/06-hospitality-tourism.png",
+  "/services/telecalling/2-slider/07-b2b-businesses.png",
+  "/services/telecalling/2-slider/08-government-public-services.png",
+].map((src, index) => ({
+  src,
+  alt: `${industries[index][0]} telecalling services`,
+}));
 
 const features = [
   "Cold and warm lead calling", "Prospect qualification", "Lead generation",
@@ -171,7 +191,7 @@ const config: SingleServicePageConfig = {
   },
   services: { eyebrow: "From first contact to retention", title: "Comprehensive telecalling services", items: services, images: serviceImages, ctaLead: "Need a focused calling campaign or dedicated team?", ctaLabel: "Tell us about your targets" },
   outcomes: { title: "How professional telecalling drives business growth", description: "Direct conversations build trust, answer objections and accelerate decisions. Structured campaigns turn those interactions into measurable sales and customer-experience outcomes.", items: outcomes },
-  industries: { eyebrow: "Conversations shaped for every customer", title: "Telecalling solutions for different industries", description: "Customer expectations and buying journeys differ by sector. We tailor scripts, workflows, qualification and reporting to your business model.", items: industries, labels: ["Healthcare", "Real estate", "Education", "Ecommerce", "Financial", "Hospitality", "B2B", "Public sector"], images: serviceImages.slice(0, 8) },
+  industries: { eyebrow: "Conversations shaped for every customer", title: "Telecalling solutions for different industries", description: "Customer expectations and buying journeys differ by sector. We tailor scripts, workflows, qualification and reporting to your business model.", items: industries, labels: ["Healthcare", "Real estate", "Education", "Ecommerce", "Financial", "Hospitality", "B2B", "Public sector"], images: industryImages },
   features: { eyebrow: "A complete managed campaign", title: "Telecalling features & deliverables", items: features },
   process: { eyebrow: "Organised, measurable and accountable", title: "Our telecalling process", items: process },
   technology: { eyebrow: "Connected systems, accurate reporting", title: "Telecalling technologies & CRM platforms", description: "Reliable CRM, cloud telephony, dialling and quality tools create efficient workflows, consistent conversations and clear campaign visibility.", image: { src: "/about/about-11.jpg", alt: "CRM dashboard and cloud telephony workflow for a Dubai telecalling campaign" }, items: technology },

@@ -54,10 +54,16 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  "/about/about-02.jpg", "/about/about-03.jpg", "/about/about-06.jpg",
-  "/about/about-09.jpg", "/about/about-11.jpg", "/about/about-15.jpg",
-  "/about/about-10.jpg", "/about/about-12.jpg", "/about/about-04.jpg",
-  "/about/about-13.jpg",
+  "/services/graphic-design-video-editing/1-slider/01-brand-identity-design.png",
+  "/services/graphic-design-video-editing/1-slider/02-marketing-collateral-design-v2.png",
+  "/services/graphic-design-video-editing/1-slider/03-social-media-creative-design.png",
+  "/services/graphic-design-video-editing/1-slider/04-advertising-creative-design.png",
+  "/services/graphic-design-video-editing/1-slider/05-corporate-presentation-design.png",
+  "/services/graphic-design-video-editing/1-slider/06-professional-video-editing.png",
+  "/services/graphic-design-video-editing/1-slider/07-social-media-video-editing.png",
+  "/services/graphic-design-video-editing/1-slider/08-motion-graphics-animation.png",
+  "/services/graphic-design-video-editing/1-slider/09-product-commercial-videos.png",
+  "/services/graphic-design-video-editing/1-slider/10-event-video-editing.png",
 ].map((src, index) => ({
   src,
   alt: `${services[index][0]} by Webtek Digital's Dubai creative team`,
@@ -84,6 +90,20 @@ const industries = [
   ["Technology & SaaS", "Product explainers, software demonstrations, interface mockups, investor decks, feature announcements and digital ads."],
   ["Events & Entertainment", "Event identities, countdown campaigns, highlight reels, speaker announcements, stage visuals, invitations and sponsor graphics."],
 ] as const;
+
+const industryImages = [
+  "/services/graphic-design-video-editing/2-slider/01-healthcare-medical.png",
+  "/services/graphic-design-video-editing/2-slider/02-real-estate.png",
+  "/services/graphic-design-video-editing/2-slider/03-ecommerce-retail.png",
+  "/services/graphic-design-video-editing/2-slider/04-hospitality-tourism.png",
+  "/services/graphic-design-video-editing/2-slider/05-education-v2.png",
+  "/services/graphic-design-video-editing/2-slider/06-corporate-services.png",
+  "/services/graphic-design-video-editing/2-slider/07-technology-saas.png",
+  "/services/graphic-design-video-editing/2-slider/08-events-entertainment.png",
+].map((src, index) => ({
+  src,
+  alt: `${industries[index][0]} graphic design and video editing services`,
+}));
 
 const features = [
   "Logo and brand identity", "Company profiles and brochures", "Flyers, posters and catalogues",
@@ -171,7 +191,7 @@ const config: SingleServicePageConfig = {
   },
   services: { eyebrow: "Static, motion and film", title: "Comprehensive graphic design & video editing services", items: services, images: serviceImages, ctaLead: "Have a campaign or creative brief in mind?", ctaLabel: "Tell us what you want to create" },
   outcomes: { title: "How professional creative supports business growth", description: "Clear, consistent visual communication influences customer perception, strengthens recognition and improves marketing performance across digital and physical touchpoints.", items: outcomes },
-  industries: { eyebrow: "Creative shaped for your market", title: "Creative solutions for different industries", description: "Every industry has its own visual language, customer expectations and marketing challenges. We tailor the creative direction and format to each audience.", items: industries, labels: ["Healthcare", "Real estate", "Ecommerce", "Hospitality", "Education", "Corporate", "Technology", "Events"], images: serviceImages.slice(0, 8) },
+  industries: { eyebrow: "Creative shaped for your market", title: "Creative solutions for different industries", description: "Every industry has its own visual language, customer expectations and marketing challenges. We tailor the creative direction and format to each audience.", items: industries, labels: ["Healthcare", "Real estate", "Ecommerce", "Hospitality", "Education", "Corporate", "Technology", "Events"], images: industryImages },
   features: { eyebrow: "Everything your campaign needs", title: "Creative features & deliverables", items: features },
   process: { eyebrow: "Structured, creative and collaborative", title: "Our graphic design & video editing process", items: process },
   technology: { eyebrow: "Professional tools, human judgement", title: "Creative tools & technologies", description: "Modern creative software and efficient collaboration workflows help us deliver consistent, high-quality visuals for print, digital, social and broadcast use.", image: { src: "/about/about-16.jpg", alt: "Webtek Digital creative production and video editing workspace" }, items: tools },

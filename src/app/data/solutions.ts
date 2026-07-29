@@ -37,8 +37,8 @@ export const solutionsPage = {
       ],
       items: [
         { label: "Talabat Clone App", href: "/solutions/talabat-clone-app" },
-        { label: "Instashop Clone App" },
-        { label: "Careem Clone App" },
+        { label: "Instastop Clone App", href: "/solutions/instastop-clone-app" },
+        { label: "Careem Clone App", href: "/solutions/careem-clone-app" },
       ],
     },
     {
@@ -49,9 +49,9 @@ export const solutionsPage = {
         "Our service apps are ideal for businesses looking to automate operations while creating a smooth and convenient customer experience.",
       ],
       items: [
-        { label: "Home Maintenance" },
-        { label: "E-Learning" },
-        { label: "Gym & Fitness" },
+        { label: "Home Maintenance", href: "/solutions/home-maintenance-app" },
+        { label: "E-Learning", href: "/solutions/e-learning-app" },
+        { label: "Gym & Fitness", href: "/solutions/gym-fitness-app" },
         { label: "Car Wash" },
         { label: "Laundry" },
       ],

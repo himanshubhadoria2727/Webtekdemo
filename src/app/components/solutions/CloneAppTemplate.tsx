@@ -22,6 +22,8 @@ export type CloneAppTemplateConfig = {
   eyebrow: string;
   title: string;
   lead: string;
+  primaryCta?: string;
+  secondaryCta?: string;
   heroImage: string;
   heroImageAlt: string;
   overview: readonly [string, string];
@@ -51,8 +53,8 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
             <h1>{config.title}</h1>
             <p className={styles.lead}>{config.lead}</p>
             <div className={styles.actions}>
-              <Link href="#contact" className={styles.primaryButton}>Discuss your project <Arrow /></Link>
-              <Link href="#platform" className={styles.secondaryButton}>Explore the platform</Link>
+              <Link href="#contact" className={styles.primaryButton}>{config.primaryCta ?? "Discuss your project"} <Arrow /></Link>
+              <Link href="#platform" className={styles.secondaryButton}>{config.secondaryCta ?? "Explore the platform"}</Link>
             </div>
           </div>
           <div className={styles.heroMedia}>

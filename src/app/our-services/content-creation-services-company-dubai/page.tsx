@@ -85,16 +85,16 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  { src: "/about/about-16.jpg", alt: "Website content writer planning a conversion-focused service page" },
-  { src: "/about/about-11.jpg", alt: "SEO specialist researching keywords for content in Dubai" },
-  { src: "/about/about-10.jpg", alt: "Editorial team developing authoritative blog content" },
-  { src: "/about/about-09.jpg", alt: "Creative team planning social media content" },
-  { src: "/about/about-14.jpg", alt: "Advertising team reviewing conversion-focused campaign copy" },
-  { src: "/about/about-15.jpg", alt: "Email marketing specialist preparing a nurture campaign" },
-  { src: "/about/about-02.jpg", alt: "Brand storytelling workshop at Webtek Digital" },
-  { src: "/about/about-04.jpg", alt: "Video content script and production planning" },
-  { src: "/about/about-06.jpg", alt: "Ecommerce product content creation session" },
-  { src: "/about/about-12.jpg", alt: "Content strategy and editorial calendar planning" },
+  { src: "/services/content-creation/1-slider/01-website-content-writing.png", alt: "Website content writing service" },
+  { src: "/services/content-creation/1-slider/02-seo-content-writing.png", alt: "SEO content writing service" },
+  { src: "/services/content-creation/1-slider/03-blog-writing.png", alt: "Blog writing service" },
+  { src: "/services/content-creation/1-slider/04-social-media-content-creation.png", alt: "Social media content creation service" },
+  { src: "/services/content-creation/1-slider/05-advertising-copywriting.png", alt: "Advertising copywriting service" },
+  { src: "/services/content-creation/1-slider/06-email-marketing-content.png", alt: "Email marketing content service" },
+  { src: "/services/content-creation/1-slider/07-brand-storytelling.png", alt: "Brand storytelling service" },
+  { src: "/services/content-creation/1-slider/08-video-content-scripting.png", alt: "Video content scripting service" },
+  { src: "/services/content-creation/1-slider/09-product-ecommerce-content.png", alt: "Product and ecommerce content service" },
+  { src: "/services/content-creation/1-slider/10-content-strategy-editorial-planning.png", alt: "Content strategy and editorial planning service" },
 ] as const;
 
 const outcomes = [
@@ -162,14 +162,14 @@ const industryLabels = [
 ] as const;
 
 const industryImages = [
-  { src: "/about/about-08.jpg", alt: "Healthcare content creation and patient education planning" },
-  { src: "/about/about-13.jpg", alt: "Real estate content and property campaign planning" },
-  { src: "/brands/ounass-removebg-preview.png", alt: "Ecommerce and retail product content" },
-  { src: "/about/about-05.jpg", alt: "Hospitality and tourism storytelling content" },
-  { src: "/brands/dubai-uni-removebg-preview.png", alt: "Education content and student communications" },
-  { src: "/about/about-14.jpg", alt: "Financial services content review" },
-  { src: "/about/about-09.jpg", alt: "Technology and SaaS content strategy" },
-  { src: "/about/about-10.jpg", alt: "Professional services thought leadership content" },
+  { src: "/services/content-creation/2-slider/01-healthcare-medical.png", alt: "Healthcare and medical content creation" },
+  { src: "/services/content-creation/2-slider/02-real-estate.png", alt: "Real estate content creation" },
+  { src: "/services/content-creation/2-slider/03-ecommerce-retail-v2.png", alt: "Ecommerce and retail content creation" },
+  { src: "/services/content-creation/2-slider/04-hospitality-tourism.png", alt: "Hospitality and tourism content creation" },
+  { src: "/services/content-creation/2-slider/05-education.png", alt: "Education content creation" },
+  { src: "/services/content-creation/2-slider/06-financial-services.png", alt: "Financial services content creation" },
+  { src: "/services/content-creation/2-slider/07-technology-saas.png", alt: "Technology and SaaS content creation" },
+  { src: "/services/content-creation/2-slider/08-corporate-professional-services.png", alt: "Corporate and professional services content creation" },
 ] as const;
 
 const features = [

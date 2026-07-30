@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "../home/Footer";
@@ -8,6 +11,20 @@ import styles from "../../solutions/talabat-clone-app/page.module.css";
 
 type Feature = readonly [string, string];
 type ProcessStep = readonly [string, string];
+
+const sectionMotion = {
+  initial: { opacity: 0, y: 36 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.16 },
+  transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
+};
+
+const cardMotion = (index: number) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.12 },
+  transition: { duration: 0.5, delay: Math.min(index * 0.08, 0.32), ease: [0.22, 1, 0.36, 1] as const },
+});
 
 type Module = {
   number: string;
@@ -47,7 +64,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
     <div className={styles.page}>
       <Header />
       <main>
-        <section className={styles.hero}>
+        <motion.section className={styles.hero} initial="initial" animate="whileInView" variants={{ initial: { opacity: 0 }, whileInView: { opacity: 1 } }} transition={{ duration: 0.45 }}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>{config.eyebrow}</p>
             <h1>{config.title}</h1>
@@ -60,9 +77,9 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
           <div className={styles.heroMedia}>
             <Image src={config.heroImage} alt={config.heroImageAlt} fill priority sizes="(max-width: 900px) 100vw, 48vw" />
           </div>
-        </section>
+        </motion.section>
 
-        <section className={styles.overview}>
+        <motion.section className={styles.overview} {...sectionMotion}>
           <SectionHeading number="01." eyebrow="Platform overview" title="A complete digital ecosystem, built around your business." />
           <div className={styles.overviewCopy}>
             {config.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -70,42 +87,42 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
               {config.metrics.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className={styles.features}>
+        <motion.section className={styles.features} {...sectionMotion}>
           <SectionHeading number="02." eyebrow="Core capabilities" title="Everything needed to operate and grow." />
           <div className={styles.featureGrid}>
-            {config.features.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}
+            {config.features.map(([title, text], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></motion.article>)}
           </div>
-        </section>
+        </motion.section>
 
-        <section className={styles.platform} id="platform">
+        <motion.section className={styles.platform} id="platform" {...sectionMotion}>
           <SectionHeading number="03." eyebrow="Connected products" title="Focused experiences for every user." />
           <div className={styles.moduleList}>
-            {config.modules.map((module) => (
-              <article className={styles.module} key={module.title}>
+            {config.modules.map((module, index) => (
+              <motion.article className={styles.module} key={module.title} {...cardMotion(index)}>
                 <div className={styles.moduleMedia}><Image src={module.image} alt={module.alt} fill sizes="(max-width: 800px) 100vw, 48vw" /></div>
                 <div className={styles.moduleCopy}><span>{module.number}</span><p className={styles.moduleLabel}>{module.label}</p><h3>{module.title}</h3><p>{module.text}</p></div>
-              </article>
+              </motion.article>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section className={styles.technology}>
+        <motion.section className={styles.technology} {...sectionMotion}>
           <div className={styles.technologyCopy}>
             <SectionHeading number="04." eyebrow="Technology" title="Built on a modern, scalable foundation." />
             <p className={styles.technologyLead}>{config.technologyLead}</p>
             <div className={styles.tags}>{config.technologyTags.map((item) => <span key={item}>{item}</span>)}</div>
           </div>
           <div className={styles.technologyMedia}><Image src={config.technologyImage} alt={config.technologyImageAlt} fill sizes="(max-width: 800px) 100vw, 44vw" /></div>
-        </section>
+        </motion.section>
 
-        <section className={styles.process}>
+        <motion.section className={styles.process} {...sectionMotion}>
           <SectionHeading number="05." eyebrow="Our process" title="A clear path from idea to launch." />
           <div className={styles.processList}>
-            {config.process.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}
+            {config.process.map(([title, text], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></motion.article>)}
           </div>
-        </section>
+        </motion.section>
 
         <div id="contact"><VideoCtaSection eyebrow={config.cta.eyebrow} title={config.cta.title} body={config.cta.body} ctaLabel="Start a conversation" ctaHref={config.cta.href} /></div>
       </main>

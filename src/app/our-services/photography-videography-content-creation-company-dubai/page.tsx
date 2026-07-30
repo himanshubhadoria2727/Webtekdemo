@@ -38,10 +38,18 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  "/about/about-02.jpg", "/about/about-04.jpg", "/about/about-06.jpg", "/about/about-05.jpg",
-  "/about/about-13.jpg", "/about/about-15.jpg", "/about/about-10.jpg", "/about/about-09.jpg",
-  "/about/about-03.jpg", "/about/about-14.jpg", "/about/about-16.jpg",
-].map((src, index) => ({ src, alt: `${services[index][0]} production by Webtek Digital in Dubai` }));
+  { src: "/services/photography-videography/1-slider/01-corporate-photography-v2.png", alt: "Corporate photography production" },
+  { src: "/services/photography-videography/1-slider/02-commercial-photography.png", alt: "Commercial photography production" },
+  { src: "/services/photography-videography/1-slider/03-product-photography.png", alt: "Product photography production" },
+  { src: "/services/photography-videography/1-slider/04-corporate-videography.png", alt: "Corporate videography production" },
+  { src: "/services/photography-videography/1-slider/05-promotional-commercial-videos.png", alt: "Promotional and commercial video production" },
+  { src: "/services/photography-videography/1-slider/06-event-photography-videography.png", alt: "Event photography and videography production" },
+  { src: "/services/photography-videography/1-slider/07-real-estate-photography-videography.png", alt: "Real estate photography and videography production" },
+  { src: "/services/photography-videography/1-slider/08-drone-photography-videography.png", alt: "Drone photography and videography production" },
+  { src: "/services/photography-videography/1-slider/09-food-hospitality-photography.png", alt: "Food and hospitality photography production" },
+  { src: "/services/photography-videography/1-slider/10-fashion-lifestyle-photography.png", alt: "Fashion and lifestyle photography production" },
+  { src: "/services/photography-videography/1-slider/11-social-media-content-production.png", alt: "Social media content production" },
+] as const;
 
 const outcomes = [
   "Build strong brand recognition", "Increase customer trust", "Improve website conversion rates",
@@ -60,6 +68,17 @@ const industries = [
   ["Fashion & Beauty", "Fashion campaigns, editorials, ecommerce photography, model portfolios, beauty products, cosmetics videos, behind-the-scenes content and brand launches."],
   ["Education", "Campus and classroom photography, student stories, graduations, faculty portraits, promotional films, admissions campaigns and event coverage."],
   ["Corporate & Professional Services", "Executive portraits, offices, teams, corporate films, recruitment videos, testimonials, CSR stories and company-culture content."],
+] as const;
+
+const industryImages = [
+  { src: "/services/photography-videography/2-slider/01-healthcare-medical.png", alt: "Healthcare and medical photography and videography" },
+  { src: "/services/photography-videography/2-slider/02-real-estate.png", alt: "Real estate photography and videography" },
+  { src: "/services/photography-videography/2-slider/03-ecommerce-retail.png", alt: "Ecommerce and retail photography and videography" },
+  { src: "/services/photography-videography/2-slider/04-hospitality-tourism.png", alt: "Hospitality and tourism photography and videography" },
+  { src: "/services/photography-videography/2-slider/05-food-beverage.png", alt: "Food and beverage photography and videography" },
+  { src: "/services/photography-videography/2-slider/06-fashion-beauty-v2.png", alt: "Fashion and beauty photography and videography" },
+  { src: "/services/photography-videography/2-slider/07-education.png", alt: "Education photography and videography" },
+  { src: "/services/photography-videography/2-slider/08-corporate-professional-services.png", alt: "Corporate and professional services photography and videography" },
 ] as const;
 
 const features = [
@@ -141,7 +160,7 @@ const config: SingleServicePageConfig = {
   },
   services: { eyebrow: "Still, motion and aerial production", title: "Comprehensive photography & videography services", items: services, images: serviceImages, ctaLead: "Have a product, campaign, property or story ready to shoot?", ctaLabel: "Plan your production with us" },
   outcomes: { title: "How professional photography & videography drive business growth", description: "Every image and video is created with a commercial objective—from increasing enquiries and conversions to strengthening brand identity and campaign performance.", items: outcomes },
-  industries: { eyebrow: "A visual language for every market", title: "Photography & videography solutions for different industries", description: "Our photographers, videographers and creative directors adapt every production to your sector, audience and marketing objectives.", items: industries, labels: ["Healthcare", "Real estate", "Ecommerce", "Hospitality", "Food", "Fashion", "Education", "Corporate"], images: serviceImages.slice(0, 8) },
+  industries: { eyebrow: "A visual language for every market", title: "Photography & videography solutions for different industries", description: "Our photographers, videographers and creative directors adapt every production to your sector, audience and marketing objectives.", items: industries, labels: ["Healthcare", "Real estate", "Ecommerce", "Hospitality", "Food", "Fashion", "Education", "Corporate"], images: industryImages },
   features: { eyebrow: "Production-ready for every channel", title: "Photography & videography features & deliverables", items: features },
   process: { eyebrow: "Planned carefully, produced beautifully", title: "Our photography & videography process", items: process },
   technology: { eyebrow: "Professional craft from capture to delivery", title: "Cameras, equipment & production technologies", description: "Reliable professional equipment, advanced editing software and experienced operators help us deliver consistent commercial quality from production through final export.", image: { src: "/about/about-04.jpg", alt: "Professional photography and videography production equipment in Dubai" }, items: technology },

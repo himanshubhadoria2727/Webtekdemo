@@ -11,7 +11,7 @@
 
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: .98fr 1.02fr;
   min-height: 92svh;
   padding: var(--site-header-height, 5.8rem) clamp(1rem, 4.4vw, 5.2rem) 0;
   background: var(--paper);
@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 7rem) clamp(4rem, 8vw, 8rem) 0;
+  padding: clamp(4rem, 7vw, 7rem) clamp(2rem, 4vw, 5rem) clamp(4rem, 7vw, 7rem) 0;
 }
 
 .eyebrow,
@@ -35,9 +35,9 @@
 }
 
 .hero h1 {
-  max-width: 11ch;
-  margin: 1.3rem 0 2rem;
-  font-size: clamp(3.8rem, 6.3vw, 7.6rem);
+  max-width: 13ch;
+  margin: 1.1rem 0 1.6rem;
+  font-size: clamp(3.4rem, 5.4vw, 6.5rem);
   font-weight: 300;
   line-height: .91;
   letter-spacing: -.058em;
@@ -82,24 +82,14 @@
 .heroMedia {
   position: relative;
   min-height: 42rem;
-  margin: clamp(2rem, 4vw, 4rem) 0;
+  margin: clamp(1.5rem, 3vw, 3rem) 0;
   overflow: hidden;
-  background: var(--accent);
-}
-
-.heroMedia::before {
-  content: "";
-  position: absolute;
-  inset: 11%;
-  z-index: 1;
-  border: 1px solid #ffffff66;
-  border-radius: 50%;
+  background: #ddd;
 }
 
 .heroMedia img {
-  z-index: 2;
-  object-fit: contain;
-  padding: clamp(1.5rem, 4vw, 4rem);
+  object-fit: cover;
+  object-position: center;
 }
 
 .overview,
@@ -211,7 +201,7 @@
   background: var(--paper);
 }
 
-.moduleMedia img { object-fit: contain; padding: clamp(2rem, 5vw, 5rem); }
+.moduleMedia img { object-fit: cover; }
 
 .moduleCopy {
   display: flex;
@@ -242,7 +232,7 @@
 .tags span { padding: .65rem .85rem; color: #ffffffb0; border: 1px solid #ffffff35; border-radius: 999px; font-size: .68rem; }
 
 .technologyMedia { position: relative; min-height: 40rem; background: #ececec; }
-.technologyMedia img { object-fit: contain; padding: clamp(2rem, 5vw, 5rem); }
+.technologyMedia img { object-fit: cover; }
 
 .processList {
   margin-top: clamp(3rem, 6vw, 6rem);

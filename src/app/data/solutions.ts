@@ -52,8 +52,8 @@ export const solutionsPage = {
         { label: "Home Maintenance", href: "/solutions/home-maintenance-app" },
         { label: "E-Learning", href: "/solutions/e-learning-app" },
         { label: "Gym & Fitness", href: "/solutions/gym-fitness-app" },
-        { label: "Car Wash" },
-        { label: "Laundry" },
+        { label: "Car Wash", href: "/solutions/car-wash-app" },
+        { label: "Laundry", href: "/solutions/laundry-app" },
       ],
     },
     {
@@ -63,7 +63,11 @@ export const solutionsPage = {
         "Sell products anytime, anywhere with custom ecommerce and product delivery applications. We build mobile commerce platforms that simplify product browsing, secure online payments, inventory management, delivery tracking, and customer communication.",
         "Whether you operate a retail store, grocery business, or restaurant, we develop scalable applications that help increase sales and improve customer loyalty.",
       ],
-      items: [{ label: "Grocery" }, { label: "Ecommerce" }, { label: "Restaurant Delivery" }],
+      items: [
+        { label: "Grocery", href: "/solutions/grocery-app" },
+        { label: "Ecommerce", href: "/solutions/ecommerce-app" },
+        { label: "Restaurant Delivery", href: "/solutions/restaurant-delivery-app" },
+      ],
     },
     {
       eyebrow: "Healthcare & Beauty",
@@ -72,7 +76,11 @@ export const solutionsPage = {
         "Modern healthcare and beauty businesses require digital experiences that make booking, consultation, and customer management effortless. We build secure mobile applications that simplify appointment scheduling, patient management, treatment tracking, online consultations, and customer engagement.",
         "Our healthcare and beauty apps are designed to improve operational efficiency while delivering exceptional customer experiences.",
       ],
-      items: [{ label: "Beauty Services" }, { label: "Healthcare Consultation" }, { label: "Pharmacy" }],
+      items: [
+        { label: "Beauty Services", href: "/solutions/beauty-services-app" },
+        { label: "Healthcare Consultation", href: "/solutions/healthcare-consultation-app" },
+        { label: "Pharmacy", href: "/solutions/pharmacy-app" },
+      ],
     },
   ],
   whyChoose: {

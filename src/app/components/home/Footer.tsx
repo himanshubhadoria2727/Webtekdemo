@@ -32,7 +32,17 @@ const socialLinks: Record<string, string> = {
 };
 
 const solutionLinks: Record<string, string> = {
+  Grocery: "/solutions/grocery-app",
+  Ecommerce: "/solutions/ecommerce-app",
+  Pharmacy: "/solutions/pharmacy-app",
+  "Taxi booking": "/solutions/careem-clone-app",
+  "Restaurant delivery": "/solutions/restaurant-delivery-app",
+  "Handyman / home maintenance services": "/solutions/home-maintenance-app",
   "Our blogs": "/blog",
+  "E-Learning": "/solutions/e-learning-app",
+  "Gym & fitness": "/solutions/gym-fitness-app",
+  "Beauty service app": "/solutions/beauty-services-app",
+  Laundry: "/solutions/laundry-app",
 };
 
 function splitIntoColumns<T>(items: readonly T[], columnCount: number) {

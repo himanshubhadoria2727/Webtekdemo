@@ -13,7 +13,8 @@ const menuLinks: Record<string, string> = {
   "About us": "/about-us",
   "Our services": "/our-services",
   Solutions: "/solutions",
-  "Portfolio media": "/#portfolio-media",
+  Portfolio: "/portfolio",
+  Media: "/media",
   "Contact us": "/#contact-us",
 };
 

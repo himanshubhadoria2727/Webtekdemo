@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Footer } from "../home/Footer";
 import { FloatingWhatsAppButton } from "../home/FloatingWhatsAppButton";
 import { Header } from "../home/Header";
+import { ArrowIcon } from "../shared/ArrowIcon";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 import styles from "../../solutions/talabat-clone-app/page.module.css";
 
@@ -55,10 +56,6 @@ export type CloneAppTemplateConfig = {
   cta: { eyebrow: string; title: string; body: string; href: string };
 };
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
-
 export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig }) {
   return (
     <div className={styles.page}>
@@ -70,8 +67,14 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
             <h1>{config.title}</h1>
             <p className={styles.lead}>{config.lead}</p>
             <div className={styles.actions}>
-              <Link href="#contact" className={styles.primaryButton}>{config.primaryCta ?? "Discuss your project"} <Arrow /></Link>
-              <Link href="#platform" className={styles.secondaryButton}>{config.secondaryCta ?? "Explore the platform"}</Link>
+              <Link href="#contact" className={styles.primaryButton}>
+                {config.primaryCta ?? "Discuss your project"}
+                <span className={styles.buttonArrow} aria-hidden="true"><ArrowIcon /></span>
+              </Link>
+              <Link href="#platform" className={styles.secondaryButton}>
+                {config.secondaryCta ?? "Explore the platform"}
+                <span className={styles.buttonArrow} aria-hidden="true"><ArrowIcon /></span>
+              </Link>
             </div>
           </div>
           <div className={styles.heroMedia}>

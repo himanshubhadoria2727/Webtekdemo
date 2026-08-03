@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "../../page.module.css";
+import { ArrowIcon } from "./ArrowIcon";
 
 type VideoCtaSectionProps = {
   eyebrow?: string;
@@ -34,7 +35,10 @@ export function VideoCtaSection({
         <p>{eyebrow}</p>
         <h2>{title}</h2>
         <span>{body}</span>
-        <Link href={ctaHref}>{ctaLabel}</Link>
+        <Link href={ctaHref}>
+          {ctaLabel}
+          <span className={styles.buttonArrow} aria-hidden="true"><ArrowIcon /></span>
+        </Link>
       </div>
     </section>
   );

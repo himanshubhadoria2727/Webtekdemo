@@ -7,6 +7,7 @@ import { Footer } from "../home/Footer";
 import { FloatingWhatsAppButton } from "../home/FloatingWhatsAppButton";
 import { Header } from "../home/Header";
 import { ArrowIcon } from "../shared/ArrowIcon";
+import { VideoCtaSection } from "../shared/VideoCtaSection";
 import styles from "./PortfolioPage.module.css";
 
 const categories = ["All work", "Websites", "Mobile apps", "Branding", "Growth"] as const;
@@ -60,11 +61,15 @@ export function PortfolioPage() {
           <div className={styles.grid}>
             {visibleProjects.map((project, index) => (
               <article className={styles.card} key={project.title}>
-                <div className={[styles.media, styles[project.tone], index % 3 === 0 ? styles.tall : ""].filter(Boolean).join(" ")}>
+                <div className={styles.cardMeta}>
+                  <div><p>{project.category}</p><h3>{project.title}</h3></div>
+                  <span>{project.service}</span>
+                </div>
+                <div className={[styles.media, styles[project.tone]].join(" ")}>
                   <Image src={project.image} alt={`${project.title} project placeholder`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+                  <span className={styles.cardIndex}>{String(index + 1).padStart(2, "0")}</span>
                   <span className={styles.cardArrow} aria-hidden="true">↗</span>
                 </div>
-                <div className={styles.cardMeta}><p>{project.category}</p><h3>{project.title}</h3><span>{project.service}</span></div>
               </article>
             ))}
           </div>
@@ -83,11 +88,13 @@ export function PortfolioPage() {
           </div>
         </section>
 
-        <section className={styles.cta}>
-          <p>Have a brief?</p>
-          <h2>Let&apos;s make your next<br /><em>move matter.</em></h2>
-          <Link href="#contact-us">Start a conversation <span className={styles.ctaArrow}><ArrowIcon /></span></Link>
-        </section>
+        <VideoCtaSection
+          eyebrow="Have a brief?"
+          title="Let’s make your next move matter."
+          body="Tell us about the opportunity, and we’ll help you shape the strategy, experience and digital work needed to move it forward."
+          ctaLabel="Start a conversation"
+          ctaHref="#contact-us"
+        />
       </main>
       <Footer />
       <FloatingWhatsAppButton />

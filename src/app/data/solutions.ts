@@ -37,7 +37,7 @@ export const solutionsPage = {
       ],
       items: [
         { label: "Talabat Clone App", href: "/solutions/talabat-clone-app" },
-        { label: "Instastop Clone App", href: "/solutions/instastop-clone-app" },
+        { label: "InstaShop Clone App", href: "/solutions/instastop-clone-app" },
         { label: "Careem Clone App", href: "/solutions/careem-clone-app" },
       ],
     },

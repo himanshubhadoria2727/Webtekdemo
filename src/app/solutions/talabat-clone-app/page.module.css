@@ -266,6 +266,22 @@
 .processList h3 { font-size: clamp(1.5rem, 2.2vw, 2.4rem); font-weight: 300; }
 .processList p { max-width: 40rem; color: #555; font-size: .9rem; line-height: 1.65; }
 
+.details,
+.faqs { padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4.4vw, 5.2rem); }
+.details { background: var(--paper); }
+.detailsContent,
+.faqList { margin: clamp(3rem, 6vw, 6rem) 0 0 auto; max-width: min(66rem, 64%); }
+.detailsIntro { max-width: 46rem; margin-bottom: 2.4rem; color: #363636; font-size: clamp(1.05rem, 1.35vw, 1.45rem); line-height: 1.55; }
+.detailsGrid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.detailsGrid article { padding: 1.7rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.detailsGrid h3,
+.faqList h3 { font-size: clamp(1.15rem, 1.7vw, 1.6rem); font-weight: 400; line-height: 1.15; }
+.detailsGrid p,
+.faqList p { margin-top: .7rem; color: #555; font-size: .88rem; line-height: 1.65; }
+.faqList { border-top: 1px solid var(--line); }
+.faqList article { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 1.8rem 0; border-bottom: 1px solid var(--line); }
+.faqList article > span { color: var(--accent); font-size: .75rem; }
+
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; padding-top: var(--site-header-height, 5.8rem); }
   .heroCopy { padding-right: 0; }
@@ -276,6 +292,7 @@
   .moduleMedia { min-height: 30rem; }
   .technology { grid-template-columns: 1fr; }
   .technologyMedia { min-height: 30rem; }
+  .detailsContent, .faqList { max-width: 100%; }
 }
 
 @media (max-width: 680px) {
@@ -298,4 +315,7 @@
   .technologyMedia { min-height: 24rem; }
   .processList article { grid-template-columns: 2.5rem 1fr; gap: 1rem; }
   .processList p { grid-column: 2; }
+  .detailsGrid { grid-template-columns: 1fr; }
+  .detailsGrid article { padding: 1.35rem; }
+  .faqList article { grid-template-columns: 2.5rem 1fr; }
 }

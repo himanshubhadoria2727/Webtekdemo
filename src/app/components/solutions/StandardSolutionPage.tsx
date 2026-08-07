@@ -6,12 +6,19 @@ type StandardSolutionOptions = {
   lead: string;
   overview: readonly [string, string];
   metrics: readonly (readonly [string, string])[];
-  features: readonly (readonly [string, string])[];
+  features: CloneAppTemplateConfig["features"];
   modules: CloneAppTemplateConfig["modules"];
   technologyLead: string;
   technologyTags: readonly string[];
   process: CloneAppTemplateConfig["process"];
   cta: CloneAppTemplateConfig["cta"];
+  heroImage?: string;
+  heroImageAlt?: string;
+  technologyImage?: string;
+  technologyImageAlt?: string;
+  detailSections?: CloneAppTemplateConfig["detailSections"];
+  faqTitle?: string;
+  faqs?: CloneAppTemplateConfig["faqs"];
 };
 
 const defaultImages = {
@@ -23,8 +30,8 @@ const defaultImages = {
 
 export function createStandardSolutionConfig(options: StandardSolutionOptions): CloneAppTemplateConfig {
   return {
-    ...options,
     ...defaultImages,
+    ...options,
     primaryCta: "Book a Free Consultation",
     secondaryCta: "Explore the platform",
   };

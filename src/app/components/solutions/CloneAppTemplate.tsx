@@ -10,13 +10,13 @@ import { ArrowIcon } from "../shared/ArrowIcon";
 import { VideoCtaSection } from "../shared/VideoCtaSection";
 import styles from "../../solutions/talabat-clone-app/page.module.css";
 
-type Feature = readonly [string, string];
-type ProcessStep = readonly [string, string];
+type Feature = readonly [title: string, text: string, bullets?: readonly string[]];
+type ProcessStep = readonly [title: string, text: string, outcome?: string];
 type DetailSection = {
   eyebrow: string;
   title: string;
   intro: string;
-  items: readonly (readonly [string, string])[];
+  items: readonly (readonly [title: string, text: string, bullets?: readonly string[]])[];
 };
 type Faq = readonly [string, string];
 
@@ -41,6 +41,7 @@ type Module = {
   text: string;
   image: string;
   alt: string;
+  bullets?: readonly string[];
 };
 
 export type CloneAppTemplateConfig = {
@@ -105,7 +106,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
         <motion.section className={styles.features} {...sectionMotion}>
           <SectionHeading number="02." eyebrow="Core capabilities" title="Everything needed to operate and grow." />
           <div className={styles.featureGrid}>
-            {config.features.map(([title, text], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></motion.article>)}
+            {config.features.map(([title, text, bullets], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p>{bullets && <BulletList items={bullets} />}</motion.article>)}
           </div>
         </motion.section>
 
@@ -115,7 +116,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
             {config.modules.map((module, index) => (
               <motion.article className={styles.module} key={module.title} {...cardMotion(index)}>
                 <div className={styles.moduleMedia}><Image src={module.image} alt={module.alt} fill sizes="(max-width: 800px) 100vw, 48vw" /></div>
-                <div className={styles.moduleCopy}><span>{module.number}</span><p className={styles.moduleLabel}>{module.label}</p><h3>{module.title}</h3><p>{module.text}</p></div>
+                <div className={styles.moduleCopy}><span>{module.number}</span><p className={styles.moduleLabel}>{module.label}</p><h3>{module.title}</h3><p>{module.text}</p>{module.bullets && <BulletList items={module.bullets} />}</div>
               </motion.article>
             ))}
           </div>
@@ -133,7 +134,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
         <motion.section className={styles.process} {...sectionMotion}>
           <SectionHeading number="05." eyebrow="Our process" title="A clear path from idea to launch." />
           <div className={styles.processList}>
-            {config.process.map(([title, text], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></motion.article>)}
+            {config.process.map(([title, text, outcome], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><div><p>{text}</p>{outcome && <p className={styles.outcome}><strong>Outcome:</strong> {outcome}</p>}</div></motion.article>)}
           </div>
         </motion.section>
 
@@ -143,7 +144,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
             <div className={styles.detailsContent}>
               <p className={styles.detailsIntro}>{section.intro}</p>
               <div className={styles.detailsGrid}>
-                {section.items.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}
+                {section.items.map(([title, text, bullets]) => <article key={title}><h3>{title}</h3><p>{text}</p>{bullets && <BulletList items={bullets} />}</article>)}
               </div>
             </div>
           </motion.section>
@@ -166,4 +167,8 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
 
 function SectionHeading({ number, eyebrow, title }: { number: string; eyebrow: string; title: string }) {
   return <header className={styles.sectionHeading}><span>{number}</span><div><p>{eyebrow}</p><h2>{title}</h2></div></header>;
+}
+
+function BulletList({ items }: { items: readonly string[] }) {
+  return <ul className={styles.bulletList}>{items.map((item) => <li key={item}>{item}</li>)}</ul>;
 }

@@ -196,6 +196,7 @@
 .featureGrid article > span { color: var(--accent); font-size: .72rem; }
 .featureGrid h3 { max-width: 12ch; margin: 4.5rem 0 1.2rem; font-size: clamp(1.5rem, 2.2vw, 2.5rem); font-weight: 300; line-height: 1.05; }
 .featureGrid p { max-width: 31rem; color: #ffffff8f; font-size: .85rem; line-height: 1.65; }
+.featureGrid .bulletList { color: #ffffffa8; }
 
 .moduleList { margin-top: clamp(3rem, 6vw, 6rem); }
 
@@ -228,7 +229,8 @@
 .moduleCopy > span { color: var(--accent); font-size: .75rem; }
 .moduleLabel { margin: clamp(2.5rem, 5vw, 5rem) 0 1rem; }
 .moduleCopy h3 { max-width: 13ch; font-size: clamp(2.3rem, 4vw, 4.8rem); font-weight: 300; line-height: .98; letter-spacing: -.045em; }
-.moduleCopy > p:last-child { max-width: 35rem; margin-top: 1.8rem; color: #555; font-size: .95rem; line-height: 1.7; }
+.moduleCopy > p:last-of-type { max-width: 35rem; margin-top: 1.8rem; color: #555; font-size: .95rem; line-height: 1.7; }
+.moduleCopy .bulletList { max-width: 35rem; }
 
 .technology {
   display: grid;
@@ -265,6 +267,21 @@
 .processList article > span { color: var(--accent); font-size: .75rem; }
 .processList h3 { font-size: clamp(1.5rem, 2.2vw, 2.4rem); font-weight: 300; }
 .processList p { max-width: 40rem; color: #555; font-size: .9rem; line-height: 1.65; }
+.processList .outcome { margin-top: .8rem; color: #2d2d2d; }
+
+.bulletList {
+  display: grid;
+  gap: .55rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  color: #555;
+  font-size: .82rem;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.bulletList li { position: relative; padding-left: 1rem; }
+.bulletList li::before { position: absolute; left: 0; color: var(--accent); content: "•"; }
 
 .details,
 .faqs { padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4.4vw, 5.2rem); }

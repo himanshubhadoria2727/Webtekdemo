@@ -15,7 +15,7 @@ const menuLinks: Record<string, string> = {
   Solutions: "/solutions",
   Portfolio: "/portfolio",
   Media: "/media",
-  "Contact us": "/#contact-us",
+  "Contact us": "/contact-us",
 };
 
 export function Header() {

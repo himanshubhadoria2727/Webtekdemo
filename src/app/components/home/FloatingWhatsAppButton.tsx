@@ -70,7 +70,7 @@ export function FloatingWhatsAppButton() {
               <a className={styles.floatingIconButton} href="tel:+971581263762" aria-label="Call Webtek Digital">
                 <PhoneIcon />
               </a>
-              <a className={styles.floatingAppointmentButton} href="#contact-us">
+              <a className={styles.floatingAppointmentButton} href="/contact-us#enquiry-form">
                 <span>Book Appointment</span>
                 <span className={styles.floatingAppointmentIcon}>
                   <ArrowIcon />

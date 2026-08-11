@@ -13,7 +13,7 @@ const config: CloneAppTemplateConfig = {
   lead: "Create a branded learning platform that connects learners, educators, course managers and administrators through one coordinated digital ecosystem. Whether you are launching an online academy, digitising classroom programmes or building a course marketplace, we develop an original solution around your content, audience and commercial goals.",
   primaryCta: "Discuss Your App",
   secondaryCta: "Explore the Platform",
-  heroImage: "/talabat/banner-wel.png.webp",
+  heroImage: "/solutions/e-learning/E learning app.png",
   heroImageAlt: "E-learning app development solution for education and training businesses in Dubai",
   overview: [
     "A professional e-learning solution brings learners, educators, courses, progress tracking and support into one connected system. Learners receive a clear route from registration to completion, instructors gain practical teaching tools, and administrators maintain visibility across enrolments, payments, engagement and platform quality.",
@@ -38,7 +38,7 @@ const config: CloneAppTemplateConfig = {
       label: "Learner app",
       title: "Make learning easy to start and continue.",
       text: "Give learners one focused place to discover and enrol in courses, watch or read lessons, join live sessions, submit work, receive feedback, track progress and access certificates. The experience can support iOS, Android and responsive web, with English, Arabic and selected offline content where appropriate.",
-      image: "/talabat/customer-panel.png.webp",
+      image: "/solutions/e-learning/E-Learning_App_Student_Online_Learning.png",
       alt: "Mobile learner application with course discovery and progress features",
     },
     {
@@ -46,7 +46,7 @@ const config: CloneAppTemplateConfig = {
       label: "Instructor portal",
       title: "Simple controls for course creators.",
       text: "Provide instructors with a structured workspace for building curricula, uploading resources, creating quizzes and assignments, managing cohorts, scheduling live sessions, reviewing submissions, grading learners and understanding engagement.",
-      image: "/talabat/app-screen3.png.webp",
+      image: "/solutions/e-learning/Course_Creator_Collaborating_With_Elearning_App_Developer.png",
       alt: "Instructor portal for creating courses and monitoring learners",
     },
     {
@@ -54,7 +54,7 @@ const config: CloneAppTemplateConfig = {
       label: "Organisation portal",
       title: "Control learning across teams and institutions.",
       text: "Help HR, L&D and institutional managers enrol users in bulk, organise groups and departments, assign role-based learning paths, set deadlines, monitor compliance, review certificate status and export account-level reports.",
-      image: "/talabat/all-language.webp",
+      image: "/solutions/e-learning/E-Learning_Admin_Managing_Courses_And_Students.png",
       alt: "Organisation training portal for team enrolment and reporting",
     },
     {
@@ -62,12 +62,12 @@ const config: CloneAppTemplateConfig = {
       label: "Admin dashboard",
       title: "Manage the learning operation in one place.",
       text: "Maintain central control over learners, instructors, organisations, courses, content approvals, enrolments, assessments, certificates, pricing, payments, support, permissions, reporting, integrations and audit history.",
-      image: "/talabat/banner-wel.png.webp",
+      image: "/solutions/e-learning/E-Learning_Admin_Managing_Courses_And_Students.png",
       alt: "E-learning administration dashboard for courses, users and reporting",
     },
   ],
   technologyLead: "An e-learning platform must deliver media, track progress, manage access and process user activity reliably across devices and locations. We select the architecture according to course volume, audience scale, content formats, live-learning requirements, security considerations and the long-term product roadmap.",
-  technologyImage: "/talabat/all-language.webp",
+  technologyImage: "/solutions/e-learning/E-Learning_App_Technology_Infrastructure_And_Integrations.png",
   technologyImageAlt: "Modern technology foundation for a scalable e-learning platform",
   technologyTags: [
     "Flutter or React Native",

@@ -65,8 +65,8 @@ export const solutionsPage = {
       ],
       items: [
         { label: "Grocery", href: "/solutions/grocery-app" },
-        { label: "Ecommerce", href: "/solutions/ecommerce-app" },
-        { label: "Restaurant Delivery", href: "/solutions/restaurant-delivery-app" },
+        { label: "Ecommerce", href: "/solutions/ecommerce-app-development-dubai" },
+        { label: "Restaurant Delivery", href: "/solutions/restaurant-delivery-app-development-dubai" },
       ],
     },
     {
@@ -77,9 +77,9 @@ export const solutionsPage = {
         "Our healthcare and beauty apps are designed to improve operational efficiency while delivering exceptional customer experiences.",
       ],
       items: [
-        { label: "Beauty Services", href: "/solutions/beauty-services-app" },
-        { label: "Healthcare Consultation", href: "/solutions/healthcare-consultation-app" },
-        { label: "Pharmacy", href: "/solutions/pharmacy-app" },
+        { label: "Beauty Services", href: "/solutions/beauty-services-app-development-dubai" },
+        { label: "Healthcare Consultation", href: "/solutions/healthcare-consultation-app-development-dubai" },
+        { label: "Pharmacy", href: "/solutions/pharmacy-app-development-dubai" },
       ],
     },
   ],

@@ -33,15 +33,15 @@ const socialLinks: Record<string, string> = {
 
 const solutionLinks: Record<string, string> = {
   Grocery: "/solutions/grocery-app",
-  Ecommerce: "/solutions/ecommerce-app",
-  Pharmacy: "/solutions/pharmacy-app",
+  Ecommerce: "/solutions/ecommerce-app-development-dubai",
+  Pharmacy: "/solutions/pharmacy-app-development-dubai",
   "Taxi booking": "/solutions/careem-clone-app",
-  "Restaurant delivery": "/solutions/restaurant-delivery-app",
+  "Restaurant delivery": "/solutions/restaurant-delivery-app-development-dubai",
   "Handyman / home maintenance services": "/solutions/home-maintenance-app",
   "Our blogs": "/blog",
   "E-Learning": "/solutions/e-learning-app",
   "Gym & fitness": "/solutions/gym-fitness-app",
-  "Beauty service app": "/solutions/beauty-services-app",
+  "Beauty service app": "/solutions/beauty-services-app-development-dubai",
   Laundry: "/solutions/laundry-app",
 };
 

@@ -4,6 +4,8 @@ type StandardSolutionOptions = {
   eyebrow: string;
   title: string;
   lead: string;
+  primaryCta?: string;
+  secondaryCta?: string;
   overview: readonly [string, string];
   metrics: readonly (readonly [string, string])[];
   features: CloneAppTemplateConfig["features"];
@@ -31,8 +33,8 @@ const defaultImages = {
 export function createStandardSolutionConfig(options: StandardSolutionOptions): CloneAppTemplateConfig {
   return {
     ...defaultImages,
-    ...options,
     primaryCta: "Book a Free Consultation",
     secondaryCta: "Explore the platform",
+    ...options,
   };
 }

@@ -138,6 +138,46 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
           </div>
         </motion.section>
 
+        {config.detailSections?.map((section, sectionIndex) => (
+          <motion.section className={styles.details} key={section.title} {...sectionMotion}>
+            <SectionHeading
+              number={`${String(sectionIndex + 6).padStart(2, "0")}.`}
+              eyebrow={section.eyebrow}
+              title={section.title}
+            />
+            <div className={styles.detailsContent}>
+              <p className={styles.detailsIntro}>{section.intro}</p>
+              <div className={styles.detailsGrid}>
+                {section.items.map(([title, text, bullets], index) => (
+                  <motion.article key={title} {...cardMotion(index)}>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                    {bullets && <BulletList items={bullets} />}
+                  </motion.article>
+                ))}
+              </div>
+            </div>
+          </motion.section>
+        ))}
+
+        {config.faqs && config.faqs.length > 0 && (
+          <motion.section className={styles.faqs} {...sectionMotion}>
+            <SectionHeading
+              number={`${String((config.detailSections?.length ?? 0) + 6).padStart(2, "0")}.`}
+              eyebrow="Frequently asked questions"
+              title={config.faqTitle ?? "Common questions, clearly answered."}
+            />
+            <div className={styles.faqList}>
+              {config.faqs.map(([question, answer], index) => (
+                <article key={question}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div><h3>{question}</h3><p>{answer}</p></div>
+                </article>
+              ))}
+            </div>
+          </motion.section>
+        )}
+
         <div id="contact"><VideoCtaSection eyebrow={config.cta.eyebrow} title={config.cta.title} body={config.cta.body} ctaLabel="Start a conversation" ctaHref={config.cta.href} /></div>
       </main>
       <Footer />

@@ -286,6 +286,7 @@
 .details,
 .faqs { padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4.4vw, 5.2rem); }
 .details { background: var(--paper); }
+.details:nth-of-type(even) { background: #fff; }
 .detailsContent,
 .faqList { margin: clamp(3rem, 6vw, 6rem) 0 0 auto; max-width: min(66rem, 64%); }
 .detailsIntro { max-width: 46rem; margin-bottom: 2.4rem; color: #363636; font-size: clamp(1.05rem, 1.35vw, 1.45rem); line-height: 1.55; }
@@ -298,6 +299,7 @@
 .faqList { border-top: 1px solid var(--line); }
 .faqList article { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 1.8rem 0; border-bottom: 1px solid var(--line); }
 .faqList article > span { color: var(--accent); font-size: .75rem; }
+.detailsGrid .bulletList { padding-top: .35rem; border-top: 1px solid var(--line); }
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; padding-top: var(--site-header-height, 5.8rem); }

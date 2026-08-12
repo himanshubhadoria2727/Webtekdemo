@@ -10,6 +10,7 @@ const bodyFont = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.webtekdigital.com"),
   title: "Webtek Digital",
   description:
     "Webtek Digital is a Dubai digital marketing and app development agency specializing in SEO, paid advertising, content, websites and mobile apps.",

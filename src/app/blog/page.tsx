@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { blogPosts } from "../data/home";
 import { Footer } from "../components/home/Footer";
@@ -41,15 +42,16 @@ export default function BlogPage() {
               viewport={{ once: true, amount: 0.12, margin: "0px 0px 18% 0px" }}
               transition={{ delay: (index % 2) * 0.06 }}
             >
-              <div className={styles.blogPageImage}>
+              <Link href={post.href} className={styles.blogPageImage} aria-label={`Read ${post.title}`}>
                 <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 900px) 100vw, 32vw" />
-              </div>
+              </Link>
               <div className={styles.blogPageArticleTitle}>
-                <h2>{post.title}</h2>
+                <h2><Link href={post.href}>{post.title}</Link></h2>
                 <span>{post.category}</span>
               </div>
               <div className={styles.blogPageArticleCopy}>
                 <p>{post.excerpt}</p>
+                <Link href={post.href} className={styles.blogReadMore}>Read article</Link>
               </div>
             </motion.article>
           ))}

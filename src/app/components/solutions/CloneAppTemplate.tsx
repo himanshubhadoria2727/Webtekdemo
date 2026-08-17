@@ -64,6 +64,7 @@ export type CloneAppTemplateConfig = {
   detailSections?: readonly DetailSection[];
   faqTitle?: string;
   faqs?: readonly Faq[];
+  endAfterProcess?: boolean;
   cta: { eyebrow: string; title: string; body: string; href: string };
 };
 
@@ -138,7 +139,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
           </div>
         </motion.section>
 
-        {config.detailSections?.map((section, sectionIndex) => (
+        {!config.endAfterProcess && config.detailSections?.map((section, sectionIndex) => (
           <motion.section className={styles.details} key={section.title} {...sectionMotion}>
             <SectionHeading
               number={`${String(sectionIndex + 6).padStart(2, "0")}.`}
@@ -160,7 +161,7 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
           </motion.section>
         ))}
 
-        {config.faqs && config.faqs.length > 0 && (
+        {!config.endAfterProcess && config.faqs && config.faqs.length > 0 && (
           <motion.section className={styles.faqs} {...sectionMotion}>
             <SectionHeading
               number={`${String((config.detailSections?.length ?? 0) + 6).padStart(2, "0")}.`}

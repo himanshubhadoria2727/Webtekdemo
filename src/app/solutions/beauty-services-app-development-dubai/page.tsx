@@ -28,11 +28,13 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
+  endAfterProcess: true,
   eyebrow: "Beauty and salon booking platform",
   title: "Beauty Services App Development in Dubai",
   lead: "Create a premium digital booking experience for clients while giving your salon, spa or beauty marketplace practical control over appointments, professionals, payments and customer relationships. We build custom platforms around the way your business operates.",
   primaryCta: "Book a Free Consultation",
   secondaryCta: "Explore the Solution",
+  heroImage: "/solutions/beauty/beauty-services-app-hero.png",
   heroImageAlt: "Beauty services app development for salons and appointment-based businesses in Dubai",
   overview: [
     "A beauty-services platform connects clients, professionals, salon teams, appointments, payments and customer care through one refined digital experience. Clients need to discover the right service and book confidently, while professionals and managers need clear schedules, capacity controls and practical business insight.",
@@ -57,7 +59,7 @@ const config = createStandardSolutionConfig({
       label: "Client app",
       title: "A more personal way to book self-care.",
       text: "A mobile-first iOS and Android journey designed for service discovery, confidence and convenient rebooking, shaped around your brand and client expectations.",
-      image: "/services/photography-videography/2-slider/06-fashion-beauty-v2.png",
+      image: "/solutions/beauty/beauty-customer-booking-app.png",
       alt: "Client browsing beauty treatments and booking an appointment",
       bullets: ["Service browsing, filters, treatment details and prices", "Professional profiles, branches and real-time availability", "Deposits, payments, gift cards and appointment reminders", "Booking history, favourites, loyalty, reviews and support", "English, Arabic and right-to-left interfaces"],
     },
@@ -66,7 +68,7 @@ const config = createStandardSolutionConfig({
       label: "Beauty professional app",
       title: "Keep every appointment organised.",
       text: "Professionals receive a focused view of their workday, services, client preferences, location information and permitted notes without exposure to unrelated business data.",
-      image: "/services/telecalling/1-slider/04-appointment-setting.png",
+      image: "/solutions/beauty/beautician-service-provider-app.png",
       alt: "Beauty professional reviewing appointments and client details",
       bullets: ["Personal calendar, day view and availability", "Appointment details, service duration and client notes", "Breaks, blocked time, leave and schedule changes", "Home-service navigation where required", "Commission, earnings, notifications and incident reporting"],
     },
@@ -75,7 +77,7 @@ const config = createStandardSolutionConfig({
       label: "Beauty operations dashboard",
       title: "Run the entire beauty operation in one place.",
       text: "Give owners, managers, reception, finance and marketing teams an appropriately permissioned view of services, professionals, clients, branches, appointments and payments.",
-      image: "/services/app-development/2-slider/Healthcare & wellness.png",
+      image: "/solutions/beauty/beauty-admin-dashboard.png",
       alt: "Beauty salon operations dashboard showing appointments and business performance",
       bullets: ["Services, prices, durations, skills and schedules", "Branches, rooms, equipment and appointment controls", "Clients, deposits, payments, refunds and support", "Packages, memberships, promotions and loyalty", "Permissions, commissions, reports and audit history"],
     },
@@ -90,7 +92,7 @@ const config = createStandardSolutionConfig({
     },
   ],
   technologyLead: "We select the architecture according to your commercial goals, existing systems, integration requirements, security considerations and long-term roadmap so the platform remains responsive as services, clients, branches and appointment volume grow.",
-  technologyImage: "/solutions/talabat/ teck-stacks .png",
+  technologyImage: "/solutions/beauty/beauty-app-technology-stack.png",
   technologyImageAlt: "Modern technology stack for beauty services app development",
   technologyTags: ["Flutter", "React Native", "Swift", "Kotlin", "React & Next.js", "Node.js", "Laravel", "REST & GraphQL", "PostgreSQL", "Cloud infrastructure", "Payment gateways", "Salon POS & CRM", "Maps & calendars", "Messaging & loyalty"],
   process: [

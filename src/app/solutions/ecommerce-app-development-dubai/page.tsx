@@ -28,11 +28,14 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
+  endAfterProcess: true,
   eyebrow: "Mobile commerce platform",
   title: "Ecommerce App Development in Dubai",
   lead: "Turn your retail business into a high-performing mobile shopping experience built to convert, retain and grow. We create tailored ecommerce applications around your products, customers, operations and growth plans.",
   primaryCta: "Book a Free Consultation",
   secondaryCta: "Explore the Solution",
+  heroImage: "/solutions/e-commerce/ecommerce-app-hero.png",
+  heroImageAlt: "Premium ecommerce mobile storefront application for retailers in Dubai",
   overview: [
     "A branded ecommerce application brings product discovery, customer accounts, checkout, payments, fulfilment, support and marketing into one coordinated customer journey. Shoppers get fast navigation and confidence at checkout, while your teams get accurate product, stock and order information.",
     "We design every component around your catalogue, audience, commercial model, fulfilment process and existing systems. The result is more than a website inside an app: it is a practical commerce platform designed for high-intent actions, repeat purchasing and day-to-day operational control.",
@@ -56,7 +59,7 @@ const config = createStandardSolutionConfig({
       label: "Customer app",
       title: "A storefront customers enjoy using.",
       text: "A mobile-first iOS and Android journey shaped around your audience, brand and buying behaviour—from product discovery to post-purchase support.",
-      image: "/services/ui-ux-design/2-slider/03-ecommerce.png",
+      image: "/solutions/e-commerce/ecommerce-customer-shopping-app.png",
       alt: "Customer using a branded ecommerce application on a mobile phone",
       bullets: ["Search, filters, product media and variants", "Wish lists, saved baskets and secure checkout", "Payments, delivery, collection and live status", "Promotions, loyalty, reviews and support", "English, Arabic and right-to-left interfaces"],
     },
@@ -65,7 +68,7 @@ const config = createStandardSolutionConfig({
       label: "Commerce operations dashboard",
       title: "Control your digital store with confidence.",
       text: "Give catalogue, warehouse, support, finance and marketing teams an appropriately permissioned view of products, customers, orders, promotions and performance.",
-      image: "/services/app-development/2-slider/E-commerce & retail.png",
+      image: "/solutions/e-commerce/ecommerce-admin-dashboard.png",
       alt: "Ecommerce operations dashboard showing sales, products, inventory and orders",
       bullets: ["Product, category, price and stock controls", "Orders, picking, returns, refunds and exchanges", "Promotions, content, loyalty and customer support", "Role-based permissions, reports and audit history"],
     },
@@ -83,13 +86,13 @@ const config = createStandardSolutionConfig({
       label: "Optional vendor portal",
       title: "Support approved marketplace sellers.",
       text: "Let merchants manage products, stock, orders and performance while the platform owner retains central commercial and quality oversight.",
-      image: "/services/app-development/2-slider/E-commerce & retail.png",
+      image: "/solutions/e-commerce/ecommerce-merchant-vendor-portal.png",
       alt: "Marketplace vendor portal and retail commerce interfaces",
       bullets: ["Vendor onboarding and approval", "Catalogue, inventory and fulfilment controls", "Commission and settlement summaries", "Promotion participation and store performance"],
     },
   ],
   technologyLead: "We select the architecture according to your commercial goals, existing systems, integrations, security considerations and long-term roadmap so performance can keep pace with catalogue, traffic and order growth.",
-  technologyImage: "/solutions/talabat/ teck-stacks .png",
+  technologyImage: "/solutions/e-commerce/ecommerce-app-technology-stack.png",
   technologyImageAlt: "Software engineer building a modern ecommerce technology platform",
   technologyTags: ["Flutter", "React Native", "Swift", "Kotlin", "React & Next.js", "Node.js", "Laravel", "REST & GraphQL", "Shopify Plus", "WooCommerce", "PostgreSQL", "Cloud infrastructure", "Payment gateways", "ERP, POS & PIM"],
   process: [

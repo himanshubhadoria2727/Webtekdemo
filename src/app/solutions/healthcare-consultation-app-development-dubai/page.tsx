@@ -28,12 +28,13 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
+  endAfterProcess: true,
   eyebrow: "Healthcare consultation platform",
   title: "Healthcare Consultation App Development in Dubai",
   lead: "Connect patients with the right care through a secure, intuitive platform for provider discovery, appointments, virtual consultations and coordinated communication. We develop healthcare applications around your clinical services, operating workflows and governance requirements.",
   primaryCta: "Book a Free Consultation",
   secondaryCta: "Explore the Solution",
-  heroImage: "/services/app-development/2-slider/Healthcare & wellness.png",
+  heroImage: "/solutions/healthcare/healthcare-consultation-app-hero.png",
   heroImageAlt: "Healthcare consultation app development for clinics and telehealth providers in Dubai",
   overview: [
     "A healthcare consultation platform brings patients, licensed providers, appointments, secure communication and authorised administration into one coordinated experience. Patients need a clear route to appropriate care, providers need reliable schedules and relevant information, and administrators need operational control without inappropriate access to clinical data.",
@@ -58,7 +59,7 @@ const config = createStandardSolutionConfig({
       label: "Patient app",
       title: "Make access to care feel straightforward.",
       text: "A privacy-conscious iOS, Android and responsive portal experience providing a clear route to approved services, providers, appointments and virtual consultations.",
-      image: "/services/ui-ux-design/2-slider/01-healthcare-medical.png",
+      image: "/solutions/healthcare/healthcare-patient-consultation-app.png",
       alt: "Patient using a secure healthcare appointment and consultation application",
       bullets: ["Secure accounts and identity-verification options", "Specialty, provider, clinic and format selection", "Booking, waiting room, reminders and appointment history", "Approved intake, consent, messages, documents and payments", "English, Arabic and accessible interaction states"],
     },
@@ -67,7 +68,7 @@ const config = createStandardSolutionConfig({
       label: "Provider workspace",
       title: "Support better-prepared consultations.",
       text: "Licensed providers receive a focused, role-based view of schedules, appointment context and authorised clinical or administrative actions.",
-      image: "/services/photography-videography/2-slider/01-healthcare-medical.png",
+      image: "/solutions/healthcare/healthcare-doctor-panel.png",
       alt: "Licensed healthcare provider reviewing a secure consultation workspace",
       bullets: ["Secure authentication, schedule and day view", "Appointment summary and approved intake", "Consultation launch and waiting-room status", "Permitted notes, documents, follow-up and referrals", "Availability, communications and incident support"],
     },
@@ -76,7 +77,7 @@ const config = createStandardSolutionConfig({
       label: "Administration dashboard",
       title: "Coordinate the service with clarity.",
       text: "Give authorised operational teams oversight across providers, locations, appointments, payments and support while restricting clinical records and sensitive actions by role.",
-      image: "/services/web-development/1-slider/Healthcare & wellness.png",
+      image: "/solutions/healthcare/healthcare-admin-dashboard.png",
       alt: "Healthcare administration dashboard for providers and appointments",
       bullets: ["Provider credentials, specialties and appointment types", "Schedules, locations, rooms and assisted booking", "Patient accounts, payments, templates and support", "Role-based permissions, audit logs and reports", "Integration and system settings"],
     },
@@ -91,7 +92,7 @@ const config = createStandardSolutionConfig({
     },
   ],
   technologyLead: "We select the architecture according to your care model, systems, integrations, security assessment and long-term roadmap. Technology choices support responsive access, controlled data handling and operational resilience as patient activity, services and appointment volume grow.",
-  technologyImage: "/solutions/talabat/ teck-stacks .png",
+  technologyImage: "/solutions/healthcare/healthcare-app-technology-stack.png",
   technologyImageAlt: "Modern secure technology stack for healthcare consultation applications",
   technologyTags: ["Flutter", "React Native", "Swift", "Kotlin", "React & Next.js", "Node.js", "Laravel", "REST & GraphQL", "PostgreSQL", "Cloud infrastructure", "Secure video", "EHR & practice management", "Identity & eligibility", "Private analytics"],
   process: [

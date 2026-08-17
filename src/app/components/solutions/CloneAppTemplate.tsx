@@ -64,7 +64,6 @@ export type CloneAppTemplateConfig = {
   detailSections?: readonly DetailSection[];
   faqTitle?: string;
   faqs?: readonly Faq[];
-  endAfterProcess?: boolean;
   cta: { eyebrow: string; title: string; body: string; href: string };
 };
 
@@ -138,46 +137,6 @@ export function CloneAppTemplate({ config }: { config: CloneAppTemplateConfig })
             {config.process.map(([title, text, outcome], index) => <motion.article key={title} {...cardMotion(index)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><div><p>{text}</p>{outcome && <p className={styles.outcome}><strong>Outcome:</strong> {outcome}</p>}</div></motion.article>)}
           </div>
         </motion.section>
-
-        {!config.endAfterProcess && config.detailSections?.map((section, sectionIndex) => (
-          <motion.section className={styles.details} key={section.title} {...sectionMotion}>
-            <SectionHeading
-              number={`${String(sectionIndex + 6).padStart(2, "0")}.`}
-              eyebrow={section.eyebrow}
-              title={section.title}
-            />
-            <div className={styles.detailsContent}>
-              <p className={styles.detailsIntro}>{section.intro}</p>
-              <div className={styles.detailsGrid}>
-                {section.items.map(([title, text, bullets], index) => (
-                  <motion.article key={title} {...cardMotion(index)}>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                    {bullets && <BulletList items={bullets} />}
-                  </motion.article>
-                ))}
-              </div>
-            </div>
-          </motion.section>
-        ))}
-
-        {!config.endAfterProcess && config.faqs && config.faqs.length > 0 && (
-          <motion.section className={styles.faqs} {...sectionMotion}>
-            <SectionHeading
-              number={`${String((config.detailSections?.length ?? 0) + 6).padStart(2, "0")}.`}
-              eyebrow="Frequently asked questions"
-              title={config.faqTitle ?? "Common questions, clearly answered."}
-            />
-            <div className={styles.faqList}>
-              {config.faqs.map(([question, answer], index) => (
-                <article key={question}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <div><h3>{question}</h3><p>{answer}</p></div>
-                </article>
-              ))}
-            </div>
-          </motion.section>
-        )}
 
         <div id="contact"><VideoCtaSection eyebrow={config.cta.eyebrow} title={config.cta.title} body={config.cta.body} ctaLabel="Start a conversation" ctaHref={config.cta.href} /></div>
       </main>

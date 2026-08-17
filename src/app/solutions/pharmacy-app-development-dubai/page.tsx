@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
-  endAfterProcess: true,
   eyebrow: "Digital pharmacy platform",
   title: "Pharmacy App Development in Dubai",
   lead: "Build a trusted digital pharmacy experience for product discovery, prescription submission, pharmacist review, secure payment, fulfilment and approved delivery. We develop custom applications around your licences, product range, dispensing workflow and service model.",

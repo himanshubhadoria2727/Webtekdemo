@@ -28,7 +28,6 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
-  endAfterProcess: true,
   eyebrow: "Restaurant ordering platform",
   title: "Restaurant Delivery App Development in Dubai",
   lead: "Give your restaurant a direct, branded ordering channel that makes discovery, checkout and delivery simple for every customer. We build custom applications that connect diners, kitchen teams, delivery partners and managers through one coordinated platform.",

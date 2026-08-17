@@ -8,9 +8,9 @@ export const solutionsPage = {
   itemHref: "/#contact-us",
   galleryImages: [
     { src: "/about/about-09.jpg", alt: "Webtek Digital team planning mobile app development" },
-    { src: "/talabat/banner-wel.png.webp", alt: "Food delivery app screens for a Talabat clone solution" },
+    { src: "/about/about-10.jpg", alt: "Application analytics dashboard for digital product planning" },
     { src: "/about/about-13.jpg", alt: "Dubai business skyline for UAE app development projects" },
-    { src: "/talabat/customer-panel.png.webp", alt: "Customer app screen for an on-demand delivery platform" },
+    { src: "/about/about-14.jpg", alt: "Business team reviewing a digital product strategy" },
     { src: "/about/about-12.jpg", alt: "Digital product workspace for web and mobile app planning" },
   ],
   growth: {

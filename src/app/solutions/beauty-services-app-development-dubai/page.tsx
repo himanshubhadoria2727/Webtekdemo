@@ -28,7 +28,6 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
-  endAfterProcess: true,
   eyebrow: "Beauty and salon booking platform",
   title: "Beauty Services App Development in Dubai",
   lead: "Create a premium digital booking experience for clients while giving your salon, spa or beauty marketplace practical control over appointments, professionals, payments and customer relationships. We build custom platforms around the way your business operates.",

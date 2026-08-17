@@ -28,7 +28,6 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
-  endAfterProcess: true,
   eyebrow: "Healthcare consultation platform",
   title: "Healthcare Consultation App Development in Dubai",
   lead: "Connect patients with the right care through a secure, intuitive platform for provider discovery, appointments, virtual consultations and coordinated communication. We develop healthcare applications around your clinical services, operating workflows and governance requirements.",

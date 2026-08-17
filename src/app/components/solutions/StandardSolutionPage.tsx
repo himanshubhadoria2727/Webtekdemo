@@ -21,7 +21,6 @@ type StandardSolutionOptions = {
   detailSections?: CloneAppTemplateConfig["detailSections"];
   faqTitle?: string;
   faqs?: CloneAppTemplateConfig["faqs"];
-  endAfterProcess?: boolean;
 };
 
 const defaultImages = {

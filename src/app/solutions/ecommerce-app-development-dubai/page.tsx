@@ -28,7 +28,6 @@ export const metadata: Metadata = {
 };
 
 const config = createStandardSolutionConfig({
-  endAfterProcess: true,
   eyebrow: "Mobile commerce platform",
   title: "Ecommerce App Development in Dubai",
   lead: "Turn your retail business into a high-performing mobile shopping experience built to convert, retain and grow. We create tailored ecommerce applications around your products, customers, operations and growth plans.",
